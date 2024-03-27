@@ -6,30 +6,29 @@ using UnityEngine.Audio;
 using UnityEngine.Video;
 
 /*
-    添加脚本：
-   
+   添加脚本：
    把 SoundManager 脚本附加到Unity场景中的一个GameObject上。
+   
    自动创建音源：
-   
    脚本会自动生成两个AudioSource组件：musicSource（音乐）和sfxSource（音效）。
+   
    播放音乐：
-   
    用 PlayMusic(AudioClip clip, float volume = 1f, bool loop = true) 播放背景音乐。
+   
    播放音效：
-   
    用 PlaySFX(AudioClip clip, float volume = 1f) 播放一次性音效。
-   启用/禁用音效：
    
+   启用/禁用音效：
    EnableSFX(AudioClip clip, AudioMixerGroup mixer = null) 启用音效。
    DisableSFX() 禁用音效播放。
-   在其他脚本中调用：
    
+   在其他脚本中调用：
    要在别的脚本中调用这些功能，使用 SoundManager.Instance 获取单例实例，然后调用所需的方法，例如：
    SoundManager.Instance.PlayMusic(clip, volume, loop); 播放音乐
    SoundManager.Instance.PlaySFX(clip, volume); 播放音效
-    SoundManager.Instance.EnableSFX(clip, mixer); 启用音效
-    SoundManager.Instance.DisableSFX(); 禁用音效
- */
+   SoundManager.Instance.EnableSFX(clip, mixer); 启用音效
+   SoundManager.Instance.DisableSFX(); 禁用音效
+   * /
    
 
 
