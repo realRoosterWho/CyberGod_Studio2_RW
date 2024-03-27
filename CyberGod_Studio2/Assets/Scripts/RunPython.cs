@@ -7,6 +7,8 @@ using System.Net.Sockets;
 using System.Net;
 using System;
 using UnityEditor;
+using System.Runtime.InteropServices;
+
 
 public class RunPython : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class RunPython : MonoBehaviour
 
     private UdpClient udpClient;
     private IPEndPoint remoteEP;
+    
+    private string command;
 
     void Start()
     {
@@ -22,20 +26,27 @@ public class RunPython : MonoBehaviour
 
         udpClient = new UdpClient();
         remoteEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5005);
-        // pythonÏîÄ¿ÔÚunityÏîÄ¿ÖÐµÄÏà¶ÔÂ·¾¶£¨´ÓAssetsÎÄ¼þ¼Ð¿ªÊ¼£©
+        // è¿™æ˜¯pythonæ–‡ä»¶çš„è·¯å¾„
         string pythonPath = "communication_test0327/main.py";
         string dataPath = Application.dataPath;
         string fullPath = dataPath + "/" + pythonPath;
-        //  "base" »»³ÉÐéÄâ»·¾³Ãû³Æ£¨root£¿£©
-        string command = "/c activate base & python \"" + fullPath + "\"";
+        // è¿™æ˜¯pythonæ–‡ä»¶çš„å‘½ä»¤
+
 
         startInfo = new ProcessStartInfo();
 
-        // Ö´ÐÐcmd
-        startInfo.FileName = "cmd.exe";
-        // ÊäÈë²ÎÊýÊÇÉÏÒ»²½µÄcommand×Ö·û´®
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            startInfo.FileName = "cmd.exe";
+            command = "/c activate base & python \"" + fullPath + "\"";
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            startInfo.FileName = "/bin/bash";
+            command = "-c \"source activate base && python '" + fullPath + "'\"";
+        }
+
         startInfo.Arguments = command;
-        // ²»ÏÔÊ¾cmd´°¿Ú
         startInfo.CreateNoWindow = true;
         startInfo.UseShellExecute = false;
         startInfo.RedirectStandardOutput = true;
@@ -49,7 +60,6 @@ public class RunPython : MonoBehaviour
         process.Start();
         process.BeginErrorReadLine();
         process.BeginOutputReadLine();
-
     }
 
     private void OnOutputDataReceived(object sender, DataReceivedEventArgs e)
@@ -92,7 +102,7 @@ public class RunPython : MonoBehaviour
     }
     void OnApplicationQuit()
     {
-        UnityEngine.Debug.Log("Ó¦ÓÃ³ÌÐò¼´½«ÍË³ö£¬ÇåÀíËùÓÐPython½ø³Ì");
+        UnityEngine.Debug.Log("Application ending after " + Time.time + " seconds");
         Kill_All_Python_Process();
     }
 }
