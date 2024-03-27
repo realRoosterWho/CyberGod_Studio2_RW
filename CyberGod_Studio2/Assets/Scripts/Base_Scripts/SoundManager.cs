@@ -28,7 +28,7 @@ using UnityEngine.Video;
    SoundManager.Instance.PlaySFX(clip, volume); 播放音效
    SoundManager.Instance.EnableSFX(clip, mixer); 启用音效
    SoundManager.Instance.DisableSFX(); 禁用音效
-   * /
+   */
    
 
 

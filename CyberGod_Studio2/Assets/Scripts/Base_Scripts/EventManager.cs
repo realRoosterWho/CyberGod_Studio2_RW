@@ -20,6 +20,7 @@ public class EventManager : MonosingletonTemp<EventManager>
 {
     public event Action<string> OnSceneLoaded;
     public event Action<GameEvent, GameEventArgs> OnGameEvent; // 修改事件的类型    
+
     public enum GameEvent
     {
         SceneLoaded,
@@ -30,17 +31,18 @@ public class EventManager : MonosingletonTemp<EventManager>
         AIReady,
         // 添加更多的游戏事件...
     }
-    
+
 
     // 触发一般游戏事件
     public void TriggerGameEvent(GameEvent eventName, GameEventArgs eventArgs = null) // 添加一个新的参数
     {
         OnGameEvent?.Invoke(eventName, eventArgs);
     }
-    
-    
+}
 
-    // 触发示例
+
+
+// 触发示例
     /*
     EventManager.Instance.TriggerGameEvent(EventManager.GameEvent.OneMove, 
     new GameEventArgs { IntValue = 1, FloatValue = 2.0f, StringValue = "test", PlayerInfo = playerInfo }); 
