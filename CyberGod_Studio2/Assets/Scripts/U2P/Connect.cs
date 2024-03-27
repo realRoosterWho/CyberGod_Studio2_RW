@@ -14,10 +14,10 @@ public class Connect : MonoBehaviour
             if (data != null)
             {
                 print(data.Length);
-                print("½ÓÊÕµ½Êı¾İ");
+                print("Received data: ");
                 U2P.Instance.SendData(new List<float>() { 0 });
-                // ÔÚÕâÀïĞ´¶ÔÓÚ½ÓÊÕµ½µÄÊı¾İµÄ´¦Àí
-                // ÓÃ´òÓ¡²âÊÔ
+                // è¿™æ˜¯ä¸€ä¸ªç¤ºä¾‹ï¼Œå°†æ¥æ”¶åˆ°çš„æ•°æ®æ‰“å°å‡ºæ¥
+                // ä½ å¯ä»¥åœ¨è¿™é‡Œç¼–å†™ä½ çš„é€»è¾‘ä»£ç 
                 for (int i = 0; i < data.Length; i++)
                 {
                     print(data[i]);

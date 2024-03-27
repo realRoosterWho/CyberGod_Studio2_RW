@@ -14,7 +14,7 @@ public class MouseTest : MonoBehaviour
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePositions.Add(mousePosition);
         
-        //检测鼠标累计位移量，分别展示
+        //检测鼠标累计位移量，分别展示 Detect the cumulative displacement of the mouse and display it separately
         if (mousePositions.Count > 1)
         {
             distanceX += Mathf.Abs(mousePositions[mousePositions.Count - 1].x - mousePositions[mousePositions.Count - 2].x);
@@ -23,7 +23,7 @@ public class MouseTest : MonoBehaviour
         }
 
         
-        //单击左键清零distance
+        //单击左键清零distance Click the left mouse button to clear the distance
         if (Input.GetMouseButtonDown(0))
         {
             distanceX = 0;

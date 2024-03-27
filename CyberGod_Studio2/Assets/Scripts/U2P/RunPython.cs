@@ -26,11 +26,11 @@ public class RunPython : MonoBehaviour
 
         udpClient = new UdpClient();
         remoteEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5005);
-        // 这是python文件的路径
+        // 这是python文件的路径 this is python file path
         string pythonPath = "communication_test0327/main.py";
         string dataPath = Application.dataPath;
         string fullPath = dataPath + "/" + pythonPath;
-        // 这是python文件的命令
+        // 这是python文件的命令 this is python file command
 
 
         startInfo = new ProcessStartInfo();
