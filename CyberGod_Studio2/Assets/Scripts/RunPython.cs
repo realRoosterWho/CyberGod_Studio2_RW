@@ -48,8 +48,8 @@ public class RunPython : MonoBehaviour
 
         startInfo.Arguments = command;
         startInfo.CreateNoWindow = true;
-        startInfo.UseShellExecute = false;
-        startInfo.RedirectStandardOutput = true;
+        startInfo.UseShellExecute = false; 
+        startInfo.RedirectStandardOutput = true; //重定向标准输出,目的是让python的print函数输出到Unity的Console面板
         startInfo.RedirectStandardError = true;
 
         process = new Process();
