@@ -5,6 +5,8 @@ import numpy as np
 host = '127.0.0.1'
 port = 5005
 
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+serverAddressPort = (host, port)
 
 def connect_unity(host, port):
     global sock
@@ -33,13 +35,15 @@ def rec_from_unity():
 
 
 # 生成一个[1,10]的随机数组发送给unity
-'''
+
 data = np.random.randint(2,10,size = [1,10])
-'''
+
 data = np.array([1])
+# 通讯极简版
 connect_unity(host, port)
 send_to_unity(data)
 rec_from_unity()
+# cv2.imshow("image", img)
 
 
 

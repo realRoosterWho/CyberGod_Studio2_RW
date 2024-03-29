@@ -10,6 +10,9 @@ import os
 host = '127.0.0.1'
 port = 5005
 
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+serverAddressPort = (host, port)
+
 capture = cv2.VideoCapture(0)
 poseDetector = PoseDetector()
 handDetector = HandDetector(maxHands=2, detectionCon=0.8)
@@ -91,34 +94,6 @@ def hand_touch(position):
     return banana1 or banana2 or banana3
 
 
-def connect_unity(host, port):
-    global sock
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # sock = socket.socket()
-    sock.connect((host, port))
-    print('CONNECTED')
-
-
-def send_to_unity(arr):
-    arr_list = arr.flatten().tolist()  # numpy数组转换为list类型
-    data = '' + ','.join([str(elem) for elem in arr_list]) + ''  # 每个float用,分割
-    sock.sendall(bytes(data, encoding="utf-8"))  # 发送数据
-    print("SEND TO UNITY:", arr_list)
-
-
-def rec_from_unity():
-    data = sock.recv(1024)
-    data = str(data, encoding='utf-8')
-    data = data.split(',')
-    new_data = []
-    for d in data:
-        new_data.append(float(d))
-    print('RECEIVE FROM UNITY:', new_data)
-    return new_data
-
-
-# 逐帧处理
-
 while True:
     success, img = capture.read()
     if success:
@@ -159,15 +134,13 @@ while True:
             else:
                 position = 99
             # 逐帧手部触碰判定
-
             data = np.array([position])
-            connect_unity(host, port)
-            send_to_unity(data)
-            rec_from_unity()
+            print(position)
+            sock.sendto(str.encode(str(data)), serverAddressPort)
 
-    #cv2.imshow("image", img)
-    #if cv2.waitKey(1) & 0xFF == ord('q'):
-        #break
+    cv2.imshow("image", img)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 capture.release()
 cv2.destroyAllWindows()
 
