@@ -33,11 +33,15 @@ def rec_from_unity():
 
 
 # 生成一个[1,10]的随机数组发送给unity
+'''
 data = np.random.randint(2,10,size = [1,10])
+'''
+data = np.array([1])
 connect_unity(host, port)
-for i in range(data.shape[0]):
-    send_to_unity(data[i])
-    rec_from_unity()
+send_to_unity(data)
+rec_from_unity()
+
+
 
 
 
