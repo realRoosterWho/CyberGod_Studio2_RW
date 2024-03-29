@@ -23,7 +23,7 @@ public class RunPy : MonoBehaviour
         udpClient = new UdpClient();
         remoteEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5005);
         // python项目在unity项目中的相对路径（从Assets文件夹开始）
-        string pythonPath = "/main.py";
+        string pythonPath = "communication_capture0329/main.py";
         string dataPath = Application.dataPath;
         string fullPath = dataPath + "/" + pythonPath;
         //  "base" 换成虚拟环境名称（root？）
