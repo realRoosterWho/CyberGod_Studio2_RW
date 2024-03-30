@@ -43,7 +43,7 @@ public class U2P
         {
             clientSocket = sc;
             isConnected = true;
-            Debug.Log("连接成功");
+            Debug.Log("Connected to Python");
         }
     }
     public float[] RecData()
@@ -71,7 +71,7 @@ public class U2P
         }
         catch (Exception ex)
         {
-            Debug.LogError("发生错误:" + ex);
+            Debug.LogError("Error in RecData: " + ex); 
             if (clientSocket != null)
             {
                 clientSocket.Close();
