@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import socket
 import numpy as np
 
@@ -5,6 +6,8 @@ import numpy as np
 host = '127.0.0.1'
 port = 5005
 
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+serverAddressPort = (host, port)
 
 def connect_unity(host, port):
     global sock
@@ -33,11 +36,15 @@ def rec_from_unity():
 
 
 # 生成一个[1,10]的随机数组发送给unity
+
 data = np.random.randint(2,10,size = [1,10])
+
+data = np.array([1])
+# 通讯极简版
 connect_unity(host, port)
-for i in range(data.shape[0]):
-    send_to_unity(data[i])
-    rec_from_unity()
+send_to_unity(data)
+rec_from_unity()
+# cv2.imshow("image", img)
 
 
 
@@ -47,3 +54,23 @@ for i in range(data.shape[0]):
 
 
 
+
+
+=======
+# 这是一个示例 Python 脚本。
+
+# 按 Shift+F10 执行或将其替换为您的代码。
+# 按 双击 Shift 在所有地方搜索类、文件、工具窗口、操作和设置。
+
+
+def print_hi(name):
+    # 在下面的代码行中使用断点来调试脚本。
+    print(f'Hi, {name}')  # 按 Ctrl+F8 切换断点。
+
+
+# 按间距中的绿色按钮以运行脚本。
+if __name__ == '__main__':
+    print_hi('PyCharm')
+
+# 访问 https://www.jetbrains.com/help/pycharm/ 获取 PyCharm 帮助
+>>>>>>> Stashed changes
