@@ -7,6 +7,8 @@ using System.Net.Sockets;
 using System.Net;
 using System;
 using UnityEditor;
+using System.Runtime.InteropServices;
+
 
 public class RunPy : MonoBehaviour
 {
@@ -22,20 +24,26 @@ public class RunPy : MonoBehaviour
 
         udpClient = new UdpClient();
         remoteEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5005);
-        // python项目在unity项目中的相对路径（从Assets文件夹开始）
         string pythonPath = "communication_capture0329/main.py";
-        string dataPath = Application.dataPath;
-        string fullPath = dataPath + "/" + pythonPath;
-        //  "base" 换成虚拟环境名称（root？）
-        string command = "/c activate base & python \"" + fullPath + "\"";
+        string dataPath = Application.dataPath; 
+        // string fullPath = dataPath + "/" + pythonPath;
+        string fullPath = "/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Scripts/communication_capture0329/main.py";
 
         startInfo = new ProcessStartInfo();
 
-        // 执行cmd
-        startInfo.FileName = "cmd.exe";
-        // 输入参数是上一步的command字符串
-        startInfo.Arguments = command;
-        // 不显示cmd窗口
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            string command = "/c activate base & python \"" + fullPath + "\"";
+            startInfo.FileName = "cmd.exe";
+            startInfo.Arguments = command;
+        }
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            string command = "source activate cybergod; python \"" + fullPath + "\"";
+            startInfo.FileName = "/bin/bash";
+            startInfo.Arguments = "-c \"" + command + "\"";
+        }
+
         startInfo.CreateNoWindow = true;
         startInfo.UseShellExecute = false;
         startInfo.RedirectStandardOutput = true;
@@ -92,7 +100,7 @@ public class RunPy : MonoBehaviour
     }
     void OnApplicationQuit()
     {
-        UnityEngine.Debug.Log("应用程序即将退出，清理所有Python进程");
+        UnityEngine.Debug.Log("Quit");
         Kill_All_Python_Process();
     }
 }
