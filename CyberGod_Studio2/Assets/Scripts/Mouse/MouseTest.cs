@@ -1,44 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class MouseTest : MonoBehaviour
 {
-    public List<Vector2> mousePositions = new List<Vector2>();
-    private float distanceX = 0;
-    private float distanceY = 0;
+    private float distanceX = 0f;
+    private float distanceY = 0f;
 
-    // Update is called once per frame
+    private float XMAX = 500.0f;
+    private float YMAX = 500.0f;
+
+    [SerializeField]
+    private Scrollbar m_scrollbar;
+
+    void Start()
+    {
+        // Lock the cursor to the center of the screen at start
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+    
     void Update()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePositions.Add(mousePosition);
-        
-        //检测鼠标累计位移量，分别展示 Detect the cumulative displacement of the mouse and display it separately
-        if (mousePositions.Count > 1)
+        // Toggle cursor lock state on ESC key press
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            distanceX += Mathf.Abs(mousePositions[mousePositions.Count - 1].x - mousePositions[mousePositions.Count - 2].x);
-            distanceY += Mathf.Abs(mousePositions[mousePositions.Count - 1].y - mousePositions[mousePositions.Count - 2].y);
-            Debug.Log("distanceX: " + distanceX + " distanceY: " + distanceY);
+            Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked) ? CursorLockMode.None : CursorLockMode.Locked;
         }
 
+        // Track mouse movement
+        TrackMouseMovement();
         
-        //单击左键清零distance Click the left mouse button to clear the distance
+        //Change scrollbar value
+        ChangeScrollbarValue();
+
+        // Reset distances on left mouse button click
         if (Input.GetMouseButtonDown(0))
         {
-            distanceX = 0;
-            distanceY = 0;
+            ResetDistances();
         }
     }
-    
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        foreach (Vector2 mousePosition in mousePositions)
-        {
-            Gizmos.DrawSphere(mousePosition, 0.1f);
-        }
-    }
-    
 
+    private void TrackMouseMovement()
+    {
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        // Accumulate the absolute mouse displacement
+        distanceX += Mathf.Abs(mouseX);
+        distanceY += Mathf.Abs(mouseY);
+
+        // Log the accumulated distances
+        Debug.Log($"distanceX: {distanceX} distanceY: {distanceY}");
+    }
+
+    private void ResetDistances()
+    {
+        distanceX = 0f;
+        distanceY = 0f;
+    }
+
+    private void ChangeScrollbarValue()
+    {
+        float x_percent = distanceX / XMAX;
+        float y_percent = distanceY / YMAX;
+        
+        m_scrollbar.value = x_percent;
+    }
 }
