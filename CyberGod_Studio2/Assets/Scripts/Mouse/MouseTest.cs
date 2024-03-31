@@ -9,9 +9,10 @@ public class MouseTest : MonoBehaviour
 
     private float XMAX = 500.0f;
     private float YMAX = 500.0f;
+    //获取Health_Handler脚本
+    [SerializeField] private Health_Handler healthHandler;
 
-    [SerializeField]
-    private Scrollbar m_scrollbar;
+    [SerializeField] private Scrollbar m_scrollbar;
 
     void Start()
     {
@@ -29,6 +30,9 @@ public class MouseTest : MonoBehaviour
 
         // Track mouse movement
         TrackMouseMovement();
+        
+        // Check if the mouse has moved the maximum distance
+        CheckMaxDistance();
         
         //Change scrollbar value
         ChangeScrollbarValue();
@@ -57,6 +61,25 @@ public class MouseTest : MonoBehaviour
     {
         distanceX = 0f;
         distanceY = 0f;
+    }
+    
+    //检测是否到达最大值
+    private void CheckMaxDistance()
+    {
+        if (distanceX >= XMAX || distanceY >= YMAX)
+        {
+            Repaired();
+        }
+    }
+    
+    
+    private void Repaired()
+    {
+        //调用Health_Handler脚本中的ChangeRepair函数，输入参数为10
+        healthHandler.ChangeRepair(10.0f);
+        
+        //恢复距离
+        ResetDistances();
     }
 
     private void ChangeScrollbarValue()
