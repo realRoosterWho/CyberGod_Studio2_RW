@@ -24,12 +24,8 @@ public class Input_Handler : MonoBehaviour
     
     void Update()
     {
-        // Toggle cursor lock state on ESC key press
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked) ? CursorLockMode.None : CursorLockMode.Locked;
-        }
-
+        
+        
         // Track mouse movement
         TrackMouseMovement();
         
@@ -39,6 +35,18 @@ public class Input_Handler : MonoBehaviour
         //Change scrollbar value
         ChangeScrollbarValue();
 
+
+    }
+    private void InputLock()
+    {
+
+        
+        // Toggle cursor lock state on ESC key press
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked) ? CursorLockMode.None : CursorLockMode.Locked;
+        }
+        
         // Reset distances on left mouse button click
         if (Input.GetMouseButtonDown(0))
         {
@@ -56,8 +64,8 @@ public class Input_Handler : MonoBehaviour
         distanceX += Mathf.Abs(mouseX);
         distanceY += Mathf.Abs(mouseY);
 
-        // Log the accumulated distances
-        Debug.Log($"distanceX: {distanceX} distanceY: {distanceY}");
+        // // Log the accumulated distances
+        // Debug.Log($"distanceX: {distanceX} distanceY: {distanceY}");
     }
 
     private void ResetDistances()

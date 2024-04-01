@@ -17,9 +17,9 @@ public class Health_Handler : MonoBehaviour
     
     
     //定义生命值，维修值，精神值，以及这些数值的最大量=100
-    private float m_health = 100;
-    private float m_repair = 0;
-    private float m_spirit = 100;
+    [SerializeField]private float m_health = 100;
+    [SerializeField]private float m_repair = 0;
+    [SerializeField]private float m_spirit = 100;
     private float MAXHEALTH = 100;
     private float MAXREPAIR = 100;
     private float MAXSPIRIT = 100;
@@ -35,7 +35,10 @@ public class Health_Handler : MonoBehaviour
     [SerializeField] private Scrollbar SpiritBar;
     void Start()
     {
-        
+        //注册监听事件
+        EventManager.Instance.AddEvent("HealthChange", OnHealthChange);
+        EventManager.Instance.AddEvent("RepairChange", OnRepairChange);
+        EventManager.Instance.AddEvent("SpiritChange", OnSpiritChange);
     }
 
     void Update()
@@ -61,6 +64,7 @@ public class Health_Handler : MonoBehaviour
     //定义生命值增加/减少函数
     public void ChangeHealth(float value)
     {
+        // Debug.Log($"Health Changed: {value}");
         ChangeValue(ref m_health, value, MAXHEALTH);
     }
     
@@ -122,4 +126,25 @@ public class Health_Handler : MonoBehaviour
         //Debug目前的生命值，维修值，精神值的状态
         Debug.Log($"HealthStatus: {m_healthStatus} RepairStatus: {m_repairStatus} SpiritStatus: {m_spiritStatus}");
     }
+    
+    //以下是HealthHandler监听事件所执行的方法
+    public void OnHealthChange(GameEventArgs args)
+    {
+        ChangeHealth(args.FloatValue);
+        // Debug.Log($"Health Changed: {args.FloatValue}");
+    }
+    
+    public void OnRepairChange(GameEventArgs args)
+    {
+        ChangeRepair(args.FloatValue);
+    }
+    
+    public void OnSpiritChange(GameEventArgs args)
+    {
+        ChangeSpirit(args.FloatValue);
+    }
+    
+    
+    
+    
 }

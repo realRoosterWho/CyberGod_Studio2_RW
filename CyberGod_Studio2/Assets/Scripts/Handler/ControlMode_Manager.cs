@@ -27,4 +27,10 @@ public class ControlMode_Manager : MonoBehaviour
     {
         
     }
+    
+    //定义一个函数，用于指定地改变当前的控制模式
+    public void ChangeControlMode(ControlMode controlMode)
+    {
+        m_controlMode = controlMode;
+    }
 }
