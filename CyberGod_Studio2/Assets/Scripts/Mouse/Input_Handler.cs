@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class MouseTest : MonoBehaviour
+public class Input_Handler : MonoBehaviour
 {
     private float distanceX = 0f;
     private float distanceY = 0f;
