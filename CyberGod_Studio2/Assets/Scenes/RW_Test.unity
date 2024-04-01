@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &116949863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 116949865}
+  - component: {fileID: 116949864}
+  m_Layer: 0
+  m_Name: LayerHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &116949864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116949863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772c5f8b1186846a1a3a19b2ae79d030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_layer: 0
+--- !u!4 &116949865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116949863}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.1921284, y: 1.2509913, z: -0.05684098}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &382573437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1103,6 +1148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afd3658ea29a465f81818e11b6104cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_healthStatus: 0
+  m_repairStatus: 0
+  m_spiritStatus: 0
   HealthBar: {fileID: 732524832}
   RepairBar: {fileID: 762504526}
   SpiritBar: {fileID: 1904257985}
@@ -1609,7 +1657,7 @@ GameObject:
   - component: {fileID: 1948563980}
   - component: {fileID: 1948563979}
   m_Layer: 0
-  m_Name: Square
+  m_Name: InputHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1643,8 +1691,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e73cef470a0b4dd7bf7b6634dd86828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthHandler: {fileID: 1626405414}
+  m_healthHandler: {fileID: 1626405414}
   m_scrollbar: {fileID: 1036746333}
+  m_layerHandler: {fileID: 116949864}
 --- !u!212 &1948563980
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1707,3 +1756,4 @@ SceneRoots:
   - {fileID: 1849146443}
   - {fileID: 1626405415}
   - {fileID: 1139774621}
+  - {fileID: 116949865}

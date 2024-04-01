@@ -10,9 +10,11 @@ public class MouseTest : MonoBehaviour
     private float XMAX = 500.0f;
     private float YMAX = 500.0f;
     //获取Health_Handler脚本
-    [SerializeField] private Health_Handler healthHandler;
+    [SerializeField] private Health_Handler m_healthHandler;
 
     [SerializeField] private Scrollbar m_scrollbar;
+    
+    [SerializeField] private Layer_Handler m_layerHandler;
 
     void Start()
     {
@@ -40,6 +42,7 @@ public class MouseTest : MonoBehaviour
         // Reset distances on left mouse button click
         if (Input.GetMouseButtonDown(0))
         {
+            m_layerHandler.SwitchLayer();
             ResetDistances();
         }
     }
@@ -76,7 +79,7 @@ public class MouseTest : MonoBehaviour
     private void Repaired()
     {
         //调用Health_Handler脚本中的ChangeRepair函数，输入参数为10
-        healthHandler.ChangeRepair(10.0f);
+        m_healthHandler.ChangeRepair(10.0f);
         
         //恢复距离
         ResetDistances();
