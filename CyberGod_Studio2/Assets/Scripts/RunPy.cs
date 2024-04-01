@@ -24,10 +24,21 @@ public class RunPy : MonoBehaviour
 
         udpClient = new UdpClient();
         remoteEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5005);
-        string pythonPath = "communication_capture0329/main.py";
-        string dataPath = Application.dataPath; 
-        // string fullPath = dataPath + "/" + pythonPath;
-        string fullPath = "/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Scripts/communication_capture0329/main.py";
+        string fullPath = "";
+
+        // deal with the motherfxxking file path issue on different systems
+        // on wins
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            string pythonPath = "Scripts/communication_capture0329/main.py";
+            string dataPath = Application.dataPath;
+            fullPath = dataPath + "/" + pythonPath;
+        }
+        // on mac
+        else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        {
+            fullPath = "/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Scripts/communication_capture0329/main.py";
+        }
 
         startInfo = new ProcessStartInfo();
 
