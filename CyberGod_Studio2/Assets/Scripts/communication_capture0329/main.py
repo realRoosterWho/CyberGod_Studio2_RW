@@ -28,6 +28,9 @@ class Point:
 
 class DirectPoint(Point):
     def __init__(self, lmlist, n, inverse):
+        self.x = 0
+        self.y = 0
+        self.z = 0
         for lm in lmlist:
             if lm[0] == n:
                 self.x = lm[1]
