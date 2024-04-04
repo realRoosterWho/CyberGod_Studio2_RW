@@ -30,7 +30,7 @@ public class RunPy : MonoBehaviour
         // on wins
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            string pythonPath = "Scripts/communication_capture0329/main.py";
+            string pythonPath = "Scripts/bodydivide_test_v20402/main.py";
             string dataPath = Application.dataPath;
             fullPath = dataPath + "/" + pythonPath;
         }

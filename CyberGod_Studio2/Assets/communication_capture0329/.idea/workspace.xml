@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream:CyberGod_Studio2/Assets/communication_capture0329/.idea/workspace.xml
     <list default="true" id="1dbca9a1-c096-4fca-b462-04fea23b5559" name="变更" comment="改了一个更严谨的子类，配置了虚拟环境">
       <change beforePath="$PROJECT_DIR$/../Scenes/WLHTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Scenes/WLHTest.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Scenes/WLH_Test.unity" beforeDir="false" />
@@ -10,6 +11,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+=======
+    <list default="true" id="01f814b4-80e4-46c6-b79e-18c94c5ae805" name="变更" comment="简化了通讯流程，可以在unity里打印鼠标放置的位置的编号-_-">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes:CyberGod_Studio2/Assets/Scripts/communication_capture0329/.idea/workspace.xml
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -28,12 +33,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< Updated upstream:CyberGod_Studio2/Assets/communication_capture0329/.idea/workspace.xml
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/cg/communication_capture0329&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "E:/cg/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/communication_capture0329"
+>>>>>>> Stashed changes:CyberGod_Studio2/Assets/Scripts/communication_capture0329/.idea/workspace.xml
   }
 }</component>
   <component name="RunManager">
