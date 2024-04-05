@@ -16,46 +16,85 @@ public class GameEventArgs : EventArgs
     
 }
 
-public class EventManager : MonosingletonTemp<EventManager>
+public class EventManager : MonoBehaviour
 {
-    // Use a dictionary to store events
-    private Dictionary<string, Action<GameEventArgs>> gameEvents = new Dictionary<string, Action<GameEventArgs>>(); //事件字典, 事件名字，事件的行为
-    //事件的行为是一个委托，委托是一个类，它可以存储一个或多个方法的引用，委托的实例可以存储对任何方法的引用，该方法与委托的签名和返回类型相同。
+    private Dictionary<string, Action<GameEventArgs>> eventDictionary;
 
-    // Method to add an event
-    public void AddEvent(string eventName, Action<GameEventArgs> eventAction)//添加事件,事件名字，事件的行为
+    private static EventManager eventManager;
+
+    public static EventManager Instance
     {
-        if (!gameEvents.ContainsKey(eventName))//如果事件字典中不包含这个事件
+        get
         {
-            gameEvents.Add(eventName, eventAction);
-            Debug.Log("Event: " + eventName + " added");
+            if (!eventManager)
+            {
+                eventManager = FindObjectOfType(typeof(EventManager)) as EventManager;
+
+                if (!eventManager)
+                {
+                    Debug.LogError("There needs to be one active EventManger script on a GameObject in your scene.");
+                }
+                else
+                {
+                    eventManager.Init();
+                }
+            }
+
+            return eventManager;
         }
-        //如果事件字典中包含这个事件，就不添加并且Debug.Log
+    }
+
+    void Init()
+    {
+        if (eventDictionary == null)
+        {
+            eventDictionary = new Dictionary<string, Action<GameEventArgs>>();
+        }
+    }
+
+    public void AddEvent(string eventName, Action<GameEventArgs> listener)
+    {
+        Action<GameEventArgs> thisEvent;
+        if (eventManager.eventDictionary.TryGetValue(eventName, out thisEvent))
+        {
+            //Add more event to the existing one
+            thisEvent += listener;
+
+            //Update the Dictionary
+            eventManager.eventDictionary[eventName] = thisEvent;
+        }
         else
         {
-            Debug.Log("Event: " + eventName + " already exists");
+            //Add event to the Dictionary for the first time
+            thisEvent += listener;
+            eventManager.eventDictionary.Add(eventName, thisEvent);
         }
     }
 
-    // Method to remove an event
-    public void RemoveEvent(string eventName)
+    public void RemoveEvent(string eventName, Action<GameEventArgs> listener)
     {
-        if (gameEvents.ContainsKey(eventName))
+        if (eventManager == null) return;
+        Action<GameEventArgs> thisEvent;
+        if (eventManager.eventDictionary.TryGetValue(eventName, out thisEvent))
         {
-            gameEvents.Remove(eventName);
+            //Remove event from the existing one
+            thisEvent -= listener;
+
+            //Update the Dictionary
+            eventManager.eventDictionary[eventName] = thisEvent;
         }
     }
 
-    // Method to trigger an event
-    public void TriggerEvent(string eventName, GameEventArgs eventArgs = null)
+    public void TriggerEvent(string eventName, GameEventArgs eventArgs)
     {
-        Action<GameEventArgs> thisEvent = null; 
-        if (gameEvents.TryGetValue(eventName, out thisEvent))
+        Action<GameEventArgs> thisEvent = null;
+        if (eventManager.eventDictionary.TryGetValue(eventName, out thisEvent))
         {
-            thisEvent?.Invoke(eventArgs);
+            thisEvent.Invoke(eventArgs);
         }
     }
 }
+
 
 
 

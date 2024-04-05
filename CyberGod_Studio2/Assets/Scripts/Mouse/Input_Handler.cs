@@ -1,46 +1,45 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class Input_Handler : MonoBehaviour
 {
     private float distanceX = 0f;
     private float distanceY = 0f;
-
     private float XMAX = 500.0f;
     private float YMAX = 500.0f;
-    //获取Health_Handler脚本
+
+    // Reference to Health_Handler script
     [SerializeField] private Health_Handler m_healthHandler;
 
     [SerializeField] private Scrollbar m_scrollbar;
-    
     [SerializeField] private Layer_Handler m_layerHandler;
 
     void Start()
     {
         // Lock the cursor to the center of the screen at start
         Cursor.lockState = CursorLockMode.Locked;
+
+        // Subscribe to the MotionCapture_Input event
+        EventManager.Instance.AddEvent("MotionCaptureInput", OnMotionCaptureInput);
     }
-    
+
     void Update()
     {
-        
-        
         // Track mouse movement
         TrackMouseMovement();
         
         // Check if the mouse has moved the maximum distance
         CheckMaxDistance();
         
-        //Change scrollbar value
+        // Change scrollbar value
         ChangeScrollbarValue();
-
-
+        
+        // Handle input locking
+        InputLock();
     }
+
     private void InputLock()
     {
-
-        
         // Toggle cursor lock state on ESC key press
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -63,9 +62,6 @@ public class Input_Handler : MonoBehaviour
         // Accumulate the absolute mouse displacement
         distanceX += Mathf.Abs(mouseX);
         distanceY += Mathf.Abs(mouseY);
-
-        // // Log the accumulated distances
-        // Debug.Log($"distanceX: {distanceX} distanceY: {distanceY}");
     }
 
     private void ResetDistances()
@@ -74,7 +70,6 @@ public class Input_Handler : MonoBehaviour
         distanceY = 0f;
     }
     
-    //检测是否到达最大值
     private void CheckMaxDistance()
     {
         if (distanceX >= XMAX || distanceY >= YMAX)
@@ -83,13 +78,12 @@ public class Input_Handler : MonoBehaviour
         }
     }
     
-    
     private void Repaired()
     {
-        //调用Health_Handler脚本中的ChangeRepair函数，输入参数为10
+        // Call the ChangeRepair function from Health_Handler script with an input parameter of 10
         m_healthHandler.ChangeRepair(10.0f);
         
-        //恢复距离
+        // Reset distances
         ResetDistances();
     }
 

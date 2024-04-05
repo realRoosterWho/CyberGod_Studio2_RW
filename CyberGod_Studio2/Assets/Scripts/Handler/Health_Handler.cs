@@ -62,16 +62,16 @@ public class Health_Handler : MonoBehaviour
     }
     
     //定义生命值增加/减少函数
-    public void ChangeHealth(float value)
+	public void ChangeHealth(float value)
     {
         // Debug.Log($"Health Changed: {value}");
         ChangeValue(ref m_health, value, MAXHEALTH);
     }
     
     //定义维修值增加/减少函数
-    public void ChangeRepair(float value)
+	public void ChangeRepair(float value)
     {
-        ChangeValue(ref m_repair, value, MAXREPAIR);
+		ChangeValue(ref m_repair, value, MAXREPAIR);
     }
     
     //定义精神值增加/减少函数
@@ -139,12 +139,10 @@ public class Health_Handler : MonoBehaviour
         ChangeRepair(args.FloatValue);
     }
     
-    public void OnSpiritChange(GameEventArgs args)
-    {
-        ChangeSpirit(args.FloatValue);
-    }
-    
-    
+	public void OnSpiritChange(GameEventArgs args)
+	{
+		ChangeSpirit(args.FloatValue);
+	}
     
     
 }
