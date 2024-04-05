@@ -1,6 +1,6 @@
 import socket
 from shapely.geometry import Polygon
-
+import math
 import numpy as np
 import mediapipe as mp
 import cv2
@@ -17,35 +17,13 @@ port = 5005
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 serverAddressPort = (host, port)
 
-#capture = cv2.VideoCapture(0)
-#如果有多个ViedoCapturecapture，全部获取，然后看其中哪些图像大小不是0，就是有图像的，然后使得capture=这个
-# 假设有多个视频捕获设备，我们用0, 1, 2...来代表它们
-device_indices = [0, 1, 2]  # 可以根据实际情况增减
-valid_captures = []
-
-# 尝试从所有设备中捕获视频
-for index in device_indices:
-    cap = cv2.VideoCapture(index)
-    if cap.isOpened():  # 检查是否成功打开摄像头
-        ret, frame = cap.read()
-        if ret and frame.size > 0:  # 检查图像大小是否不为0
-            valid_captures.append(cap)
-        else:
-            cap.release()  # 释放无效的视频捕获对象
-
-# 选择第一个有效的视频捕获对象
-if valid_captures:
-    capture = valid_captures[0]
-    print(f"Using device with index {device_indices[valid_captures.index(capture)]}")
-else:
-    print("No valid video capture device found.")
-
+capture = cv2.VideoCapture(0)
 
 poseDetector = PoseDetector()
 mpHands = mp.solutions.hands  # 接收方法
 hands = mpHands.Hands(static_image_mode=False,  # 静态追踪，低于0.5置信度会再一次跟踪
-                      max_num_hands=2,  # 最多有2只手
-                      min_detection_confidence=0.35,  # 最小检测置信度
+                      max_num_hands= 2,  # 最多有2只手
+                      min_detection_confidence=0.05,  # 最小检测置信度
                       min_tracking_confidence=0.2)  # 最小跟踪置信度
 
 mpDraw = mp.solutions.drawing_utils
@@ -134,18 +112,39 @@ def hand_touch(position):
     return banana1 or banana2 or banana3
 
 
+'''# get_right_index_v1 by possibility
 def get_right_index(handedness_classification):
-    '''
-
+   
     :param handtrack_results:
     :return: right hand's index
-    '''
+   
     for idx, hand_handedness in enumerate(handedness_classification):
         list = MessageToDict(hand_handedness)["classification"]
-        dict = list[0]
-        # when finally get the mirrored image,turn 'Left' to 'Right'
-        if dict['label'] == 'Left':
-            return dict['index']
+        for hand in list:
+            # when finally get the mirrored image,turn 'Left' to 'Right'
+            if hand['label'] == 'Left' :
+                print(hand['index'])
+                return hand['index']
+    return None
+'''
+
+
+# this fxxking slxt would never recognize left hand as the right one
+def get_right_index(results, p16):
+    index = 0
+    myhand = results.multi_hand_landmarks
+    h, w, c = img.shape
+    dis = h * w
+    index = 0
+    for hand in myhand:
+        p0_x = MessageToDict(hand.landmark[0])["x"] * w
+        p0_y = MessageToDict(hand.landmark[0])["y"] * h
+        distance = math.pow((p16.x - p0_x),2) + math.pow((p16.y - p0_y),2)
+        print(distance)
+        if distance < 5000:
+            idx = index
+            return idx
+        index += index
     return None
 
 
@@ -264,7 +263,7 @@ while True:
             # determine the index of right hand in current frame
             right_index = results.multi_handedness
             if right_index:
-                right_index = get_right_index(right_index)
+                right_index = get_right_index(results, p16)
             else:
                 right_index = None
             lm = results.multi_hand_landmarks
