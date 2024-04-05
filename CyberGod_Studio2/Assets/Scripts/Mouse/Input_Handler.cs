@@ -94,4 +94,12 @@ public class Input_Handler : MonoBehaviour
         
         m_scrollbar.value = x_percent;
     }
+
+	    private void OnMotionCaptureInput(GameEventArgs args)
+    {
+        // Get the Vector3 value from the GameEventArgs
+       	float motionCaptureInput = args.FloatValue;
+        
+		Debug.Log("Motion Capture Input: " + motionCaptureInput);
+    }
 }

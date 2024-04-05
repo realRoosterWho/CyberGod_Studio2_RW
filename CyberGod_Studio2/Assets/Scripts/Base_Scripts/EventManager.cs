@@ -16,6 +16,7 @@ public class GameEventArgs : EventArgs
     
 }
 
+
 public class EventManager : MonoBehaviour
 {
     private Dictionary<string, Action<GameEventArgs>> eventDictionary;
