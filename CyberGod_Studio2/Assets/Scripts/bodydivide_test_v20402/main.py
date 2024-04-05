@@ -17,7 +17,28 @@ port = 5005
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 serverAddressPort = (host, port)
 
-capture = cv2.VideoCapture(0)
+#capture = cv2.VideoCapture(0)
+#如果有多个ViedoCapturecapture，全部获取，然后看其中哪些图像大小不是0，就是有图像的，然后使得capture=这个
+# 假设有多个视频捕获设备，我们用0, 1, 2...来代表它们
+device_indices = [0, 1, 2]  # 可以根据实际情况增减
+valid_captures = []
+
+# 尝试从所有设备中捕获视频
+for index in device_indices:
+    cap = cv2.VideoCapture(index)
+    if cap.isOpened():  # 检查是否成功打开摄像头
+        ret, frame = cap.read()
+        if ret and frame.size > 0:  # 检查图像大小是否不为0
+            valid_captures.append(cap)
+        else:
+            cap.release()  # 释放无效的视频捕获对象
+
+# 选择第一个有效的视频捕获对象
+if valid_captures:
+    capture = valid_captures[0]
+    print(f"Using device with index {device_indices[valid_captures.index(capture)]}")
+else:
+    print("No valid video capture device found.")
 
 poseDetector = PoseDetector()
 mpHands = mp.solutions.hands  # 接收方法
@@ -27,7 +48,6 @@ hands = mpHands.Hands(static_image_mode=False,  # 静态追踪，低于0.5置信
                       min_tracking_confidence=0.2)  # 最小跟踪置信度
 
 mpDraw = mp.solutions.drawing_utils
-
 posList = []
 
 
@@ -102,13 +122,13 @@ def banana(A, B, C, D):
 # hand_touch(A,B)手部三条线段是否触碰部位AB
 def hand_touch(position):
     # 延长手部线段
-    p18new = Point(1.5 * p18.x - 0.5 * p16.x, 1.5 * p18.y - 0.5 * p16.y, 1.5 * p18.z - 0.5 * p16.z)
-    p20new = Point(1.5 * p20.x - 0.5 * p16.x, 1.5 * p20.y - 0.5 * p16.y, 1.5 * p20.z - 0.5 * p16.z)
-    p22new = Point(1.5 * p22.x - 0.5 * p16.x, 1.5 * p22.y - 0.5 * p16.y, 1.5 * p22.z - 0.5 * p16.z)
+    p19new = Point(1.5 * p19.x - 0.5 * p15.x, 1.5 * p19.y - 0.5 * p15.y, 1.5 * p19.z - 0.5 * p15.z)
+    p17new = Point(1.5 * p17.x - 0.5 * p15.x, 1.5 * p17.y - 0.5 * p15.y, 1.5 * p17.z - 0.5 * p15.z)
+    p21new = Point(1.5 * p21.x - 0.5 * p15.x, 1.5 * p21.y - 0.5 * p15.y, 1.5 * p21.z - 0.5 * p15.z)
     # 判断香蕉
-    banana1 = banana(position.e1, position.e2, p16, p18new)
-    banana2 = banana(position.e1, position.e2, p16, p20new)
-    banana3 = banana(position.e1, position.e2, p16, p22new)
+    banana1 = banana(position.e1, position.e2, p15, p17new)
+    banana2 = banana(position.e1, position.e2, p15, p19new)
+    banana3 = banana(position.e1, position.e2, p15, p21new)
     return banana1 or banana2 or banana3
 
 
@@ -130,7 +150,7 @@ def get_right_index(handedness_classification):
 
 
 # this fxxking slxt would never recognize left hand as the right one
-def get_right_index(results, p16):
+def get_right_index(results, p15):
     index = 0
     myhand = results.multi_hand_landmarks
     h, w, c = img.shape
@@ -139,16 +159,16 @@ def get_right_index(results, p16):
     for hand in myhand:
         p0_x = MessageToDict(hand.landmark[0])["x"] * w
         p0_y = MessageToDict(hand.landmark[0])["y"] * h
-        distance = math.pow((p16.x - p0_x),2) + math.pow((p16.y - p0_y),2)
-        print(distance)
-        if distance < 5000:
+        distance = math.pow((p15.x - p0_x), 2) + math.pow((p15.y - p0_y), 2)
+        if distance < 2000:
             idx = index
             return idx
         index += index
     return None
 
 
-def get_hand_bbox(results,idx):
+# from hand detector
+def get_hand_bbox(results, idx):
     xList = []
     yList = []
     bbox = []
@@ -170,6 +190,15 @@ def get_hand_bbox(results,idx):
     #            bboxinsinfo[1] + (bboxinsinfo[3] // 2)
     # get four vertexes of bbox as a fxxking list
     return [(xmin, ymin), (xmin, ymax), (xmax, ymax), (xmax, ymin)]
+
+
+# from pose detector
+def get_hand_bbox2():
+    # 延长手部线段
+    p17new = Point(int(1.5 * p17.x - 0.5 * p15.x), int(1.5 * p17.y - 0.5 * p15.y), int(1.5 * p17.z - 0.5 * p15.z))
+    p19new = Point(int(1.5 * p19.x - 0.5 * p15.x), int(1.5 * p19.y - 0.5 * p15.y), int(1.5 * p19.z - 0.5 * p15.z))
+    draw_box([p17.get_xy(), p17new.get_xy(), p19new.get_xy(), p19.get_xy()], (0, 100, 0))
+    return [p17.get_xy(), p17new.get_xy(), p19new.get_xy(), p19.get_xy()]
 
 
 def three_equal_point(p1, p2):
@@ -219,17 +248,17 @@ while True:
     success, img = capture.read()
     if success:
 
-        img = poseDetector.findPose(img)
 
-        # img = cv2.flip(img, flipCode=1)        # mirror the image
+        # mirror the image
+        img = cv2.flip(img, flipCode=1)
+        img = poseDetector.findPose(img)
         lmList, bboxInfo = poseDetector.findPosition(img, draw=False)
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         results = hands.process(imgRGB)
-
         if bboxInfo:
             p11 = DirectPoint(lmList, 11, img.shape[0])
             p12 = DirectPoint(lmList, 12, img.shape[0])
-            p13 = DirectPoint(lmList, 13, img.shape[0])
+            p14 = DirectPoint(lmList, 13, img.shape[0])
             p15 = DirectPoint(lmList, 15, img.shape[0])
             p23 = DirectPoint(lmList, 23, img.shape[0])
             p24 = DirectPoint(lmList, 24, img.shape[0])
@@ -237,14 +266,14 @@ while True:
             p26 = DirectPoint(lmList, 26, img.shape[0])
             # 初始化了五个部位对应的lm
             # [0]左上臂11,13;[1]左下臂13,15;[2]左大腿23,25;[3]右大腿24,26;[4]心脏*
-            positionList = [Position(p11, p13), Position(p13, p15),
+            positionList = [Position(p12, p14), Position(p14, p16                  ),
                             Position(p23, p25), Position(p24, p26)]
 
             # 初始化手部四个lm
-            p16 = DirectPoint(lmList, 16, img.shape[0])
-            p18 = DirectPoint(lmList, 18, img.shape[0])
-            p20 = DirectPoint(lmList, 20, img.shape[0])
-            p22 = DirectPoint(lmList, 22, img.shape[0])
+            p15 = DirectPoint(lmList, 15, img.shape[0])
+            p17 = DirectPoint(lmList, 17, img.shape[0])
+            p19 = DirectPoint(lmList, 19, img.shape[0])
+            p21 = DirectPoint(lmList, 21, img.shape[0])
 
             position = 99
             if hand_touch(positionList[0]):
@@ -260,10 +289,16 @@ while True:
             # per frame get where the right hand is(position)
             data = np.array([position])
 
+
+
+
+
+            # Op.1 Hand Detector's bbox
+            '''
             # determine the index of right hand in current frame
             right_index = results.multi_handedness
             if right_index:
-                right_index = get_right_index(results, p16)
+                right_index = get_right_index(results, p15)
             else:
                 right_index = None
             lm = results.multi_hand_landmarks
@@ -288,29 +323,44 @@ while True:
                 testPoly24 = Polygon([p39.get_xy(), p35.get_xy(), p23.get_xy(), p40.get_xy()])
                 testPoly25 = Polygon([p39.get_xy(), p40.get_xy(), p24.get_xy(), p36.get_xy()])
                 bodyPoly = Polygon([p12.get_xy(), p11.get_xy(), p23.get_xy(), p24.get_xy()])
+                '''
+            p34, p36 = three_equal_point(p12, p24)
+            p33, p35 = three_equal_point(p11, p23)
+            p37 = half_point(p11, p12)
+            p38 = half_point(p34, p33)
+            p39 = half_point(p36, p35)
+            p40 = half_point(p23, p24)
+            #  initialize a poly item
+            handBboxPoly2 = Polygon(get_hand_bbox2())
+            testPoly20 = Polygon([p37.get_xy(), p11.get_xy(), p33.get_xy(), p38.get_xy()])
+            testPoly21 = Polygon([p37.get_xy(), p12.get_xy(), p34.get_xy(), p38.get_xy()])
+            testPoly22 = Polygon([p38.get_xy(), p33.get_xy(), p35.get_xy(), p39.get_xy()])
+            testPoly23 = Polygon([p38.get_xy(), p34.get_xy(), p36.get_xy(), p39.get_xy()])
+            testPoly24 = Polygon([p39.get_xy(), p35.get_xy(), p23.get_xy(), p40.get_xy()])
+            testPoly25 = Polygon([p39.get_xy(), p40.get_xy(), p24.get_xy(), p36.get_xy()])
+            bodyPoly = Polygon([p12.get_xy(), p11.get_xy(), p23.get_xy(), p24.get_xy()])
 
+            # hand inside body
+            if bodyPoly.intersects(handBboxPoly2):
 
-                # hand inside body
-                if bodyPoly.intersects(handBboxPoly):
-
-                    s20 = intersection_area(handBboxPoly, testPoly20)
-                    s21 = intersection_area(handBboxPoly, testPoly21)
-                    s22 = intersection_area(handBboxPoly, testPoly22)
-                    s23 = intersection_area(handBboxPoly, testPoly23)
-                    s24 = intersection_area(handBboxPoly, testPoly24)
-                    s25 = intersection_area(handBboxPoly, testPoly25)
+                s20 = intersection_area(handBboxPoly2, testPoly20)
+                s21 = intersection_area(handBboxPoly2, testPoly21)
+                s22 = intersection_area(handBboxPoly2, testPoly22)
+                s23 = intersection_area(handBboxPoly2, testPoly23)
+                s24 = intersection_area(handBboxPoly2, testPoly24)
+                s25 = intersection_area(handBboxPoly2, testPoly25)
 
                     
-                    dict_position = [{'position': 20, 'area': s20, 'vertex': [p37.get_xy(), p11.get_xy(), p33.get_xy(), p38.get_xy()]},
+                dict_position = [{'position': 20, 'area': s20, 'vertex': [p37.get_xy(), p11.get_xy(), p33.get_xy(), p38.get_xy()]},
                                     {'position': 21, 'area': s21, 'vertex': [p37.get_xy(), p12.get_xy(), p34.get_xy(), p38.get_xy()]},
                                     {'position': 22, 'area': s22, 'vertex': [p38.get_xy(), p33.get_xy(), p35.get_xy(), p39.get_xy()]},
                                     {'position': 23, 'area': s23, 'vertex': [p38.get_xy(), p34.get_xy(), p36.get_xy(), p39.get_xy()]},
                                     {'position': 24, 'area': s24, 'vertex': [p39.get_xy(), p35.get_xy(), p23.get_xy(), p40.get_xy()]},
                                     {'position': 25, 'area': s25, 'vertex': [p39.get_xy(), p40.get_xy(), p24.get_xy(), p36.get_xy()]}]
 
-                    position = max(dict_position, key= lambda x: x['area'])['position']
-                    draw_box(max(dict_position, key= lambda x: x['area'])['vertex'], (255, 0, 0))
-                    data = np.array([position])
+                position = max(dict_position, key= lambda x: x['area'])['position']
+                draw_box(max(dict_position, key= lambda x: x['area'])['vertex'], (255, 0, 0))
+                data = np.array([position])
                 '''
                 # draw testPoly20
                 color = (0, 0, 255)
@@ -322,7 +372,7 @@ while True:
                 '''
 
                 # draw the right hand's lm
-                mpDraw.draw_landmarks(img, lm[right_index], mpHands.HAND_CONNECTIONS)
+                # mpDraw.draw_landmarks(img, lm[right_index], mpHands.HAND_CONNECTIONS)
 
             print(data)
             sock.sendto(str.encode(str(data)), serverAddressPort) #send info to unity
