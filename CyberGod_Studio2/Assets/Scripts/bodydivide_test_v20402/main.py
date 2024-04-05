@@ -17,7 +17,29 @@ port = 5005
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 serverAddressPort = (host, port)
 
-capture = cv2.VideoCapture(0)
+#capture = cv2.VideoCapture(0)
+#如果有多个ViedoCapturecapture，全部获取，然后看其中哪些图像大小不是0，就是有图像的，然后使得capture=这个
+# 假设有多个视频捕获设备，我们用0, 1, 2...来代表它们
+device_indices = [0, 1, 2]  # 可以根据实际情况增减
+valid_captures = []
+
+# 尝试从所有设备中捕获视频
+for index in device_indices:
+    cap = cv2.VideoCapture(index)
+    if cap.isOpened():  # 检查是否成功打开摄像头
+        ret, frame = cap.read()
+        if ret and frame.size > 0:  # 检查图像大小是否不为0
+            valid_captures.append(cap)
+        else:
+            cap.release()  # 释放无效的视频捕获对象
+
+# 选择第一个有效的视频捕获对象
+if valid_captures:
+    capture = valid_captures[0]
+    print(f"Using device with index {device_indices[valid_captures.index(capture)]}")
+else:
+    print("No valid video capture device found.")
+
 
 poseDetector = PoseDetector()
 mpHands = mp.solutions.hands  # 接收方法

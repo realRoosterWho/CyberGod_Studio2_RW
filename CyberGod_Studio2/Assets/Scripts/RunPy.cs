@@ -37,10 +37,15 @@ public class RunPy : MonoBehaviour
         // on mac
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
         {
-            fullPath = "/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Scripts/communication_capture0329/main.py";
+            fullPath = "/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Scripts/bodydivide_test_v20402/main.py";
         }
 
         startInfo = new ProcessStartInfo();
+        
+        startInfo.CreateNoWindow = false;
+        startInfo.UseShellExecute = false;
+        startInfo.RedirectStandardOutput = true;
+        startInfo.RedirectStandardError = true;
 
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
@@ -50,15 +55,16 @@ public class RunPy : MonoBehaviour
         }
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
         {
-            string command = "source activate cybergod; python \"" + fullPath + "\"";
-            startInfo.FileName = "/bin/bash";
-            startInfo.Arguments = "-c \"" + command + "\"";
+            string command = "source activate cybergod; python \"" + fullPath + "\""; 
+            //command 一个测试用的语句，可以在终端中运行的语句，跟conda和python没关系
+            // string commandtest = "source activate cybergod"; 
+            
+            // startInfo.FileName = "/bin/bash";
+            startInfo.FileName = "/bin/zsh";
+            startInfo.Arguments = "-i -l -c \"" + command + "\"";
         }
 
-        startInfo.CreateNoWindow = true;
-        startInfo.UseShellExecute = false;
-        startInfo.RedirectStandardOutput = true;
-        startInfo.RedirectStandardError = true;
+
 
         process = new Process();
         process.StartInfo = startInfo;
