@@ -21,6 +21,8 @@ public class U2PThread : MonoBehaviour
         receiveThread.IsBackground = true;
         receiveThread.Start();
     }
+
+
     private void ReceiveData()
     {
         client = new UdpClient(port);
@@ -41,21 +43,19 @@ public class U2PThread : MonoBehaviour
 				//Debug
 				//Debug.Log(data);
             }
-            catch (Exception err)
+			catch (Exception err)
             {
-                print(err.ToString()); 
+        		print(err.ToString()); 
             }
         }
     }
 
 	private void SendData(float data)
     {
-
 		//Debug.Log(data);
-		GameEventArgs args = new GameEventArgs {
-        FloatValue = data
-     	};
-
-	EventManager.Instance.TriggerEvent("MotionCaptureInput", args);
+		GameEventArgs args = new GameEventArgs {	FloatValue = data	};
+		EventManager.Instance.TriggerEvent("MotionCaptureInput", args);
 	}
+
+
 }
