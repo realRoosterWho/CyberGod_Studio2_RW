@@ -276,14 +276,14 @@ while True:
             p11 = DirectPoint(lmList, 11, img.shape[0])
             p12 = DirectPoint(lmList, 12, img.shape[0])
             p14 = DirectPoint(lmList, 14, img.shape[0])
-            p15 = DirectPoint(lmList, 15, img.shape[0])
+            p16 = DirectPoint(lmList, 16, img.shape[0])
             p23 = DirectPoint(lmList, 23, img.shape[0])
             p24 = DirectPoint(lmList, 24, img.shape[0])
             p25 = DirectPoint(lmList, 25, img.shape[0])
             p26 = DirectPoint(lmList, 26, img.shape[0])
             # 初始化了五个部位对应的lm
             # [0]左上臂11,13;[1]左下臂13,15;[2]左大腿23,25;[3]右大腿24,26;[4]心脏*
-            positionList = [Position(p12, p14), Position(p14, p16                  ),
+            positionList = [Position(p12, p14), Position(p14, p16),
                             Position(p23, p25), Position(p24, p26)]
 
             # 初始化手部四个lm
@@ -307,12 +307,10 @@ while True:
             data = np.array([position])
 
             # test arm box
-            draw_box(positionList[0].get_arm_box(),(0,0,100))
+            # draw_box(positionList[0].get_arm_box(),(0,0,100))
 
-
-
-            # Op.1 Hand Detector's bbox
             '''
+            # Op.1 Hand Detector's bbox
             # determine the index of right hand in current frame
             right_index = results.multi_handedness
             if right_index:
@@ -350,6 +348,7 @@ while True:
             p40 = half_point(p23, p24)
             #  initialize a poly item
             handBboxPoly2 = Polygon(get_hand_bbox2())
+            # body polygons
             testPoly20 = Polygon([p37.get_xy(), p11.get_xy(), p33.get_xy(), p38.get_xy()])
             testPoly21 = Polygon([p37.get_xy(), p12.get_xy(), p34.get_xy(), p38.get_xy()])
             testPoly22 = Polygon([p38.get_xy(), p33.get_xy(), p35.get_xy(), p39.get_xy()])
@@ -357,7 +356,26 @@ while True:
             testPoly24 = Polygon([p39.get_xy(), p35.get_xy(), p23.get_xy(), p40.get_xy()])
             testPoly25 = Polygon([p39.get_xy(), p40.get_xy(), p24.get_xy(), p36.get_xy()])
             bodyPoly = Polygon([p12.get_xy(), p11.get_xy(), p23.get_xy(), p24.get_xy()])
-
+            # arms polygons
+            s0_vertex = positionList[0].get_arm_box()
+            s1_vertex = positionList[1].get_arm_box()
+            s2_vertex = positionList[2].get_arm_box()
+            s3_vertex = positionList[3].get_arm_box()
+            Poly0 = Polygon(s0_vertex)
+            Poly1 = Polygon(s1_vertex)
+            Poly2 = Polygon(s2_vertex)
+            Poly3 = Polygon(s3_vertex)
+            # intersection with arms
+            s0 = intersection_area(handBboxPoly2, Poly0)
+            s1 = intersection_area(handBboxPoly2, Poly1)
+            s2 = intersection_area(handBboxPoly2, Poly2)
+            s3 = intersection_area(handBboxPoly2, Poly3)
+            s20 = 0
+            s21 = 0
+            s22 = 0
+            s23 = 0
+            s24 = 0
+            s25 = 0
             # hand inside body
             if bodyPoly.intersects(handBboxPoly2):
 
@@ -369,25 +387,21 @@ while True:
                 s25 = intersection_area(handBboxPoly2, testPoly25)
 
                     
-                dict_position = [{'position': 20, 'area': s20, 'vertex': [p37.get_xy(), p11.get_xy(), p33.get_xy(), p38.get_xy()]},
-                                    {'position': 21, 'area': s21, 'vertex': [p37.get_xy(), p12.get_xy(), p34.get_xy(), p38.get_xy()]},
-                                    {'position': 22, 'area': s22, 'vertex': [p38.get_xy(), p33.get_xy(), p35.get_xy(), p39.get_xy()]},
-                                    {'position': 23, 'area': s23, 'vertex': [p38.get_xy(), p34.get_xy(), p36.get_xy(), p39.get_xy()]},
-                                    {'position': 24, 'area': s24, 'vertex': [p39.get_xy(), p35.get_xy(), p23.get_xy(), p40.get_xy()]},
-                                    {'position': 25, 'area': s25, 'vertex': [p39.get_xy(), p40.get_xy(), p24.get_xy(), p36.get_xy()]}]
-
+            dict_position = [
+                {'position': 0, 'area': s0, 'vertex': s0_vertex},
+                {'position': 1, 'area': s1, 'vertex': s1_vertex},
+                {'position': 2, 'area': s2, 'vertex': s2_vertex},
+                {'position': 3, 'area': s3, 'vertex': s3_vertex},
+                {'position': 20, 'area': s20, 'vertex': [p37.get_xy(), p11.get_xy(), p33.get_xy(), p38.get_xy()]},
+                {'position': 21, 'area': s21, 'vertex': [p37.get_xy(), p12.get_xy(), p34.get_xy(), p38.get_xy()]},
+                {'position': 22, 'area': s22, 'vertex': [p38.get_xy(), p33.get_xy(), p35.get_xy(), p39.get_xy()]},
+                {'position': 23, 'area': s23, 'vertex': [p38.get_xy(), p34.get_xy(), p36.get_xy(), p39.get_xy()]},
+                {'position': 24, 'area': s24, 'vertex': [p39.get_xy(), p35.get_xy(), p23.get_xy(), p40.get_xy()]},
+                {'position': 25, 'area': s25, 'vertex': [p39.get_xy(), p40.get_xy(), p24.get_xy(), p36.get_xy()]}]
+            if s1!=0 or s2!=0 or s3!= 0 or s0!=0:
                 position = max(dict_position, key= lambda x: x['area'])['position']
                 draw_box(max(dict_position, key= lambda x: x['area'])['vertex'], (255, 0, 0))
                 data = np.array([position])
-                '''
-                # draw testPoly20
-                color = (0, 0, 255)
-                thick = 5
-                cv2.line(img, p37.get_xy(), p11.get_xy(), color, thick)
-                cv2.line(img, p11.get_xy(), p33.get_xy(), color, thick)
-                cv2.line(img, p33.get_xy(), p38.get_xy(), color, thick)
-                cv2.line(img, p38.get_xy(), p37.get_xy(), color, thick)
-                '''
 
                 # draw the right hand's lm
                 # mpDraw.draw_landmarks(img, lm[right_index], mpHands.HAND_CONNECTIONS)
