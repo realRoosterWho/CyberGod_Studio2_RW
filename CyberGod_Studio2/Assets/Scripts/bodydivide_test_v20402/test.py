@@ -1,11 +1,7 @@
-rORl = [classification {
-  index: 1
-  score: 0.990289688
-  label: "Right"
-}
-, classification {
-  index: 0
-  score: 0.977766693
-  label: "Left"
-}
-]
+import numpy as np
+import math
+
+def length_of_vector(x, y):
+  return math.sqrt(math.pow(x, 2) + math.pow(y, 2))
+
+print(length_of_vector(3,4))

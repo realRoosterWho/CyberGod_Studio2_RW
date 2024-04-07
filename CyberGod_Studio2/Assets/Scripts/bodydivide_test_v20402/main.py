@@ -48,6 +48,7 @@ hands = mpHands.Hands(static_image_mode=False,  # 静态追踪，低于0.5置信
                       min_tracking_confidence=0.2)  # 最小跟踪置信度
 
 mpDraw = mp.solutions.drawing_utils
+
 posList = []
 
 
@@ -79,11 +80,27 @@ p20: Point = Point(0, 0, 0)
 p22: Point = Point(0, 0, 0)
 
 
-class Position():  # 部位，存储了两个Point（这是可以的嘛）
+class Position():  # 向量与部位，存储了两个Point（这是可以的嘛）
     def __init__(self, e1, e2):
         self.e1 = e1
         self.e2 = e2
 
+    def length_of_vector(self):
+        return math.sqrt(math.pow(self.e1, 2) + math.pow(self.e2, 2))
+
+    def k_of_vextor(self):
+        return self.e1 / self.e2
+
+    def calculate_arm_box_trans_vector(self):
+        return ((-1 / 4) * self.e2, (1 / 4) * self.e1)
+
+    def get_arm_box(self):
+        new_p = Position(self.e2.x - self.e1.x, self.e2.y - self.e1.y)
+        t = new_p.calculate_arm_box_trans_vector()
+        return [(int(self.e1.x + t[0]), int(self.e1.y + t[1])),
+                (int(self.e2.x + t[0]), int(self.e2.y + t[1])),
+                (int(self.e2.x - t[0]), int(self.e2.y - t[1])),
+                (int(self.e1.x - t[0]), int(self.e1.y - t[1]))]
 
 # cross_mult(A,B,C,D)计算AB,CD两个向量的叉乘值并返回对应值
 def cross_mult(A, B, C, D):
@@ -289,7 +306,8 @@ while True:
             # per frame get where the right hand is(position)
             data = np.array([position])
 
-
+            # test arm box
+            draw_box(positionList[0].get_arm_box(),(0,0,100))
 
 
 
@@ -298,7 +316,7 @@ while True:
             # determine the index of right hand in current frame
             right_index = results.multi_handedness
             if right_index:
-                right_index = get_right_index(results, p15)
+                right_index = get_right_index(results, p16)
             else:
                 right_index = None
             lm = results.multi_hand_landmarks
