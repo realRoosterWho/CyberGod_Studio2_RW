@@ -1,9 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic; // Add this line
 using System.Text;
-
 
 public class GameEventArgs : EventArgs
 {
@@ -12,38 +11,17 @@ public class GameEventArgs : EventArgs
     public string StringValue { get; set; }
     public Vector3 Vector3Value { get; set; }
     public List<Vector3> Vector3ListValue { get; set; }
-    
     public Queue<Vector3> Vector3QueueValue { get; set; }
-    
 }
 
-
-public class EventManager : MonoBehaviour
+public class EventManager : MonosingletonTemp<EventManager>
 {
     private Dictionary<string, Action<GameEventArgs>> eventDictionary;
 
-    private static EventManager eventManager;
-
-    public static EventManager Instance
+    
+    void Awake()
     {
-        get
-        {
-            if (!eventManager)
-            {
-                eventManager = FindObjectOfType(typeof(EventManager)) as EventManager;
-
-                if (!eventManager)
-                {
-                    Debug.LogError("There needs to be one active EventManger script on a GameObject in your scene.");
-                }
-                else
-                {
-                    eventManager.Init();
-                }
-            }
-
-            return eventManager;
-        }
+        Init();
     }
 
     void Init()
@@ -53,74 +31,69 @@ public class EventManager : MonoBehaviour
             eventDictionary = new Dictionary<string, Action<GameEventArgs>>();
         }
     }
+    
 
     public void AddEvent(string eventName, Action<GameEventArgs> listener)
     {
         Action<GameEventArgs> thisEvent;
-        if (eventManager.eventDictionary.TryGetValue(eventName, out thisEvent))
+        if (eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             //Add more event to the existing one
             thisEvent += listener;
 
             //Update the Dictionary
-            eventManager.eventDictionary[eventName] = thisEvent;
+            eventDictionary[eventName] = thisEvent;
         }
         else
         {
             //Add event to the Dictionary for the first time
             thisEvent += listener;
-            eventManager.eventDictionary.Add(eventName, thisEvent);
+            eventDictionary.Add(eventName, thisEvent);
         }
 		ExportEventList();
     }
 
     public void RemoveEvent(string eventName, Action<GameEventArgs> listener)
     {
-        if (eventManager == null) return;
         Action<GameEventArgs> thisEvent;
-        if (eventManager.eventDictionary.TryGetValue(eventName, out thisEvent))
+        if (eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             //Remove event from the existing one
             thisEvent -= listener;
 
             //Update the Dictionary
-            eventManager.eventDictionary[eventName] = thisEvent;
+            eventDictionary[eventName] = thisEvent;
         }
     }
 
     public void TriggerEvent(string eventName, GameEventArgs eventArgs)
     {
         Action<GameEventArgs> thisEvent = null;
-        if (eventManager.eventDictionary.TryGetValue(eventName, out thisEvent))
+        if (eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             thisEvent.Invoke(eventArgs);
         }
     }
 
-	//将所有事件的列表写一个文件，导出
-	public void ExportEventList()
-	{
-    	StringBuilder sb = new StringBuilder();
+    public void ExportEventList()
+    {
+        StringBuilder sb = new StringBuilder();
 
-    	foreach (var eventItem in eventDictionary)
-    	{
-        	sb.AppendLine($"Event: {eventItem.Key}");
+        foreach (var eventItem in eventDictionary)
+        {
+            sb.AppendLine($"Event: {eventItem.Key}");
 
-        	foreach (var listener in eventItem.Value.GetInvocationList())
-        	{
-            	sb.AppendLine($"Listener: {listener.Method.Name}");
-        	}
+            foreach (var listener in eventItem.Value.GetInvocationList())
+            {
+                sb.AppendLine($"Listener: {listener.Method.Name}");
+            }
 
-        	sb.AppendLine();
-    	}
-		Debug.Log("Exported Event List");
-    	System.IO.File.WriteAllText("Assets/Scripts/EventList.txt", sb.ToString());//覆盖写入
-	}
-
-	
-	
+            sb.AppendLine();
+        }
+        Debug.Log("Exported Event List");
+        System.IO.File.WriteAllText("Assets/Scripts/EventList.txt", sb.ToString());
+    }
 }
-
 
 
 

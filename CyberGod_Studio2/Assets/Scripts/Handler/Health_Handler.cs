@@ -124,7 +124,7 @@ public class Health_Handler : MonoBehaviour
         UpdateStatus(ref m_spirit, ref m_spiritStatus);
 
         //Debug目前的生命值，维修值，精神值的状态
-        Debug.Log($"HealthStatus: {m_healthStatus} RepairStatus: {m_repairStatus} SpiritStatus: {m_spiritStatus}");
+        // Debug.Log($"HealthStatus: {m_healthStatus} RepairStatus: {m_repairStatus} SpiritStatus: {m_spiritStatus}");
     }
     
     //以下是HealthHandler监听事件所执行的方法

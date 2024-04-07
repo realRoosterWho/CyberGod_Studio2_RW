@@ -9,4 +9,5 @@ Listener: OnSpiritChange
 
 Event: MotionCaptureInput
 Listener: OnMotionCaptureInput
+Listener: OnMotionCaptureInput
 
