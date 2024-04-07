@@ -275,7 +275,7 @@ while True:
         if bboxInfo:
             p11 = DirectPoint(lmList, 11, img.shape[0])
             p12 = DirectPoint(lmList, 12, img.shape[0])
-            p14 = DirectPoint(lmList, 13, img.shape[0])
+            p14 = DirectPoint(lmList, 14, img.shape[0])
             p15 = DirectPoint(lmList, 15, img.shape[0])
             p23 = DirectPoint(lmList, 23, img.shape[0])
             p24 = DirectPoint(lmList, 24, img.shape[0])
