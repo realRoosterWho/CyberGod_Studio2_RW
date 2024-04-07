@@ -149,6 +149,8 @@ def draw_box(vertexlist, color):
 
 while True:
     success, img = capture.read()
+    position = 99
+    #data = np.array([position])
     if success:
         # mirror the image
         img = cv2.flip(img, flipCode=1)
@@ -212,14 +214,13 @@ while True:
             s24 = 0
             s25 = 0
             # hand inside body
-            if bodyPoly.intersects(handBboxPoly2):
-
-                s20 = intersection_area(handBboxPoly2, testPoly20)
-                s21 = intersection_area(handBboxPoly2, testPoly21)
-                s22 = intersection_area(handBboxPoly2, testPoly22)
-                s23 = intersection_area(handBboxPoly2, testPoly23)
-                s24 = intersection_area(handBboxPoly2, testPoly24)
-                s25 = intersection_area(handBboxPoly2, testPoly25)
+            # if bodyPoly.intersects(handBboxPoly2):
+            s20 = intersection_area(handBboxPoly2, testPoly20)
+            s21 = intersection_area(handBboxPoly2, testPoly21)
+            s22 = intersection_area(handBboxPoly2, testPoly22)
+            s23 = intersection_area(handBboxPoly2, testPoly23)
+            s24 = intersection_area(handBboxPoly2, testPoly24)
+            s25 = intersection_area(handBboxPoly2, testPoly25)
             dict_position = [
                 {'position': 0, 'area': s0, 'vertex': s0_vertex},
                 {'position': 1, 'area': s1, 'vertex': s1_vertex},
@@ -231,10 +232,10 @@ while True:
                 {'position': 23, 'area': s23, 'vertex': [p38.get_xy(), p34.get_xy(), p36.get_xy(), p39.get_xy()]},
                 {'position': 24, 'area': s24, 'vertex': [p39.get_xy(), p35.get_xy(), p23.get_xy(), p40.get_xy()]},
                 {'position': 25, 'area': s25, 'vertex': [p39.get_xy(), p40.get_xy(), p24.get_xy(), p36.get_xy()]}]
-            if s1!=0 or s2!=0 or s3!= 0 or s0!=0:
-                position = max(dict_position, key= lambda x: x['area'])['position']
-                draw_box(max(dict_position, key= lambda x: x['area'])['vertex'], (255, 0, 0))
-                data = np.array([position])
+
+            position = max(dict_position, key= lambda x: x['area'])['position']
+            draw_box(max(dict_position, key= lambda x: x['area'])['vertex'], (255, 0, 0))
+            data = np.array([position])
 
                 # draw the right hand's lm
                 # mpDraw.draw_landmarks(img, lm[right_index], mpHands.HAND_CONNECTIONS)
