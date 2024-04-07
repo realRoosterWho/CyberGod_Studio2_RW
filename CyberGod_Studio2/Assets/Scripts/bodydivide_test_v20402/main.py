@@ -41,14 +41,6 @@ else:
     print("No valid video capture device found.")
 
 poseDetector = PoseDetector()
-mpHands = mp.solutions.hands  # 接收方法
-hands = mpHands.Hands(static_image_mode=False,  # 静态追踪，低于0.5置信度会再一次跟踪
-                      max_num_hands= 2,  # 最多有2只手
-                      min_detection_confidence=0.05,  # 最小检测置信度
-                      min_tracking_confidence=0.2)  # 最小跟踪置信度
-
-mpDraw = mp.solutions.drawing_utils
-
 posList = []
 
 
@@ -101,112 +93,6 @@ class Position():  # 向量与部位，存储了两个Point（这是可以的嘛
                 (int(self.e2.x + t[0]), int(self.e2.y + t[1])),
                 (int(self.e2.x - t[0]), int(self.e2.y - t[1])),
                 (int(self.e1.x - t[0]), int(self.e1.y - t[1]))]
-
-# cross_mult(A,B,C,D)计算AB,CD两个向量的叉乘值并返回对应值
-def cross_mult(A, B, C, D):
-    ABx = B.x - A.x
-    ABy = B.y - A.y
-    CDx = D.x - C.x
-    CDy = D.y - C.y
-    return ABx * CDy - CDx * ABy
-
-
-# quick_judge(A,B,C,D)快速排斥,T-无法判断,F-一定不香蕉
-def quick_judge(A, B, C, D):
-    if (max(A.x, B.x) < min(C.x, D.x) or
-            max(C.x, D.x) < min(A.x, B.x) or
-            max(A.y, B.y) < min(C.y, D.y) or
-            max(C.y, D.y) < min(A.y, B.y)):
-        return False
-    else:
-        return True
-
-
-# banana(A,B,C,D)判断线段AB,CD是否香蕉并返回一个布尔值
-def banana(A, B, C, D):
-    if not quick_judge(A, B, C, D):
-        return False
-    CAxCD = cross_mult(C, A, C, D)
-    CBxCD = cross_mult(C, B, C, D)
-    BCxBA = cross_mult(B, C, B, A)
-    BDxBA = cross_mult(B, D, B, A)
-    if (CAxCD * CBxCD < 0) and (BCxBA * BDxBA < 0):
-        return True
-    else:
-        return False
-
-
-# hand_touch(A,B)手部三条线段是否触碰部位AB
-def hand_touch(position):
-    # 延长手部线段
-    p19new = Point(1.5 * p19.x - 0.5 * p15.x, 1.5 * p19.y - 0.5 * p15.y, 1.5 * p19.z - 0.5 * p15.z)
-    p17new = Point(1.5 * p17.x - 0.5 * p15.x, 1.5 * p17.y - 0.5 * p15.y, 1.5 * p17.z - 0.5 * p15.z)
-    p21new = Point(1.5 * p21.x - 0.5 * p15.x, 1.5 * p21.y - 0.5 * p15.y, 1.5 * p21.z - 0.5 * p15.z)
-    # 判断香蕉
-    banana1 = banana(position.e1, position.e2, p15, p17new)
-    banana2 = banana(position.e1, position.e2, p15, p19new)
-    banana3 = banana(position.e1, position.e2, p15, p21new)
-    return banana1 or banana2 or banana3
-
-
-'''# get_right_index_v1 by possibility
-def get_right_index(handedness_classification):
-   
-    :param handtrack_results:
-    :return: right hand's index
-   
-    for idx, hand_handedness in enumerate(handedness_classification):
-        list = MessageToDict(hand_handedness)["classification"]
-        for hand in list:
-            # when finally get the mirrored image,turn 'Left' to 'Right'
-            if hand['label'] == 'Left' :
-                print(hand['index'])
-                return hand['index']
-    return None
-'''
-
-
-# this fxxking slxt would never recognize left hand as the right one
-def get_right_index(results, p15):
-    index = 0
-    myhand = results.multi_hand_landmarks
-    h, w, c = img.shape
-    dis = h * w
-    index = 0
-    for hand in myhand:
-        p0_x = MessageToDict(hand.landmark[0])["x"] * w
-        p0_y = MessageToDict(hand.landmark[0])["y"] * h
-        distance = math.pow((p15.x - p0_x), 2) + math.pow((p15.y - p0_y), 2)
-        if distance < 2000:
-            idx = index
-            return idx
-        index += index
-    return None
-
-
-# from hand detector
-def get_hand_bbox(results, idx):
-    xList = []
-    yList = []
-    bbox = []
-    bboxInfo = []
-    handlmList = []
-    myHand = results.multi_hand_landmarks[idx]
-    for id,lm in enumerate(myHand.landmark):
-        h, w, c = img.shape
-        px, py = int(lm.x * w), int(lm.y * h)
-        xList.append(px)
-        yList.append(py)
-        handlmList.append([px, py])
-
-    xmin, xmax = min(xList), max(xList)
-    ymin, ymax = min(yList), max(yList)
-    boxW, boxH = xmax - xmin, ymax - ymin
-    # bboxinsinfo = xmin, ymin, boxW, boxH
-    #cx, cy = bboxinsinfo[0] + (bboxinsinfo[2] // 2), \
-    #            bboxinsinfo[1] + (bboxinsinfo[3] // 2)
-    # get four vertexes of bbox as a fxxking list
-    return [(xmin, ymin), (xmin, ymax), (xmax, ymax), (xmax, ymin)]
 
 
 # from pose detector
@@ -264,14 +150,12 @@ def draw_box(vertexlist, color):
 while True:
     success, img = capture.read()
     if success:
-
-
         # mirror the image
         img = cv2.flip(img, flipCode=1)
         img = poseDetector.findPose(img)
         lmList, bboxInfo = poseDetector.findPosition(img, draw=False)
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        results = hands.process(imgRGB)
+        # results = hands.process(imgRGB)
         if bboxInfo:
             p11 = DirectPoint(lmList, 11, img.shape[0])
             p12 = DirectPoint(lmList, 12, img.shape[0])
@@ -291,55 +175,6 @@ while True:
             p17 = DirectPoint(lmList, 17, img.shape[0])
             p19 = DirectPoint(lmList, 19, img.shape[0])
             p21 = DirectPoint(lmList, 21, img.shape[0])
-
-            position = 99
-            if hand_touch(positionList[0]):
-                position = 0
-            elif hand_touch(positionList[1]):
-                position = 1
-            elif hand_touch(positionList[2]):
-                position = 2
-            elif hand_touch(positionList[3]):
-                position = 3
-            else:
-                position = 99
-            # per frame get where the right hand is(position)
-            data = np.array([position])
-
-            # test arm box
-            # draw_box(positionList[0].get_arm_box(),(0,0,100))
-
-            '''
-            # Op.1 Hand Detector's bbox
-            # determine the index of right hand in current frame
-            right_index = results.multi_handedness
-            if right_index:
-                right_index = get_right_index(results, p16)
-            else:
-                right_index = None
-            lm = results.multi_hand_landmarks
-            if lm and right_index != None:
-                # get the bbox of right hand in current frame
-                bbox = get_hand_bbox(results, right_index)
-
-                # get the fxxking 6 areas in body
-                #  firstly get the bull-shit added points
-                p34, p36 = three_equal_point(p12, p24)
-                p33, p35 = three_equal_point(p11, p23)
-                p37 = half_point(p11, p12)
-                p38 = half_point(p34, p33)
-                p39 = half_point(p36, p35)
-                p40 = half_point(p23, p24)
-                #  initialize a poly item
-                handBboxPoly = Polygon(bbox)
-                testPoly20 = Polygon([p37.get_xy(), p11.get_xy(), p33.get_xy(), p38.get_xy()])
-                testPoly21 = Polygon([p37.get_xy(), p12.get_xy(), p34.get_xy(), p38.get_xy()])
-                testPoly22 = Polygon([p38.get_xy(), p33.get_xy(), p35.get_xy(), p39.get_xy()])
-                testPoly23 = Polygon([p38.get_xy(), p34.get_xy(), p36.get_xy(), p39.get_xy()])
-                testPoly24 = Polygon([p39.get_xy(), p35.get_xy(), p23.get_xy(), p40.get_xy()])
-                testPoly25 = Polygon([p39.get_xy(), p40.get_xy(), p24.get_xy(), p36.get_xy()])
-                bodyPoly = Polygon([p12.get_xy(), p11.get_xy(), p23.get_xy(), p24.get_xy()])
-                '''
             p34, p36 = three_equal_point(p12, p24)
             p33, p35 = three_equal_point(p11, p23)
             p37 = half_point(p11, p12)
@@ -385,8 +220,6 @@ while True:
                 s23 = intersection_area(handBboxPoly2, testPoly23)
                 s24 = intersection_area(handBboxPoly2, testPoly24)
                 s25 = intersection_area(handBboxPoly2, testPoly25)
-
-                    
             dict_position = [
                 {'position': 0, 'area': s0, 'vertex': s0_vertex},
                 {'position': 1, 'area': s1, 'vertex': s1_vertex},
