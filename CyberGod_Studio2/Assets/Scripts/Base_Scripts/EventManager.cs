@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using System.Collections.Generic; // Add this line
+using System.Text;
 
 
 public class GameEventArgs : EventArgs
@@ -70,6 +71,7 @@ public class EventManager : MonoBehaviour
             thisEvent += listener;
             eventManager.eventDictionary.Add(eventName, thisEvent);
         }
+		ExportEventList();
     }
 
     public void RemoveEvent(string eventName, Action<GameEventArgs> listener)
@@ -94,6 +96,29 @@ public class EventManager : MonoBehaviour
             thisEvent.Invoke(eventArgs);
         }
     }
+
+	//将所有事件的列表写一个文件，导出
+	public void ExportEventList()
+	{
+    	StringBuilder sb = new StringBuilder();
+
+    	foreach (var eventItem in eventDictionary)
+    	{
+        	sb.AppendLine($"Event: {eventItem.Key}");
+
+        	foreach (var listener in eventItem.Value.GetInvocationList())
+        	{
+            	sb.AppendLine($"Listener: {listener.Method.Name}");
+        	}
+
+        	sb.AppendLine();
+    	}
+		Debug.Log("Exported Event List");
+    	System.IO.File.WriteAllText("Assets/Scripts/EventList.txt", sb.ToString());//覆盖写入
+	}
+
+	
+	
 }
 
 

@@ -1,0 +1,12 @@
+Event: HealthChange
+Listener: OnHealthChange
+
+Event: RepairChange
+Listener: OnRepairChange
+
+Event: SpiritChange
+Listener: OnSpiritChange
+
+Event: MotionCaptureInput
+Listener: OnMotionCaptureInput
+
