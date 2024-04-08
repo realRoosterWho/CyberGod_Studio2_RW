@@ -40,4 +40,10 @@ public class ErrorLogic : MonoBehaviour
         EventManager.Instance.TriggerEvent("HealthChange", args);
         // Debug.Log($"HealthChange: {args.FloatValue}");
     }
+
+	//他自杀了qwq
+	public void DestroyError()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -100,6 +100,6 @@ public class Input_Handler : MonoBehaviour
         // Get the Vector3 value from the GameEventArgs
        	float motionCaptureInput = args.FloatValue;
         
-		Debug.Log("Motion Capture Input: " + motionCaptureInput);
+		// Debug.Log("Motion Capture Input: " + motionCaptureInput);
     }
 }
