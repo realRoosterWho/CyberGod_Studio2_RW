@@ -5,8 +5,8 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-using System.Text.RegularExpressions;
-using UnityEngine.UIElements;
+//using System.Text.RegularExpressions;
+//using UnityEngine.UIElements;
 
 public class U2PThread : MonoBehaviour
 {
@@ -50,7 +50,6 @@ public class U2PThread : MonoBehaviour
                 float handX = float.Parse(newdata[4]);      //右手相对横坐标，需要乘以光标移动范围宽度食用
                 float handY = float.Parse(newdata[5]);      //右手相对纵坐标，需要乘以光标移动范围长度食用
                 
-                /*
 				data = data.Replace("[", "");
 				data = data.Replace("]", "");
 				float dataFloat = float.Parse(data);
