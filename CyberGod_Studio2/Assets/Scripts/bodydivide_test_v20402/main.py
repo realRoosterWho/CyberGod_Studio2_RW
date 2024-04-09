@@ -268,7 +268,8 @@ if __name__ == "__main__":
                 # 4whether knees out of img
                 knee_in = p26.whether_in_image() * p25.whether_in_image()
 
-                data = np.array([position, if_correct_capture, knee_in, hand_in, hand_x, hand_y])
+                data = np.array([position])
+                print(data)
                 sock.sendto(str.encode(str(data)), serverAddressPort) #send info to unity
 
 
