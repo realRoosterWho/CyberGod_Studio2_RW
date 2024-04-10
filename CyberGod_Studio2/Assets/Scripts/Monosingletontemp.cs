@@ -12,17 +12,20 @@ public class MonosingletonTemp<T> : MonoBehaviour where T : MonosingletonTemp<T>
 {
     private static T _instance;
 
-    public static T Instance    
+    public static T Instance
     {
         get
         {
             if (_instance == null)
             {
-                new GameObject(typeof(T).Name).AddComponent<T>(); 
+                GameObject singletonObject = new GameObject(typeof(T).Name); //创建一个新的GameObject
+                _instance = singletonObject.AddComponent<T>();//将脚本添加到GameObject上
+                DontDestroyOnLoad(singletonObject);
             }
             return _instance;
         }
     }
+
 
     void Awake()
     {
