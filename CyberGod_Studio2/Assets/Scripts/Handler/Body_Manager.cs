@@ -26,7 +26,7 @@ public class Body_Manager : SerializedMonoBehaviour
         }
         
         //TEST
-        GenerateRandomError();
+        // GenerateRandomError();
     }
 
 	void Update()
@@ -68,6 +68,7 @@ public class Body_Manager : SerializedMonoBehaviour
     public void GenerateRandomError()
     {
         bool errorGenerated = false;
+        int counter = 0;
 
         // 循环直到生成一个错误或遍历完所有身体部位
         while (!errorGenerated)
@@ -75,10 +76,19 @@ public class Body_Manager : SerializedMonoBehaviour
             var randomIndex = Random.Range(0, bodyPartLogics.Count);
             var randomBodyPart = bodyPartLogics.Values.ElementAt(randomIndex);
 
-            if (randomBodyPart.hasError)
+            if (!randomBodyPart.hasError)
             {
                 randomBodyPart.GenerateError();
                 errorGenerated = true; // 设置标志位表示已生成错误
+            }
+
+            counter++;
+
+            //如果已经遍历完所有身体部位，或者循环次数超过了bodyPartLogics的数量，退出循环
+            if (bodyPartLogics.Values.All(bodyPart => bodyPart.hasError) || counter >= bodyPartLogics.Count)
+            {
+                Debug.Log("All body parts have errors or looped through all body parts");
+                break;
             }
         }
     }

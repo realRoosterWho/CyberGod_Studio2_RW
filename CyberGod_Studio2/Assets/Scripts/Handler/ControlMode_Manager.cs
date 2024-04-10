@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControlMode_Manager : MonoBehaviour
+//定义一个枚举类型，用于表示当前的控制模式
+public enum ControlMode
 {
+    NAVIGATION,
+    REPAIRING,
+    DIALOGUE,
+    NORMAL
+}
+public class ControlMode_Manager : MonosingletonTemp<ControlMode_Manager>
+{
+    [SerializeField] Input_Handler m_inputHandler;
     
-    //定义一个枚举类型，用于表示当前的控制模式
-    public enum ControlMode
-    {
-        NAVIGATION,
-        REPAIRING,
-        DIALOGUE
-    }
+
     
     //定义当前的控制模式
     [SerializeField] private ControlMode m_controlMode = ControlMode.NAVIGATION;
@@ -32,5 +35,24 @@ public class ControlMode_Manager : MonoBehaviour
     public void ChangeControlMode(ControlMode controlMode)
     {
         m_controlMode = controlMode;
+        
+        //根据对应的控制模式，发布相应的事件//     EventManager.Instance.TriggerEvent("OnMove", args);
+        switch (m_controlMode)
+        {
+            case ControlMode.NAVIGATION:
+                EventManager.Instance.TriggerEvent("NavigationMode", new GameEventArgs());
+                break;
+            case ControlMode.REPAIRING:
+                EventManager.Instance.TriggerEvent("RepairingMode", new GameEventArgs());
+                break;
+            case ControlMode.DIALOGUE:
+                EventManager.Instance.TriggerEvent("DialogueMode", new GameEventArgs());
+                break;
+            case ControlMode.NORMAL:
+                EventManager.Instance.TriggerEvent("NormalMode", new GameEventArgs());
+                break;
+        }
+        
+        
     }
 }

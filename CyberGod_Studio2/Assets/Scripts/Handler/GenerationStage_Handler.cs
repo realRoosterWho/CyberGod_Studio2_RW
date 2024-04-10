@@ -6,7 +6,7 @@ public class GenerationStage_Handler : MonoBehaviour
 {
     [SerializeField]Body_Manager m_bodyManager;
     
-    const float GENERATION_INTERVAL = 5.0f;
+    const float GENERATION_INTERVAL = 10.0f;
     private float m_generationTimer = 0.0f;
     
     // Start is called before the first frame update

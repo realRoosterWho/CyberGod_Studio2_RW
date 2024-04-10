@@ -26,7 +26,7 @@ public class Body_Logic : MonoBehaviour
 	//生成计时器ActiveTimer
 	private float m_ActiveTimer = 0.0f;
 
-	const float DESTROY_TIME = 3.0f;
+	const float DESTROY_TIME = 1.0f;
 
     void Start()
     {

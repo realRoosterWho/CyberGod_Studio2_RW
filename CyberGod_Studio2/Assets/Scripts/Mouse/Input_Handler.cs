@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class Input_Handler : MonoBehaviour
 {
+    
+    private ControlMode m_controlMode = ControlMode.NAVIGATION;
     private float distanceX = 0f;
     private float distanceY = 0f;
     private float XMAX = 500.0f;
@@ -16,11 +18,15 @@ public class Input_Handler : MonoBehaviour
 
     void Start()
     {
-        // Lock the cursor to the center of the screen at start
-        Cursor.lockState = CursorLockMode.Locked;
 
         // Subscribe to the MotionCapture_Input event
         EventManager.Instance.AddEvent("MotionCaptureInput", OnMotionCaptureInput);
+        
+        //监听三个ControlMode的事件
+        EventManager.Instance.AddEvent("NavigationMode", OnIntoNavigationMode);
+        EventManager.Instance.AddEvent("RepairingMode", OnIntoRepairingMode);
+        EventManager.Instance.AddEvent("DialogueMode", OnIntoDialogueMode);
+        EventManager.Instance.AddEvent("NormalMode", OnIntoNormalMode);
     }
 
     void Update()
@@ -34,18 +40,24 @@ public class Input_Handler : MonoBehaviour
         // Change scrollbar value
         ChangeScrollbarValue();
         
+        UpdateModeAction();
+        
         // Handle input locking
-        InputLock();
+        // InputLock();
     }
 
-    private void InputLock()
+    private void InputLock() //目前不适用
     {
         // Toggle cursor lock state on ESC key press
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = (Cursor.lockState == CursorLockMode.Locked) ? CursorLockMode.None : CursorLockMode.Locked;
         }
-        
+    }
+    
+    
+    private void ChangeLayer()
+    {
         // Reset distances on left mouse button click
         if (Input.GetMouseButtonDown(0))
         {
@@ -101,5 +113,67 @@ public class Input_Handler : MonoBehaviour
        	float motionCaptureInput = args.FloatValue;
         
 		// Debug.Log("Motion Capture Input: " + motionCaptureInput);
+    }
+        
+    //定义四个切换ControlMode的函数
+    private void OnIntoNavigationMode(GameEventArgs args)
+    {
+        m_controlMode = ControlMode.NAVIGATION;
+    }
+    
+    private void OnIntoRepairingMode(GameEventArgs args)
+    {
+        m_controlMode = ControlMode.REPAIRING;
+    }
+    
+    private void OnIntoDialogueMode(GameEventArgs args)
+    {
+        m_controlMode = ControlMode.DIALOGUE;
+    }
+    private void OnIntoNormalMode(GameEventArgs args)
+    {
+        m_controlMode = ControlMode.NORMAL;
+    }
+    
+    //定义四个函数，用于执行在不同m_conotrolMode = ControlMode下的操作
+    private void NavigationMode()
+    {
+        // Debug.Log("Navigation Mode");
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+    
+    private void RepairingMode()
+    {
+        // Debug.Log("Repairing Mode");
+    }
+    
+    private void DialogueMode()
+    {
+        // Debug.Log("Dialogue Mode");
+    }
+    
+    private void NormalMode()
+    {
+        // Debug.Log("Normal Mode");
+    }
+    
+    //Update函数，如果当前的m_controlMode = ControlMode，就执行对应的函数
+    void UpdateModeAction()
+    {
+        switch (m_controlMode)
+        {
+            case ControlMode.NAVIGATION:
+                NavigationMode();
+                break;
+            case ControlMode.REPAIRING:
+                RepairingMode();
+                break;
+            case ControlMode.DIALOGUE:
+                DialogueMode();
+                break;
+            case ControlMode.NORMAL:
+                NormalMode();
+                break;
+        }
     }
 }
