@@ -17,7 +17,7 @@ public class ControlMode_Manager : MonosingletonTemp<ControlMode_Manager>
 
     
     //定义当前的控制模式
-    [SerializeField] private ControlMode m_controlMode = ControlMode.NAVIGATION;
+    [SerializeField] public ControlMode m_controlMode = ControlMode.NAVIGATION;
     
     // Start is called before the first frame update
     void Start()
