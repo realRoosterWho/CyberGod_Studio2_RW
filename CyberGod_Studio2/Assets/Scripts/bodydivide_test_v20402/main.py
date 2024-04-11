@@ -157,14 +157,16 @@ def draw_box(vertexlist, color):
 if __name__ == "__main__":
     while True:
         success, img = capture.read()
+        camera_on = 0
+        bbox_on = 0
         position = 99
-        if_correct_capture = 0
         knee_in = 0
         hand_in = 0
         hand_x = 0
         hand_y = 0
 
         if success:
+            camera_on = 1
             # mirror the image
             img = cv2.flip(img, flipCode=1)
             img = poseDetector.findPose(img)
@@ -180,7 +182,7 @@ if __name__ == "__main__":
                 p9 = DirectPoint(lmList, 9, img.shape[0])
                 p10 = DirectPoint(lmList, 10, img.shape[0])
                 if Position(p11, p12).length_of_vector() > 100 and min(p10.y, p9.y) > p0.y:
-                    if_correct_capture = 1
+                    bbox_on = 1
                     p14 = DirectPoint(lmList, 14, img.shape[0])
                     p16 = DirectPoint(lmList, 16, img.shape[0])
                     p23 = DirectPoint(lmList, 23, img.shape[0])
@@ -223,62 +225,65 @@ if __name__ == "__main__":
                     Poly1 = Polygon(s1_vertex)
                     Poly2 = Polygon(s2_vertex)
                     Poly3 = Polygon(s3_vertex)
-                    # intersection with arms
-                    s0 = intersection_area(handBboxPoly2, Poly0)
-                    s1 = intersection_area(handBboxPoly2, Poly1)
-                    s2 = intersection_area(handBboxPoly2, Poly2)
-                    s3 = intersection_area(handBboxPoly2, Poly3)
-                    s20 = 0
-                    s21 = 0
-                    s22 = 0
-                    s23 = 0
-                    s24 = 0
-                    s25 = 0
-                    # hand inside body
-                    # if bodyPoly.intersects(handBboxPoly2):
-                    s20 = intersection_area(handBboxPoly2, testPoly20)
-                    s21 = intersection_area(handBboxPoly2, testPoly21)
-                    s22 = intersection_area(handBboxPoly2, testPoly22)
-                    s23 = intersection_area(handBboxPoly2, testPoly23)
-                    s24 = intersection_area(handBboxPoly2, testPoly24)
-                    s25 = intersection_area(handBboxPoly2, testPoly25)
-                    dict_position = [
-                        {'position': 0, 'area': s0, 'vertex': s0_vertex},
-                        {'position': 1, 'area': s1, 'vertex': s1_vertex},
-                        {'position': 2, 'area': s2, 'vertex': s2_vertex},
-                        {'position': 3, 'area': s3, 'vertex': s3_vertex},
-                        {'position': 20, 'area': s20, 'vertex': [p37.get_xy(), p11.get_xy(), p33.get_xy(), p38.get_xy()]},
-                        {'position': 21, 'area': s21, 'vertex': [p37.get_xy(), p12.get_xy(), p34.get_xy(), p38.get_xy()]},
-                        {'position': 22, 'area': s22, 'vertex': [p38.get_xy(), p33.get_xy(), p35.get_xy(), p39.get_xy()]},
-                        {'position': 23, 'area': s23, 'vertex': [p38.get_xy(), p34.get_xy(), p36.get_xy(), p39.get_xy()]},
-                        {'position': 24, 'area': s24, 'vertex': [p39.get_xy(), p35.get_xy(), p23.get_xy(), p40.get_xy()]},
-                        {'position': 25, 'area': s25, 'vertex': [p39.get_xy(), p40.get_xy(), p24.get_xy(), p36.get_xy()]}]
-                    max_position = max(dict_position, key=lambda x: x['area'])
-                    # 1determine the value position
-                    if max_position['area'] != 0:
-                        position = max_position['position']
-                        draw_box(max_position['vertex'], (255, 0, 0))
+                    # is all polygons valid?
+                    if (
+                            handBboxPoly2.is_valid and testPoly20.is_valid and testPoly21.is_valid
+                            and testPoly22.is_valid and testPoly23.is_valid and testPoly24.is_valid
+                            and testPoly25.is_valid and bodyPoly.is_valid
+                        ):
+                        # intersection with arms
+                        s0 = intersection_area(handBboxPoly2, Poly0)
+                        s1 = intersection_area(handBboxPoly2, Poly1)
+                        s2 = intersection_area(handBboxPoly2, Poly2)
+                        s3 = intersection_area(handBboxPoly2, Poly3)
+                        s20 = 0
+                        s21 = 0
+                        s22 = 0
+                        s23 = 0
+                        s24 = 0
+                        s25 = 0
+                        # hand inside body
+                        # if bodyPoly.intersects(handBboxPoly2):
+                        s20 = intersection_area(handBboxPoly2, testPoly20)
+                        s21 = intersection_area(handBboxPoly2, testPoly21)
+                        s22 = intersection_area(handBboxPoly2, testPoly22)
+                        s23 = intersection_area(handBboxPoly2, testPoly23)
+                        s24 = intersection_area(handBboxPoly2, testPoly24)
+                        s25 = intersection_area(handBboxPoly2, testPoly25)
+                        dict_position = [
+                            {'position': 0, 'area': s0, 'vertex': s0_vertex},
+                            {'position': 1, 'area': s1, 'vertex': s1_vertex},
+                            {'position': 2, 'area': s2, 'vertex': s2_vertex},
+                            {'position': 3, 'area': s3, 'vertex': s3_vertex},
+                            {'position': 20, 'area': s20, 'vertex': [p37.get_xy(), p11.get_xy(), p33.get_xy(), p38.get_xy()]},
+                            {'position': 21, 'area': s21, 'vertex': [p37.get_xy(), p12.get_xy(), p34.get_xy(), p38.get_xy()]},
+                            {'position': 22, 'area': s22, 'vertex': [p38.get_xy(), p33.get_xy(), p35.get_xy(), p39.get_xy()]},
+                            {'position': 23, 'area': s23, 'vertex': [p38.get_xy(), p34.get_xy(), p36.get_xy(), p39.get_xy()]},
+                            {'position': 24, 'area': s24, 'vertex': [p39.get_xy(), p35.get_xy(), p23.get_xy(), p40.get_xy()]},
+                            {'position': 25, 'area': s25, 'vertex': [p39.get_xy(), p40.get_xy(), p24.get_xy(), p36.get_xy()]}]
+                        max_position = max(dict_position, key=lambda x: x['area'])
+                        # 1determine the value position
+                        if max_position['area'] != 0:
+                            position = max_position['position']
+                            draw_box(max_position['vertex'], (255, 0, 0))
 
-                    # 2determine the value if_correct_capture
+                        # 2determine the value if_correct_capture
 
-                    # 3whether right hand in img and determine the value x&y(relative position)
-                    hand_in = p17.whether_in_image()
-                    if hand_in == 1:
-                        hand_x = handbox[0][0]/img.shape[1]
-                        # inverse y
-                        hand_y = (img.shape[0] - handbox[0][1])/img.shape[0]
-                    else:
-                        hand_x = -1.
-                        hand_y = -1.
+                        # 3whether right hand in img and determine the value x&y(relative position)
+                        hand_in = p17.whether_in_image()
+                        if hand_in == 1:
+                            hand_x = handbox[0][0]/img.shape[1]
+                            # inverse y
+                            hand_y = (img.shape[0] - handbox[0][1])/img.shape[0]
+                        else:
+                            hand_x = -1.
+                            hand_y = -1.
 
-                    # 4whether knees out of img
-                    knee_in = p26.whether_in_image() * p25.whether_in_image()
-                else:
-                    print('wrong capture')
+                        # 4whether knees out of img
+                        knee_in = p26.whether_in_image() * p25.whether_in_image()
 
-                data = np.array([position, if_correct_capture, knee_in, hand_in, hand_x, hand_y])
-                sock.sendto(str.encode(str(data)), serverAddressPort) #send info to unity
-
+        data = np.array([bbox_on, camera_on,  position, knee_in, hand_in, hand_x, hand_y])
+        sock.sendto(str.encode(str(data)), serverAddressPort) #send info to unity
 
 
         cv2.imshow("image", img)
