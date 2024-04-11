@@ -30,16 +30,9 @@ public class Input_Handler : MonoBehaviour
     }
 
     void Update()
-    {
-        // Track mouse movement
-        TrackMouseMovement();
-        
-        // Check if the mouse has moved the maximum distance
-        CheckMaxDistance();
-        
+    {   
         // Change scrollbar value
-        ChangeScrollbarValue();
-        
+        DisplayScrollbarValue();
         UpdateModeAction();
         
         // Handle input locking
@@ -97,9 +90,14 @@ public class Input_Handler : MonoBehaviour
         
         // Reset distances
         ResetDistances();
+
+		//发生事件：SomethingRepaired
+		EventManager.Instance.TriggerEvent("SomethingRepaired", new GameEventArgs());
+		// Changeto Navigation Mode
+		ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
     }
 
-    private void ChangeScrollbarValue()
+    private void DisplayScrollbarValue()
     {
         float x_percent = distanceX / XMAX;
         float y_percent = distanceY / YMAX;
@@ -145,6 +143,12 @@ public class Input_Handler : MonoBehaviour
     private void RepairingMode()
     {
         // Debug.Log("Repairing Mode");
+		Cursor.lockState = CursorLockMode.Locked;
+		// Track mouse movement
+        TrackMouseMovement();
+		// Check if the mouse has moved the maximum distance
+        CheckMaxDistance();
+
     }
     
     private void DialogueMode()

@@ -10,6 +10,7 @@ public class Body_Manager : SerializedMonoBehaviour
     [SerializeField] private Dictionary<string, GameObject> bodyParts = new Dictionary<string, GameObject>();
     private Dictionary<string, Body_Logic> bodyPartLogics = new Dictionary<string, Body_Logic>();
 	private Body_Logic bodylogic;
+	private GameEventArgs m_args;
 
 
     void Start()
@@ -31,12 +32,29 @@ public class Body_Manager : SerializedMonoBehaviour
 
 	void Update()
 	{
-	
+		//如果ControllerMode是NAVIGATION，那么就调用HandleMotionCaptureInput函数
+		if (ControlMode_Manager.Instance.m_controlMode == ControlMode.NAVIGATION)
+        {
+            HandleMotionCaptureInput(m_args);
+        }
+		
+		//HandleMotionCaptureInput(m_args);
 	}
 
     void OnMotionCaptureInput(GameEventArgs args)
     {
-        MainThreadDispatcher.ExecuteInUpdate(() =>
+		m_args = args;
+    }
+
+	void HandleMotionCaptureInput(GameEventArgs args)
+    {
+		//如果没有传入参数，直接返回
+		if (args == null)
+		{
+		    return;
+		}
+
+    	MainThreadDispatcher.ExecuteInUpdate(() =>
 		{
             string arg_key = args.FloatValue.ToString();
 

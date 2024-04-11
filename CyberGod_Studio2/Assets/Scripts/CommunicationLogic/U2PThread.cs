@@ -43,7 +43,7 @@ public class U2PThread : MonoBehaviour
 
                 string[] newdata = Regex.Split(data, "\\s+", RegexOptions.IgnoreCase);
 
-                float dataFloat = float.Parse(newdata[0]);   //右手所处部位编号，默认99
+                float handPosData = float.Parse(newdata[0]);   //右手所处部位编号，默认99
                 float ifCorrectCapture = float.Parse(newdata[1]);   //（未设定）动捕是否出现问题，默认1
                 float kneeIn = float.Parse(newdata[2]);     //膝盖处标记点是否在画面内：是-1，否-0
                 float handIn = float.Parse(newdata[3]);     //右手是否在画面内：是-1，否-0
@@ -56,7 +56,7 @@ public class U2PThread : MonoBehaviour
 				float dataFloat = float.Parse(data);
                 */
 
-				//SendData(dataFloat);
+				SendData(handPosData);
 
                 //Debug
                 //Debug.Log(data);
