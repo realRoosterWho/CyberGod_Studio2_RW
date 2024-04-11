@@ -157,7 +157,6 @@ def draw_box(vertexlist, color):
 if __name__ == "__main__":
     while True:
         success, img = capture.read()
-        camera_on = 0
         bbox_on = 0
         position = 99
         knee_in = 0
@@ -166,7 +165,6 @@ if __name__ == "__main__":
         hand_y = 0
 
         if success:
-            camera_on = 1
             # mirror the image
             img = cv2.flip(img, flipCode=1)
             img = poseDetector.findPose(img)
@@ -282,8 +280,8 @@ if __name__ == "__main__":
                         # 4whether knees out of img
                         knee_in = p26.whether_in_image() * p25.whether_in_image()
 
-        data = np.array([bbox_on, camera_on,  position, knee_in, hand_in, hand_x, hand_y])
-        sock.sendto(str.encode(str(data)), serverAddressPort) #send info to unity
+            data = np.array([bbox_on, position, knee_in, hand_in, hand_x, hand_y])
+            sock.sendto(str.encode(str(data)), serverAddressPort) #send info to unity
 
 
         cv2.imshow("image", img)
