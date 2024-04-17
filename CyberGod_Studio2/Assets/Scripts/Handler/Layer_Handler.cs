@@ -1,19 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+public enum Layer
+{
+    FLESH,
+    MACHINE,
+    NERVE
+}
 
-public class Layer_Handler : MonoBehaviour
+public class Layer_Handler : MonosingletonTemp<Layer_Handler>
 {
     //定义一个枚举类型，用于表示当前的层级
-    public enum Layer
-    {
-        FRESH,
-        MACHINE,
-        SOUL
-    }
+
     
     //定义当前的层级
-    [SerializeField] private Layer m_layer = Layer.FRESH;
+    [SerializeField] public Layer m_layer = Layer.FLESH;
     
     // Start is called before the first frame update
     void Start()

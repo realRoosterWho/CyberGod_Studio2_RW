@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Body_Logic : MonoBehaviour
+public class BodyPos_Logic : MonoBehaviour
 {
     public enum BodyState //这是一个枚举类型，用于表示身体的状态
     {
@@ -14,6 +14,8 @@ public class Body_Logic : MonoBehaviour
     public bool hasError = false;
 
     SpriteRenderer m_spriteRenderer;
+    
+    Layer m_layer = Layer.FLESH;
 
     [SerializeField]BodyState m_bodyState = BodyState.Inactive;
 	[SerializeField]BodyState m_bodyStateInput = BodyState.Inactive;
@@ -21,6 +23,9 @@ public class Body_Logic : MonoBehaviour
     //获取Error预制体
     [SerializeField] private GameObject m_errorPrefab;
     private GameObject m_error = null;
+    [SerializeField] private GameObject m_fleshlayer;
+    [SerializeField] private GameObject m_mechaniclayer;
+    [SerializeField] private GameObject m_nervelayer;
 
 	//生成计时器
 	private float m_Errortime = 0.0f;
@@ -35,11 +40,19 @@ public class Body_Logic : MonoBehaviour
         m_spriteRenderer = GetComponent<SpriteRenderer>();
 
 		EventManager.Instance.AddEvent("SomethingRepaired", OnSomethingRepaired);
+		
+		
+		//for test
+		// GenerateError();
     }
 
     void Update()
     {
-        UpdateBodyStateBehavior();//根据不同的状态，执行不同的操作
+        UpdateBodyStateBehavior();//根据不同的控制状态，执行不同的操作
+
+        UpdateLayerDisplay();
+        
+        
         UpdatehasError();//判断是否有Error，用作状态显示
 		UpdateErrorTimeCounting();//计时Error存在了多久，不过目前还没有用
 		UpdateActiveTimer();//计时当前Active了多久
@@ -67,8 +80,12 @@ public class Body_Logic : MonoBehaviour
     
     public void GenerateError()
     {
-        //生成一个Error，使之成为自己的子物体
-        m_error = Instantiate(m_errorPrefab, transform.position, Quaternion.identity);
+        //生成一个Error，使之成为m_fleshlayer的子物体
+        m_error = Instantiate(m_errorPrefab, m_fleshlayer.transform);
+        
+        //设置Error的位置与m_flshlayer的位置一致
+        m_error.transform.position = m_fleshlayer.transform.position;
+        
     }
     
     
@@ -83,7 +100,7 @@ public class Body_Logic : MonoBehaviour
     {
         ChangeColor(Color.white);
 		//透明度改为0.6
-		ChangeAlpha(0.6f);
+		ChangeAlpha(0.3f);
     }
 
 	public void OnBodyStateRepairing()
@@ -191,5 +208,35 @@ public class Body_Logic : MonoBehaviour
 			DestroyError();
 		}
     }
+
+	public void UpdateLayerDisplay()
+	{
+		m_layer = Layer_Handler.Instance.m_layer;
+		
+		//获取m_bodylayer, m_mechaniclayer, m_nervelayer的SpriteRenderer
+		SpriteRenderer fleshlayerSpriteRenderer = m_fleshlayer.GetComponent<SpriteRenderer>();
+		SpriteRenderer mechaniclayerSpriteRenderer = m_mechaniclayer.GetComponent<SpriteRenderer>();
+		SpriteRenderer nervelayerSpriteRenderer = m_nervelayer.GetComponent<SpriteRenderer>();
+		
+		//当是对应的层级的时候，打开SpriteRenderer，否则关闭
+		switch (m_layer)
+		{
+			case Layer.FLESH:
+				fleshlayerSpriteRenderer.enabled = true;
+				mechaniclayerSpriteRenderer.enabled = false;
+				nervelayerSpriteRenderer.enabled = false;
+				break;
+			case Layer.MACHINE:
+				fleshlayerSpriteRenderer.enabled = false;
+				mechaniclayerSpriteRenderer.enabled = true;
+				nervelayerSpriteRenderer.enabled = false;
+				break;
+			case Layer.NERVE:
+				fleshlayerSpriteRenderer.enabled = false;
+				mechaniclayerSpriteRenderer.enabled = false;
+				nervelayerSpriteRenderer.enabled = true;
+				break;
+		}
+	}
 	
 }

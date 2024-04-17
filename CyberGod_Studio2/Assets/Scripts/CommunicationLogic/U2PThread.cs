@@ -58,8 +58,15 @@ public class U2PThread : MonoBehaviour
 
 				SendData(handPosData);
 
-                //Debug
-                //Debug.Log(data);
+                //DebugNewData
+                Debug.Log(data);
+				Debug.Log("bbox_on: " + bbox_on);
+				Debug.Log("handPosData: " + handPosData);
+				Debug.Log("kneeIn: " + kneeIn);
+				Debug.Log("handIn: " + handIn);
+				Debug.Log("handX: " + handX);
+				Debug.Log("handY: " + handY);
+
             }
 			catch (Exception err)
             {

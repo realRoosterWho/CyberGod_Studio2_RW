@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a5b818b-8535-483f-973f-8569c77e527c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Scripts/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/Handler/BodyPos_Logic.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/fleshlayer_Logic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/fleshlayer_Logic.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/mechaniclayer_Logic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/mechaniclayer_Logic.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/nervelayer_Logic.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Scripts/nervelayer_Logic.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prefabs/Error.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Prefabs/Error.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/RW_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/RW_Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/CommunicationLogic/U2PThread.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/CommunicationLogic/U2PThread.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Handler/Body_Logic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Handler/BodyPos_Logic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Handler/Body_Logic.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Handler/Body_Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Handler/Body_Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Handler/Layer_Handler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Handler/Layer_Handler.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2fENfdpiypZuU7AjHuse4B1Nv3Y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "SystemDesign__2",
+    "last_opened_file_path": "/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-09665e90c3a7-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15026.15" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a5b818b-8535-483f-973f-8569c77e527c" name="Changes" comment="" />
+      <created>1713362381444</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713362381444</updated>
+      <workItem from="1713362382562" duration="301000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

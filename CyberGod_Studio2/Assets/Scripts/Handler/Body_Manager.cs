@@ -8,8 +8,8 @@ using System.Linq;
 public class Body_Manager : SerializedMonoBehaviour
 {
     [SerializeField] private Dictionary<string, GameObject> bodyParts = new Dictionary<string, GameObject>();
-    private Dictionary<string, Body_Logic> bodyPartLogics = new Dictionary<string, Body_Logic>();
-	private Body_Logic bodylogic;
+    private Dictionary<string, BodyPos_Logic> bodyPartLogics = new Dictionary<string, BodyPos_Logic>();
+	private BodyPos_Logic bodylogic;
 	private GameEventArgs m_args;
 
 
@@ -19,7 +19,7 @@ public class Body_Manager : SerializedMonoBehaviour
 		//初始化Body_Logic Dictionary
         foreach (var bodyPart in bodyParts)
         {
-            var bodyLogic = bodyPart.Value.GetComponent<Body_Logic>();
+            var bodyLogic = bodyPart.Value.GetComponent<BodyPos_Logic>();
             if (bodyLogic != null)
             {
                 bodyPartLogics.Add(bodyPart.Key, bodyLogic);
