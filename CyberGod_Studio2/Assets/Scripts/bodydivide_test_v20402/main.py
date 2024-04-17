@@ -271,8 +271,10 @@ if __name__ == "__main__":
                         hand_in = p17.whether_in_image()
                         if hand_in == 1:
                             hand_x = handbox[0][0]/img.shape[1]
+                            hand_x = round(hand_x, 4)
                             # inverse y
                             hand_y = (img.shape[0] - handbox[0][1])/img.shape[0]
+                            hand_y = round(hand_y, 4)
                         else:
                             hand_x = -1.
                             hand_y = -1.
@@ -281,6 +283,7 @@ if __name__ == "__main__":
                         knee_in = p26.whether_in_image() * p25.whether_in_image()
 
             data = np.array([bbox_on, position, knee_in, hand_in, hand_x, hand_y])
+            print(data)
             sock.sendto(str.encode(str(data)), serverAddressPort) #send info to unity
 
 
