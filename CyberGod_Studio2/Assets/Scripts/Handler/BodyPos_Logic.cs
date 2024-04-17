@@ -208,33 +208,41 @@ public class BodyPos_Logic : MonoBehaviour
 			DestroyError();
 		}
     }
+	
+	void EnableSpriteRenderers(SpriteRenderer[] spriteRenderers, bool enabled)
+	{
+		foreach (var spriteRenderer in spriteRenderers)
+		{
+			spriteRenderer.enabled = enabled;
+		}
+	}
 
 	public void UpdateLayerDisplay()
 	{
 		m_layer = Layer_Handler.Instance.m_layer;
 		
-		//获取m_bodylayer, m_mechaniclayer, m_nervelayer的SpriteRenderer
-		SpriteRenderer fleshlayerSpriteRenderer = m_fleshlayer.GetComponent<SpriteRenderer>();
-		SpriteRenderer mechaniclayerSpriteRenderer = m_mechaniclayer.GetComponent<SpriteRenderer>();
-		SpriteRenderer nervelayerSpriteRenderer = m_nervelayer.GetComponent<SpriteRenderer>();
+		// 获取m_fleshlayer, m_mechaniclayer, m_nervelayer及其子物体的SpriteRenderer
+		SpriteRenderer[] fleshlayerSpriteRenderers = m_fleshlayer.GetComponentsInChildren<SpriteRenderer>();
+		SpriteRenderer[] mechaniclayerSpriteRenderers = m_mechaniclayer.GetComponentsInChildren<SpriteRenderer>();
+		SpriteRenderer[] nervelayerSpriteRenderers = m_nervelayer.GetComponentsInChildren<SpriteRenderer>();
 		
 		//当是对应的层级的时候，打开SpriteRenderer，否则关闭
 		switch (m_layer)
 		{
 			case Layer.FLESH:
-				fleshlayerSpriteRenderer.enabled = true;
-				mechaniclayerSpriteRenderer.enabled = false;
-				nervelayerSpriteRenderer.enabled = false;
+				EnableSpriteRenderers(fleshlayerSpriteRenderers, true);
+				EnableSpriteRenderers(mechaniclayerSpriteRenderers, false);
+				EnableSpriteRenderers(nervelayerSpriteRenderers, false);
 				break;
 			case Layer.MACHINE:
-				fleshlayerSpriteRenderer.enabled = false;
-				mechaniclayerSpriteRenderer.enabled = true;
-				nervelayerSpriteRenderer.enabled = false;
+				EnableSpriteRenderers(fleshlayerSpriteRenderers, false);
+				EnableSpriteRenderers(mechaniclayerSpriteRenderers, true);
+				EnableSpriteRenderers(nervelayerSpriteRenderers, false);
 				break;
 			case Layer.NERVE:
-				fleshlayerSpriteRenderer.enabled = false;
-				mechaniclayerSpriteRenderer.enabled = false;
-				nervelayerSpriteRenderer.enabled = true;
+				EnableSpriteRenderers(fleshlayerSpriteRenderers, false);
+				EnableSpriteRenderers(mechaniclayerSpriteRenderers, false);
+				EnableSpriteRenderers(nervelayerSpriteRenderers, true);
 				break;
 		}
 	}
