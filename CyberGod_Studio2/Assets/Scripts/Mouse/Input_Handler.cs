@@ -36,7 +36,9 @@ public class Input_Handler : MonoBehaviour
         // Change scrollbar value
         DisplayScrollbarValue();
         UpdateModeAction();
-        
+
+        ChangeLayer();
+
         // Handle input locking
         // InputLock();
     }
@@ -53,8 +55,8 @@ public class Input_Handler : MonoBehaviour
     
     private void ChangeLayer()
     {
-        // Reset distances on left mouse button click
-        if (Input.GetMouseButtonDown(0))
+        //only work in Navigation Mode
+        if (m_controlMode == ControlMode.NAVIGATION && Input.GetMouseButtonDown(1))
         {
             m_layerHandler.SwitchLayer();
             ResetDistances();
