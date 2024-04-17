@@ -110,7 +110,7 @@ public class BodyPos_Logic : MonoBehaviour
 
     public void UpdateBodyStateBehavior()
     {
-        Debug.Log("UpdateBodyStateBehavior");
+        // Debug.Log("UpdateBodyStateBehavior");
 
         switch (m_bodyState) //根据不同的状态，执行不同的操作
         {
