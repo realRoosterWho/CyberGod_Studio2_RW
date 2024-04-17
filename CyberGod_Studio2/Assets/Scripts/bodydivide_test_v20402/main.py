@@ -10,6 +10,7 @@ from cvzone.PoseModule import PoseDetector
 import os
 from google.protobuf.json_format import MessageToDict
 
+np.set_printoptions(suppress=True)
 
 host = '127.0.0.1'
 port = 5005
