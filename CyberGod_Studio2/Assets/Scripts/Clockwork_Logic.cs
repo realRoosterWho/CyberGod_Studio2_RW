@@ -79,6 +79,7 @@ public class Clockwork_Logic : MonoBehaviour
         m_time += WINDINGSPEED * Time.deltaTime;
         if (m_time >= MAXTIME)
         {
+            EventManager.Instance.TriggerEvent("WindingToMax", new GameEventArgs());
             m_time = MAXTIME;
             m_clockworkState = ClockworkState.COUNTING;
         }
