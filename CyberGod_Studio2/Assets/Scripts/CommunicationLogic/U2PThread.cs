@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Text.RegularExpressions;
 using UnityEngine.UIElements;
+using System.Collections.Generic;
 
 public class U2PThread : MonoBehaviour
 {
@@ -40,8 +41,19 @@ public class U2PThread : MonoBehaviour
                 //现在data看起来像是[99.          1.          0.          1.          0.6984375   0.27083333]，去除中括号成为字符串
                 data = data.Replace("[", "");
                 data = data.Replace("]", "");
-
+                
                 string[] newdata = Regex.Split(data, "\\s+", RegexOptions.IgnoreCase);
+                if (newdata[0] == "")
+                {
+                    newdata[0] = newdata[1];
+                    newdata[1] = newdata[2];
+                    newdata[2] = newdata[3];
+                    newdata[3] = newdata[4];
+                    newdata[4] = newdata[5];
+                    newdata[5] = newdata[6];
+                }
+
+                // if (!string.IsNullOrEmpty(newdata[]))
 
                 float bbox_on = float.Parse(newdata[0]);   //是否正常动捕，为0时后续变量无效
                 float handPosData = float.Parse(newdata[1]);   //右手所处部位编号，默认99
@@ -50,18 +62,20 @@ public class U2PThread : MonoBehaviour
                 float handX = float.Parse(newdata[4]);      //右手相对横坐标，需要乘以光标移动范围宽度食用
                 float handY = float.Parse(newdata[5]);      //右手相对纵坐标，需要乘以光标移动范围长度食用
 
+
+                // Debug.Log(handPosData);
                 /*
 				data = data.Replace("[", "");
 				data = data.Replace("]", "");
 				float dataFloat = float.Parse(data);
                 */
 
-				SendData(handPosData);
+                SendData(handPosData);
 
                 //DebugNewData
     //             Debug.Log(data);
 				// Debug.Log("bbox_on: " + bbox_on);
-				Debug.Log("handPosData: " + handPosData);
+				//Debug.Log("handPosData: " + handPosData);
 				// Debug.Log("kneeIn: " + kneeIn);
 				// Debug.Log("handIn: " + handIn);
 				// Debug.Log("handX: " + handX);
