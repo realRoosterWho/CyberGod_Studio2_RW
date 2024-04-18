@@ -10,14 +10,20 @@ public enum ControlMode
     DIALOGUE,
     NORMAL
 }
+
+public enum RepairingSubMode
+{
+    ERROR_REPAIR,
+    CLOCKWORK_REPAIR,
+}
+
 public class ControlMode_Manager : MonosingletonTemp<ControlMode_Manager>
 {
     [SerializeField] Input_Handler m_inputHandler;
     
-
-    
     //定义当前的控制模式
     [SerializeField] public ControlMode m_controlMode = ControlMode.NAVIGATION;
+    [SerializeField] public RepairingSubMode m_repairingSubMode = RepairingSubMode.ERROR_REPAIR;
     
     // Start is called before the first frame update
     void Start()
@@ -52,7 +58,5 @@ public class ControlMode_Manager : MonosingletonTemp<ControlMode_Manager>
                 EventManager.Instance.TriggerEvent("NormalMode", new GameEventArgs());
                 break;
         }
-        
-        
     }
 }

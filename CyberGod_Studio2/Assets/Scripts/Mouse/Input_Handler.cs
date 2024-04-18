@@ -5,6 +5,7 @@ public class Input_Handler : MonoBehaviour
 {
     
     private ControlMode m_controlMode = ControlMode.NAVIGATION;
+    private RepairingSubMode m_repairingSubMode = RepairingSubMode.ERROR_REPAIR;
     private float distanceX = 0f;
     private float distanceY = 0f;
     private float XMAX = 500.0f;
@@ -36,7 +37,9 @@ public class Input_Handler : MonoBehaviour
         // Change scrollbar value
         DisplayScrollbarValue();
         UpdateModeAction();
-        
+
+        ChangeLayer();
+
         // Handle input locking
         // InputLock();
     }
@@ -53,8 +56,8 @@ public class Input_Handler : MonoBehaviour
     
     private void ChangeLayer()
     {
-        // Reset distances on left mouse button click
-        if (Input.GetMouseButtonDown(0))
+        //only work in Navigation Mode
+        if (m_controlMode == ControlMode.NAVIGATION && Input.GetMouseButtonDown(1))
         {
             m_layerHandler.SwitchLayer();
             ResetDistances();
@@ -146,10 +149,8 @@ public class Input_Handler : MonoBehaviour
     {
         // Debug.Log("Repairing Mode");
 		Cursor.lockState = CursorLockMode.Locked;
-		// Track mouse movement
-        TrackMouseMovement();
-		// Check if the mouse has moved the maximum distance
-        CheckMaxDistance();
+
+        UpdateRepairingModeAction();
 
     }
     
@@ -166,6 +167,7 @@ public class Input_Handler : MonoBehaviour
     //Update函数，如果当前的m_controlMode = ControlMode，就执行对应的函数
     void UpdateModeAction()
     {
+		m_controlMode = ControlMode_Manager.Instance.m_controlMode;
         switch (m_controlMode)
         {
             case ControlMode.NAVIGATION:
@@ -181,5 +183,32 @@ public class Input_Handler : MonoBehaviour
                 NormalMode();
                 break;
         }
+    }
+
+    void UpdateRepairingModeAction()
+    {
+        m_repairingSubMode = ControlMode_Manager.Instance.m_repairingSubMode;
+        switch (m_repairingSubMode)
+        {
+            case RepairingSubMode.ERROR_REPAIR:
+                ErrorRepair();
+                break;
+            case RepairingSubMode.CLOCKWORK_REPAIR:
+                ClockworkRepair();
+                break;
+        }
+    }
+    
+    void ErrorRepair()
+    {
+        // Track mouse movement
+        TrackMouseMovement();
+        // Check if the mouse has moved the maximum distance
+        CheckMaxDistance();
+    }
+    
+    void ClockworkRepair()
+    {
+        // Debug.Log("Clockwork Repair");
     }
 }
