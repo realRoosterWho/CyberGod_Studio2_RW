@@ -9,7 +9,6 @@ Listener: OnSomethingRepaired
 Listener: OnSomethingRepaired
 Listener: OnSomethingRepaired
 Listener: OnSomethingRepaired
-Listener: OnSomethingRepaired
 
 Event: HealthChange
 Listener: OnHealthChange

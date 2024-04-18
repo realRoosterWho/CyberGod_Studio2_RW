@@ -16,6 +16,7 @@ public class BodyPos_Logic : MonoBehaviour
     SpriteRenderer m_spriteRenderer;
     
     Layer m_layer = Layer.FLESH;
+    RepairingSubMode m_repairingSubMode = RepairingSubMode.ERROR_REPAIR;
 
     [SerializeField]BodyState m_bodyState = BodyState.Inactive;
 	[SerializeField]BodyState m_bodyStateInput = BodyState.Inactive;
@@ -50,7 +51,7 @@ public class BodyPos_Logic : MonoBehaviour
     {
         UpdateBodyStateBehavior();//根据不同的控制状态，执行不同的操作
 
-        UpdateLayerDisplay();
+        UpdateLayer();
         
         
         UpdatehasError();//判断是否有Error，用作状态显示
@@ -217,18 +218,52 @@ public class BodyPos_Logic : MonoBehaviour
 		}
 	}
 
+	public void UpdateLayer()
+	{
+		m_layer = Layer_Handler.Instance.m_layer;
+		m_repairingSubMode = ControlMode_Manager.Instance.m_repairingSubMode;
+		UpdateLayerDisplay();
+		
+		//当是对应的层级的时候，打开SpriteRenderer，否则关闭
+		switch (m_layer)
+		{
+			case Layer.FLESH:
+				OnFleshLayer();
+				break;
+			case Layer.MACHINE:
+				OnMachineLayer();
+				break;
+			case Layer.NERVE:
+				OnNerveLayer();
+				break;
+		}
+	}
+	
+	private void OnFleshLayer()
+	{
+
+	}
+	
+	private void OnMachineLayer()
+	{
+
+	}
+	
+	private void OnNerveLayer()
+	{
+
+	}
+
 	public void UpdateLayerDisplay()
 	{
 		m_layer = Layer_Handler.Instance.m_layer;
-		
+
 		// 获取m_fleshlayer, m_mechaniclayer, m_nervelayer及其子物体的所有Renderer
 		Renderer[] fleshlayerRenderers = m_fleshlayer.GetComponentsInChildren<Renderer>();
 		Renderer[] mechaniclayerRenderers = m_mechaniclayer.GetComponentsInChildren<Renderer>();
 		Renderer[] nervelayerRenderers = m_nervelayer.GetComponentsInChildren<Renderer>();
-		
-		
-		
-		//当是对应的层级的时候，打开SpriteRenderer，否则关闭
+
+		// 当是对应的层级的时候，打开Renderer，否则关闭
 		switch (m_layer)
 		{
 			case Layer.FLESH:
@@ -248,5 +283,4 @@ public class BodyPos_Logic : MonoBehaviour
 				break;
 		}
 	}
-	
 }
