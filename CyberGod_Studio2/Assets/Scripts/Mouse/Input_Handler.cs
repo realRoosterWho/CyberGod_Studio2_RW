@@ -8,8 +8,12 @@ public class Input_Handler : MonoBehaviour
     private RepairingSubMode m_repairingSubMode = RepairingSubMode.ERROR_REPAIR;
     private float distanceX = 0f;
     private float distanceY = 0f;
-    private float XMAX = 500.0f;
-    private float YMAX = 500.0f;
+    private float XMAX = 2500.0f;
+    private float YMAX = 2500.0f;
+    
+    private Vector2 lastMouseMovement;
+    private float lastFrameTime;
+    private float m_mousespeed;
 
     // Reference to Health_Handler script
     [SerializeField] private Health_Handler m_healthHandler;
@@ -21,9 +25,15 @@ public class Input_Handler : MonoBehaviour
 
     void Start()
     {
-
+        
+        lastMouseMovement = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        lastFrameTime = Time.time;
+        
         // Subscribe to the MotionCapture_Input event
         EventManager.Instance.AddEvent("MotionCaptureInput", OnMotionCaptureInput);
+        
+        // Subscribe to the WindingToMax event
+        EventManager.Instance.AddEvent("WindingToMax", OnWindingToMax);
         
         //监听三个ControlMode的事件
         EventManager.Instance.AddEvent("NavigationMode", OnIntoNavigationMode);
@@ -37,6 +47,7 @@ public class Input_Handler : MonoBehaviour
         // Change scrollbar value
         DisplayScrollbarValue();
         UpdateModeAction();
+        CheckMouseSpeed();
 
         ChangeLayer();
 
@@ -73,6 +84,33 @@ public class Input_Handler : MonoBehaviour
         distanceX += Mathf.Abs(mouseX);
         distanceY += Mathf.Abs(mouseY);
     }
+    //检测鼠标运动的速度（通过平均值来计算）
+    private void CheckMouseSpeed()
+    {
+        Vector2 currentMouseMovement = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+        float currentFrameTime = Time.time;
+
+        // Calculate the distance moved by the mouse
+        float distanceMoved = Vector2.Distance(currentMouseMovement, lastMouseMovement);
+
+        // Calculate the time elapsed since the last frame
+        float timeElapsed = currentFrameTime - lastFrameTime;
+
+        // Calculate the speed of the mouse
+        float mouseSpeed = distanceMoved / timeElapsed;
+
+        mouseSpeed = mouseSpeed / 1000;
+        //取整
+        m_mousespeed = Mathf.Round(mouseSpeed * 100) / 100;
+        
+
+        // Print the mouse speed to the console
+        // Debug.Log("Mouse speed: " + m_mousespeed);
+
+        // Update the last mouse movement and last frame time
+        lastMouseMovement = currentMouseMovement;
+        lastFrameTime = currentFrameTime;
+    }
 
     private void ResetDistances()
     {
@@ -84,15 +122,21 @@ public class Input_Handler : MonoBehaviour
     {
         if (distanceX >= XMAX || distanceY >= YMAX)
         {
-            Repaired();
+            switch (m_repairingSubMode)
+            {
+                case RepairingSubMode.ERROR_REPAIR:
+                    ErrorRepaired();
+                    break;
+                case RepairingSubMode.CLOCKWORK_REPAIR:
+                    ResetDistances();
+                    break;
+            }
+            ErrorRepaired();
         }
     }
     
-    private void Repaired()
+    private void ErrorRepaired()
     {
-        // Call the ChangeRepair function from Health_Handler script with an input parameter of 10
-        m_healthHandler.ChangeRepair(10.0f);
-        
         // Reset distances
         ResetDistances();
 
@@ -209,6 +253,20 @@ public class Input_Handler : MonoBehaviour
     
     void ClockworkRepair()
     {
-        // Debug.Log("Clockwork Repair");
+        if (m_mousespeed < 5f)
+        {
+            Debug.Log("Mouse speed is too Low!");
+        }
+        else
+        {
+            //发生事件：SomethingRepaired
+            EventManager.Instance.TriggerEvent("SomethingRepaired", new GameEventArgs());
+        }
+    }
+    
+    void OnWindingToMax(GameEventArgs args)
+    {
+        // Changeto Navigation Mode
+        ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
     }
 }

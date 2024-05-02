@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health_Handler : MonoBehaviour
+public class Health_Handler : MonosingletonTemp<Health_Handler>
 {
     //定义一个类，用于表明当前生命值，维修值，精神值的状态名称，比如生命值为 Healthy,Indanger,Dead之类的
     public enum HealthStatus

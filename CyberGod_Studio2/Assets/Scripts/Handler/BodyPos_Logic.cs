@@ -27,6 +27,10 @@ public class BodyPos_Logic : MonoBehaviour
     [SerializeField] private GameObject m_fleshlayer;
     [SerializeField] private GameObject m_mechaniclayer;
     [SerializeField] private GameObject m_nervelayer;
+    
+    private fleshlayer_Logic m_fleshlayer_Logic;
+    private mechaniclayer_Logic m_mechaniclayer_Logic;
+    private nervelayer_Logic m_nervelayer_Logic;
 
 	//生成计时器
 	private float m_Errortime = 0.0f;
@@ -34,11 +38,16 @@ public class BodyPos_Logic : MonoBehaviour
 	//生成计时器ActiveTimer
 	private float m_ActiveTimer = 0.0f;
 
-	const float DESTROY_TIME = 1.0f;
+	const float ACTIVE_TIME = 1.0f;
 
     void Start()
     {
         m_spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        //get layerlogics
+        m_fleshlayer_Logic = m_fleshlayer.GetComponent<fleshlayer_Logic>();
+        m_mechaniclayer_Logic = m_mechaniclayer.GetComponent<mechaniclayer_Logic>();
+        m_nervelayer_Logic = m_nervelayer.GetComponent<nervelayer_Logic>();
 
 		EventManager.Instance.AddEvent("SomethingRepaired", OnSomethingRepaired);
 		
@@ -57,7 +66,6 @@ public class BodyPos_Logic : MonoBehaviour
         UpdatehasError();//判断是否有Error，用作状态显示
 		UpdateErrorTimeCounting();//计时Error存在了多久，不过目前还没有用
 		UpdateActiveTimer();//计时当前Active了多久
-		//CheckDestroyError();//检查是否需要销毁Error
 		CheckIntoRepair();//检查是否需要进入Repair状态
     }
     public void ChangeColor(Color color)
@@ -107,6 +115,8 @@ public class BodyPos_Logic : MonoBehaviour
 	public void OnBodyStateRepairing()
 	{
 	    ChangeColor(Color.green);
+
+	    OnSubRepairingMode();
 	}
 
     public void UpdateBodyStateBehavior()
@@ -170,34 +180,52 @@ public class BodyPos_Logic : MonoBehaviour
 		//如果我有Error我摧毁Error，如果没有我Debug
 		if (m_error != null)
         {
-            Destroy(m_error);
+            m_error.GetComponent<ErrorLogic>().DestroyError();
         }
         else
         {
             Debug.Log("No error to destroy");
         }
     }
-
-	//判断，如果有Error且ActivateTimer大于Destroytime
-    public void CheckDestroyError()
-    {
-        if (hasError && m_ActiveTimer > DESTROY_TIME)
-        {
-			DestroyError();
-        }
-    }
+    
 
 	//判断，如果有Error且ActiveTimer大于Destroytime
     public void CheckIntoRepair()
     {
-        if (hasError && m_ActiveTimer > DESTROY_TIME)
-        {
-		//进入Repair状态
-		ControlMode_Manager.Instance.ChangeControlMode(ControlMode.REPAIRING);
-		//我自己也进入Repair状态
-		m_bodyState = BodyState.Repairing;
-        }
+	    m_repairingSubMode = ControlMode_Manager.Instance.m_repairingSubMode;
+	    //针对不同的RepairingSubMode，进行不同的操作
+	    switch (m_repairingSubMode)
+	    {
+		    case RepairingSubMode.ERROR_REPAIR:
+			    if (hasError && m_ActiveTimer > ACTIVE_TIME)
+			    {
+				    //进入Repair状态
+				    ControlMode_Manager.Instance.ChangeControlMode(ControlMode.REPAIRING);
+				    //我自己也进入Repair状态
+				    m_bodyState = BodyState.Repairing;
+			    }
+			    break;
+		    
+		    case RepairingSubMode.CLOCKWORK_REPAIR:
+			    if (m_mechaniclayer_Logic.hasClockwork && m_ActiveTimer > ACTIVE_TIME)
+			    {
+				    //进入Repair状态
+				    ControlMode_Manager.Instance.ChangeControlMode(ControlMode.REPAIRING);
+				    //我自己也进入Repair状态
+				    m_bodyState = BodyState.Repairing;
+			    }
+			    break;
+	    }
     }
+    
+    public void CheckOutofRepair()
+	{
+		//如果我自己在Repair状态，但是Mode是NAVIGATION，那么我就进入Inactive状态
+		if (m_bodyState == BodyState.Repairing && ControlMode_Manager.Instance.m_controlMode == ControlMode.NAVIGATION)
+		{
+			m_bodyState = BodyState.Inactive;
+		}
+	}
 
 	//当有东西被修复时
 	public void OnSomethingRepaired(GameEventArgs args)
@@ -205,10 +233,45 @@ public class BodyPos_Logic : MonoBehaviour
 		//如果我自己在Repair状态，那么我就进入Inactive状态，并且我摧毁我的Error
 		if (m_bodyState == BodyState.Repairing)
 		{
-		    m_bodyState = BodyState.Inactive;
-			DestroyError();
+		    switch (m_repairingSubMode)
+		    {
+			    case RepairingSubMode.ERROR_REPAIR:
+				    DestroyError();
+				    m_bodyState = BodyState.Inactive;
+				    ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
+				    break;
+			    case RepairingSubMode.CLOCKWORK_REPAIR:
+				    ClockworkInput();
+				    break;
+		    }
 		}
     }
+
+	public void ClockworkInput()
+	{
+		//检查是否有Clockwork
+		if (!m_mechaniclayer_Logic.hasClockwork)
+		{
+			return;
+		}
+		
+		m_mechaniclayer_Logic.HandleClockworkInput();
+	}
+	
+	//写一个UpdateOnSubRepairingMode,在BodyState为Repairing的时候，调用这个函数，针对不同的SubMode进行不同的操作
+	public void OnSubRepairingMode()
+	{
+		m_repairingSubMode = ControlMode_Manager.Instance.m_repairingSubMode;
+		switch (m_repairingSubMode)
+		{
+			case RepairingSubMode.ERROR_REPAIR:
+				break;
+			case RepairingSubMode.CLOCKWORK_REPAIR:
+				m_mechaniclayer_Logic.ClockworkRepairing();
+				break;
+		}
+	}
+	
 	
 	void EnableRenderers(Renderer[] renderers, bool enabled)
 	{
@@ -241,12 +304,14 @@ public class BodyPos_Logic : MonoBehaviour
 	
 	private void OnFleshLayer()
 	{
-
+		//更新submode为Error
+		ControlMode_Manager.Instance.m_repairingSubMode = RepairingSubMode.ERROR_REPAIR;
 	}
 	
 	private void OnMachineLayer()
 	{
-
+		//更新submode为Clockwork
+		ControlMode_Manager.Instance.m_repairingSubMode = RepairingSubMode.CLOCKWORK_REPAIR;
 	}
 	
 	private void OnNerveLayer()

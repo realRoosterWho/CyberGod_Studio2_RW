@@ -27,6 +27,8 @@ public class Clockwork_Logic : MonoBehaviour
     private float m_time = 0.0f;
     private float m_damagetimer = 0.0f;
     
+    [SerializeField] private GameObject m_textMeshObject;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,16 @@ public class Clockwork_Logic : MonoBehaviour
     {
         UpdateShow();
         UpdateStatus();
+        
+        //如果时间小于10，那么打开TextMeshPro - Text组件,否则关闭
+        if (m_time < 10)
+        {
+            m_textMeshObject.SetActive(true);
+        }
+        else
+        {
+            m_textMeshObject.SetActive(false);
+        }
     }
     
     void UpdateShow()
@@ -79,6 +91,7 @@ public class Clockwork_Logic : MonoBehaviour
         m_time += WINDINGSPEED * Time.deltaTime;
         if (m_time >= MAXTIME)
         {
+            EventManager.Instance.TriggerEvent("WindingToMax", new GameEventArgs());
             m_time = MAXTIME;
             m_clockworkState = ClockworkState.COUNTING;
         }
