@@ -6,6 +6,7 @@ TagManager:
   tags:
   - 3DError
   - Box
+  - Error
   layers:
   - Default
   - TransparentFX
