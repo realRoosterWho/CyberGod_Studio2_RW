@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class BodyPos_Logic : MonoBehaviour
 {
@@ -12,15 +13,16 @@ public class BodyPos_Logic : MonoBehaviour
     }
     
     public bool hasError = false;
+    public bool m_canRender = true;
+    
 
     SpriteRenderer m_spriteRenderer;
+    private GameObject m_Body_Manager;
     
     Layer m_layer = Layer.FLESH;
     RepairingSubMode m_repairingSubMode = RepairingSubMode.ERROR_REPAIR;
 
     [SerializeField]BodyState m_bodyState = BodyState.Inactive;
-	[SerializeField]BodyState m_bodyStateInput = BodyState.Inactive;
-
     //获取Error预制体
     [SerializeField] private GameObject m_errorPrefab;
     private GameObject m_error = null;
@@ -32,6 +34,13 @@ public class BodyPos_Logic : MonoBehaviour
     private mechaniclayer_Logic m_mechaniclayer_Logic;
     private nervelayer_Logic m_nervelayer_Logic;
 
+    [SerializeField]private string m_bodynumber;
+
+    
+    
+    
+    
+    
 	//生成计时器
 	private float m_Errortime = 0.0f;
 
@@ -43,6 +52,18 @@ public class BodyPos_Logic : MonoBehaviour
     void Start()
     {
         m_spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        //从我的父亲获取Body_Manager
+        m_Body_Manager = transform.parent.gameObject;
+        //从Body_Mannager获取bodyParts
+        var m_bodyParts = m_Body_Manager.GetComponent<Body_Manager>().bodyParts;
+        var entry = m_bodyParts.FirstOrDefault(x => x.Value == gameObject);
+        if (entry.Value != null)
+        {
+	        m_bodynumber = entry.Key;
+        }
+        
+        // Debug.Log("Body number: " + m_bodynumber);
         
         //get layerlogics
         m_fleshlayer_Logic = m_fleshlayer.GetComponent<fleshlayer_Logic>();
@@ -64,8 +85,8 @@ public class BodyPos_Logic : MonoBehaviour
         
         
         UpdatehasError();//判断是否有Error，用作状态显示
-		UpdateErrorTimeCounting();//计时Error存在了多久，不过目前还没有用
-		UpdateActiveTimer();//计时当前Active了多久
+		// UpdateErrorTimeCounting();//计时Error存在了多久，不过目前还没有用
+		// UpdateActiveTimer();//计时当前Active了多久
 		CheckIntoRepair();//检查是否需要进入Repair状态
     }
     public void ChangeColor(Color color)
@@ -109,7 +130,7 @@ public class BodyPos_Logic : MonoBehaviour
     {
         ChangeColor(Color.white);
 		//透明度改为0.6
-		ChangeAlpha(0.3f);
+		ChangeAlpha(0.1f);
     }
 
 	public void OnBodyStateRepairing()
@@ -316,6 +337,9 @@ public class BodyPos_Logic : MonoBehaviour
 	
 	private void OnNerveLayer()
 	{
+		
+		//如果有错误，在NerveLayer上显示错误,否则显示正确
+		m_nervelayer_Logic.ChangeSprite(hasError ? 1 : 0); //这里的1和0是nervelayer_Logic中的m_sprites的索引
 
 	}
 
@@ -327,7 +351,17 @@ public class BodyPos_Logic : MonoBehaviour
 		Renderer[] fleshlayerRenderers = m_fleshlayer.GetComponentsInChildren<Renderer>();
 		Renderer[] mechaniclayerRenderers = m_mechaniclayer.GetComponentsInChildren<Renderer>();
 		Renderer[] nervelayerRenderers = m_nervelayer.GetComponentsInChildren<Renderer>();
-
+		
+		//如果canRender为false，那么关闭所有的Renderer
+		if (!m_canRender)
+		{
+			EnableRenderers(fleshlayerRenderers, false);
+			EnableRenderers(mechaniclayerRenderers, false);
+			EnableRenderers(nervelayerRenderers, false);
+			m_spriteRenderer.enabled = false;
+			return;
+		}
+		
 		// 当是对应的层级的时候，打开Renderer，否则关闭
 		switch (m_layer)
 		{
