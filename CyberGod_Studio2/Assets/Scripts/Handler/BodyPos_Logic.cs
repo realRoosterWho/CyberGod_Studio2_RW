@@ -9,13 +9,12 @@ public class BodyPos_Logic : MonoBehaviour
     {
         Active,
         Inactive,
-		Repairing
     }
     
     public bool hasError = false;
     public bool m_canRender = true;
     
-
+	public bool m_isRepairing = false;
     SpriteRenderer m_spriteRenderer;
     private GameObject m_Body_Manager;
     
@@ -86,7 +85,7 @@ public class BodyPos_Logic : MonoBehaviour
         
         UpdatehasError();//判断是否有Error，用作状态显示
 		// UpdateErrorTimeCounting();//计时Error存在了多久，不过目前还没有用
-		// UpdateActiveTimer();//计时当前Active了多久
+		UpdateActiveTimer();//计时当前Active了多久
 		CheckIntoRepair();//检查是否需要进入Repair状态
     }
     public void ChangeColor(Color color)
@@ -121,19 +120,16 @@ public class BodyPos_Logic : MonoBehaviour
     
     public void OnBodyStateActive()
     {
-        //将颜色改成十六进制992514
-		ChangeColor(new Color(0.6f, 0.145f, 0.081f));
-
+		ChangeAlpha(0.5f);
     }
     
     public void OnBodyStateInactive()
     {
-        ChangeColor(Color.white);
 		//透明度改为0.6
 		ChangeAlpha(0.1f);
     }
 
-	public void OnBodyStateRepairing()
+	public void OnIsRepairing()
 	{
 	    ChangeColor(Color.green);
 
@@ -152,9 +148,12 @@ public class BodyPos_Logic : MonoBehaviour
             case BodyState.Inactive:
                 OnBodyStateInactive();
                 break;
-			case BodyState.Repairing:
-			    OnBodyStateRepairing();
-			    break;
+
+        }
+        
+        if (m_isRepairing)
+        {
+	        OnIsRepairing();
         }
     }
     
@@ -218,12 +217,12 @@ public class BodyPos_Logic : MonoBehaviour
 	    switch (m_repairingSubMode)
 	    {
 		    case RepairingSubMode.ERROR_REPAIR:
-			    if (hasError && m_ActiveTimer > ACTIVE_TIME)
+			    if (hasError && Input.GetButton("Fire1") && m_bodyState == BodyState.Active)
 			    {
 				    //进入Repair状态
 				    ControlMode_Manager.Instance.ChangeControlMode(ControlMode.REPAIRING);
 				    //我自己也进入Repair状态
-				    m_bodyState = BodyState.Repairing;
+				    m_isRepairing = true;
 			    }
 			    break;
 		    
@@ -233,7 +232,7 @@ public class BodyPos_Logic : MonoBehaviour
 				    //进入Repair状态
 				    ControlMode_Manager.Instance.ChangeControlMode(ControlMode.REPAIRING);
 				    //我自己也进入Repair状态
-				    m_bodyState = BodyState.Repairing;
+				    m_isRepairing = true;
 			    }
 			    break;
 	    }
@@ -241,24 +240,27 @@ public class BodyPos_Logic : MonoBehaviour
     
     public void CheckOutofRepair()
 	{
-		//如果我自己在Repair状态，但是Mode是NAVIGATION，那么我就进入Inactive状态
-		if (m_bodyState == BodyState.Repairing && ControlMode_Manager.Instance.m_controlMode == ControlMode.NAVIGATION)
+		//如果我自己isrepairing == true，但是Mode是NAVIGATION，那么我就进入isrepairing == false
+		if (m_isRepairing == true && ControlMode_Manager.Instance.m_controlMode == ControlMode.NAVIGATION)
 		{
-			m_bodyState = BodyState.Inactive;
+			m_isRepairing = false;
 		}
 	}
 
 	//当有东西被修复时
 	public void OnSomethingRepaired(GameEventArgs args)
     {
-		//如果我自己在Repair状态，那么我就进入Inactive状态，并且我摧毁我的Error
-		if (m_bodyState == BodyState.Repairing)
+		//m_isRepairing == true，那么我就进入Inactive状态，并且我摧毁我的Error
+		if (m_isRepairing)
 		{
 		    switch (m_repairingSubMode)
 		    {
 			    case RepairingSubMode.ERROR_REPAIR:
 				    DestroyError();
 				    m_bodyState = BodyState.Inactive;
+				    m_isRepairing = false;
+				    //颜色改为白色
+				    ChangeColor(Color.white);
 				    ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
 				    break;
 			    case RepairingSubMode.CLOCKWORK_REPAIR:
