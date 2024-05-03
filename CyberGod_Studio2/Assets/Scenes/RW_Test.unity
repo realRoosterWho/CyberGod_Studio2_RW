@@ -630,6 +630,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: nervelayer_0
       objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0bf20470c333741b993c032fd869fe8e, type: 3}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 17b134a9620b94444b0ff25d72bcfc12, type: 3}
     - target: {fileID: 7178966726815924721, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -650,6 +662,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7178966726815924721, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb44326082be549188dda9053372cb37, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -797,11 +813,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  m_canRender: 1
+  m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
   m_fleshlayer: {fileID: 251826423}
   m_mechaniclayer: {fileID: 263699214}
   m_nervelayer: {fileID: 1598864535}
+  m_bodynumber: 
 --- !u!1 &429072329
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,11 +870,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  m_canRender: 1
+  m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
   m_fleshlayer: {fileID: 1623148745}
   m_mechaniclayer: {fileID: 1357167227}
   m_nervelayer: {fileID: 1372228343}
+  m_bodynumber: 
 --- !u!212 &429072332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1321,7 +1343,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743243644}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98a7b578cc240484c8d1faf0b8b2bb22, type: 3}
   m_Name: 
@@ -1549,6 +1571,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: nervelayer_25
       objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 36a86a1d6b91542dfa3c7e368a28017c, type: 3}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 782f0e25844eb489fb7218ff6884f291, type: 3}
     - target: {fileID: 7178966726815924721, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1569,6 +1603,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7178966726815924721, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb44326082be549188dda9053372cb37, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1920,11 +1958,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  m_canRender: 1
+  m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
   m_fleshlayer: {fileID: 1749654289}
   m_mechaniclayer: {fileID: 11930531}
   m_nervelayer: {fileID: 352486834}
+  m_bodynumber: 
 --- !u!212 &988656257
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2657,11 +2698,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  m_canRender: 1
+  m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
   m_fleshlayer: {fileID: 2101911111}
   m_mechaniclayer: {fileID: 468614977}
   m_nervelayer: {fileID: 2077085086}
+  m_bodynumber: 
 --- !u!212 &1149728773
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2900,11 +2944,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  m_canRender: 1
+  m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
   m_fleshlayer: {fileID: 877714501}
   m_mechaniclayer: {fileID: 1100124540}
   m_nervelayer: {fileID: 1149908542}
+  m_bodynumber: 
 --- !u!1001 &1168468373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3302,11 +3349,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  m_canRender: 1
+  m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
   m_fleshlayer: {fileID: 1850860572}
   m_mechaniclayer: {fileID: 1000188756}
   m_nervelayer: {fileID: 775111552}
+  m_bodynumber: 
 --- !u!1001 &1372228341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3475,11 +3525,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  m_canRender: 1
+  m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
   m_fleshlayer: {fileID: 1580982177}
   m_mechaniclayer: {fileID: 1818650310}
   m_nervelayer: {fileID: 1458884765}
+  m_bodynumber: 
 --- !u!1 &1406865430 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4823119418863305195, guid: befabdf3e9ed64aa1bf6d7f298e65581, type: 3}
@@ -3521,11 +3574,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  m_canRender: 1
+  m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
   m_fleshlayer: {fileID: 1781143958}
   m_mechaniclayer: {fileID: 891623860}
   m_nervelayer: {fileID: 1168468375}
+  m_bodynumber: 
 --- !u!212 &1418993473
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3648,6 +3704,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: nervelayer_21
       objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 66f7d3b95ceb84083ad1f22e0ccfc12e, type: 3}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: a19abf1b27a714ab9be037af0bef9912, type: 3}
     - target: {fileID: 7178966726815924721, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3660,6 +3728,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7178966726815924721, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb44326082be549188dda9053372cb37, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4034,11 +4106,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  m_canRender: 1
+  m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
   m_fleshlayer: {fileID: 1054666338}
   m_mechaniclayer: {fileID: 1749880578}
   m_nervelayer: {fileID: 1557241689}
+  m_bodynumber: 
 --- !u!1001 &1598864533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5580,11 +5655,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  m_canRender: 1
+  m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
   m_fleshlayer: {fileID: 2120659950}
   m_mechaniclayer: {fileID: 1406865430}
   m_nervelayer: {fileID: 1278874496}
+  m_bodynumber: 
 --- !u!1 &2069696386
 GameObject:
   m_ObjectHideFlags: 0
@@ -5720,6 +5798,10 @@ PrefabInstance:
     - target: {fileID: 5353338788154404376, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_Name
       value: nervelayer_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5865,6 +5947,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: nervelayer_20
       objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5232c5d24a4ac4a11886136297cb6fa1, type: 3}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: c2904562751ec4d86aeeba8bd07a22a5, type: 3}
     - target: {fileID: 7178966726815924721, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -5885,6 +5979,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7178966726815924721, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb44326082be549188dda9053372cb37, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

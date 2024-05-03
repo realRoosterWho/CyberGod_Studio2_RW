@@ -121,12 +121,14 @@ public class BodyPos_Logic : MonoBehaviour
     public void OnBodyStateActive()
     {
 		ChangeAlpha(0.5f);
+		m_nervelayer_Logic.isActivated = true;
     }
     
     public void OnBodyStateInactive()
     {
 		//透明度改为0.6
 		ChangeAlpha(0.1f);
+		m_nervelayer_Logic.isActivated = false;
     }
 
 	public void OnIsRepairing()
@@ -342,6 +344,8 @@ public class BodyPos_Logic : MonoBehaviour
 		
 		//如果有错误，在NerveLayer上显示错误,否则显示正确
 		m_nervelayer_Logic.ChangeSprite(hasError ? 1 : 0); //这里的1和0是nervelayer_Logic中的m_sprites的索引
+		//改变m_nervelayer的isError数值
+		m_nervelayer_Logic.isError = hasError;
 
 	}
 
@@ -353,6 +357,7 @@ public class BodyPos_Logic : MonoBehaviour
 		Renderer[] fleshlayerRenderers = m_fleshlayer.GetComponentsInChildren<Renderer>();
 		Renderer[] mechaniclayerRenderers = m_mechaniclayer.GetComponentsInChildren<Renderer>();
 		Renderer[] nervelayerRenderers = m_nervelayer.GetComponentsInChildren<Renderer>();
+
 		
 		//如果canRender为false，那么关闭所有的Renderer
 		if (!m_canRender)
@@ -360,7 +365,7 @@ public class BodyPos_Logic : MonoBehaviour
 			EnableRenderers(fleshlayerRenderers, false);
 			EnableRenderers(mechaniclayerRenderers, false);
 			EnableRenderers(nervelayerRenderers, false);
-			m_spriteRenderer.enabled = false;
+			m_spriteRenderer.enabled = true;
 			return;
 		}
 		

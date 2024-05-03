@@ -190,6 +190,11 @@ public class Body_Manager : SerializedMonoBehaviour
                 //把bodypart的bodypos_logic的canRender设置为false
                 bodyPart.Value.GetComponent<BodyPos_Logic>().m_canRender = false;
             }
+            //对于其他人，给true
+            else
+            {
+                bodyPart.Value.GetComponent<BodyPos_Logic>().m_canRender = true;
+            }
         }
     }
     
