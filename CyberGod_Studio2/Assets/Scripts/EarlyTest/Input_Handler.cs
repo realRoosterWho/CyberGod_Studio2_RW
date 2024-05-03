@@ -71,7 +71,6 @@ public class Input_Handler : MonoBehaviour
         if (m_controlMode == ControlMode.NAVIGATION && Input.GetMouseButtonDown(1))
         {
             m_layerHandler.SwitchLayer();
-            ResetDistances();
         }
     }
 

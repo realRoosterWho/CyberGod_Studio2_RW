@@ -47,28 +47,33 @@ public class RandomError : MonoBehaviour
         // show the hitting point when press W
         if (Input.GetKeyDown(KeyCode.W))
         {
-            // create random ray
-            RandomRay();
-            // draw the random ray
-            Debug.DrawRay(ray.origin, (end - origin), Color.red);
-            // inite the hit
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100))
-            {
-                // draw the ray
-                Debug.DrawLine(ray.origin, hit.point);
+            GenerateMeshError();
+        }
+    }
+    
+    public void GenerateMeshError()
+    {
+        // create random ray
+        RandomRay();
+        // draw the random ray
+        Debug.DrawRay(ray.origin, (end - origin), Color.red);
+        // inite the hit
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100))
+        {
+            // draw the ray
+            Debug.DrawLine(ray.origin, hit.point);
 
-                //create a son object error from prefab
-                GameObject tderror = Instantiate(prefab3DError, transform);
-                tderror.transform.localScale /= 2; // set the scale of error
+            //create a son object error from prefab
+            GameObject tderror = Instantiate(prefab3DError, transform);
+            tderror.transform.localScale /= 2; // set the scale of error
 
-                // get the hitting imformation
-                tderror.transform.position = hit.point;
-                tderror.transform.up = hit.normal;
+            // get the hitting imformation
+            tderror.transform.position = hit.point;
+            tderror.transform.up = hit.normal;
 
-                // settle the error sphere at the surface of neko
-                tderror.transform.Translate(Vector3.up * 0.5f * tderror.transform.localScale.y, Space.Self);    
-            }
+            // settle the error sphere at the surface of neko
+            tderror.transform.Translate(Vector3.up * 0.5f * tderror.transform.localScale.y, Space.Self);    
         }
     }
 

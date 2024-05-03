@@ -6,6 +6,11 @@ public class GenerationStage_Handler : MonoBehaviour
 {
     [SerializeField]Body_Manager m_bodyManager;
     
+    private ControlMode m_controlMode;
+    private RepairingSubMode m_repairingSubMode;
+    
+    [SerializeField] private Generation_MeshErrorGenerator m_meshErrorGenerator;
+    
     float m_generationInterval = 10.0f;
     
     [SerializeField] float m_generationInterval_expectation = 5f;
@@ -30,7 +35,7 @@ public class GenerationStage_Handler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateModeAction();
         GenerateError(m_isRandomTime, m_maxNumber);
         
         
@@ -66,5 +71,75 @@ public class GenerationStage_Handler : MonoBehaviour
             m_bodyManager.GenerateRandomError();
             m_generationTimer = 0.0f;
         }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    void UpdateModeAction()
+    {
+        m_controlMode = ControlMode_Manager.Instance.m_controlMode;
+        switch (m_controlMode)
+        {
+            case ControlMode.NAVIGATION:
+                NavigationMode();
+                break;
+            case ControlMode.REPAIRING:
+                RepairingMode();
+                break;
+            case ControlMode.DIALOGUE:
+                DialogueMode();
+                break;
+            case ControlMode.NORMAL:
+                NormalMode();
+                break;
+        }
+    }
+    //定义四个函数，用于执行在不同m_conotrolMode = ControlMode下的操作
+    private void NavigationMode()
+    {
+        // Debug.Log("Navigation Mode");
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+    
+    private void RepairingMode()
+    {
+        // Debug.Log("Repairing Mode");
+        Cursor.lockState = CursorLockMode.Locked;
+        UpdateRepairingModeAction();
+
+    }
+    
+    private void DialogueMode()
+    {
+        // Debug.Log("Dialogue Mode");
+    }
+    
+    private void NormalMode()
+    {
+        // Debug.Log("Normal Mode");
+    }
+    
+    void UpdateRepairingModeAction()
+    {
+        m_repairingSubMode = ControlMode_Manager.Instance.m_repairingSubMode;
+        switch (m_repairingSubMode)
+        {
+            case RepairingSubMode.ERROR_REPAIR:
+                MeshErrorGeneration();
+                break;
+            case RepairingSubMode.CLOCKWORK_REPAIR:
+                break;
+        }
+    }
+    
+    void MeshErrorGeneration()
+    {
+        m_meshErrorGenerator.GenerateMeshError();
     }
 }
