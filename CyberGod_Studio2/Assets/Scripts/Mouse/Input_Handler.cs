@@ -193,7 +193,6 @@ public class Input_Handler : MonoBehaviour
     {
         // Debug.Log("Repairing Mode");
 		Cursor.lockState = CursorLockMode.Locked;
-
         UpdateRepairingModeAction();
 
     }
