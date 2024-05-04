@@ -68,7 +68,16 @@ public class GenerationStage_Handler : MonoBehaviour
 
         if (m_generationTimer > MINIMAL_INTERVAL)
         {
-            m_bodyManager.GenerateRandomError();
+            //抽一个随机布尔值，如果为true，就生成一个在Flesh，否则在Machine
+            bool isFlesh = Random.Range(0, 2) == 0;
+            if (isFlesh)
+            {
+                m_bodyManager.GenerateRandomError("Flesh");
+            }
+            else
+            {
+                m_bodyManager.GenerateRandomError("Machine");
+            }
             m_generationTimer = 0.0f;
         }
     }

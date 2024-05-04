@@ -632,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_sprites.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_sprites.Array.data[0]
@@ -642,6 +642,10 @@ PrefabInstance:
       propertyPath: m_sprites.Array.data[1]
       value: 
       objectReference: {fileID: 21300000, guid: 17b134a9620b94444b0ff25d72bcfc12, type: 3}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
     - target: {fileID: 7178966726815924721, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -813,7 +817,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  hasError_Flesh: 0
+  hasError_Machine: 0
   m_canRender: 1
+  m_canRender_Flesh: 1
+  m_canRender_Machine: 1
+  m_canRender_Nerve: 1
   m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
@@ -870,7 +879,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  hasError_Flesh: 0
+  hasError_Machine: 0
   m_canRender: 1
+  m_canRender_Flesh: 1
+  m_canRender_Machine: 1
+  m_canRender_Nerve: 1
   m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
@@ -1573,7 +1587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_sprites.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_sprites.Array.data[0]
@@ -1583,6 +1597,10 @@ PrefabInstance:
       propertyPath: m_sprites.Array.data[1]
       value: 
       objectReference: {fileID: 21300000, guid: 782f0e25844eb489fb7218ff6884f291, type: 3}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
     - target: {fileID: 7178966726815924721, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2064,7 +2082,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  hasError_Flesh: 0
+  hasError_Machine: 0
   m_canRender: 1
+  m_canRender_Flesh: 1
+  m_canRender_Machine: 1
+  m_canRender_Nerve: 1
   m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
@@ -2966,7 +2989,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  hasError_Flesh: 0
+  hasError_Machine: 0
   m_canRender: 1
+  m_canRender_Flesh: 1
+  m_canRender_Machine: 1
+  m_canRender_Nerve: 1
   m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
@@ -3096,6 +3124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: nervelayer_24
       objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3212,7 +3244,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  hasError_Flesh: 0
+  hasError_Machine: 0
   m_canRender: 1
+  m_canRender_Flesh: 1
+  m_canRender_Machine: 1
+  m_canRender_Nerve: 1
   m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
@@ -3272,6 +3309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: nervelayer_2
       objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3711,7 +3752,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  hasError_Flesh: 0
+  hasError_Machine: 0
   m_canRender: 1
+  m_canRender_Flesh: 1
+  m_canRender_Machine: 1
+  m_canRender_Nerve: 1
   m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
@@ -3771,6 +3817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: nervelayer_3
       objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3887,7 +3937,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  hasError_Flesh: 0
+  hasError_Machine: 0
   m_canRender: 1
+  m_canRender_Flesh: 1
+  m_canRender_Machine: 1
+  m_canRender_Nerve: 1
   m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
@@ -3936,7 +3991,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  hasError_Flesh: 0
+  hasError_Machine: 0
   m_canRender: 1
+  m_canRender_Flesh: 1
+  m_canRender_Machine: 1
+  m_canRender_Nerve: 1
   m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
@@ -4068,7 +4128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_sprites.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_sprites.Array.data[0]
@@ -4077,7 +4137,15 @@ PrefabInstance:
     - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_sprites.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: m_sprites.Array.data[2]
+      value: 
       objectReference: {fileID: 21300000, guid: a19abf1b27a714ab9be037af0bef9912, type: 3}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
     - target: {fileID: 7178966726815924721, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4316,6 +4384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: nervelayer_23
       objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4499,7 +4571,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  hasError_Flesh: 0
+  hasError_Machine: 0
   m_canRender: 1
+  m_canRender_Flesh: 1
+  m_canRender_Machine: 1
+  m_canRender_Nerve: 1
   m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
@@ -4559,6 +4636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: nervelayer_22
       objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5285,12 +5366,15 @@ MonoBehaviour:
       Entry: 8
       Data: 
   lastErrorBodyPart: 
-  errorBodyParts: []
-  errorGeneratableBodyParts:
+  errorBodyParts_Flesh: []
+  errorBodyParts_Machine: []
+  errorGeneratableBodyParts_Flesh:
   - 0
   - 20
-  - 21
   - 25
+  errorGeneratableBodyParts_Machine:
+  - 21
+  errorGeneratableBodyParts_Nerve: []
   m_nerveLayerRenderer: {fileID: 1055144240}
 --- !u!1 &1834471935
 GameObject:
@@ -6051,7 +6135,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasError: 0
+  hasError_Flesh: 0
+  hasError_Machine: 0
   m_canRender: 1
+  m_canRender_Flesh: 1
+  m_canRender_Machine: 1
+  m_canRender_Nerve: 1
   m_isRepairing: 0
   m_bodyState: 1
   m_errorPrefab: {fileID: 151138198491142356, guid: 88984c3c464ea462ea1c9860eb46eaa6, type: 3}
@@ -6199,6 +6288,10 @@ PrefabInstance:
       propertyPath: m_sprites.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6420,7 +6513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_sprites.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_sprites.Array.data[0]
@@ -6430,6 +6523,10 @@ PrefabInstance:
       propertyPath: m_sprites.Array.data[1]
       value: 
       objectReference: {fileID: 21300000, guid: c2904562751ec4d86aeeba8bd07a22a5, type: 3}
+    - target: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 5617187537451679875, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
     - target: {fileID: 7178966726815924721, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
       propertyPath: m_Sprite
       value: 

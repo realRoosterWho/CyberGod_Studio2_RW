@@ -16,10 +16,14 @@ public class Body_Manager : SerializedMonoBehaviour
     [SerializeField] public string lastErrorBodyPart;
     
     //定义一个列表，用于存储有错误的身体部位
-    [SerializeField] public List<string> errorBodyParts = new List<string>();
+    [SerializeField] public List<string> errorBodyParts_Flesh = new List<string>();
+    [SerializeField] public List<string> errorBodyParts_Machine = new List<string>();
     
     //定义一个列表，用于存储可以生成错误的身体部位
-    [SerializeField] public List<string> errorGeneratableBodyParts = new List<string>();
+    [SerializeField] public List<string> errorGeneratableBodyParts_Flesh = new List<string>();
+    [SerializeField] public List<string> errorGeneratableBodyParts_Machine = new List<string>();
+    
+    [SerializeField] public List<string> errorGeneratableBodyParts_Nerve = new List<string>();
     
     [SerializeField]public SpriteRenderer m_nerveLayerRenderer;
 
@@ -53,8 +57,11 @@ public class Body_Manager : SerializedMonoBehaviour
             HandleMotionCaptureInput(m_args);
         }
 
-        UpdateErrorBodyParts();
-        UpdateErrorGeneratableBodyParts();
+        UpdateErrorBodyParts("Flesh");
+        UpdateErrorBodyParts("Machine");
+        UpdateErrorGeneratableBodyParts("Flesh");
+        UpdateErrorGeneratableBodyParts("Machine");
+        UpdateErrorGeneratableBodyParts("Nerve");
 
         //HandleMotionCaptureInput(m_args);
     }
@@ -101,8 +108,23 @@ public class Body_Manager : SerializedMonoBehaviour
         });
     }
 	//在这个字典中随机抽取一个值，并且调用一个Body_Logic的GenerateError函数
-    public void GenerateRandomError()
+    public void GenerateRandomError(string layer)
     {
+        var errorGeneratableBodyParts = new List<string>();
+        
+        if (layer == "Flesh")
+        {
+            errorGeneratableBodyParts = errorGeneratableBodyParts_Flesh;
+        }
+        else if (layer == "Machine")
+        {
+            errorGeneratableBodyParts = errorGeneratableBodyParts_Machine;
+        }
+        
+        
+        
+        
+        
         bool errorGenerated = false;
         int counter = 0;
 
@@ -115,11 +137,21 @@ public class Body_Manager : SerializedMonoBehaviour
             if (bodyPartLogics.ContainsKey(randomBodyPartKey))
             {
                 var randomBodyPart = bodyPartLogics[randomBodyPartKey];
+                
+                bool hasError = false;
+                if (layer == "Flesh")
+                { 
+                    hasError = randomBodyPart.hasError_Flesh;
+                }
+                else if (layer == "Machine")
+                {
+                    hasError = randomBodyPart.hasError_Machine;
+                }
 
-                if (!randomBodyPart.hasError && randomBodyPartKey != lastErrorBodyPart)
+                if (!hasError && randomBodyPartKey != lastErrorBodyPart)
                 {
                     
-                    randomBodyPart.GenerateError();
+                    randomBodyPart.GenerateError(layer);
                     lastErrorBodyPart = randomBodyPartKey;
                     // Debug.Log("Generated error in " + randomBodyPartKey);
                     errorGenerated = true; // 设置标志位表示已生成错误
@@ -137,36 +169,64 @@ public class Body_Manager : SerializedMonoBehaviour
         }
     }
     
-    public void GenerateError(string bodyPart)
+    //GetErrorNumber函数，用于获取错误数量
+    public int GetErrorNumber()
+    {
+        int errorNumber = 0;
+        //查询errorBodyParts_Flesh和errorBodyParts_Machine的数量，加在一起
+        errorNumber = errorBodyParts_Flesh.Count + errorBodyParts_Machine.Count;
+        return errorNumber;
+    }
+    
+    public void GenerateError(string bodyPart, string layer)
     {
         if (bodyPartLogics.ContainsKey(bodyPart))
         {
             var bodyLogic = bodyPartLogics[bodyPart];
+            
             //检查是否已经有错误
+            bool hasError = false;
+            if (layer == "Flesh")
+            { 
+                hasError = bodyLogic.hasError_Flesh;
+            }
+            else if (layer == "Machine")
+            {
+                hasError = bodyLogic.hasError_Machine;
+            }
+            
             if (!bodyLogic.hasError)
             {
-                bodyLogic.GenerateError();
+                bodyLogic.GenerateError(layer);
             }
         }
     }
     
-    private void UpdateErrorBodyParts()
+    private void UpdateErrorBodyParts(string layer)
     {
-        errorBodyParts.Clear();
-        foreach (var bodyPartLogic in bodyPartLogics)
+        if (layer == "Flesh")
         {
-            if (bodyPartLogic.Value.hasError)
+            errorBodyParts_Flesh.Clear();
+            foreach (var bodyPartLogic in bodyPartLogics)
             {
-                errorBodyParts.Add(bodyPartLogic.Key);
+                if (bodyPartLogic.Value.hasError_Flesh)
+                {
+                    errorBodyParts_Flesh.Add(bodyPartLogic.Key);
+                }
             }
         }
+        else if (layer == "Machine")
+        {
+            errorBodyParts_Machine.Clear();
+            foreach (var bodyPartLogic in bodyPartLogics)
+            {
+                if (bodyPartLogic.Value.hasError_Machine)
+                {
+                    errorBodyParts_Machine.Add(bodyPartLogic.Key);
+                }
+            }        }
     }
     
-    public int GetErrorNumber()
-    {
-        int errorNumber = errorBodyParts.Count;
-        return errorNumber;
-    }
     
     //定义一个函数，用于在对应的层级执行对应的操作
     public void UpdateLayerFunction()
@@ -185,22 +245,47 @@ public class Body_Manager : SerializedMonoBehaviour
         }
     }
     
-    public void UpdateErrorGeneratableBodyParts()
+    public void UpdateErrorGeneratableBodyParts(string layer)
     {
-        //如果不在列表里，把这个Gameobject直接禁用
-        foreach (var bodyPart in bodyParts)
+        //errorGeneratableBodyParts_Nerve层是Flesh和Machine的并集
+        if (layer == "Nerve")
         {
-            if (!errorGeneratableBodyParts.Contains(bodyPart.Key))
+            errorGeneratableBodyParts_Nerve = errorGeneratableBodyParts_Flesh.Union(errorGeneratableBodyParts_Machine).ToList();
+        }
+        
+        
+        var errorGeneratableBodyParts = new List<string>();
+        if (layer == "Flesh")
+        {
+            errorGeneratableBodyParts = errorGeneratableBodyParts_Flesh;
+        }
+        else if (layer == "Machine")
+        {
+            errorGeneratableBodyParts = errorGeneratableBodyParts_Machine;
+        }
+        else if (layer == "Nerve")
+        {
+            errorGeneratableBodyParts = errorGeneratableBodyParts_Nerve;
+        }
+        
+        
+        //根据对应的layer，设置bodypart的canRender_Flesh和canRender_Machine
+        foreach (var bodyPartLogic in bodyPartLogics)
+        {
+            if (layer == "Flesh")
             {
-                //把bodypart的bodypos_logic的canRender设置为false
-                bodyPart.Value.GetComponent<BodyPos_Logic>().m_canRender = false;
+                bodyPartLogic.Value.m_canRender_Flesh = errorGeneratableBodyParts.Contains(bodyPartLogic.Key);
             }
-            //对于其他人，给true
-            else
+            else if (layer == "Machine")
             {
-                bodyPart.Value.GetComponent<BodyPos_Logic>().m_canRender = true;
+                bodyPartLogic.Value.m_canRender_Machine = errorGeneratableBodyParts.Contains(bodyPartLogic.Key);
+            }
+            else if (layer == "Nerve")
+            {
+                bodyPartLogic.Value.m_canRender_Nerve = errorGeneratableBodyParts.Contains(bodyPartLogic.Key);
             }
         }
+
     }
     
     private void OnFleshLayer()
