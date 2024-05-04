@@ -136,14 +136,36 @@ public class BodyPos_Logic : MonoBehaviour
     public void OnBodyStateActive()
     {
 		ChangeAlpha(0.5f);
-		m_nervelayer_Logic.isActivated = true;
+		//switch一下所在哪个层级，如果在FleshLayer，那么m_fleshlayer_Logic.isActivated = true;否则m_mechaniclayer_Logic.isActivated = tr
+		switch (m_layer)
+		{
+			case Layer.FLESH:
+				m_fleshlayer_Logic.isActivated = true;
+				m_mechaniclayer_Logic.isActivated = false;
+				m_nervelayer_Logic.isActivated = false;
+				break;
+			case Layer.MACHINE:
+				m_mechaniclayer_Logic.isActivated = true;
+				m_nervelayer_Logic.isActivated = false;
+				m_fleshlayer_Logic.isActivated = false;
+				break;
+			case Layer.NERVE:
+				m_nervelayer_Logic.isActivated = true;
+				m_fleshlayer_Logic.isActivated = false;
+				m_mechaniclayer_Logic.isActivated = false;
+				break;
+		}
     }
     
     public void OnBodyStateInactive()
     {
 		//透明度改为0.6
 		ChangeAlpha(0.1f);
+		
 		m_nervelayer_Logic.isActivated = false;
+		m_mechaniclayer_Logic.isActivated = false;
+		m_fleshlayer_Logic.isActivated = false;
+
     }
 
 	public void OnIsRepairing()
@@ -307,13 +329,6 @@ public class BodyPos_Logic : MonoBehaviour
 
 	public void ClockworkInput()
 	{
-		//检查是否有Clockwork
-		if (!m_mechaniclayer_Logic.hasClockwork)
-		{
-			return;
-		}
-		
-		m_mechaniclayer_Logic.HandleClockworkInput();
 	}
 	
 	//写一个UpdateOnSubRepairingMode,在BodyState为Repairing的时候，调用这个函数，针对不同的SubMode进行不同的操作
@@ -325,7 +340,6 @@ public class BodyPos_Logic : MonoBehaviour
 			case RepairingSubMode.ERROR_REPAIR:
 				break;
 			case RepairingSubMode.CLOCKWORK_REPAIR:
-				m_mechaniclayer_Logic.ClockworkRepairing();
 				break;
 		}
 	}

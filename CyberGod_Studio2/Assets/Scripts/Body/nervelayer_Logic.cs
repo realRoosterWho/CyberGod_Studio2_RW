@@ -10,12 +10,16 @@ public class nervelayer_Logic : SerializedMonoBehaviour
     [InfoBox("0 is non-error, 1 is flesh-error, 2 is mechanic-error")]
     [SerializeField] private List<Sprite> m_sprites = new List<Sprite>();
     
+    
     [SerializeField]public bool isActivated = false;
     [SerializeField]public bool isError = false;
     
     
     [SerializeField]public bool hasError_Flesh = false;
     [SerializeField]public bool hasError_Machine = false;
+    
+    public ObjectInfo info;
+
     
     //定义颜色f18c24
     private Color m_color = new Color(0.95f, 0.55f, 0.14f);
@@ -61,6 +65,11 @@ public class nervelayer_Logic : SerializedMonoBehaviour
         else
         {
             ChangeMaterialProperties(m_material, 0.01f, 0.01f, 0.01f, 0.01f, Color.white);
+        }
+        
+        if (isActivated)
+        {
+            UIDisplayManager.Instance.DisplayInfo(info);
         }
         
     }

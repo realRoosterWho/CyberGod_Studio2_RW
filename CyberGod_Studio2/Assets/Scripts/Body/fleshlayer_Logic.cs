@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class fleshlayer_Logic : MonoBehaviour
 {
+    [SerializeField]public bool isActivated = false;
+    public ObjectInfo info;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,12 @@ public class fleshlayer_Logic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isActivated)
+        {
+            UIDisplayManager.Instance.DisplayInfo(info);
+        }
         
     }
+    
+    
 }
