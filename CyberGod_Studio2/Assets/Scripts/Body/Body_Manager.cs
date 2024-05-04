@@ -12,6 +12,9 @@ public class Body_Manager : SerializedMonoBehaviour
 	private BodyPos_Logic bodylogic;
 	private GameEventArgs m_args;
     
+    //定义上一个错误的身体部位
+    [SerializeField] public string lastErrorBodyPart;
+    
     //定义一个列表，用于存储有错误的身体部位
     [SerializeField] public List<string> errorBodyParts = new List<string>();
     
@@ -113,9 +116,11 @@ public class Body_Manager : SerializedMonoBehaviour
             {
                 var randomBodyPart = bodyPartLogics[randomBodyPartKey];
 
-                if (!randomBodyPart.hasError)
+                if (!randomBodyPart.hasError && randomBodyPartKey != lastErrorBodyPart)
                 {
+                    
                     randomBodyPart.GenerateError();
+                    lastErrorBodyPart = randomBodyPartKey;
                     // Debug.Log("Generated error in " + randomBodyPartKey);
                     errorGenerated = true; // 设置标志位表示已生成错误
                 }

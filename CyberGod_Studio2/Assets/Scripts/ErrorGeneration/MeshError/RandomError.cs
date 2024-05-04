@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEditor.Rendering.PostProcessing;
 using System.Net.NetworkInformation;
 using UnityEditor.PackageManager;
+using System.Collections.Generic; // Add this to use List
+
 
 public class RandomError : MonoBehaviour
 {
@@ -12,7 +14,42 @@ public class RandomError : MonoBehaviour
     private Vector3 nekoCenter; // store neko's center
     private Vector3 origin;// ray's origin
     private Vector3 end;// ray's end
+    [SerializeField]private List<GameObject> errors = new List<GameObject>();
 
+
+    [SerializeField] public int errorNumber = 2;
+
+
+    
+    
+    void Awake()
+    {
+        //生成指定数量错误
+        GenerateMeshError(2);
+
+    }
+    void Update()
+    {
+        // show the hitting point when press W
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            GenerateMeshError();
+        }
+
+        UpdateErrorList();
+        
+        var errornumber = GetErrorCount();
+        if (errornumber <= 0)
+        {
+            //发生事件：SomethingRepaired
+            EventManager.Instance.TriggerEvent("SomethingRepaired", new GameEventArgs());
+            // Changeto Navigation Mode
+            ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
+            //销毁自己的父物体
+            Destroy(transform.parent.gameObject);
+        }
+    }
+    
     private void RandomRay()
     {
         // ray's origin box
@@ -38,19 +75,6 @@ public class RandomError : MonoBehaviour
         ray.origin = origin;
         ray.direction = end - origin;
     }
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
-        // show the hitting point when press W
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            GenerateMeshError();
-        }
-    }
-    
     public void GenerateMeshError()
     {
         // create random ray
@@ -73,9 +97,38 @@ public class RandomError : MonoBehaviour
             tderror.transform.up = hit.normal;
 
             // settle the error sphere at the surface of neko
-            tderror.transform.Translate(Vector3.up * 0.5f * tderror.transform.localScale.y, Space.Self);    
+            tderror.transform.Translate(Vector3.up * 0.5f * tderror.transform.localScale.y, Space.Self);
+            
+            // Add the new error to the list
+            errors.Add(tderror);
+        }
+    }
+    
+    //生成指定数量个错误
+    public void GenerateMeshError(int errorNumber)
+    {
+        for (int i = 0; i < errorNumber; i++)
+        {
+            GenerateMeshError();
         }
     }
 
+    public int GetErrorCount()
+    {
+        return errors.Count;
+    }
+    
+    public void UpdateErrorList()
+    {
+        // Check each error in the list
+        for (int i = errors.Count - 1; i >= 0; i--)
+        {
+            // If the error is null, remove it from the list
+            if (errors[i] == null)
+            {
+                errors.RemoveAt(i);
+            }
+        }
+    }
 }
 
