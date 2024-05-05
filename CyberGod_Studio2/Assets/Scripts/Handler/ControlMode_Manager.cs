@@ -22,7 +22,7 @@ public class ControlMode_Manager : MonosingletonTemp<ControlMode_Manager>
     [SerializeField] Input_Handler m_inputHandler;
     
     //定义当前的控制模式
-    [SerializeField] public ControlMode m_controlMode = ControlMode.NAVIGATION;
+    [SerializeField] public ControlMode m_controlMode = ControlMode.DIALOGUE;
     [SerializeField] public RepairingSubMode m_repairingSubMode = RepairingSubMode.ERROR_REPAIR;
     
     // Start is called before the first frame update

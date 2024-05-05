@@ -9,8 +9,13 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
     [SerializeField] private Image m_leftimage;
     [SerializeField] public TextMeshProUGUI m_leftTitle;
     [SerializeField] public TextMeshProUGUI m_leftDescription;
+    
+    
+    [SerializeField] public TextMeshProUGUI m_spiritSpeak;
+    [SerializeField] public Image m_spiritImage;
 
     private bool isDisplayCalled = false;
+    private bool isSpiritSpeakCalled = false;
     
     void Start()
     {
@@ -28,8 +33,23 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
             m_leftimage.enabled = false;
 
         }
+        
+        if (!isSpiritSpeakCalled)
+        {
+            // 如果DisplaySpiritSpeak没有被调用，就清空显示
+            m_spiritSpeak.text = "";
+            m_spiritImage.sprite = null;
+            m_spiritImage.enabled = false;
+        }
+        
+        
+        
+        
+        
         // 重置isDisplayCalled为false
         isDisplayCalled = false;
+        // 重置isSpiritSpeakCalled为false
+        isSpiritSpeakCalled = false;
     }
     
     public void DisplayLeftInfo(ObjectInfo info)
@@ -53,5 +73,15 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
         m_leftDescription.text = info.description;
         // 标记DisplayInfo已被调用
         isDisplayCalled = true;
+    }
+
+    public void DisplaySpiritSpeak(SpiritSpeakEntry entry)
+    {
+        m_spiritImage.enabled = true;
+        m_spiritSpeak.text = entry.dialogueText;
+        m_spiritImage.sprite = entry.SpiritImage;
+        
+        // 标记DisplaySpiritSpeak已被调用
+        isSpiritSpeakCalled = true;
     }
 }

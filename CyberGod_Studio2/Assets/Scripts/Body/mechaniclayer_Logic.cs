@@ -28,6 +28,8 @@ public class mechaniclayer_Logic : MonoBehaviour
         if (isActivated)
         {
             UIDisplayManager.Instance.DisplayLeftInfo(info);
+            DialogueManager.Instance.RequestSpiritSpeakEntry("mechanic");
+
         }
     }
     

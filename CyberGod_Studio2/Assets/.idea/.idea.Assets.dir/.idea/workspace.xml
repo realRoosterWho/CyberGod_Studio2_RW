@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="185f7ad1-00e1-4725-be39-86f0974bb34f" name="Changes" comment="&#9;- 接入文本显示系统 OK&#10;&#9;&#9;- 可能和三维模型什么的共用一个管理器？应该可行。&#10;&#9;&#9;- 目前能够展示图片和文本，动画什么的后面怎么加还没想明白，然后图片裁切什么的还没想明白，约束美术呢还是约束程序呢（思考）">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Base_Scripts/Monosingletontemp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Base_Scripts/Monosingletontemp.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/base UI@4x-8.png" beforeDir="false" afterPath="$PROJECT_DIR$/Sprites/nervelayer/base UI@4x-8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/RW_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/RW_Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Body/fleshlayer_Logic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Body/fleshlayer_Logic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Body/mechaniclayer_Logic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Body/mechaniclayer_Logic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/CommunicationLogic/RunWhatever.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/CommunicationLogic/RunWhatever.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/CommunicationLogic/U2PThread.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/CommunicationLogic/U2PThread.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/DisplaySystem/ObjectInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/DisplaySystem/ObjectInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/DisplaySystem/UIDisplayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/DisplaySystem/UIDisplayManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Handler/ControlMode_Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Handler/ControlMode_Manager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +24,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/51877ab1b48c4759b5b559ee4be9363a1f800/1c/d4368443/02000019pdb22.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd2d3e9b010a4ba4b3fdc0456cd6b40b469200/6e/bd94ffea/CancellationTokenSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Materials/Shaders/Outline.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Plugins/Sirenix/Odin Inspector/Config/Resources/Sirenix/GlobalSerializationConfig.asset" root0="SKIP_HIGHLIGHTING" />
@@ -31,15 +38,21 @@
     <setting file="mock:///Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Scripts/Body/Body_Manager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Body/Body_Manager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Scripts/Body/Body_Manager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/Body/Layer_Handler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Body/Layer_Handler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Body/fleshlayer_Logic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Body/mechaniclayer_Logic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Body/nervelayer_Logic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/CommunicationLogic/RunWhatever.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/CommunicationLogic/U2PThread.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/DisplaySystem/CyberSpiritImage_Logic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/DisplaySystem/DialogueManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/DisplaySystem/LayerDisplayer_Logic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/DisplaySystem/LevelIntro_Logic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/DisplaySystem/ObjectInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/DisplaySystem/UIDisplayManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/EarlyTest/Input_Handler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/EarlyTest/layerUI_test_Logic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/ErrorGeneration/ErrorLogic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/ErrorGeneration/GeneralCountdown_Logic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/ErrorGeneration/GenerationStage_Handler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/ErrorGeneration/Generation_MeshErrorGenerator.cs" root0="SKIP_HIGHLIGHTING" />

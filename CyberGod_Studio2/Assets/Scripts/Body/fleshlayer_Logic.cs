@@ -18,6 +18,7 @@ public class fleshlayer_Logic : MonoBehaviour
         if (isActivated)
         {
             UIDisplayManager.Instance.DisplayLeftInfo(info);
+            DialogueManager.Instance.RequestSpiritSpeakEntry("flesh");
         }
         
     }

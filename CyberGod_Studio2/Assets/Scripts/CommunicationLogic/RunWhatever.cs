@@ -10,7 +10,7 @@ using UnityEditor;
 using System.Runtime.InteropServices;
 
 
-public class RunWhatever : MonoBehaviour
+public class RunWhatever : MonosingletonTemp<RunWhatever>
 {
     private ProcessStartInfo startInfo;
     private Process process;
@@ -72,7 +72,7 @@ public class RunWhatever : MonoBehaviour
             startInfo.RedirectStandardError = true;
 
             string command = "source activate cybergod; python \"" + fullPath + "\"";
-            //command Ò»¸ö²âÊÔÓÃµÄÓï¾ä£¬¿ÉÒÔÔÚÖÕ¶ËÖĞÔËĞĞµÄÓï¾ä£¬¸úcondaºÍpythonÃ»¹ØÏµ
+            //command Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½ä£¬ï¿½ï¿½condaï¿½ï¿½pythonÃ»ï¿½ï¿½Ïµ
             // string commandtest = "source activate cybergod"; 
 
             // startInfo.FileName = "/bin/bash";

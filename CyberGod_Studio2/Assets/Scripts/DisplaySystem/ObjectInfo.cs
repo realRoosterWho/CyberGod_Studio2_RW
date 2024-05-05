@@ -17,3 +17,23 @@ public class ObjectInfo {
     [PropertyOrder(0)]
     public Sprite image;
 }
+
+[System.Serializable]
+public class SpiritSpeakEntry {
+    
+    // [LabelText("TextName")]
+    // public string textName;
+    
+    [LabelText("Spirit Image")]
+    public Sprite SpiritImage;
+
+    [TextArea(3, 5)]
+    [LabelText("Dialogue Text")]
+    public string dialogueText;
+    
+    
+    
+    [LabelText("Priority")]
+    public int priority;  // 新增属性：对话的优先级
+    
+}

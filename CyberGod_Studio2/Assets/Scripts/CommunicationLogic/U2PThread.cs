@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
 
-public class U2PThread : MonoBehaviour
+public class U2PThread : MonosingletonTemp<U2PThread>
 {
     Thread receiveThread;
    	UdpClient client;
