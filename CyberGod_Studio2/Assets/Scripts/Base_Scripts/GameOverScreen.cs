@@ -17,12 +17,12 @@ using UnityEngine.SceneManagement;
 public class GameOverScreen : MonoBehaviour
 {
     // Start is called before the first frame update
-    public TextMeshProUGUI pointsText;
+    [SerializeField]public TextMeshProUGUI pointsText;
 
-    public void Setup(int points)
+    public void Setup(string text)
     {
         gameObject.SetActive(true);
-        pointsText.text = points.ToString() + " points";
+        pointsText.text = text + "分";
         Debug.Log("Points" + pointsText.text);
     }
 
@@ -31,6 +31,12 @@ public class GameOverScreen : MonoBehaviour
     {
         //加载当前场景
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+    public void QuitButton()
+    {
+        //退出游戏
+        Application.Quit();
     }
         
         
@@ -42,6 +48,7 @@ public class GameOverScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
+
     }
 }

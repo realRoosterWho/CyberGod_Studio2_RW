@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class GeneralCountdown_Logic : MonoBehaviour
 {
     [SerializeField]
-    private Scrollbar countdownScrollbar;
+    public Scrollbar countdownScrollbar;
 
     [SerializeField]
     private float maxCountdownTime;

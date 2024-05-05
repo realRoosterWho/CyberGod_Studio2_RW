@@ -49,7 +49,7 @@ public class PauseScreen : MonoBehaviour
     public void ResumeButton()
     {
         //继续游戏
-        GameManager.Instance.ResumeGame();
+        m_GameManager.Instance.ResumeGame();
     }
         
     void Start()
@@ -60,7 +60,8 @@ public class PauseScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
+
 
     }
 }

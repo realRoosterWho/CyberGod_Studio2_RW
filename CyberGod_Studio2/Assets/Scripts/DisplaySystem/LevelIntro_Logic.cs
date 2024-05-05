@@ -48,6 +48,7 @@ public class LevelIntro_Logic : MonoBehaviour
         }
         if (currentTextIndex >= textList.Count)
         {
+            Destroy(gameObject);
             ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
         }
     }

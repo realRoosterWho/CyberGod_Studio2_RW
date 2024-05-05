@@ -12,6 +12,9 @@ public class Generation_MeshErrorGenerator : MonoBehaviour
 
     [SerializeField] private GameObject m_ErrorPos;
     
+    //ObjectInfo Define
+    public ObjectInfo m_meshinfo;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,9 @@ public class Generation_MeshErrorGenerator : MonoBehaviour
     {
         if (m_meshError != null)
         {
+            //向UIManager发送m_meshinfo
+            UIDisplayManager.Instance.DisplayLeftInfo(m_meshinfo);
+            
             return;
         }
         

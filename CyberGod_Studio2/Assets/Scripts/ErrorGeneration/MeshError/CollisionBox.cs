@@ -5,6 +5,9 @@ using UnityEngine;
 public class CollisionBox: MonoBehaviour
 {
     
+    private bool isClicked = false;
+
+    
     //获取自己的材质
     private Material m_material;
     private void Start()
@@ -17,16 +20,29 @@ public class CollisionBox: MonoBehaviour
         m_material.color = color;
 
     }
+    
+    void FixedUpdate()
+    {
+        isClicked = false;
+        if (Input.GetMouseButtonDown(0))
+        {
+            isClicked = true;
+        }
+    }
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("3DError"))
+        if (other.gameObject.CompareTag("3DError") && isClicked)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                // need time delay
-                Destroy(other.gameObject);
-            }
+            StartCoroutine(DestroyAfterDelay(other.gameObject, 0.25f));
         }
+    }
+
+    IEnumerator DestroyAfterDelay(GameObject gameObject, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        EventManager.Instance.TriggerEvent("ErrorDestroyed", new GameEventArgs());
+        Destroy(gameObject);
+        isClicked = false;
     }
 }

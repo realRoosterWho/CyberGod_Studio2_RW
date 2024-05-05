@@ -13,6 +13,8 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
     
     [SerializeField] public TextMeshProUGUI m_spiritSpeak;
     [SerializeField] public Image m_spiritImage;
+    
+    [SerializeField] public TextMeshProUGUI m_scoreDisplay;
 
     private bool isDisplayCalled = false;
     private bool isSpiritSpeakCalled = false;
@@ -83,5 +85,10 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
         
         // 标记DisplaySpiritSpeak已被调用
         isSpiritSpeakCalled = true;
+    }
+    
+    public void DisplayScore(int errorNumber, int maxErrorNumber)
+    {
+        m_scoreDisplay.text = errorNumber + "/" + maxErrorNumber;
     }
 }

@@ -15,7 +15,7 @@ public class fleshlayer_Logic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isActivated)
+        if (isActivated && ControlMode_Manager.Instance.m_controlMode != ControlMode.REPAIRING)
         {
             UIDisplayManager.Instance.DisplayLeftInfo(info);
             DialogueManager.Instance.RequestSpiritSpeakEntry("flesh");

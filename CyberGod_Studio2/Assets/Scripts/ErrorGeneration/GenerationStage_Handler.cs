@@ -6,6 +6,11 @@ public class GenerationStage_Handler : MonoBehaviour
 {
     [SerializeField]Body_Manager m_bodyManager;
     
+    [SerializeField] CaptureError_Logic m_captureErrorLogic;
+    
+    [SerializeField] int m_objectiveErrorNumber;
+    [SerializeField] GeneralCountdown_Logic m_generalCountdownLogic;
+    
     private ControlMode m_controlMode;
     private RepairingSubMode m_repairingSubMode;
     
@@ -30,6 +35,9 @@ public class GenerationStage_Handler : MonoBehaviour
         //计算m_generationIntervalMin和m_generationIntervalMax,通过m_generationInterval_expectation和m_generationInterval_variance,正态分布
         m_generationIntervalMin = m_generationInterval_expectation - m_generationInterval_variance;
         m_generationIntervalMax = m_generationInterval_expectation + m_generationInterval_variance;
+        
+        //ErrorDestroyed事件订阅
+        EventManager.Instance.AddEvent("ErrorDestroyed", OnErrorDestroyed);
     }
 
     // Update is called once per frame
@@ -37,8 +45,12 @@ public class GenerationStage_Handler : MonoBehaviour
     {
         UpdateModeAction();
         GenerateError(m_isRandomTime, m_maxNumber);
+        CheckEndGame();
         
         
+        UpdateScoreUI(m_captureErrorLogic.m_errorCount, m_objectiveErrorNumber);
+
+
     }
     
     public void GenerateError(bool isRandomTime = false, float maxNumber = 0.0f)
@@ -150,5 +162,33 @@ public class GenerationStage_Handler : MonoBehaviour
     void MeshErrorGeneration()
     {
         m_meshErrorGenerator.GenerateMeshError();
+    }
+    
+    void OnErrorDestroyed(GameEventArgs args)
+    {
+        m_captureErrorLogic.CaptureError();
+    }
+    
+    void CheckEndGame()
+    {
+        if (m_captureErrorLogic.m_errorCount >= m_objectiveErrorNumber)
+        {
+            
+            EventManager.Instance.TriggerEvent("OnWinning", new GameEventArgs());
+            ControlMode_Manager.Instance.ChangeControlMode(ControlMode.DIALOGUE);
+        }
+        
+        if (m_generalCountdownLogic.countdownScrollbar.size <= 0)
+        {
+            EventManager.Instance.TriggerEvent("OnLosing", new GameEventArgs());
+            ControlMode_Manager.Instance.ChangeControlMode(ControlMode.DIALOGUE);
+            m_GameManager.Instance.GameOver(m_captureErrorLogic.m_errorCount.ToString() + "/" + m_objectiveErrorNumber.ToString());
+        }
+    }
+
+    void UpdateScoreUI(int errorNumber, int maxErrorNumber)
+    {
+        UIDisplayManager.Instance.DisplayScore(errorNumber, maxErrorNumber);
+        
     }
 }

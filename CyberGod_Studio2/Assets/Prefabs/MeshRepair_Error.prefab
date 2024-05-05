@@ -236,8 +236,8 @@ Transform:
   m_GameObject: {fileID: 9027669867944240452}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.24, z: 0}
-  m_LocalScale: {x: 1, y: 2.94779, z: 10}
+  m_LocalPosition: {x: 0, y: -0.0045, z: 0}
+  m_LocalScale: {x: 1, y: 6.775274, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1785338508898468955}
@@ -488,3 +488,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab3DError: {fileID: 1279046903852392523, guid: 7066ed51689984ad58ba7039a2425916, type: 3}
   neko: {fileID: 2840186828519539058}
+  errors: []
+  errorNumber: 2
