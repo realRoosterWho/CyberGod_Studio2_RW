@@ -17,7 +17,7 @@ public class fleshlayer_Logic : MonoBehaviour
     {
         if (isActivated)
         {
-            UIDisplayManager.Instance.DisplayInfo(info);
+            UIDisplayManager.Instance.DisplayLeftInfo(info);
         }
         
     }

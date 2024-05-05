@@ -32,7 +32,7 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
         isDisplayCalled = false;
     }
     
-    public void DisplayInfo(ObjectInfo info)
+    public void DisplayLeftInfo(ObjectInfo info)
     {
         if (info == null)
         {

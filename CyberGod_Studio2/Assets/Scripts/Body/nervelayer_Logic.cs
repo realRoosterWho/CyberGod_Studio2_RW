@@ -69,7 +69,7 @@ public class nervelayer_Logic : SerializedMonoBehaviour
         
         if (isActivated)
         {
-            UIDisplayManager.Instance.DisplayInfo(info);
+            UIDisplayManager.Instance.DisplayLeftInfo(info);
         }
         
     }

@@ -10,6 +10,8 @@ using UnityEngine;
 //4. 调用某个脚本后，我可以通过SoundManager.Instance.PlayMusic()这样的方式调用SoundManager脚本中的方法
 public class MonosingletonTemp<T> : MonoBehaviour where T : MonosingletonTemp<T>
 {
+    
+    [SerializeField]public bool isDonDestroyOnLoad = true;
     private static T _instance;
 
     public static T Instance
@@ -20,7 +22,12 @@ public class MonosingletonTemp<T> : MonoBehaviour where T : MonosingletonTemp<T>
             {
                 GameObject singletonObject = new GameObject(typeof(T).Name); //创建一个新的GameObject
                 _instance = singletonObject.AddComponent<T>();//将脚本添加到GameObject上
-                DontDestroyOnLoad(singletonObject);
+                if (_instance.isDonDestroyOnLoad)
+                {
+                    DontDestroyOnLoad(singletonObject);
+                }
+                
+                // DontDestroyOnLoad(singletonObject);
             }
             return _instance;
         }
@@ -33,7 +40,12 @@ public class MonosingletonTemp<T> : MonoBehaviour where T : MonosingletonTemp<T>
         if (_instance == null)
         {
             _instance = this as T;
-            DontDestroyOnLoad(this.gameObject);
+            if (isDonDestroyOnLoad)
+            {
+                DontDestroyOnLoad(this.gameObject);
+            }
+            
+            // DontDestroyOnLoad(this.gameObject);
         }
         else if (_instance != this)
         {
