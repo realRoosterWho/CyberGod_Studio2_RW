@@ -1,16 +1,3 @@
-Event: WindingToMax
-Listener: OnWindingToMax
-Listener: OnWindingToMax
-Listener: OnWindingToMax
-Listener: OnWindingToMax
-Listener: OnWindingToMax
-Listener: OnWindingToMax
-Listener: OnWindingToMax
-Listener: OnWindingToMax
-Listener: OnWindingToMax
-Listener: OnWindingToMax
-Listener: OnWindingToMax
-
 Event: SomethingRepaired
 Listener: OnSomethingRepaired
 Listener: OnSomethingRepaired
@@ -34,17 +21,4 @@ Listener: OnSpiritChange
 
 Event: MotionCaptureInput
 Listener: OnMotionCaptureInput
-Listener: OnMotionCaptureInput
-
-Event: NavigationMode
-Listener: OnIntoNavigationMode
-
-Event: RepairingMode
-Listener: OnIntoRepairingMode
-
-Event: DialogueMode
-Listener: OnIntoDialogueMode
-
-Event: NormalMode
-Listener: OnIntoNormalMode
 
