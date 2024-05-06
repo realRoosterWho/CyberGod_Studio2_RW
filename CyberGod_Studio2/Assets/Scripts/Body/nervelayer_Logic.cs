@@ -32,6 +32,11 @@ public class nervelayer_Logic : SerializedMonoBehaviour
     {
         //获取自己的材质
         m_material = GetComponent<Renderer>().material;
+        
+        if (info.name == "")
+        {
+            info = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+        }
     }
 
     // Update is called once per frame
@@ -49,6 +54,12 @@ public class nervelayer_Logic : SerializedMonoBehaviour
 
         ChangeSprite();
         
+        
+        if (isActivated && ControlMode_Manager.Instance.m_controlMode != ControlMode.REPAIRING)
+        {
+            UIDisplayManager.Instance.DisplayLeftInfo(info);
+            DialogueManager.Instance.RequestSpiritSpeakEntry("nerve");
+        }
         
         //如果isActivated为true，就调用ChangeMaterialProperties函数
         if (isActivated)

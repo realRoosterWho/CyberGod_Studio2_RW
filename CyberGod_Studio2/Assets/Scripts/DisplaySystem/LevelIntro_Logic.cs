@@ -15,6 +15,7 @@ public class LevelIntro_Logic : MonoBehaviour
     void Start()
     {
         imageComponent = GetComponent<Image>();
+        imageComponent.enabled = true;
     }
 
     // Update is called once per frame

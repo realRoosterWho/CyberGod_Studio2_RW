@@ -350,6 +350,10 @@ public class BodyPos_Logic : MonoBehaviour
 		foreach (var renderer in renderers)
 		{
 			renderer.enabled = enabled;
+			if (renderer is SpriteRenderer spriteRenderer)
+			{
+				// spriteRenderer.sortingOrder = 10;
+			}
 		}
 	}
 

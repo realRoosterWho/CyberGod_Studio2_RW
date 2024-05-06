@@ -6,7 +6,7 @@ public class Generation_MeshErrorGenerator : MonoBehaviour
 {
     [SerializeField]
     //获取一个Prefab叫做MeshError
-    private GameObject m_meshErrorPrefab;
+    private List<GameObject> m_meshErrorPrefabList;
 
     private GameObject m_meshError;
 
@@ -27,7 +27,7 @@ public class Generation_MeshErrorGenerator : MonoBehaviour
         
     }
     //生成一个MeshError
-    public void GenerateMeshError()
+    public void GenerateMeshError(int index)
     {
         if (m_meshError != null)
         {
@@ -37,7 +37,10 @@ public class Generation_MeshErrorGenerator : MonoBehaviour
             return;
         }
         
-        m_meshError = Instantiate(m_meshErrorPrefab, m_ErrorPos.transform);
+        //如果m_meshError不为空，Debug并且返回
+        
+        
+        m_meshError = Instantiate(m_meshErrorPrefabList[index], m_ErrorPos.transform);
         m_meshError.transform.position = m_ErrorPos.transform.position;
 
 

@@ -15,6 +15,15 @@ public class RandomError : MonoBehaviour
     private Vector3 origin;// ray's origin
     private Vector3 end;// ray's end
     [SerializeField]private List<GameObject> errors = new List<GameObject>();
+    
+    //定义计时器
+    [SerializeField] public float timer = 0;
+    //定义最小存在时间
+    [SerializeField] public float minTime = 3.0f;
+    
+    //定义错误开始生成时间
+    [SerializeField] public float startTime = 0.5f;
+    bool isStart = false;
 
 
     [SerializeField] public int errorNumber = 2;
@@ -24,23 +33,43 @@ public class RandomError : MonoBehaviour
     
     void Awake()
     {
-        //生成指定数量错误
-        GenerateMeshError(2);
+
 
     }
+    
+    void Start()
+    {
+        //获取自己名为default的子物体作为neko
+        // neko = transform.Find("default").gameObject;
+
+    }
+    
+    
     void Update()
     {
+        //更新计时器
+        timer += Time.deltaTime;
+        
         // show the hitting point when press W
         if (Input.GetKeyDown(KeyCode.W))
         {
             GenerateMeshError();
         }
+        
+        //如果计时器大于开始时间，就开始生成错误
+        if (timer > startTime && !isStart)
+        {
+            GenerateMeshErrorInt(errorNumber);
+            isStart = true;
+        }
 
         UpdateErrorList();
         
         var errornumber = GetErrorCount();
-        if (errornumber <= 0)
+        if (errornumber <= 0 && timer > minTime)
         {
+            
+            Debug.Log("Suicide");
             //发生事件：SomethingRepaired
             EventManager.Instance.TriggerEvent("SomethingRepaired", new GameEventArgs());
             // Changeto Navigation Mode
@@ -54,15 +83,19 @@ public class RandomError : MonoBehaviour
     {
         // ray's origin box
         nekoCenter = neko.transform.position;// get neko's center
-        float centerX = nekoCenter.x;
-        float centerY = nekoCenter.y;
-        float centerZ = nekoCenter.z;
+        //获取我自己的中心
+        Vector3 myposition = transform.position;
+        nekoCenter = myposition;
+        
+        float centerX = myposition.x;
+        float centerY = myposition.y;
+        float centerZ = myposition.z;
         int a = 2;//box's length
 
         // random origin of the ray
-        int ranx = Random.Range((int)nekoCenter.x - a, (int)nekoCenter.x + a);
-        int rany = Random.Range((int)nekoCenter.y - a, (int)nekoCenter.y + a);
-        int ranz = Random.Range((int)nekoCenter.z - a, (int)nekoCenter.z + a);
+        int ranx = Random.Range((int)myposition.x - a, (int)myposition.x + a);
+        int rany = Random.Range((int)myposition.y - a, (int)myposition.y + a);
+        int ranz = Random.Range((int)myposition.z - a, (int)myposition.z + a);
 
         // inite the ray
         ray = new Ray();
@@ -87,6 +120,12 @@ public class RandomError : MonoBehaviour
         {
             // draw the ray
             Debug.DrawLine(ray.origin, hit.point);
+            //如果碰撞到了的东西标签是3Dmodel才继续，否则返回并且重新调用一次GenerateMeshError
+            if (hit.collider.tag != "3Dmodel")
+            {
+                GenerateMeshError();
+                return;
+            }
 
             //create a son object error from prefab
             GameObject tderror = Instantiate(prefab3DError, transform);
@@ -105,7 +144,7 @@ public class RandomError : MonoBehaviour
     }
     
     //生成指定数量个错误
-    public void GenerateMeshError(int errorNumber)
+    public void GenerateMeshErrorInt(int errorNumber)
     {
         for (int i = 0; i < errorNumber; i++)
         {

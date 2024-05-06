@@ -11,6 +11,7 @@ public class Body_Manager : SerializedMonoBehaviour
     private Dictionary<string, BodyPos_Logic> bodyPartLogics = new Dictionary<string, BodyPos_Logic>();
 	private BodyPos_Logic bodylogic;
 	private GameEventArgs m_args;
+    [SerializeField] public HumanCoat_Logic m_humanCoatLogic;
     
     //定义上一个错误的身体部位
     [SerializeField] public string lastErrorBodyPart;
@@ -82,13 +83,19 @@ public class Body_Manager : SerializedMonoBehaviour
     	MainThreadDispatcher.ExecuteInUpdate(() =>
 		{
             string arg_key = args.FloatValue.ToString();
-
+            
+            if (arg_key == "99")
+            {
+                m_humanCoatLogic.isCoatAlpha = false;
+            }
+            
             if (bodyPartLogics.ContainsKey(arg_key))
             {
                 var bodyLogic = bodyPartLogics[arg_key];//获取这个组件
                 if (bodyLogic != null)
                 {
                     bodyLogic.BodyStateChange("Active");
+                    m_humanCoatLogic.isCoatAlpha = true;
                 }
             }
 

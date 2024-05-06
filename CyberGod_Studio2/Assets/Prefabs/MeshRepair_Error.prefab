@@ -489,4 +489,7 @@ MonoBehaviour:
   prefab3DError: {fileID: 1279046903852392523, guid: 7066ed51689984ad58ba7039a2425916, type: 3}
   neko: {fileID: 2840186828519539058}
   errors: []
+  timer: 0
+  minTime: 5
+  startTime: 0.5
   errorNumber: 2

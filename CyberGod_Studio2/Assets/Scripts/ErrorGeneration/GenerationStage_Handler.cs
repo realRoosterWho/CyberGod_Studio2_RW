@@ -6,6 +6,10 @@ public class GenerationStage_Handler : MonoBehaviour
 {
     [SerializeField]Body_Manager m_bodyManager;
     
+    //存储已经有的错误部位
+    private List<string> errorBodyParts_Flesh;
+    private List<string> errorBodyParts_Machine;
+    
     [SerializeField] CaptureError_Logic m_captureErrorLogic;
     
     [SerializeField] int m_objectiveErrorNumber;
@@ -43,6 +47,10 @@ public class GenerationStage_Handler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //更新已经有的错误部位的列表
+        errorBodyParts_Flesh = m_bodyManager.errorBodyParts_Flesh;
+        errorBodyParts_Machine = m_bodyManager.errorBodyParts_Machine;
+        
         UpdateModeAction();
         GenerateError(m_isRandomTime, m_maxNumber);
         CheckEndGame();
@@ -161,7 +169,50 @@ public class GenerationStage_Handler : MonoBehaviour
     
     void MeshErrorGeneration()
     {
-        m_meshErrorGenerator.GenerateMeshError();
+
+        
+        //如果errorBodyParts_Flesh不为空
+        if (errorBodyParts_Flesh.Count > 0)
+        {
+            //获取第一个元素
+            var bodyPart = errorBodyParts_Flesh[0];
+            //如果这个元素是"1"
+            if (bodyPart == "1")
+            {
+                Debug.Log("GenerateMeshError"+bodyPart);
+                m_meshErrorGenerator.GenerateMeshError(0);
+            }
+            //如果这个元素是"25"
+            else if (bodyPart == "25")
+            {
+                Debug.Log("GenerateMeshError"+bodyPart);
+
+                m_meshErrorGenerator.GenerateMeshError(2);
+            }
+            //如果这个元素是"26"
+            else if (bodyPart == "20")
+            {
+                Debug.Log("GenerateMeshError"+bodyPart);
+
+                m_meshErrorGenerator.GenerateMeshError(3);
+            }
+        }
+        
+        //如果errorBodyParts_Machine不为空
+        if (errorBodyParts_Machine.Count > 0)
+        {
+            //获取第一个元素
+            var bodyPart = errorBodyParts_Machine[0];
+            //如果这个元素是"21"
+            if (bodyPart == "21")
+            {
+                Debug.Log("GenerateMeshError"+bodyPart);
+
+                m_meshErrorGenerator.GenerateMeshError(1);
+            }
+        }
+        
+        
     }
     
     void OnErrorDestroyed(GameEventArgs args)
