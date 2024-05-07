@@ -63,4 +63,10 @@ public class m_GameManager : MonosingletonTemp<m_GameManager>
         PauseScreen.SetDown();
         isPaused = false;
     }
+    
+    //切换场景
+    public void ChangeScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
 }

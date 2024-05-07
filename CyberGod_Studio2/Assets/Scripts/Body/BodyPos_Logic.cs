@@ -170,6 +170,7 @@ public class BodyPos_Logic : MonoBehaviour
 
 	public void OnIsRepairing()
 	{
+		ChangeAlpha(0.1f);
 	    ChangeColor(Color.green);
 
 	    OnSubRepairingMode();

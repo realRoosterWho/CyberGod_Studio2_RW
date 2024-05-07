@@ -19,6 +19,8 @@ public class nervelayer_Logic : SerializedMonoBehaviour
     [SerializeField]public bool hasError_Machine = false;
     
     public ObjectInfo info;
+    public ObjectInfo info_wrong;
+    
 
     
     //定义颜色f18c24
@@ -57,7 +59,16 @@ public class nervelayer_Logic : SerializedMonoBehaviour
         
         if (isActivated && ControlMode_Manager.Instance.m_controlMode != ControlMode.REPAIRING)
         {
-            UIDisplayManager.Instance.DisplayLeftInfo(info);
+            if (isError)
+            {
+                UIDisplayManager.Instance.DisplayLeftInfo(info_wrong);
+                Debug.Log("wrong");
+            }
+            else
+            {
+                UIDisplayManager.Instance.DisplayLeftInfo(info);
+            }
+
             DialogueManager.Instance.RequestSpiritSpeakEntry("nerve");
         }
         
@@ -78,10 +89,6 @@ public class nervelayer_Logic : SerializedMonoBehaviour
             ChangeMaterialProperties(m_material, 0.01f, 0.01f, 0.01f, 0.01f, Color.white);
         }
         
-        if (isActivated)
-        {
-            UIDisplayManager.Instance.DisplayLeftInfo(info);
-        }
         
     }
     
