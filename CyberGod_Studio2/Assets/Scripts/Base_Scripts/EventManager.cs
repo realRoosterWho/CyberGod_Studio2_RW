@@ -91,7 +91,7 @@ public class EventManager : MonosingletonTemp<EventManager>
             sb.AppendLine();
         }
         // Debug.Log("Exported Event List");
-        System.IO.File.WriteAllText("Assets/Scripts/EventList.txt", sb.ToString());
+        // System.IO.File.WriteAllText("Assets/Scripts/EventList.txt", sb.ToString());
     }
 }
 

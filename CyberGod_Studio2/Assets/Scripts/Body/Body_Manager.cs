@@ -49,6 +49,9 @@ public class Body_Manager : SerializedMonoBehaviour
 
 	void Update()
     {
+        
+        //Debug bodyPartLogics里元素的数量
+        Debug.Log("bodyPartLogics.Count: " + bodyPartLogics.Count);
 
         UpdateLayerFunction();
         
@@ -168,7 +171,7 @@ public class Body_Manager : SerializedMonoBehaviour
             counter++;
 
             //如果已经遍历完所有可生成错误的身体部位，或者循环次数超过了errorGeneratableBodyParts的数量，退出循环
-            if (errorGeneratableBodyParts.All(bodyPartKey => bodyPartLogics[bodyPartKey].hasError) || counter >= errorGeneratableBodyParts.Count)
+            if (errorGeneratableBodyParts.All(bodyPartKey => bodyPartLogics.ContainsKey(bodyPartKey) && bodyPartLogics[bodyPartKey].hasError) || counter >= errorGeneratableBodyParts.Count)
             {
                 Debug.Log("All generatable body parts have errors or looped through all generatable body parts");
                 break;

@@ -34,7 +34,23 @@ public class ControlMode_Manager : MonosingletonTemp<ControlMode_Manager>
     // Update is called once per frame
     void Update()
     {
-        
+        ControlModeSelfBehavior();
+    }
+
+    void ControlModeSelfBehavior()
+    {
+        switch (m_controlMode)
+        {
+            case ControlMode.NAVIGATION:
+                break;
+            case ControlMode.REPAIRING:
+                break;
+            case ControlMode.DIALOGUE:
+                Cursor.lockState = CursorLockMode.None;
+                break;
+            case ControlMode.NORMAL:
+                break;
+        }
     }
     
     //定义一个函数，用于指定地改变当前的控制模式

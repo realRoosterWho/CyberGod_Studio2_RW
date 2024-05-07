@@ -57,6 +57,7 @@ Library: /Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_
 --linker-options=PdbAltPath="CyberGod_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp/burst.link.xml
 --temp-folder=/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Temp/Burst
+--debug=Full
 --key-folder=/Volumes/Rooster_SSD/APP_SSD/UnityEditor/2022.3.17f1c1/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Library/Burst
 --output=/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Temp/BurstOutput/Data/Plugins/x86_64/lib_burst_generated
@@ -151,6 +152,7 @@ Library: /Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_
 --linker-options=PdbAltPath="CyberGod_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp/burst.link.xml
 --temp-folder=/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Temp/Burst
+--debug=Full
 --key-folder=/Volumes/Rooster_SSD/APP_SSD/UnityEditor/2022.3.17f1c1/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Library/Burst
 --output=/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Temp/BurstOutput/Data/Plugins/x86_64/lib_burst_generated

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement; // 引入场景管理命名空间
-using UnityEngine.UI; // 引入UI命名空间
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class main_bg_Logic : MonoBehaviour
@@ -14,11 +15,22 @@ public class main_bg_Logic : MonoBehaviour
     void Start()
     {
     }
+    
+    // Awake is called when the script instance is being loaded
+    void Awake()
+    {
+        ControlMode_Manager.Instance.m_controlMode = ControlMode.DIALOGUE;
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //获取场景名字，如果场景名字是Win，如果鼠标输入是Fire1,那么调用ExitGame()函数
+        if (SceneManager.GetActiveScene().name == "Win" && Input.GetButtonDown("Fire1"))
+        {
+            ExitGame();
+        }
     }
 
     // 定义一个函数，用于跳转到指定的场景
@@ -31,6 +43,7 @@ public class main_bg_Logic : MonoBehaviour
     //退出软件
     public void ExitGame()
     {
+        Debug.Log("退出游戏");
         Application.Quit();//需要命名空间using UnityEngine;
     }
 }
