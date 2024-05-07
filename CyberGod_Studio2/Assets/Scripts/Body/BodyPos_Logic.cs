@@ -284,6 +284,7 @@ public class BodyPos_Logic : MonoBehaviour
 		    case RepairingSubMode.ERROR_REPAIR:
 			    if (isCanRepair && Input.GetButton("Fire1") && m_bodyState == BodyState.Active)
 			    {
+				    SoundManager.Instance.PlaySFX(2);
 				    //进入Repair状态
 				    ControlMode_Manager.Instance.ChangeControlMode(ControlMode.REPAIRING);
 				    //我自己也进入Repair状态
@@ -301,6 +302,7 @@ public class BodyPos_Logic : MonoBehaviour
 		//如果我自己isrepairing == true，但是Mode是NAVIGATION，那么我就进入isrepairing == false
 		if (m_isRepairing == true && ControlMode_Manager.Instance.m_controlMode == ControlMode.NAVIGATION)
 		{
+			SoundManager.Instance.PlaySFX(2);
 			m_isRepairing = false;
 		}
 	}

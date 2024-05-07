@@ -45,6 +45,7 @@ public class LevelIntro_Logic : MonoBehaviour
         
         if (currentTextIndex < textList.Count)
         {
+            SoundManager.Instance.PlaySFX(2);
             DialogueManager.Instance.RequestSpiritSpeakEntry(textList[currentTextIndex]);
         }
         if (currentTextIndex >= textList.Count)

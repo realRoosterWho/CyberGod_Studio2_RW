@@ -43,6 +43,7 @@ public class CollisionBox: MonoBehaviour
         yield return new WaitForSeconds(delay);
         EventManager.Instance.TriggerEvent("ErrorDestroyed", new GameEventArgs());
         Destroy(gameObject);
+        SoundManager.Instance.PlaySFX(1);
         isClicked = false;
     }
 }

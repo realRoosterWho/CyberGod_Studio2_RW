@@ -89,6 +89,7 @@ public class Layer_Handler : MonosingletonTemp<Layer_Handler>
         //only work in Navigation Mode
         if (m_controlMode == ControlMode.NAVIGATION && Input.GetMouseButtonDown(1))
         {
+            SoundManager.Instance.PlaySFX(0);
             SwitchLayer();
         }
     }

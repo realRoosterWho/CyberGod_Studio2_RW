@@ -61,8 +61,9 @@ public class SoundManager : MonosingletonTemp<SoundManager>
         musicSource.Play();
     }
     
-    public void PlaySFX(AudioClip clip, float volume = 1f)
+    public void PlaySFX(int index, float volume = 1f)
     {
+        AudioClip clip = AudioClipList[(int)index];
         sfxSource.clip = clip;
         sfxSource.volume = volume;
         sfxSource.PlayOneShot(clip);
