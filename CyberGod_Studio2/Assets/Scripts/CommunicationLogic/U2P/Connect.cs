@@ -1,8 +1,12 @@
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Animations;
-using UnityEditor;
+using UnityEngine.Animations; // 使用UnityEngine.Animations，而不是UnityEditor.Animations
+using System;
+using Unity.VisualScripting;
 
 public class Connect : MonoBehaviour
 {

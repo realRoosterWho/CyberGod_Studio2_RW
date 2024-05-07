@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
+using UnityEngine.UI; // 使用UnityEngine.UI，而不是Unity.UI
 using TMPro;
 
 

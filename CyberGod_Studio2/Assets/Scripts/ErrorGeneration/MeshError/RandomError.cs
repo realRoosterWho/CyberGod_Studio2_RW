@@ -1,10 +1,11 @@
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
-using System.Collections;
-using UnityEditor.Rendering.PostProcessing;
+using UnityEngine.Rendering.PostProcessing; // 使用UnityEngine.Rendering.PostProcessing，而不是UnityEditor.Rendering.PostProcessing
 using System.Net.NetworkInformation;
-using UnityEditor.PackageManager;
+// using UnityEditor.PackageManager;
 using System.Collections.Generic; // Add this to use List
-
 
 public class RandomError : MonoBehaviour
 {

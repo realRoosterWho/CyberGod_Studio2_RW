@@ -1,8 +1,10 @@
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Animations;
-using UnityEditor;
+using UnityEngine.Animations; // ä½¿ç”¨UnityEngine.Animationsï¼Œè€Œä¸æ˜¯UnityEditor.Animations
 using System;
 using Unity.VisualScripting;
 
@@ -15,7 +17,7 @@ public class Communication : MonoBehaviour
             float[] data = U2P.Instance.RecData();
             if (data != null)
             {
-                print("½ÓÊÕµ½Êı¾İ");
+                print("ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½");
                 U2P.Instance.SendData(new List<float>() { 0 });
                 print(data[0]);
             }

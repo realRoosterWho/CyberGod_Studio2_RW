@@ -26,6 +26,12 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
 
     void Start()
     {
+        StartProcess();
+
+    }
+
+    private void StartProcess()
+    {
         Kill_All_Python_Process();
 
         udpClient = new UdpClient();
@@ -90,10 +96,27 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
 
         }
 
+    }
+    
+    private void Update()
+    {
+        
+        //检查进程是否存在，如果不存在就重新启动进程
+        if (process.HasExited)
+        {
+            StartProcess();
+        }
+        
 
     }
 
 
+    private IEnumerator RestartAfterDelay()
+    {
+        // 等待两秒
+        yield return new WaitForSeconds(2);
+
+    }
     private void OnOutputDataReceived(object sender, DataReceivedEventArgs e)
     {
         if (!string.IsNullOrEmpty(e.Data))
@@ -110,6 +133,7 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
         if (!string.IsNullOrEmpty(e.Data))
         {
             UnityEngine.Debug.LogError("Received error output: " + e.Data);
+            StartCoroutine(RestartAfterDelay());
         }
     }
 

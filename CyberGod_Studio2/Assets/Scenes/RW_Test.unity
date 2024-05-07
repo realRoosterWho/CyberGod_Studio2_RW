@@ -1890,7 +1890,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u5728\u901A\u7075\u5C42\u60AC\u6D6E\u67E5\u770B\u574F\u6389\u7684\u4E49\u4F53\n\u5728\u5176\u5B83\u5C42\u627E\u5230\u5BF9\u5E94\u4E49\u4F53\uFF0C\u5DE6\u952E\u7EF4\u4FEE"
+  m_text: "- \u53F3\u952E\u5207\u6362\u5C42\u7EA7\n- \u5728\u901A\u7075\u5C42\u60AC\u6D6E\u67E5\u770B\u574F\u6389\u7684\u4E49\u4F53\n-
+    \u5728\u5176\u5B83\u5C42\u627E\u5BF9\u5E94\u4E49\u4F53\uFF0C\u5DE6\u952E\u7EF4\u4FEE\n-
+    \u52A8\u6355\u6E38\u620F\u9700\u8981\u4FDD\u6301\u4E00\u7C73\u8DDD\u79BB"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2ee7b8c7a182b4d8bbb98c4450c98089, type: 2}
   m_sharedMaterial: {fileID: -1555237965977555608, guid: 2ee7b8c7a182b4d8bbb98c4450c98089, type: 2}
@@ -1917,14 +1919,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47
-  m_fontSizeBase: 47
+  m_fontSize: 41.19
+  m_fontSizeBase: 41.19
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1953,7 +1955,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -33.936066, z: 0, w: -45.238228}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4059,7 +4061,7 @@ MonoBehaviour:
       Data: 1
     - Name: dialogueText
       Entry: 1
-      Data: "\u5728\u901A\u7075\u5C42\u67E5\u770B\u574F\u6389\u7684\u4E49\u4F53\uFF0C\u5728\u5176\u5B83\u5C42\u7EF4\u4FEE"
+      Data: "\u5728\u901A\u7075\u5C42\u67E5\u770B\u574F\u6389\u7684\u4E49\u4F53\uFF0C\u5728\u5176\u5B83\u5C42\u5DE6\u952E\u7EF4\u4FEE"
     - Name: priority
       Entry: 3
       Data: 0
@@ -4155,7 +4157,7 @@ MonoBehaviour:
       Data: 4
     - Name: dialogueText
       Entry: 1
-      Data: "\u773C\u524D\u8FD9\u4E2A\u4EBA\u4F3C\u4E4E\u4F24\u5F97\u5F88\u91CD\u2026\u6211\u8981\u60F3\u60F3\u529E\u6CD5"
+      Data: "\u773C\u524D\u8FD9\u4E2A\u4EBA\u4F3C\u4E4E\u8EAB\u4E0A\u4E49\u4F53\u9519\u8BEF\u4E00\u4E2A\u63A5\u4E00\u4E2A\u51FA\u73B0\u2026\u6211\u8981\u60F3\u60F3\u529E\u6CD5"
     - Name: priority
       Entry: 3
       Data: 0
@@ -10728,12 +10730,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 3840, y: 2160}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

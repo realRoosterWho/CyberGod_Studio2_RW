@@ -560,6 +560,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
     - {fileID: 21300000, guid: 8e35cfbbab41e4a0c9bf3ee9a1211b0f, type: 3}
     - {fileID: 21300000, guid: 048fbd54420574128956ecfb2875c6b4, type: 3}
+    - {fileID: 21300000, guid: 6ed0d4b6530a64b23b98ce7e3712f1e1, type: 3}
+    - {fileID: 21300000, guid: 6bbddee66323f49618901f1b1d0a208c, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -578,7 +580,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 7
+      Data: 10
     - Name: 
       Entry: 7
       Data: 
@@ -641,7 +643,7 @@ MonoBehaviour:
       Data: 1
     - Name: dialogueText
       Entry: 1
-      Data: "\u8FD9\u662F\u4E00\u4E2A\u52A8\u6355\u6E38\u620F\uFF0C\u786E\u4FDD\u7EA61m\u7684\u8DDD\u79BB\uFF08\u5DE6\u952E\u7EE7\u7EED\u5BF9\u8BDD\uFF09"
+      Data: "\u8FD9\u662F\u4E00\u4E2A\u52A8\u6355\u6E38\u620F\uFF0C\u786E\u4FDD\u7EA61m\u7684\u8DDD\u79BB"
     - Name: priority
       Entry: 3
       Data: 0
@@ -689,7 +691,7 @@ MonoBehaviour:
       Data: 1
     - Name: dialogueText
       Entry: 1
-      Data: "\u5728\u901A\u7075\u5C42\u67E5\u770B\u574F\u6389\u7684\u4E49\u4F53\uFF0C\u5728\u5176\u5B83\u5C42\u7EF4\u4FEE"
+      Data: "\u5728\u901A\u7075\u5C42\u67E5\u770B\u574F\u6389\u7684\u4E49\u4F53\uFF0C\u5728\u5176\u5B83\u5C42\u5DE6\u952E\u7EF4\u4FEE"
     - Name: priority
       Entry: 3
       Data: 0
@@ -738,6 +740,78 @@ MonoBehaviour:
     - Name: dialogueText
       Entry: 1
       Data: "\u6E38\u620F\u7684\u76EE\u6807\u662F\u5728\u89C4\u5B9A\u65F6\u95F4\u5185\u6355\u83B7\u8DB3\u591F\u6570\u91CF\u7684\u9519\u8BEF"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: intro_s_0
+    - Name: $v
+      Entry: 7
+      Data: 9|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u4F5C\u4E3A\u8D5B\u535A\u673A\u9B42\uFF0C\u6211\u7684\u804C\u8D23\u662F\u5728\u901A\u7075\u673A\u5668\u4E0A\u4FEE\u590D\u4E49\u4F53\uFF08\u5DE6\u952E\u7EE7\u7EED\u5BF9\u8BDD\uFF09"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: intro_s_1
+    - Name: $v
+      Entry: 7
+      Data: 10|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 4
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u773C\u524D\u8FD9\u4E2A\u4EBA\u4F3C\u4E4E\u8EAB\u4E0A\u4E49\u4F53\u9519\u8BEF\u4E00\u4E2A\u63A5\u4E00\u4E2A\u51FA\u73B0\u2026\u6211\u8981\u60F3\u60F3\u529E\u6CD5"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: intro_s_2
+    - Name: $v
+      Entry: 7
+      Data: 11|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u5148\u901A\u7075\u67E5\u770B\u4ED6\u7684\u4E49\u4F53\uFF0C\u518D\u8FDB\u884C\u5BF9\u5E94\u68C0\u4FEE\u5427"
     - Name: priority
       Entry: 3
       Data: 0
@@ -817,12 +891,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 3840, y: 2160}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
