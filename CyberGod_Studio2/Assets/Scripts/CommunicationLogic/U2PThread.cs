@@ -20,12 +20,12 @@ public class U2PThread : MonosingletonTemp<U2PThread>
 
     void Start()
     {
-        receiveThread = new Thread(new ThreadStart(ReceiveData));
+        receiveThread = new Thread(new ThreadStart(ReceiveData)); //这意思是创建一个新的线程，然后调用ReceiveData函数
         receiveThread.IsBackground = true;
         receiveThread.Start();
     }
-
-
+    
+    
     private void ReceiveData()
     {
         client = new UdpClient(port);
