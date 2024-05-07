@@ -45,12 +45,14 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
             // no window
-            string exePath = "Scripts/bodydivide_noimage_v30504/dist/main/main.exe";
 
+            // Assets/StreamingAssets/PythonApp/DSDSmain/DSDSmain.exe
+            // System.IO.Path.Combine(Application.streamingAssetsPath, "PythonApp/DSDSmain/DSDSmain.exe")
+            string exePath = "bodydivide_noimage_v30504/dist/main/main.exe";
             // has windos
             // string exePath = "Scripts/bodydivide_onimage_v30504/dist/main/main.exe";
 
-            string dataPath = Application.dataPath;
+            string dataPath = Application.streamingAssetsPath;
             fullPath = dataPath + "/" + exePath;
 
             startInfo = new ProcessStartInfo();

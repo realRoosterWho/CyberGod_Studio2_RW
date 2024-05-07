@@ -16,3 +16,12 @@ Listener: OnErrorDestroyed
 Event: MotionCaptureInput
 Listener: OnMotionCaptureInput
 
+Event: HealthChange
+Listener: OnHealthChange
+
+Event: RepairChange
+Listener: OnRepairChange
+
+Event: SpiritChange
+Listener: OnSpiritChange
+
