@@ -164,7 +164,7 @@ MonoBehaviour:
   - {fileID: 3672377285297753777}
   - {fileID: 7764698478646835290}
   model: {fileID: 4958918369255168242}
-  prefab3DError: {fileID: 0}
+  prefab3DError: {fileID: 4206588600342206004, guid: 86f7c45c40d0a53438972e10f04c8950, type: 3}
   errors: []
   sensitivity: 5
 --- !u!23 &2407859843686943450

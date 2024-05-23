@@ -59,7 +59,7 @@ MonoBehaviour:
   - {fileID: 7142089732389538789}
   - {fileID: 4907582990931383623}
   model: {fileID: 1007254065871608739}
-  prefab3DError: {fileID: 0}
+  prefab3DError: {fileID: 4206588600342206004, guid: 86f7c45c40d0a53438972e10f04c8950, type: 3}
   errors: []
   sensitivity: 5
 --- !u!23 &1541684206772704144
