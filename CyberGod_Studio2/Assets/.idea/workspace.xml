@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7a5b818b-8535-483f-973f-8569c77e527c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/CommunicationLogic/U2PThread.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/CommunicationLogic/U2PThread.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +55,7 @@
       <updated>1713362381444</updated>
       <workItem from="1713362382562" duration="301000" />
       <workItem from="1713972465295" duration="187000" />
-      <workItem from="1715084350700" duration="1058000" />
+      <workItem from="1715084350700" duration="1100000" />
     </task>
     <servers />
   </component>

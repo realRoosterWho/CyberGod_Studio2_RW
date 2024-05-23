@@ -3924,8 +3924,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101180000006d005f0073007000720069007400650053007000650061006b006500720045006e0074007200790044006900630074002f000000000170000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e00440069006300740069006f006e00610072007900600032005b005b00530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c00690062005d002c005b0053007000690072006900740053007000650061006b0045006e007400720079002c00200041007300730065006d0062006c0079002d004300530068006100720070005d005d002c0020006d00730063006f0072006c00690062000000000001010800000063006f006d00700061007200650072002f010000000159000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e00470065006e00650072006900630045007100750061006c0069007400790043006f006d0070006100720065007200600031005b005b00530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c00690062005d005d002c0020006d00730063006f0072006c00690062000100000005060a00000000000000042e27010200000024006b00010500000066006c00650073006800010102000000240076002f02000000012100000053007000690072006900740053007000650061006b0045006e007400720079002c00200041007300730065006d0062006c0079002d00430053006800610072007000020000000b010b00000053007000690072006900740049006d006100670065000000000027010c0000006400690061006c006f006700750065005400650078007400011d0000004b620163209f07683e653052f95b945ee8904d4f0cff825909671995ef8be65d2e95f47eee4f1bff8259e0651995ef8b0cffe065d56cf47eee4f1701080000007000720069006f007200690074007900000000000505042e27010200000024006b0001080000006d0065006300680061006e0069006300010102000000240076003002000000030000000b010b00000053007000690072006900740049006d006100670065000000000027010c0000006400690061006c006f006700750065005400650078007400011d0000004b620163209f07683e653052f95b945ee8904d4f0cff825909671995ef8be65d2e95f47eee4f1bff8259e0651995ef8b0cffe065d56cf47eee4f1701080000007000720069006f007200690074007900000000000505042e27010200000024006b00010600000069006e00740072006f003000010102000000240076003002000000040000000b010b00000053007000690072006900740049006d006100670065000100000027010c0000006400690061006c006f0067007500650054006500780074000111000000d98f2f66004e2a4ea8525563386e0f620cff6e78dd4fa67e31006d008476dd8dbb791701080000007000720069006f007200690074007900000000000505042e27010200000024006b00010600000069006e00740072006f003100010102000000240076003002000000050000000b010b00000053007000690072006900740049006d006100670065000100000027010c0000006400690061006c006f006700750065005400650078007400010b0000004b620163209f07680cfff3532e9507526263425ca77e1701080000007000720069006f007200690074007900000000000505042e27010200000024006b00010600000069006e00740072006f003200010102000000240076003002000000060000000b010b00000053007000690072006900740049006d006100670065000100000027010c0000006400690061006c006f006700750065005400650078007400011400000028571a907570425ce5670b774f5789638476494e534f0cff28577651835b425ce65d2e95f47eee4f1701080000007000720069006f007200690074007900000000000505042e27010200000024006b0001050000006e006500720076006500010102000000240076003002000000070000000b010b00000053007000690072006900740049006d006100670065000200000027010c0000006400690061006c006f00670075006500540065007800740001200000004b620163209f07683e653052f95b945ee8904d4f0cffac606e6da27e72821952f95b945ee8904d4f096719950cffde5630527651d64e425ca77e6567ee4f0d591701080000007000720069006f007200690074007900000000000505042e27010200000024006b00010600000069006e00740072006f003300010102000000240076003002000000080000000b010b00000053007000690072006900740049006d006100670065000100000027010c0000006400690061006c006f0067007500650054006500780074000115000000386e0f628476ee7607682f662857c4899a5bf665f49585515563b783b38d1f597065cf9184761995ef8b1701080000007000720069006f007200690074007900000000000505042e27010200000024006b00010900000069006e00740072006f005f0073005f003000010102000000240076003002000000090000000b010b00000053007000690072006900740049006d006100670065000300000027010c0000006400690061006c006f006700750065005400650078007400011e0000005c4f3a4e5b8d5a533a67429b0cff116284764c80238d2f6628571a9075703a6768560a4eee4f0d59494e534f08ffe65d2e95e77eed7ef95bdd8b09ff1701080000007000720069006f007200690074007900000000000505042e27010200000024006b00010900000069006e00740072006f005f0073005f0031000101020000002400760030020000000a0000000b010b00000053007000690072006900740049006d006100670065000400000027010c0000006400690061006c006f006700750065005400650078007400011b0000003c774d52d98f2a4eba4e3c4f4e4eab8e0a4e494e534f1995ef8b004e2a4ea563004e2a4efa51b073262011628189f360f3609e52d56c1701080000007000720069006f007200690074007900000000000505042e27010200000024006b00010900000069006e00740072006f005f0073005f0032000101020000002400760030020000000b0000000b010b00000053007000690072006900740049006d006100670065000300000027010c0000006400690061006c006f006700750065005400650078007400011200000048511a907570e5670b77d64e8476494e534f0cff8d51db8f4c88f95b945ec068ee4f27541701080000007000720069006f0072006900740079000000000005050705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
     - {fileID: 21300000, guid: 8e35cfbbab41e4a0c9bf3ee9a1211b0f, type: 3}
@@ -3936,7 +3936,267 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: m_spriteSpeakerEntryDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 10
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: flesh
+    - Name: $v
+      Entry: 7
+      Data: 2|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u624B\u6301\u9F20\u6807\u653E\u5230\u5BF9\u5E94\u90E8\u4F4D\uFF0C\u5982\u6709\u9519\u8BEF\u5DE6\u952E\u7EF4\u4FEE\uFF1B\u5982\u65E0\u9519\u8BEF\uFF0C\u65E0\u6CD5\u7EF4\u4FEE"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: mechanic
+    - Name: $v
+      Entry: 7
+      Data: 3|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u624B\u6301\u9F20\u6807\u653E\u5230\u5BF9\u5E94\u90E8\u4F4D\uFF0C\u5982\u6709\u9519\u8BEF\u5DE6\u952E\u7EF4\u4FEE\uFF1B\u5982\u65E0\u9519\u8BEF\uFF0C\u65E0\u6CD5\u7EF4\u4FEE"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: intro0
+    - Name: $v
+      Entry: 7
+      Data: 4|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u8FD9\u662F\u4E00\u4E2A\u52A8\u6355\u6E38\u620F\uFF0C\u786E\u4FDD\u7EA61m\u7684\u8DDD\u79BB"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: intro1
+    - Name: $v
+      Entry: 7
+      Data: 5|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u624B\u6301\u9F20\u6807\uFF0C\u53F3\u952E\u5207\u6362\u5C42\u7EA7"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: intro2
+    - Name: $v
+      Entry: 7
+      Data: 6|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u5728\u901A\u7075\u5C42\u67E5\u770B\u574F\u6389\u7684\u4E49\u4F53\uFF0C\u5728\u5176\u5B83\u5C42\u5DE6\u952E\u7EF4\u4FEE"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: nerve
+    - Name: $v
+      Entry: 7
+      Data: 7|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u624B\u6301\u9F20\u6807\u653E\u5230\u5BF9\u5E94\u90E8\u4F4D\uFF0C\u60AC\u6D6E\u7EA2\u8272\u5219\u5BF9\u5E94\u90E8\u4F4D\u6709\u9519\uFF0C\u56DE\u5230\u5176\u4ED6\u5C42\u7EA7\u6765\u4FEE\u590D"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: intro3
+    - Name: $v
+      Entry: 7
+      Data: 8|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u6E38\u620F\u7684\u76EE\u6807\u662F\u5728\u89C4\u5B9A\u65F6\u95F4\u5185\u6355\u83B7\u8DB3\u591F\u6570\u91CF\u7684\u9519\u8BEF"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: intro_s_0
+    - Name: $v
+      Entry: 7
+      Data: 9|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u4F5C\u4E3A\u8D5B\u535A\u673A\u9B42\uFF0C\u6211\u7684\u804C\u8D23\u662F\u5728\u901A\u7075\u673A\u5668\u4E0A\u4FEE\u590D\u4E49\u4F53\uFF08\u5DE6\u952E\u7EE7\u7EED\u5BF9\u8BDD\uFF09"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: intro_s_1
+    - Name: $v
+      Entry: 7
+      Data: 10|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 4
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u773C\u524D\u8FD9\u4E2A\u4EBA\u4F3C\u4E4E\u8EAB\u4E0A\u4E49\u4F53\u9519\u8BEF\u4E00\u4E2A\u63A5\u4E00\u4E2A\u51FA\u73B0\u2026\u6211\u8981\u60F3\u60F3\u529E\u6CD5"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: intro_s_2
+    - Name: $v
+      Entry: 7
+      Data: 11|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u5148\u901A\u7075\u67E5\u770B\u4ED6\u7684\u4E49\u4F53\uFF0C\u518D\u8FDB\u884C\u5BF9\u5E94\u68C0\u4FEE\u5427"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   activeSpiritSpeakEntries: []
 --- !u!4 &787006809
 Transform:
@@ -8094,7 +8354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownScrollbar: {fileID: 1132606064}
-  maxCountdownTime: 120
+  maxCountdownTime: 1200
 --- !u!114 &1479347334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10027,8 +10287,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 01010900000062006f0064007900500061007200740073002f00000000017d000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e00440069006300740069006f006e00610072007900600032005b005b00530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c00690062005d002c005b0055006e0069007400790045006e00670069006e0065002e00470061006d0065004f0062006a006500630074002c00200055006e0069007400790045006e00670069006e0065002e0043006f00720065004d006f00640075006c0065005d005d002c0020006d00730063006f0072006c00690062000000000001010800000063006f006d00700061007200650072002f010000000159000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e00470065006e00650072006900630045007100750061006c0069007400790043006f006d0070006100720065007200600031005b005b00530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c00690062005d005d002c0020006d00730063006f0072006c00690062000100000005060a00000000000000042e27010200000024006b000102000000320030000b0102000000240076000000000005042e27010200000024006b000102000000320031000b0102000000240076000100000005042e27010200000024006b000102000000320032000b0102000000240076000200000005042e27010200000024006b000102000000320033000b0102000000240076000300000005042e27010200000024006b000102000000320034000b0102000000240076000400000005042e27010200000024006b000102000000320035000b0102000000240076000500000005042e27010200000024006b00010100000030000b0102000000240076000600000005042e27010200000024006b00010100000031000b0102000000240076000700000005042e27010200000024006b00010100000033000b0102000000240076000800000005042e27010200000024006b00010100000032000b01020000002400760009000000050705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 2057529318}
     - {fileID: 1377164981}
@@ -10044,7 +10304,147 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: bodyParts
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[UnityEngine.GameObject,
+        UnityEngine.CoreModule]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 10
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 20
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 21
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 22
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 23
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 24
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 25
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 0
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 3
+    - Name: $v
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   m_humanCoatLogic: {fileID: 906445960}
   lastErrorBodyPart: 
   errorBodyParts_Flesh: []
