@@ -14,6 +14,7 @@ public class Layer_Handler : MonosingletonTemp<Layer_Handler>
 {
 	//定义cinimachine impulse source
 	public CinemachineImpulseSource m_impulseSource;
+
     
     //定义当前的层级
     [SerializeField] public Layer m_layer = Layer.FLESH;
@@ -92,10 +93,19 @@ public class Layer_Handler : MonosingletonTemp<Layer_Handler>
         //only work in Navigation Mode
         if (m_controlMode == ControlMode.NAVIGATION && Input.GetMouseButtonDown(1))
         {
+
+			EventManager.Instance.TriggerEvent("LayerChanged", new GameEventArgs());
             SoundManager.Instance.PlaySFX(0);
 			m_impulseSource.GenerateImpulse(0.2f);
-            SwitchLayer();
+			StartCoroutine(ChangeLayerAfterDelay(0.3f));
         }
+    }
+
+	//开始一个协程
+	IEnumerator ChangeLayerAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SwitchLayer();
     }
 
 }
