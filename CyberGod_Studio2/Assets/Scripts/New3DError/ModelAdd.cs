@@ -24,7 +24,7 @@ public class ModelAdd : MonoBehaviour
 
     private bool ifAddDone = false;
 
-    // È¡GameObjectµÄÇ°°Ë¸ö¶¥µã£¨½öÊÊÓÃÓÚCube)
+    // È¡GameObjectï¿½ï¿½Ç°ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ã£¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cube)
     private List<Vector3> GetWorldPositionOfVertexs(GameObject scaleCube)
     {
         return scaleCube.GetComponent<MeshFilter>()
@@ -34,19 +34,19 @@ public class ModelAdd : MonoBehaviour
             .Take(8).ToList();
     }
 
-    // Ëæ»úÔÚcube±íÃæÈ¡Ò»µã
+    // ï¿½ï¿½ï¿½ï¿½ï¿½cubeï¿½ï¿½ï¿½ï¿½È¡Ò»ï¿½ï¿½
     private Vector3 GetRandomVectorAtCube(List<Vector3> vec)
     {
         Vector3 res = new Vector3();
-        // Ëæ»úÒ»¸ö·¨ÏòÁ¿
+        // ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         int randomStableAxis = Random.Range(0, 3);
-        // Ëæ»úÒ»¸öÃæµÄ·½Ïò
+        // ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
         int randomAxisValue = Random.Range(0, 2);
 
         switch (randomStableAxis)
         {
             case 0:
-                // xÖá¹Ì¶¨
+                // xï¿½ï¿½Ì¶ï¿½
                 res.x = randomAxisValue == 0 ? vec[1].x : vec[0].x;
                 res.y = Random.Range(Mathf.Min(vec[1].y, vec[3].y),
                     Mathf.Max(vec[1].y, vec[3].y));
@@ -54,7 +54,7 @@ public class ModelAdd : MonoBehaviour
                     Mathf.Max(vec[3].z, vec[5].z));
                 break;
             case 1:
-                // yÖá¹Ì¶¨
+                // yï¿½ï¿½Ì¶ï¿½
                 res.x = Random.Range(Mathf.Min(vec[1].x, vec[0].x),
                     Mathf.Max(vec[1].x, vec[0].x));
                 res.x = randomAxisValue == 0 ? vec[0].y : vec[2].y;
@@ -62,7 +62,7 @@ public class ModelAdd : MonoBehaviour
                     Mathf.Max(vec[0].z, vec[6].z));
                 break;
             case 2:
-                // zÖá¹Ì¶¨
+                // zï¿½ï¿½Ì¶ï¿½
                 res.x = Random.Range(Mathf.Min(vec[1].x, vec[0].x),
                     Mathf.Max(vec[1].x, vec[0].x));
                 res.y = Random.Range(Mathf.Min(vec[1].y, vec[3].y),
@@ -73,7 +73,7 @@ public class ModelAdd : MonoBehaviour
         return res;
     }
 
-    // ÔÚÖ¸¶¨²¿Î»Éú³ÉÉäÏß
+    // ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private void StartRay(GameObject scaleCube)
     {
         List<Vector3> vec = GetWorldPositionOfVertexs(scaleCube);
@@ -81,7 +81,7 @@ public class ModelAdd : MonoBehaviour
         Vector3 origin = GetRandomVectorAtCube(vec);
         Vector3 end = scaleCube.transform.position;
 
-        // ÔÚÕâÀïÉú³ÉÉäÏß
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         ray = new Ray();
         ray.origin = origin;
         ray.direction = end - origin;
@@ -89,18 +89,18 @@ public class ModelAdd : MonoBehaviour
         // Debug.Log(myGameObject.transform.position);
     }
 
-    // Ò»Ö±Éú³ÉÉäÏßÖ±µ½»÷ÖÐÄ£ÐÍ
+    // Ò»Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
     public void hitWhileOnModel(GameObject scaleCube)
     {
         hitWhileOn(scaleCube);
-        // ÒÑ¾­»÷ÖÐ
+        // ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½
         while (hit.collider.CompareTag("3DError") || hit.collider.CompareTag("Box") || hit.collider.CompareTag("ScaleCube"))
         {
             hitWhileOn(scaleCube);
         }
     }
 
-    // Ò»Ö±Éú³ÉÉäÏßÖ±µ½»÷ÖÐ
+    // Ò»Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private void hitWhileOn(GameObject scaleCube)
     {
         StartRay(scaleCube);
@@ -110,7 +110,7 @@ public class ModelAdd : MonoBehaviour
         }
     }
 
-    // ÔÚÖ¸¶¨²¿Î»Éú³É´íÎó
+    // ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½É´ï¿½ï¿½ï¿½
     private void GenerateMeshErrorAtArea(GameObject scaleCube)
     {
         hitWhileOnModel(scaleCube);
@@ -118,25 +118,25 @@ public class ModelAdd : MonoBehaviour
 
         float modelscale = model.transform.localScale.x;
 
-        // Éú³É´íÎó×ÓObject
+        // ï¿½ï¿½ï¿½É´ï¿½ï¿½ï¿½ï¿½ï¿½Object
         GameObject tderror = Instantiate(prefab3DError, transform);
         errors.Add(tderror);
         tderror.transform.parent = model.transform;
         tderror.transform.localScale /= 3; // set the scale of error
         tderror.transform.localScale /= modelscale;
 
-        // »ñÈ¡Åö×²Î»ÖÃÐÅÏ¢
+        // ï¿½ï¿½È¡ï¿½ï¿½×²Î»ï¿½ï¿½ï¿½ï¿½Ï¢
         tderror.transform.position = hit.point;
         tderror.transform.up = hit.normal;
 
-        // °²ÖÃ´íÎó×ÓObject
+        // ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Object
         tderror.transform.Translate(Vector3.up * 0.15f * tderror.transform.localScale.y, Space.Self);
 
 
     }
     private void Awake()
     {
-        // ±éÀúËùÓÐscalebox£¬Ã¿¸öÉú³ÉÒ»¸ö´íÎóµã
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½scaleboxï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         for (int i = 0; i < scaleCubes.Count; i++)
         {
             GenerateMeshErrorAtArea(scaleCubes[i]);
@@ -170,7 +170,7 @@ public class ModelAdd : MonoBehaviour
         {
             float rotation = Input.GetAxis("Mouse X") * sensitivity;
 
-            // Èç¹ûm_game_manager.Instance.isPauseÎªÕæ£¬·µ»Ø
+            // ï¿½ï¿½ï¿½m_game_manager.Instance.isPauseÎªï¿½æ£¬ï¿½ï¿½ï¿½ï¿½
             /*
             if (m_GameManager.Instance.isPaused)
             {
@@ -183,15 +183,15 @@ public class ModelAdd : MonoBehaviour
         UpdateErrorList();
         var errornumber = GetErrorCount();
 
-        // µ±´íÎóÒÑ¾­Éú³ÉÍê±Ï ÇÒ ´íÎóÈ«²¿±»Ïû³ý
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (errornumber <= 0 && ifAddDone )
         {
-            //·¢ÉúÊÂ¼þ£ºSomethingRepaired
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½SomethingRepaired
             EventManager.Instance.TriggerEvent("SomethingRepaired", new GameEventArgs());
             // Changeto Navigation Mode
             ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
-            // Ïú»Ù×Ô¼ºµÄ¸¸ÎïÌå£¨Ïú»ÙµÄÊÂÉ¶×Ó°¡£©
-            Destroy(transform.root.gameObject,1f);
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½å£¨ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½É¶ï¿½Ó°ï¿½ï¿½ï¿½
+            Destroy(transform.root.gameObject,1f);//æ„æ€æ˜¯1ç§’åŽé”€æ¯ï¼Œé”€æ¯çš„æ˜¯æ ¹ç‰©ä½“ï¼Œä¹Ÿå°±æ˜¯æ•´ä¸ªæ¨¡åž‹
         }
 
     }
