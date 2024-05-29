@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="185f7ad1-00e1-4725-be39-86f0974bb34f" name="Changes" comment="" />
+    <list default="true" id="185f7ad1-00e1-4725-be39-86f0974bb34f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/RW_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/RW_Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Body/Layer_Handler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Body/Layer_Handler.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +23,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd2d3e9b010a4ba4b3fdc0456cd6b40b469200/6e/bd94ffea/CancellationTokenSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Brian_13_1/Assets/Scripts/PlayerLogic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Brian_class10/Assets/Scripts/Cube_Logic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CanvasShakeWithIndependentImpulse.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Materials/Shaders/Outline.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Base_Scripts/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Base_Scripts/GameOverScreen.cs" root0="SKIP_HIGHLIGHTING" />
@@ -67,7 +72,11 @@
     <setting file="file://$PROJECT_DIR$/Scripts/New3DError/ModelAdd.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/New3DError/ModelRotationByMouse.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/New3DError/NewMeshErrorParticleSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/New3DError/Wasted/Add3DError.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/RenderReplacementShaderToTexture.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/UICameraShakeController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Library/PackageCache/com.unity.cinemachine@2.9.7/Runtime/Impulse/CinemachineImpulseSource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../Library/PackageCache/com.unity.cinemachine@2.9.7/Runtime/Impulse/CinemachineIndependentImpulseListener.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -134,7 +143,7 @@
       <workItem from="1715074753320" duration="12051000" />
       <workItem from="1716481737955" duration="4241000" />
       <workItem from="1716993541995" duration="699000" />
-      <workItem from="1716994738608" duration="818000" />
+      <workItem from="1716994738608" duration="4881000" />
     </task>
     <task id="LOCAL-00001" summary="mac环境依赖解决，0329代码层面有问题">
       <option name="closed" value="true" />

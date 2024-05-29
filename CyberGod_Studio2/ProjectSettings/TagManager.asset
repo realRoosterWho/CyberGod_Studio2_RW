@@ -8,6 +8,7 @@ TagManager:
   - Box
   - Error
   - 3Dmodel
+  - ScaleCube
   layers:
   - Default
   - TransparentFX
@@ -47,4 +48,7 @@ TagManager:
     locked: 0
   - name: interactables
     uniqueID: 1582099757
+    locked: 0
+  - name: UI
+    uniqueID: 1321783591
     locked: 0

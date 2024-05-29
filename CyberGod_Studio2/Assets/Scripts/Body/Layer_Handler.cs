@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
+
 public enum Layer
 {
     FLESH,
@@ -10,8 +12,8 @@ public enum Layer
 
 public class Layer_Handler : MonosingletonTemp<Layer_Handler>
 {
-    //定义一个枚举类型，用于表示当前的层级
-
+	//定义cinimachine impulse source
+	public CinemachineImpulseSource m_impulseSource;
     
     //定义当前的层级
     [SerializeField] public Layer m_layer = Layer.FLESH;
@@ -21,7 +23,8 @@ public class Layer_Handler : MonosingletonTemp<Layer_Handler>
     // Start is called before the first frame update
     void Start()
     {
-        
+        //在自己身上获取CinemachineImpulseSource组件
+		m_impulseSource = GetComponent<CinemachineImpulseSource>();
     }
 
     // Update is called once per frame
@@ -90,6 +93,7 @@ public class Layer_Handler : MonosingletonTemp<Layer_Handler>
         if (m_controlMode == ControlMode.NAVIGATION && Input.GetMouseButtonDown(1))
         {
             SoundManager.Instance.PlaySFX(0);
+			m_impulseSource.GenerateImpulse(0.2f);
             SwitchLayer();
         }
     }
