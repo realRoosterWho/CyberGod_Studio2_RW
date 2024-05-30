@@ -19,7 +19,6 @@ public enum RepairingSubMode
 
 public class ControlMode_Manager : MonosingletonTemp<ControlMode_Manager>
 {
-    [SerializeField] Input_Handler m_inputHandler;
     
     //定义当前的控制模式
     [SerializeField] public ControlMode m_controlMode = ControlMode.DIALOGUE;

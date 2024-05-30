@@ -9478,10 +9478,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bodyManager: {fileID: 1830121317}
-  m_captureErrorLogic: {fileID: 513436788}
-  m_objectiveErrorNumber: 3
   m_generalCountdownLogic: {fileID: 1479347333}
   m_meshErrorGenerator: {fileID: 1479347334}
+  m_captureErrorLogic: {fileID: 513436788}
+  m_objectiveErrorNumber: 3
+  m_maxCountdownTime: 120
+  m_isDoubleError: 0
+  realErrorGeneratableBodyParts_Flesh:
+  - 1
+  - 20
+  - 25
+  realErrorGeneratableBodyParts_Machine:
+  - 21
   m_generationInterval_expectation: 8
   m_generationInterval_variance: 1.5
   m_isRandomTime: 0
@@ -9514,7 +9522,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownScrollbar: {fileID: 1132606064}
-  maxCountdownTime: 1200
 --- !u!114 &1479347334
 MonoBehaviour:
   m_ObjectHideFlags: 0

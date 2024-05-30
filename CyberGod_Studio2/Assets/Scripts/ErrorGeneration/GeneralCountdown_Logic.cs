@@ -6,7 +6,6 @@ public class GeneralCountdown_Logic : MonoBehaviour
     [SerializeField]
     public Scrollbar countdownScrollbar;
 
-    [SerializeField]
     private float maxCountdownTime;
 
     private void Start()
@@ -20,5 +19,10 @@ public class GeneralCountdown_Logic : MonoBehaviour
     {
         // Decrease the current value of the slider every frame to simulate the countdown
         countdownScrollbar.size -= Time.deltaTime / maxCountdownTime;
+    }
+    
+    public void SetMaxTime(float time)
+    {
+        maxCountdownTime = time;
     }
 }

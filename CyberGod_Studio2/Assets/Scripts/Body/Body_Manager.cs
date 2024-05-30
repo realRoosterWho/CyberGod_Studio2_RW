@@ -234,7 +234,8 @@ public class Body_Manager : SerializedMonoBehaviour
                 {
                     errorBodyParts_Machine.Add(bodyPartLogic.Key);
                 }
-            }        }
+            }        
+        }
     }
     
     

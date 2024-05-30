@@ -4,31 +4,56 @@ using UnityEngine;
 
 public class GenerationStage_Handler : MonoBehaviour
 {
-    [SerializeField]Body_Manager m_bodyManager;
-    
+    private ControlMode m_controlMode;
+    private RepairingSubMode m_repairingSubMode;
     //存储已经有的错误部位
     private List<string> errorBodyParts_Flesh;
     private List<string> errorBodyParts_Machine;
     
-    [SerializeField] CaptureError_Logic m_captureErrorLogic;
-    
-    [SerializeField] int m_objectiveErrorNumber;
-    [SerializeField] GeneralCountdown_Logic m_generalCountdownLogic;
-    
-    private ControlMode m_controlMode;
-    private RepairingSubMode m_repairingSubMode;
-    
-    [SerializeField] private Generation_MeshErrorGenerator m_meshErrorGenerator;
-    
     float m_generationInterval = 10.0f;
-    
-    [SerializeField] float m_generationInterval_expectation = 5f;
-    [SerializeField] float m_generationInterval_variance = 1.5f;
     private float m_generationIntervalMin;
     private float m_generationIntervalMax;
     private float m_generationTimer = 0.0f;
 
     private float MINIMAL_INTERVAL = 0.1f;
+    
+    
+    
+    
+    
+    
+    
+    [Header("References")]
+    [SerializeField]Body_Manager m_bodyManager;
+    [SerializeField] GeneralCountdown_Logic m_generalCountdownLogic;
+    
+    [SerializeField] private Generation_MeshErrorGenerator m_meshErrorGenerator;
+    
+
+    
+    [SerializeField] CaptureError_Logic m_captureErrorLogic;
+    [Space(10)] // 添加 10 像素的间隔
+    
+    [Header("步调值")]
+    [SerializeField] int m_objectiveErrorNumber;
+    [SerializeField] float m_maxCountdownTime;
+
+    [SerializeField] private bool m_isDoubleError;
+    // 新增的字段
+    [SerializeField] List<string> realErrorGeneratableBodyParts_Flesh;
+    [SerializeField] List<string> realErrorGeneratableBodyParts_Machine;
+
+    
+
+    
+
+    [Space(10)] // 添加 10 像素的间隔
+    
+    
+    
+    [Header("遗产设置")]
+    [SerializeField] float m_generationInterval_expectation = 5f;
+    [SerializeField] float m_generationInterval_variance = 1.5f;
 
     [SerializeField]private bool m_isRandomTime;
     [SerializeField]private int m_maxNumber;
@@ -42,6 +67,14 @@ public class GenerationStage_Handler : MonoBehaviour
         
         //ErrorDestroyed事件订阅
         EventManager.Instance.AddEvent("ErrorDestroyed", OnErrorDestroyed);
+        
+        //设置倒计时的最大时间
+        m_generalCountdownLogic.SetMaxTime(m_maxCountdownTime);
+        
+        // 使用新的列表替换原有的列表
+        m_bodyManager.errorGeneratableBodyParts_Flesh = realErrorGeneratableBodyParts_Flesh;
+        m_bodyManager.errorGeneratableBodyParts_Machine = realErrorGeneratableBodyParts_Machine;
+        
     }
 
     // Update is called once per frame
@@ -52,7 +85,15 @@ public class GenerationStage_Handler : MonoBehaviour
         errorBodyParts_Machine = m_bodyManager.errorBodyParts_Machine;
         
         UpdateModeAction();
-        GenerateError(m_isRandomTime, m_maxNumber);
+        
+        if (!m_isDoubleError)
+        {
+            GenerateError(m_isRandomTime, m_maxNumber);
+        }
+        else
+        {
+            
+        }
         CheckEndGame();
         
         
