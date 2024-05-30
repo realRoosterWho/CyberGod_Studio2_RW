@@ -29,16 +29,27 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
 
     [Space(10)] // 添加 10 像素的间隔
 
-    [Header("IntroOutroDisplay")]
-    [SerializeField] public GameObject m_introOutroGroup;
-    [SerializeField] public TextMeshProUGUI m_introOutroText;
-    [SerializeField] public Image m_introOutroImage;
+    [Header("IntroDisplay")]
+    [SerializeField] public GameObject m_introGroup;
+    [SerializeField] public TextMeshProUGUI m_introText;
+    [SerializeField] public Image m_introImage;
+    [Space(10)] // 添加 10 像素的间隔
+
+    
+    
+    
+    [Header("OutroDisplay")]
+    [SerializeField] public GameObject m_outroGroup;
+    [SerializeField] public TextMeshProUGUI m_outroText;
+    [SerializeField] public Image m_outroImage;
 
 
     private bool isDisplayCalled = false;
     private bool isSpiritSpeakCalled = false;
     
-    private bool isIntroOutroCalled = false;
+    private bool isIntroCalled = false;
+    private bool isOutroCalled = false;
+
     
     void Start()
     {
@@ -65,15 +76,23 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
             m_spiritImage.enabled = false;
         }
         
-        if (!isIntroOutroCalled)
+        if (!isIntroCalled)
         {
-            // 如果DisplayIntroOutro没有被调用，就清空显示
-            m_introOutroText.text = "";
-            m_introOutroImage.sprite = null;
-            m_introOutroGroup.SetActive(false);
+            // 如果DisplayIntro没有被调用，就清空显示
+            m_introText.text = "";
+            m_introImage.sprite = null;
+            m_introGroup.SetActive(false);
         }
         
-        
+        if (!isOutroCalled)
+        {
+            // 如果DisplayOutro没有被调用，就清空显示
+            m_outroText.text = "";
+            m_outroImage.sprite = null;
+            m_outroGroup.SetActive(false);
+        }
+
+
         
         
         
@@ -81,6 +100,8 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
         isDisplayCalled = false;
         // 重置isSpiritSpeakCalled为false
         isSpiritSpeakCalled = false;
+        // 重置isOutroCalled为false
+        isOutroCalled = false;
     }
     
     public void DisplayLeftInfo(ObjectInfo info)
@@ -116,14 +137,34 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
         isSpiritSpeakCalled = true;
     }
     
-    public void DisplayIntroOutro(SpiritSpeakEntry entry)
+    public void DisplayIntro(SpiritSpeakEntry entry)
     {
-        m_introOutroGroup.SetActive(true);
-        m_introOutroText.text = entry.dialogueText;
-        m_introOutroImage.sprite = entry.SpiritImage;
+        m_introGroup.SetActive(true);
+        m_introText.text = entry.dialogueText;
+        m_introImage.sprite = entry.SpiritImage;
         
-        // 标记DisplayIntroOutro已被调用
-        isIntroOutroCalled = true;
+        // 标记DisplayIntro已被调用
+        isIntroCalled = true;
+    }
+    
+    public void DisplayOutro(SpiritSpeakEntry entry)
+    {
+        m_outroGroup.SetActive(true);
+        m_outroText.text = entry.dialogueText;
+        m_outroImage.sprite = entry.SpiritImage;
+
+        // 标记DisplayOutro已被调用
+        isOutroCalled = true;
+    }
+    
+    public void SwitchIntroDisplay()
+    {
+        m_introGroup.SetActive(!m_introGroup.activeSelf);//切换显示状态
+    }
+    
+    public void SwitchOutroDisplay()
+    {
+        m_outroGroup.SetActive(!m_outroGroup.activeSelf); // 切换显示状态
     }
     
     public void DisplayScore(int errorNumber, int maxErrorNumber)

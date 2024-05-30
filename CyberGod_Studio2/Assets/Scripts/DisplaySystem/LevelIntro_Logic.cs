@@ -6,9 +6,15 @@ using UnityEngine.UI;
 public class LevelIntro_Logic : MonoBehaviour
 {
     private Image imageComponent;
-    [SerializeField] private List<string> textList;
+    [SerializeField] private List<string> introTextList;
+    [SerializeField] private List<string> outroTextList;
+    
+    [SerializeField] private List<string> outro_IntroRenderTextList;
     private int currentTextIndex = 0;
     private bool isClicked = false;
+    private bool isIntroFinished = false;
+    private bool isOutroStarted = false;
+    private bool isOutroIntroFinished = false;
 
 
     // Start is called before the first frame update
@@ -16,6 +22,7 @@ public class LevelIntro_Logic : MonoBehaviour
     {
         imageComponent = GetComponent<Image>();
         imageComponent.enabled = true;
+        EventManager.Instance.AddEvent("OnWinning", StartOutro);
     }
 
     // Update is called once per frame
@@ -32,11 +39,18 @@ public class LevelIntro_Logic : MonoBehaviour
             {
                 isClicked = true;
             }
-            RequestNextText();
+            if (!isIntroFinished)
+            {
+                RequestNextIntroText();
+            }
+            else if (isOutroStarted)
+            {
+                RequestNextOutroText();
+            }
         }
     }
 
-    public void RequestNextText()
+    public void RequestNextIntroText()
     {
         if (isClicked)
         {
@@ -44,15 +58,77 @@ public class LevelIntro_Logic : MonoBehaviour
             currentTextIndex++;
         }
         
-        if (currentTextIndex < textList.Count)
+        if (currentTextIndex < introTextList.Count)
         {
-            DialogueManager.Instance.RequestIntroOutroEntry(textList[currentTextIndex]);
-            Debug.Log("Requesting: " + textList[currentTextIndex]);
+            DialogueManager.Instance.RequestIntroEntry(introTextList[currentTextIndex]);
+            Debug.Log("Requesting: " + introTextList[currentTextIndex]);
         }
-        if (currentTextIndex >= textList.Count)
+        if (currentTextIndex >= introTextList.Count)
         {
-            Destroy(gameObject);
+            isIntroFinished = true;
+            currentTextIndex= 0;
+            UIDisplayManager.Instance.SwitchIntroDisplay();
             ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
         }
+    }
+    
+    public void RequestNextOutroText()
+    {
+        if (isClicked)
+        {
+            SoundManager.Instance.PlaySFX(2);
+            currentTextIndex++;
+        }
+        
+        if (!isOutroIntroFinished)
+        {
+            if (currentTextIndex < outro_IntroRenderTextList.Count)
+            {
+                DialogueManager.Instance.RequestOutroEntry(outro_IntroRenderTextList[currentTextIndex]);
+                Debug.Log("Requesting: " + outro_IntroRenderTextList[currentTextIndex]);
+            }
+            if (currentTextIndex >= outro_IntroRenderTextList.Count)
+            {
+                isOutroIntroFinished = true;
+                currentTextIndex= 0;
+                UIDisplayManager.Instance.SwitchIntroDisplay();
+                UIDisplayManager.Instance.SwitchOutroDisplay();
+            }
+        }
+        else
+        {
+            if (currentTextIndex < outroTextList.Count)
+            {
+                DialogueManager.Instance.RequestOutroEntry(outroTextList[currentTextIndex]);
+                Debug.Log("Requesting: " + outroTextList[currentTextIndex]);
+            }
+            if (currentTextIndex >= outroTextList.Count)
+            {
+                //前往下一个场景
+                m_GameManager.Instance.ChangeScene("Win");
+            }
+        }
+        
+    }
+    
+    public void StartOutro(GameEventArgs args)
+    {
+        if (!isOutroStarted)
+        {
+            if (outro_IntroRenderTextList.Count > 0)
+            {
+                isOutroIntroFinished = false;
+                UIDisplayManager.Instance.SwitchIntroDisplay();
+            }
+            else
+            {
+                isOutroIntroFinished = true;
+                UIDisplayManager.Instance.SwitchOutroDisplay();
+            }
+        }
+
+        isOutroStarted = true;
+        
+        ControlMode_Manager.Instance.ChangeControlMode(ControlMode.DIALOGUE);
     }
 }

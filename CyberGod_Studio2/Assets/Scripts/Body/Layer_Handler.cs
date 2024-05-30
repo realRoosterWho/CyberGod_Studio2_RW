@@ -15,6 +15,9 @@ public class Layer_Handler : MonosingletonTemp<Layer_Handler>
 	//定义cinimachine impulse source
 	public CinemachineImpulseSource m_impulseSource;
 
+	private const float MINIMAL_INTERVAL = 0.3f;
+	private float m_time = 0.0f;
+
     
     //定义当前的层级
     [SerializeField] public Layer m_layer = Layer.FLESH;
@@ -32,6 +35,7 @@ public class Layer_Handler : MonosingletonTemp<Layer_Handler>
     void Update()
     {
         UpdateModeAction();
+		m_time += Time.deltaTime;
     }
     
     //定义一个函数，用于指定地改变当前的层级
@@ -90,6 +94,11 @@ public class Layer_Handler : MonosingletonTemp<Layer_Handler>
 
     private void ChangeLayer()
     {
+		if (m_time < MINIMAL_INTERVAL)
+		{
+			return;
+		}
+		
         //only work in Navigation Mode
         if (m_controlMode == ControlMode.NAVIGATION && Input.GetMouseButtonDown(1))
         {
@@ -98,6 +107,7 @@ public class Layer_Handler : MonosingletonTemp<Layer_Handler>
             SoundManager.Instance.PlaySFX(0);
 			m_impulseSource.GenerateImpulse(0.2f);
 			StartCoroutine(ChangeLayerAfterDelay(0.3f));
+			m_time = 0.0f;
         }
     }
 

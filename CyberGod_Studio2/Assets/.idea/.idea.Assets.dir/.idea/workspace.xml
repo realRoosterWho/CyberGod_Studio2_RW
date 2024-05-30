@@ -7,23 +7,10 @@
     <list default="true" id="185f7ad1-00e1-4725-be39-86f0974bb34f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/RW_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/RW_Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Body/Layer_Handler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Body/Layer_Handler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/DisplaySystem/DialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/DisplaySystem/DialogueManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/DisplaySystem/LevelIntro_Logic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/DisplaySystem/LevelIntro_Logic.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/DisplaySystem/UIDisplayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/DisplaySystem/UIDisplayManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/ErrorGeneration/GenerationStage_Handler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/ErrorGeneration/GenerationStage_Handler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/New3DError/ModelAdd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/New3DError/ModelAdd.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/DetermineBox.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/DetermineBox.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/Main_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/Main_bg.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/body.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/base UI@4x-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/base UI@4x-8.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/layer_activated@4x-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/layer_activated@4x-8.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/layer_deactivated@4x-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/layer_deactivated@4x-8.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +147,7 @@
       <workItem from="1715074753320" duration="12051000" />
       <workItem from="1716481737955" duration="4241000" />
       <workItem from="1716993541995" duration="699000" />
-      <workItem from="1716994738608" duration="12187000" />
+      <workItem from="1716994738608" duration="18706000" />
     </task>
     <task id="LOCAL-00001" summary="mac环境依赖解决，0329代码层面有问题">
       <option name="closed" value="true" />
