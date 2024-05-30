@@ -194,6 +194,11 @@ public class ModelAdd : MonoBehaviour
             Destroy(transform.parent.gameObject,1f);
             
         }
+        
+        if (ControlMode_Manager.Instance.m_controlMode == ControlMode.DIALOGUE)
+        {
+            Destroy(transform.parent.gameObject);
+        }
 
     }
 }

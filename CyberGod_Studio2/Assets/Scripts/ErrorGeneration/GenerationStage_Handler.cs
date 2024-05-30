@@ -227,7 +227,7 @@ public class GenerationStage_Handler : MonoBehaviour
             
             EventManager.Instance.TriggerEvent("OnWinning", new GameEventArgs());
             ControlMode_Manager.Instance.ChangeControlMode(ControlMode.DIALOGUE);
-            m_GameManager.Instance.ChangeScene("Win");
+            // m_GameManager.Instance.ChangeScene("Win");
         }
         
         if (m_generalCountdownLogic.countdownScrollbar.size <= 0)

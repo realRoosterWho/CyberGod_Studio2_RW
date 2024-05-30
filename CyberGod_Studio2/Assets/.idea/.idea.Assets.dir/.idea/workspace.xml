@@ -6,66 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="185f7ad1-00e1-4725-be39-86f0974bb34f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/3DError1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/3DError1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/3DPosition1(arm).prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/3DPosition1(arm).prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/3DPosition20(lung).prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/3DPosition20(lung).prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/3DPosition23(liver).prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/3DPosition23(liver).prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/MeshRepair.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/MeshRepair/MeshRepair_Error_arm Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/MeshRepair/MeshRepair_Error_arm Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/MeshRepair/MeshRepair_Error_heart Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/MeshRepair/MeshRepair_Error_heart Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/MeshRepair/MeshRepair_Error_liver Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/MeshRepair/MeshRepair_Error_liver Variant.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/MeshRepair/MeshRepair_Error_lung Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prefabs/MeshRepair/MeshRepair_Error_lung Variant.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/RW_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/RW_Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/DisplaySystem/DialogueManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/DisplaySystem/DialogueManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/DisplaySystem/LevelIntro_Logic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/DisplaySystem/LevelIntro_Logic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/DisplaySystem/UIDisplayManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/DisplaySystem/UIDisplayManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/ErrorGeneration/GenerationStage_Handler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/ErrorGeneration/GenerationStage_Handler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/New3DError/IdentifyCubeProceesError.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/New3DError/IdentifyCubeProceesError.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scripts/New3DError/ModelAdd.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/New3DError/ModelAdd.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/Win_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/Win_bg.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/Display.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/Display/arm_i@4x-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/Display/arm_i@4x-8.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/Display/heart_i@4x-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/Display/heart_i@4x-8.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/Display/liver_i@4x-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/Display/liver_i@4x-8.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/Display/lung_i@4x-8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/Display/lung_i@4x-8.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/arm.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/arm.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/bg.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/heart.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/heart.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/heart_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/heart_1.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/human_cloth.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/human_cloth.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/human_coat.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/human_coat.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/human_head.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/human_head.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/human_pant.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/human_pant.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/human_shadow.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/human_shadow.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/liver.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/liver.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/lung.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human/lung.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/body_img.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/body_img.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/body_test.pic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/body_test.pic.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/lung_test.pic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sprites/lung_test.pic.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/DetermineBox.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/DetermineBox.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/Main_bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/Main_bg.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/bg&amp;human.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/body.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/base UI@4x-8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/base UI@4x-8.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/layer_activated@4x-8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/layer_activated@4x-8.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/layer_deactivated@4x-8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sprites/nervelayer/layer_deactivated@4x-8.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -202,7 +160,7 @@
       <workItem from="1715074753320" duration="12051000" />
       <workItem from="1716481737955" duration="4241000" />
       <workItem from="1716993541995" duration="699000" />
-      <workItem from="1716994738608" duration="9485000" />
+      <workItem from="1716994738608" duration="12187000" />
     </task>
     <task id="LOCAL-00001" summary="mac环境依赖解决，0329代码层面有问题">
       <option name="closed" value="true" />

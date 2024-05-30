@@ -46,7 +46,8 @@ public class LevelIntro_Logic : MonoBehaviour
         
         if (currentTextIndex < textList.Count)
         {
-            DialogueManager.Instance.RequestSpiritSpeakEntry(textList[currentTextIndex]);
+            DialogueManager.Instance.RequestIntroOutroEntry(textList[currentTextIndex]);
+            Debug.Log("Requesting: " + textList[currentTextIndex]);
         }
         if (currentTextIndex >= textList.Count)
         {

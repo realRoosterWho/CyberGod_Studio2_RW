@@ -10,8 +10,10 @@ public class DialogueManager : SerializedMonoBehaviour
     public static DialogueManager Instance { get; private set; }
 
     [SerializeField] private Dictionary<string, SpiritSpeakEntry> m_spriteSpeakerEntryDict;
+    [SerializeField] private Dictionary<string, SpiritSpeakEntry> m_introOutroEntryDict; // 新增
 
     public List<SpiritSpeakEntry> activeSpiritSpeakEntries = new List<SpiritSpeakEntry>();
+    public List<SpiritSpeakEntry> activeIntroOutroEntries = new List<SpiritSpeakEntry>(); // 新增
 
     void Awake()
     {
@@ -30,6 +32,7 @@ public class DialogueManager : SerializedMonoBehaviour
     void FixedUpdate()
     {
         activeSpiritSpeakEntries.Clear();
+        activeIntroOutroEntries.Clear(); // 新增
     }
 
     public void RequestSpiritSpeakEntry(string textName)
@@ -46,6 +49,30 @@ public class DialogueManager : SerializedMonoBehaviour
             Debug.LogError("No entry found with textName: " + textName);
         }
     }
+    
+    public void RequestIntroOutroEntry(string textName) // 新增
+    {
+        if (m_introOutroEntryDict.ContainsKey(textName))
+        {
+            SpiritSpeakEntry entry = m_introOutroEntryDict[textName];
+            activeIntroOutroEntries.Add(entry);
+            activeIntroOutroEntries = activeIntroOutroEntries.OrderBy(x => x.priority).ToList();
+            UpdateIntroOutroDisplay();
+        }
+        else
+        {
+            Debug.LogError("No entry found with textName: " + textName);
+        }
+    }
+
+    public void UpdateIntroOutroDisplay() // 新增
+    {
+        if (activeIntroOutroEntries.Count > 0)
+        {
+            SpiritSpeakEntry entry = activeIntroOutroEntries[0];
+            DisplayIntroOutro(entry);
+        }
+    }
 
     public void UpdateSpriteSpeakDisplay()
     {
@@ -59,5 +86,10 @@ public class DialogueManager : SerializedMonoBehaviour
     public void DisplaySpriteSpeak(SpiritSpeakEntry entry)
     {
         UIDisplayManager.Instance.DisplaySpiritSpeak(entry);
+    }
+    
+    public void DisplayIntroOutro(SpiritSpeakEntry entry)
+    {
+        UIDisplayManager.Instance.DisplayIntroOutro(entry);
     }
 }
