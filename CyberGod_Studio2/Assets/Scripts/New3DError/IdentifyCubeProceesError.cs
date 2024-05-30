@@ -9,9 +9,9 @@ public class IdentifyCubeProceesError : MonoBehaviour
     private Material m_material;
     private void Start()
     {
-        //»ñÈ¡×Ô¼ºµÄ²ÄÖÊ
+        //ï¿½ï¿½È¡ï¿½Ô¼ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
         m_material = GetComponent<Renderer>().material;
-        //ÈÃ×Ô¼º²ÄÖÊµÄÍ¸Ã÷¶È½µµÍ£¬ÎÒµÄ²ÄÖÊÓÃµÄÊÇSprite-Default
+        //ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½Êµï¿½Í¸ï¿½ï¿½ï¿½È½ï¿½ï¿½Í£ï¿½ï¿½ÒµÄ²ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½Sprite-Default
         Color color = m_material.color;
         color.a = 0.05f;
         m_material.color = color;
@@ -40,7 +40,7 @@ public class IdentifyCubeProceesError : MonoBehaviour
         yield return new WaitForSeconds(delay);
         EventManager.Instance.TriggerEvent("ErrorDestroyed", new GameEventArgs());
         Destroy(gameObject);
-        // SoundManager.Instance.PlaySFX(1);
+        SoundManager.Instance.PlaySFX(1);
         isClicked = false;
     }
 }

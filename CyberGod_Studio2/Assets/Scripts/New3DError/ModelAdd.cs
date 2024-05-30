@@ -191,7 +191,8 @@ public class ModelAdd : MonoBehaviour
             // Changeto Navigation Mode
             ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
             // �����Լ��ĸ����壨���ٵ���ɶ�Ӱ���
-            Destroy(transform.root.gameObject,1f);//意思是1秒后销毁，销毁的是根物体，也就是整个模型
+            Destroy(transform.parent.gameObject,1f);
+            
         }
 
     }

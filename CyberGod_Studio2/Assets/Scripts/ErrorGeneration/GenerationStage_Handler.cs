@@ -183,18 +183,18 @@ public class GenerationStage_Handler : MonoBehaviour
                 m_meshErrorGenerator.GenerateMeshError(0);
             }
             //如果这个元素是"25"
+            else if (bodyPart == "20")
+            {
+                Debug.Log("GenerateMeshError"+bodyPart);
+
+                m_meshErrorGenerator.GenerateMeshError(1);
+            }
+            //如果这个元素是"26"
             else if (bodyPart == "25")
             {
                 Debug.Log("GenerateMeshError"+bodyPart);
 
                 m_meshErrorGenerator.GenerateMeshError(2);
-            }
-            //如果这个元素是"26"
-            else if (bodyPart == "20")
-            {
-                Debug.Log("GenerateMeshError"+bodyPart);
-
-                m_meshErrorGenerator.GenerateMeshError(3);
             }
         }
         
@@ -208,7 +208,7 @@ public class GenerationStage_Handler : MonoBehaviour
             {
                 Debug.Log("GenerateMeshError"+bodyPart);
 
-                m_meshErrorGenerator.GenerateMeshError(1);
+                m_meshErrorGenerator.GenerateMeshError(3);
             }
         }
         
