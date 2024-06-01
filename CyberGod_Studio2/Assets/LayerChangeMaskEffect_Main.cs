@@ -27,6 +27,12 @@ public class LayerChangeMaskEffect_Main : MonoBehaviour
 
     private void HandleLayerChange(GameEventArgs args)
     {
+        // 检查对象是否为 null
+        if (this == null)
+        {
+            return;
+        }
+
         Debug.Log("HandleLayerChange called"); // 添加这行调试代码
 
         // 当层级改变时，启动渐变效果的协程

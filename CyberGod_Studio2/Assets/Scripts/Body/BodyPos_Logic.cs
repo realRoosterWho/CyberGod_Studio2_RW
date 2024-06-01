@@ -271,7 +271,7 @@ public class BodyPos_Logic : MonoBehaviour
 	    switch (m_repairingSubMode)
 	    {
 		    case RepairingSubMode.ERROR_REPAIR:
-			    if (isCanRepair && Input.GetButton("Fire1") && m_bodyState == BodyState.Active)
+			    if (isCanRepair && Input.GetButtonDown("Fire1") && m_bodyState == BodyState.Active && m_isRepairing == false)
 			    {
 				    SoundManager.Instance.PlaySFX(2);
 				    //进入Repair状态

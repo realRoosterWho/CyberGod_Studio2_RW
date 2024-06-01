@@ -46,7 +46,23 @@ public class Layer_Handler : MonosingletonTemp<Layer_Handler>
     //定义一个函数，用于按顺序切换当前的层级
     public void SwitchLayer()
     {
-        m_layer = (Layer)(((int)m_layer + 1) % 3); //这里的3是Layer枚举类型的数量
+		bool m_isMachineLayerLocked = GenerationStage_Handler.Instance.isMachineLayerLocked;
+		if(!m_isMachineLayerLocked)
+		{
+		    m_layer = (Layer)(((int)m_layer + 1) % 3); //这里的3是Layer枚举类型的数量
+		}
+		else
+		{
+        	//切换到下一层级，但是跳过MACHINE层
+        	if (m_layer == Layer.FLESH)
+        	{
+            	m_layer = Layer.NERVE;
+        	}
+        	else if (m_layer == Layer.NERVE)
+        	{
+            	m_layer = Layer.FLESH;
+        	}
+		}
     }
 
     //Update函数，如果当前的m_controlMode = ControlMode，就执行对应的函数

@@ -21,6 +21,7 @@ public class GenerationStage_Handler : MonosingletonTemp<GenerationStage_Handler
     private int m_doubleErrorCount = 0;
     private bool isMeshErrorGenerable = true;
     private string m_activeErrorBodyPart;
+    public bool isMachineLayerLocked = false;
     
     
     
@@ -80,6 +81,11 @@ public class GenerationStage_Handler : MonosingletonTemp<GenerationStage_Handler
         //监听BodyActiveReport
         EventManager.Instance.AddEvent("BodyActiveReport", OnBodyActiveReport);
         
+        //如果MachineLayer没有任何的可生成错误的部位，就锁定MachineLayer
+        if (realErrorGeneratableBodyParts_Machine.Count == 0)
+        {
+            isMachineLayerLocked = true;
+        }
     }
 
     // Update is called once per frame

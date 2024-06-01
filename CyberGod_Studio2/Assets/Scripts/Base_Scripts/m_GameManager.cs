@@ -45,7 +45,7 @@ public class m_GameManager : MonosingletonTemp<m_GameManager>
     {
         Debug.Log("GameManager OnSceneLoaded");
         ControlMode_Manager.Instance.m_controlMode = ControlMode.DIALOGUE;
-        isPaused = false;
+        ResumeGame();
     }
     
     
