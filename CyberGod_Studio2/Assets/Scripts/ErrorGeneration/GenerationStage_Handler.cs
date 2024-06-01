@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenerationStage_Handler : MonoBehaviour
+public class GenerationStage_Handler : MonosingletonTemp<GenerationStage_Handler>
 {
     private ControlMode m_controlMode;
     private RepairingSubMode m_repairingSubMode;
@@ -16,6 +16,11 @@ public class GenerationStage_Handler : MonoBehaviour
     private float m_generationTimer = 0.0f;
 
     private float MINIMAL_INTERVAL = 0.1f;
+    
+    private bool isDoubleErrorGenerable = true;
+    private int m_doubleErrorCount = 0;
+    private bool isMeshErrorGenerable = true;
+    private string m_activeErrorBodyPart;
     
     
     
@@ -38,15 +43,11 @@ public class GenerationStage_Handler : MonoBehaviour
     [SerializeField] int m_objectiveErrorNumber;
     [SerializeField] float m_maxCountdownTime;
 
-    [SerializeField] private bool m_isDoubleError;
+    [SerializeField] public bool m_isDoubleError;
     // 新增的字段
     [SerializeField] List<string> realErrorGeneratableBodyParts_Flesh;
     [SerializeField] List<string> realErrorGeneratableBodyParts_Machine;
-
     
-
-    
-
     [Space(10)] // 添加 10 像素的间隔
     
     
@@ -54,8 +55,7 @@ public class GenerationStage_Handler : MonoBehaviour
     [Header("遗产设置")]
     [SerializeField] float m_generationInterval_expectation = 5f;
     [SerializeField] float m_generationInterval_variance = 1.5f;
-
-    [SerializeField]private bool m_isRandomTime;
+    
     [SerializeField]private int m_maxNumber;
     
     // Start is called before the first frame update
@@ -75,6 +75,11 @@ public class GenerationStage_Handler : MonoBehaviour
         m_bodyManager.errorGeneratableBodyParts_Flesh = realErrorGeneratableBodyParts_Flesh;
         m_bodyManager.errorGeneratableBodyParts_Machine = realErrorGeneratableBodyParts_Machine;
         
+        //监听SomethingRepaired事件
+        EventManager.Instance.AddEvent("SomethingRepaired", OnSomethingRepaired);
+        //监听BodyActiveReport
+        EventManager.Instance.AddEvent("BodyActiveReport", OnBodyActiveReport);
+        
     }
 
     // Update is called once per frame
@@ -88,11 +93,11 @@ public class GenerationStage_Handler : MonoBehaviour
         
         if (!m_isDoubleError)
         {
-            GenerateError(m_isRandomTime, m_maxNumber);
+            GenerateSimpleError(m_maxNumber);
         }
         else
         {
-            
+            GenerateDoubleError();
         }
         CheckEndGame();
         
@@ -102,7 +107,7 @@ public class GenerationStage_Handler : MonoBehaviour
 
     }
     
-    public void GenerateError(bool isRandomTime = false, float maxNumber = 0.0f)
+    public void GenerateSimpleError(int maxNumber = 0)
     {
         //获取bodymanager的错误数量
         int errorNumber = m_bodyManager.GetErrorNumber();
@@ -115,17 +120,7 @@ public class GenerationStage_Handler : MonoBehaviour
         }
 
         m_generationTimer += Time.deltaTime;
-
-        if (isRandomTime)
-        {
-            m_generationInterval = Random.Range(m_generationIntervalMin, m_generationIntervalMax);
-            if (m_generationTimer > m_generationInterval)
-            {
-                // m_bodyManager.GenerateRandomError();
-                m_generationTimer = 0.0f;
-            }
-            return;
-        }
+        
 
         if (m_generationTimer > MINIMAL_INTERVAL)
         {
@@ -143,7 +138,44 @@ public class GenerationStage_Handler : MonoBehaviour
         }
     }
     
+    public void GenerateDoubleError()
+    {
+        //获取bodymanager的错误数量
+        int errorNumber = m_bodyManager.GetErrorNumber();
+        Debug.Log("Error number: " + errorNumber);
+
+        Debug.Log("Double error generation :" + isDoubleErrorGenerable);
+        m_generationTimer += Time.deltaTime;
+
+        if (!isDoubleErrorGenerable)
+        {
+            return;
+        }
+
+        if (m_generationTimer > MINIMAL_INTERVAL)
+        {
+            m_bodyManager.GenerateRandomError("Flesh");
+            m_bodyManager.GenerateRandomError("Machine");
+            isDoubleErrorGenerable = false;
+            m_generationTimer = 0.0f;
+        }
+    }
     
+    private void OnSomethingRepaired(GameEventArgs args)
+    {
+        Debug.Log("Something Repaired");
+        if (m_isDoubleError)
+        {
+            m_doubleErrorCount++;//如果是双错误，就增加m_doubleErrorCount
+            if (m_doubleErrorCount >= 2)
+            {
+                isDoubleErrorGenerable = true;
+                m_doubleErrorCount = 0;
+            }
+        }
+        
+        isMeshErrorGenerable = true;
+    }
     
     
     
@@ -175,6 +207,7 @@ public class GenerationStage_Handler : MonoBehaviour
     {
         // Debug.Log("Navigation Mode");
         Cursor.lockState = CursorLockMode.Locked;
+        m_activeErrorBodyPart = "";
     }
     
     private void RepairingMode()
@@ -210,50 +243,45 @@ public class GenerationStage_Handler : MonoBehaviour
     
     void MeshErrorGeneration()
     {
-
-        
-        //如果errorBodyParts_Flesh不为空
-        if (errorBodyParts_Flesh.Count > 0)
+        if (!isMeshErrorGenerable)
         {
-            //获取第一个元素
-            var bodyPart = errorBodyParts_Flesh[0];
-            //如果这个元素是"1"
+            Debug.Log("Mesh Error is not generable");
+            return;
+        }
+        
+        // 获取当前的bodyPart和Layer
+        var bodyPart = m_activeErrorBodyPart;
+        var currentLayer = Layer_Handler.Instance.m_layer;
+
+        // 使用GenerateMeshError函数生成错误
+        GenerateMeshError(bodyPart, currentLayer);
+        isMeshErrorGenerable = false;
+    }
+    
+    private void GenerateMeshError(string bodyPart, Layer currentLayer)
+    {
+        if (currentLayer == Layer.FLESH)
+        {
             if (bodyPart == "1")
             {
-                Debug.Log("GenerateMeshError"+bodyPart);
                 m_meshErrorGenerator.GenerateMeshError(0);
             }
-            //如果这个元素是"25"
             else if (bodyPart == "20")
             {
-                Debug.Log("GenerateMeshError"+bodyPart);
-
                 m_meshErrorGenerator.GenerateMeshError(1);
             }
-            //如果这个元素是"26"
             else if (bodyPart == "25")
             {
-                Debug.Log("GenerateMeshError"+bodyPart);
-
                 m_meshErrorGenerator.GenerateMeshError(2);
             }
         }
-        
-        //如果errorBodyParts_Machine不为空
-        if (errorBodyParts_Machine.Count > 0)
+        else if (currentLayer == Layer.MACHINE)
         {
-            //获取第一个元素
-            var bodyPart = errorBodyParts_Machine[0];
-            //如果这个元素是"21"
             if (bodyPart == "21")
             {
-                Debug.Log("GenerateMeshError"+bodyPart);
-
                 m_meshErrorGenerator.GenerateMeshError(3);
             }
         }
-        
-        
     }
     
     void OnErrorDestroyed(GameEventArgs args)
@@ -282,6 +310,14 @@ public class GenerationStage_Handler : MonoBehaviour
     void UpdateScoreUI(int errorNumber, int maxErrorNumber)
     {
         UIDisplayManager.Instance.DisplayScore(errorNumber, maxErrorNumber);
+        
+    }
+    
+    void OnBodyActiveReport(GameEventArgs args)
+    {
+        m_activeErrorBodyPart = args.StringValue;
+        Debug.Log("Body Active Report:" + m_activeErrorBodyPart + " is active");
+
         
     }
 }

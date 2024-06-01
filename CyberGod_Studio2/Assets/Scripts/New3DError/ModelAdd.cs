@@ -191,7 +191,7 @@ public class ModelAdd : MonoBehaviour
             // Changeto Navigation Mode
             ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
             // �����Լ��ĸ����壨���ٵ���ɶ�Ӱ���
-            Destroy(transform.parent.gameObject,1f);
+            Destroy(transform.parent.gameObject);
             
         }
         

@@ -24,18 +24,17 @@ public class Generation_MeshErrorGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    //生成一个MeshError
-    public void GenerateMeshError(int index)
-    {
         if (m_meshError != null)
         {
             //向UIManager发送m_meshinfo
             UIDisplayManager.Instance.DisplayLeftInfo(m_meshinfo);
-            
-            return;
         }
+    }
+    
+    //生成一个MeshError
+    public void GenerateMeshError(int index)
+    {
+
         
         //如果m_meshError不为空，Debug并且返回
         

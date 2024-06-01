@@ -11,6 +11,10 @@ public class Body_Manager : SerializedMonoBehaviour
     private Dictionary<string, BodyPos_Logic> bodyPartLogics = new Dictionary<string, BodyPos_Logic>();
 	private BodyPos_Logic bodylogic;
 	private GameEventArgs m_args;
+    
+    //增加一个变量，用于检测是否在机械层有错误
+    [SerializeField] public bool hasError_Machine;
+    [SerializeField] public bool hasError_Flesh;
     [SerializeField] public HumanCoat_Logic m_humanCoatLogic;
     
     //定义上一个错误的身体部位
@@ -66,6 +70,7 @@ public class Body_Manager : SerializedMonoBehaviour
         UpdateErrorGeneratableBodyParts("Flesh");
         UpdateErrorGeneratableBodyParts("Machine");
         UpdateErrorGeneratableBodyParts("Nerve");
+        UpdateErrorState();
 
         //HandleMotionCaptureInput(m_args);
     }
@@ -117,7 +122,7 @@ public class Body_Manager : SerializedMonoBehaviour
             }
         });
     }
-	//在这个字典中随机抽取一个值，并且调用一个Body_Logic的GenerateError函数
+	//定义一个函数，用于生成随机错误在指定的层级
     public void GenerateRandomError(string layer)
     {
         var errorGeneratableBodyParts = new List<string>();
@@ -131,6 +136,8 @@ public class Body_Manager : SerializedMonoBehaviour
             errorGeneratableBodyParts = errorGeneratableBodyParts_Machine;
         }
         
+        //查看errorGeneratableBodyParts长度是否大于1，给一个bool赋值
+        bool isSingleError = errorGeneratableBodyParts.Count > 1;
         
         
         
@@ -158,7 +165,7 @@ public class Body_Manager : SerializedMonoBehaviour
                     hasError = randomBodyPart.hasError_Machine;
                 }
 
-                if (!hasError && randomBodyPartKey != lastErrorBodyPart)
+                if (!hasError && ((randomBodyPartKey != lastErrorBodyPart) || isSingleError))
                 {
                     
                     randomBodyPart.GenerateError(layer);
@@ -239,6 +246,8 @@ public class Body_Manager : SerializedMonoBehaviour
     }
     
     
+    
+    
     //定义一个函数，用于在对应的层级执行对应的操作
     public void UpdateLayerFunction()
     {
@@ -296,7 +305,13 @@ public class Body_Manager : SerializedMonoBehaviour
                 bodyPartLogic.Value.m_canRender_Nerve = errorGeneratableBodyParts.Contains(bodyPartLogic.Key);
             }
         }
-
+    }
+    
+    //定义一个函数，用来更新hasError_Flesh和hasError_Machine，如果这两层的错误数量都为0，就设置hasError为false，否则为true
+    public void UpdateErrorState()
+    {
+        hasError_Flesh = errorBodyParts_Flesh.Count > 0;
+        hasError_Machine = errorBodyParts_Machine.Count > 0;
     }
     
     private void OnFleshLayer()

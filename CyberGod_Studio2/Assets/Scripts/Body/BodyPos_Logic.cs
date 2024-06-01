@@ -155,6 +155,12 @@ public class BodyPos_Logic : MonoBehaviour
 				m_mechaniclayer_Logic.isActivated = false;
 				break;
 		}
+
+		string bodynumber = m_bodynumber;
+		GameEventArgs args = new GameEventArgs{StringValue = bodynumber};
+		//发布事件，用一个string传递
+		EventManager.Instance.TriggerEvent("BodyActiveReport",args);
+		
     }
     
     public void OnBodyStateInactive()
@@ -257,24 +263,7 @@ public class BodyPos_Logic : MonoBehaviour
     public void CheckIntoRepair()
     {
 	    //定义一个bool，就是如果现在的Layer_Handler.Instance.m_layer下我有对应的hasError，那么就返回true;否则返回false
-	    bool isCanRepair = false;
-	    
-	    if (Layer_Handler.Instance.m_layer == Layer.FLESH)
-	    {
-		    if (hasError_Flesh)
-		    {
-			    isCanRepair = true;
-		    }
-	    }
-	    if (Layer_Handler.Instance.m_layer == Layer.MACHINE)
-	    {
-		    Debug.Log("hasError_Machine: " + hasError_Machine);
-		    if (hasError_Machine)
-		    {
-			    isCanRepair = true;
-		    }
-	    }
-	    
+   		bool isCanRepair = UpdateIsCanRepair();	    	    
 	    
 	    
 	    m_repairingSubMode = ControlMode_Manager.Instance.m_repairingSubMode;
@@ -296,6 +285,61 @@ public class BodyPos_Logic : MonoBehaviour
 			    break;
 	    }
     }
+
+	public bool UpdateIsCanRepair()
+	{
+	    //定义一个bool，就是如果现在的Layer_Handler.Instance.m_layer下我有对应的hasError，那么就返回true;否则返回false
+    	bool isCanRepair = false;
+
+    	if (GenerationStage_Handler.Instance.m_isDoubleError)
+    	{
+        	bool isDoubleErrorMachineUncleared = m_Body_Manager.GetComponent<Body_Manager>().hasError_Machine;
+			Debug.Log("isDoubleErrorMachineUncleared: " + isDoubleErrorMachineUncleared);
+        	if (isDoubleErrorMachineUncleared && Layer_Handler.Instance.m_layer == Layer.FLESH)
+        	{
+            	isCanRepair = false;
+        	}
+        	else
+        	{
+            	if (Layer_Handler.Instance.m_layer == Layer.FLESH)
+            	{
+                	if (hasError_Flesh)
+                	{
+                    	isCanRepair = true;
+                	}
+            	}
+            	if (Layer_Handler.Instance.m_layer == Layer.MACHINE)
+            	{
+                	Debug.Log("hasError_Machine: " + hasError_Machine);
+                	if (hasError_Machine)
+                	{
+                    	isCanRepair = true;
+                	}
+            	}
+        	}
+    	}
+    	else
+    	{
+        	if (Layer_Handler.Instance.m_layer == Layer.FLESH)
+        	{
+            	if (hasError_Flesh)
+            	{
+                	isCanRepair = true;
+            	}
+        	}
+        	if (Layer_Handler.Instance.m_layer == Layer.MACHINE)
+        	{
+            	Debug.Log("hasError_Machine: " + hasError_Machine);
+            	if (hasError_Machine)
+            	{
+                	isCanRepair = true;
+            	}
+        	}
+    	}
+
+    	return isCanRepair;
+	}
+
     
     public void CheckOutofRepair()
 	{

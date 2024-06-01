@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772c5f8b1186846a1a3a19b2ae79d030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDonDestroyOnLoad: 1
+  isDonDestroyOnLoad: 0
   m_impulseSource: {fileID: 0}
   m_layer: 0
 --- !u!4 &116949865
@@ -6001,7 +6001,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDonDestroyOnLoad: 1
-  m_inputHandler: {fileID: 1948563979}
   m_controlMode: 2
   m_repairingSubMode: 0
 --- !u!4 &965156706
@@ -9477,13 +9476,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a94ca11c22d734caa8da755ae4c13af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDonDestroyOnLoad: 0
   m_bodyManager: {fileID: 1830121317}
   m_generalCountdownLogic: {fileID: 1479347333}
   m_meshErrorGenerator: {fileID: 1479347334}
   m_captureErrorLogic: {fileID: 513436788}
-  m_objectiveErrorNumber: 3
+  m_objectiveErrorNumber: 5
   m_maxCountdownTime: 120
-  m_isDoubleError: 0
+  m_isDoubleError: 1
   realErrorGeneratableBodyParts_Flesh:
   - 1
   - 20
@@ -9492,7 +9492,6 @@ MonoBehaviour:
   - 21
   m_generationInterval_expectation: 8
   m_generationInterval_variance: 1.5
-  m_isRandomTime: 0
   m_maxNumber: 1
 --- !u!4 &1479347332
 Transform:
@@ -13005,7 +13004,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985126894}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1985126896
 Camera:
   m_ObjectHideFlags: 0
