@@ -403,7 +403,7 @@ public class BodyPos_Logic : MonoBehaviour
 			}
 		}
 	}
-
+	
 	public void UpdateLayer()
 	{
 		m_layer = Layer_Handler.Instance.m_layer;
