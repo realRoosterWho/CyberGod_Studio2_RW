@@ -299,20 +299,29 @@ public class GenerationStage_Handler : MonosingletonTemp<GenerationStage_Handler
     {
         if (m_captureErrorLogic.m_errorCount >= m_objectiveErrorNumber)
         {
-            
-            EventManager.Instance.TriggerEvent("OnWinning", new GameEventArgs());
-            ControlMode_Manager.Instance.ChangeControlMode(ControlMode.DIALOGUE);
-            // m_GameManager.Instance.ChangeScene("Win");
+            WinGame();
         }
         
         if (m_generalCountdownLogic.countdownScrollbar.size <= 0)
         {
-            EventManager.Instance.TriggerEvent("OnLosing", new GameEventArgs());
-            ControlMode_Manager.Instance.ChangeControlMode(ControlMode.DIALOGUE);
-            m_GameManager.Instance.GameOver(m_captureErrorLogic.m_errorCount.ToString() + "/" + m_objectiveErrorNumber.ToString());
+            LoseGame();
         }
     }
 
+    public void WinGame()
+    {
+        EventManager.Instance.TriggerEvent("OnWinning", new GameEventArgs());
+        ControlMode_Manager.Instance.ChangeControlMode(ControlMode.DIALOGUE);
+        // m_GameManager.Instance.ChangeScene("Win");
+    }
+
+    public void LoseGame()
+    {
+        EventManager.Instance.TriggerEvent("OnLosing", new GameEventArgs());
+        ControlMode_Manager.Instance.ChangeControlMode(ControlMode.DIALOGUE);
+        m_GameManager.Instance.GameOver(m_captureErrorLogic.m_errorCount.ToString() + "/" + m_objectiveErrorNumber.ToString());
+    }
+    
     void UpdateScoreUI(int errorNumber, int maxErrorNumber)
     {
         UIDisplayManager.Instance.DisplayScore(errorNumber, maxErrorNumber);
