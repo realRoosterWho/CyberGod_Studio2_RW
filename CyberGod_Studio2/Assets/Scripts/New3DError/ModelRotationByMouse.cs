@@ -9,7 +9,7 @@ public class ModelRotationByMouse : MonoBehaviour
 
     void Update()
     {
-        if (Add3DErrorByCube.ifAddDone)
+        if (true||Add3DErrorByCube.ifAddDone)
         {
             float rotation = Input.GetAxis("Mouse X") * sensitivity;
 

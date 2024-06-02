@@ -140,7 +140,7 @@ public class ModelAdd : MonoBehaviour
         for (int i = 0; i < scaleCubes.Count; i++)
         {
             GenerateMeshErrorAtArea(scaleCubes[i]);
-            // Debug.Log("DONE");
+            Debug.Log("DONE");
         }
         ifAddDone = true;
 
@@ -190,8 +190,20 @@ public class ModelAdd : MonoBehaviour
             EventManager.Instance.TriggerEvent("SomethingRepaired", new GameEventArgs());
             // Changeto Navigation Mode
             ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
+<<<<<<< Updated upstream
             // Ïú»Ù×Ô¼ºµÄ¸¸ÎïÌå£¨Ïú»ÙµÄÊÂÉ¶×Ó°¡£©
             Destroy(transform.root.gameObject,1f);
+=======
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½å£¨ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½É¶ï¿½Ó°ï¿½ï¿½ï¿½
+            Destroy(transform.parent.gameObject);
+            
+        }
+        
+        if (ControlMode_Manager.Instance.m_controlMode == ControlMode.DIALOGUE)
+        {
+            Debug.Log("Destroy");
+            Destroy(transform.parent.gameObject);
+>>>>>>> Stashed changes
         }
 
     }
