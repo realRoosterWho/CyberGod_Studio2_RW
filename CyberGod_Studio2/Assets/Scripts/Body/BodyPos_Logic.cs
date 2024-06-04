@@ -279,6 +279,11 @@ public class BodyPos_Logic : MonoBehaviour
 				    //我自己也进入Repair状态
 				    m_isRepairing = true;
 			    }
+				else if((!isCanRepair && Input.GetButtonDown("Fire1") && m_bodyState == BodyState.Active && m_isRepairing == false))
+				{
+					SoundManager.Instance.PlaySFX(2);
+					EnergyManager.Instance.UseEnergyPoint();
+				}
 			    break;
 		    
 		    case RepairingSubMode.CLOCKWORK_REPAIR:

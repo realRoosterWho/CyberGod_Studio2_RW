@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnergyManager : MonoBehaviour
+public class EnergyManager : MonosingletonTemp<EnergyManager>
 {
     public List<EnergyPointLogic> energyPoints; // 存储EnergyPointLogic的列表
     public int displayCount; // 调整显示前几个EnergyPointLogic
@@ -14,7 +14,7 @@ public class EnergyManager : MonoBehaviour
     void Start()
     {
 
-       
+        spriteSwitchCount = 0;
     }
 
     // Update is called once per frame
@@ -52,5 +52,10 @@ public class EnergyManager : MonoBehaviour
         {
             isAllSpriteSwitchFalse = true;
         }
+    }
+    
+    public void UseEnergyPoint()
+    {
+        spriteSwitchCount++;
     }
 }
