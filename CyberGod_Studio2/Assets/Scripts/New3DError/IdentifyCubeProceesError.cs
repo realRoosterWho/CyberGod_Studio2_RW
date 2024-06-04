@@ -40,6 +40,7 @@ public class IdentifyCubeProceesError : MonoBehaviour
         yield return new WaitForSeconds(delay);
         EventManager.Instance.TriggerEvent("ErrorDestroyed", new GameEventArgs());
         Destroy(gameObject);
+        Debug.Log("repairederror");
         SoundManager.Instance.PlaySFX(1);
         isClicked = false;
     }
