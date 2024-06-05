@@ -21,6 +21,15 @@ public class ModelAdd : MonoBehaviour
     private Ray ray;
     [SerializeField] private List<GameObject> errors = new List<GameObject>();
     [SerializeField] private float sensitivity = 2f;
+    // [SerializeField] private float dragFactor = 0.95f; // 阻力因子
+    
+    // [SerializeField] private float interval = 2f; // 旋转间隔
+    private float accumulatedRotation = 0f; // 累积的旋转量
+    private float rotationSpeed = 0f; // 旋转速度
+    private float targetRotation = 0f; // 目标旋转量
+    [SerializeField] private float m_maxRotationSpeed = 10f; // 最大旋转速度
+
+
 
     private bool ifAddDone = false;
 
@@ -163,23 +172,48 @@ public class ModelAdd : MonoBehaviour
             }
         }
     }
+
+    
+    private void UpdateModelRotation()
+    {
+        // ���m_game_manager.Instance.isPauseΪ�棬����
+        /*
+        if (m_GameManager.Instance.isPaused)
+        {
+            return;
+        }
+         */
+        if (ifAddDone)
+        {
+            // 获取鼠标输入
+            float rotation = Input.GetAxis("Mouse X") * sensitivity;
+
+            // 限制最大旋转速度
+            float maxRotationSpeed = m_maxRotationSpeed; // 您可以根据需要调整这个值
+            rotation = Mathf.Clamp(rotation, -maxRotationSpeed, maxRotationSpeed);
+
+            // 更新目标旋转量
+            targetRotation += rotation;
+
+            // 使用Slerp函数平滑过渡到目标旋转量
+            Quaternion currentRotation = transform.rotation;
+            Quaternion targetQuaternion = Quaternion.Euler(new Vector3(0, targetRotation, 0));
+            Quaternion newRotation = Quaternion.Slerp(currentRotation, targetQuaternion, Time.deltaTime * sensitivity);
+            transform.rotation = newRotation;
+
+            // 防止越过0和360的错误
+            if (Mathf.Abs(newRotation.eulerAngles.y - targetRotation) > 180)
+            {
+                targetRotation += newRotation.eulerAngles.y - targetRotation > 0 ? -360 : 360;
+            }
+        }
+    }
+    
+
     // Update is called once per frame
     void Update()
     {
-        if (ifAddDone)
-        {
-            float rotation = Input.GetAxis("Mouse X") * sensitivity;
-
-            // ���m_game_manager.Instance.isPauseΪ�棬����
-            /*
-            if (m_GameManager.Instance.isPaused)
-            {
-                return;
-            }
-             */
-            transform.Rotate(new Vector3(0, rotation, 0));
-        }
-
+        UpdateModelRotation();
         UpdateErrorList();
         var errornumber = GetErrorCount();
 
@@ -200,6 +234,5 @@ public class ModelAdd : MonoBehaviour
             Destroy(transform.parent.gameObject);
         }
         
-
     }
 }

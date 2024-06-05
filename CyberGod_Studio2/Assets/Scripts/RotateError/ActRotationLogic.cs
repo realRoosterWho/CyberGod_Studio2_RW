@@ -7,7 +7,9 @@ public class ActRotationLogic : MonoBehaviour
     public Quaternion targetRotation; // 目标旋转
     public Quaternion currentRotation; // 当前旋转
     
+    [Header("Rotation Settings")]
     [SerializeField] private float rotationSpeed = 5.0f; // 旋转速度
+    [SerializeField] private float m_maxRotationSpeed = 10.0f; // 最大旋转速度
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +38,19 @@ public class ActRotationLogic : MonoBehaviour
     // 更新当前旋转的函数
     private void UpdateCurrentRotation()
     {
-        rotationSpeed = 5.0f; // 旋转速度，你可以根据需要调整这个值
+        float maxRotationSpeed = m_maxRotationSpeed; // 您可以根据需要调整这个值
         float mouseInput = Input.GetAxis("Mouse X"); // 获取鼠标的水平移动
-        Quaternion deltaRotation = Quaternion.Euler(new Vector3(0, 0, mouseInput * rotationSpeed));
-        currentRotation *= deltaRotation;
+
+        // 计算旋转量并限制最大旋转速度
+        float rotation = mouseInput * rotationSpeed;
+        rotation = Mathf.Clamp(rotation, -maxRotationSpeed, maxRotationSpeed);
+
+        // 计算目标旋转
+        Quaternion targetRotation = currentRotation * Quaternion.Euler(new Vector3(0, 0, rotation));
+
+        // 使用Lerp函数平滑过渡到目标旋转
+        currentRotation = Quaternion.Lerp(currentRotation, targetRotation, Time.deltaTime * rotationSpeed);
+
         transform.rotation = currentRotation;
     }
 
