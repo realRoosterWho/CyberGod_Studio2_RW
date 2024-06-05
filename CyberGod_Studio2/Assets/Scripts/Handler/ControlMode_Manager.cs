@@ -43,6 +43,8 @@ public class ControlMode_Manager : MonosingletonTemp<ControlMode_Manager>
             case ControlMode.NAVIGATION:
                 break;
             case ControlMode.REPAIRING:
+                //锁定鼠标
+                Cursor.lockState = CursorLockMode.Locked;
                 break;
             case ControlMode.DIALOGUE:
                 Cursor.lockState = CursorLockMode.None;
