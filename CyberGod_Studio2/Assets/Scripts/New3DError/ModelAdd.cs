@@ -121,6 +121,7 @@ public class ModelAdd : MonoBehaviour
         // ���ɴ�����Object
         GameObject tderror = Instantiate(prefab3DError, transform);
         errors.Add(tderror);
+        Debug.Log("AddError");
         tderror.transform.parent = model.transform;
         tderror.transform.localScale /= 3; // set the scale of error
         tderror.transform.localScale /= modelscale;
@@ -140,7 +141,6 @@ public class ModelAdd : MonoBehaviour
         for (int i = 0; i < scaleCubes.Count; i++)
         {
             GenerateMeshErrorAtArea(scaleCubes[i]);
-            // Debug.Log("DONE");
         }
         ifAddDone = true;
 
@@ -199,6 +199,7 @@ public class ModelAdd : MonoBehaviour
         {
             Destroy(transform.parent.gameObject);
         }
+        
 
     }
 }
