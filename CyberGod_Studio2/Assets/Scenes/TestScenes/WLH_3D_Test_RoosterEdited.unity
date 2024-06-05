@@ -1378,14 +1378,8 @@ MonoBehaviour:
   filterMode: 0
   renderTextureDepth: 24
   cameraClearFlags: 2
-  background:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
+  background: {r: 1, g: 1, b: 1, a: 1}
   targetTexture: _CameraNormalsTexture
-  renderTexture: {fileID: 0}
-  camera: {fileID: 0}
 --- !u!114 &1927493478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2449,7 +2443,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6351148192738573251, guid: bb7cbafd22d64c945b4e9a36077cde9f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482106771498637869, guid: bb7cbafd22d64c945b4e9a36077cde9f, type: 3}
+      propertyPath: m_maxRotationSpeed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
