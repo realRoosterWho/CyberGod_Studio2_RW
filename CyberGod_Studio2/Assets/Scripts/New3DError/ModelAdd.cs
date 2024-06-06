@@ -215,6 +215,10 @@ public class ModelAdd : MonoBehaviour
     {
         UpdateModelRotation();
         UpdateErrorList();
+        
+        EventManager.Instance.TriggerEvent("MeshErrorExists", new GameEventArgs());
+
+        
         var errornumber = GetErrorCount();
 
         // �������Ѿ�������� �� ����ȫ��������

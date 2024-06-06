@@ -28,6 +28,8 @@ public class ActRotationLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        EventManager.Instance.TriggerEvent("MeshErrorExists", new GameEventArgs());
         // 根据鼠标的移动更新当前旋转
         UpdateCurrentRotation();
 
@@ -65,11 +67,21 @@ public class ActRotationLogic : MonoBehaviour
             // 触发OnSelfRepaired函数
             OnSelfRepaired();
         }
+        
+        //如果仅仅差距小于10度
+        if (Quaternion.Angle(currentRotation, targetRotation) < 10)
+        {
+            // CanRepairSomething事件
+            EventManager.Instance.TriggerEvent("CanRepairSomething", new GameEventArgs());
+        }
     }
 
     // 当自身修复时触发的函数
     private void OnSelfRepaired()
     {
+            
+        // 触发SomethingRepaired事件
+        EventManager.Instance.TriggerEvent("ErrorDestroyed", new GameEventArgs());
         // 触发SomethingRepaired事件
         EventManager.Instance.TriggerEvent("SomethingRepaired", new GameEventArgs());
 

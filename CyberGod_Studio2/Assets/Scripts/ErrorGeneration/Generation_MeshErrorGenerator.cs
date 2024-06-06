@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Generation_MeshErrorGenerator : MonoBehaviour
+public class Generation_MeshErrorGenerator : MonosingletonTemp<Generation_MeshErrorGenerator>
 {
     [SerializeField]
     //获取一个Prefab叫做MeshError
