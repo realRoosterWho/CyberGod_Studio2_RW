@@ -287,6 +287,11 @@ public class GenerationStage_Handler : MonosingletonTemp<GenerationStage_Handler
             {
                 m_meshErrorGenerator.GenerateMeshError(3);
             }
+
+            if (bodyPart == "2")
+            {
+                m_meshErrorGenerator.GenerateMeshError(4);
+            }
         }
     }
     

@@ -30,7 +30,7 @@ public class BodyPos_Logic : MonoBehaviour
     Layer m_layer = Layer.FLESH;
     RepairingSubMode m_repairingSubMode = RepairingSubMode.ERROR_REPAIR;
 
-    [SerializeField]BodyState m_bodyState = BodyState.Inactive;
+    [SerializeField] public BodyState m_bodyState = BodyState.Inactive;
     //获取Error预制体
     [SerializeField] private GameObject m_errorPrefab;
     private GameObject m_error_Flesh = null;
@@ -44,7 +44,7 @@ public class BodyPos_Logic : MonoBehaviour
     private mechaniclayer_Logic m_mechaniclayer_Logic;
     private nervelayer_Logic m_nervelayer_Logic;
 
-    [SerializeField]private string m_bodynumber;
+    [SerializeField]public string m_bodynumber;
 
     
     
@@ -469,7 +469,7 @@ public class BodyPos_Logic : MonoBehaviour
 		// 	return;
 		// }
 		
-		m_spriteRenderer.enabled = true;
+		m_spriteRenderer.enabled = false;
 
 		// 当是对应的层级的时候，打开Renderer，否则关闭
 		switch (m_layer)
