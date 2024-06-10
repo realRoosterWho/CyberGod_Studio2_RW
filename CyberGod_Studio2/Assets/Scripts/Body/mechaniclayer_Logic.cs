@@ -18,7 +18,9 @@ public class mechaniclayer_Logic : MonoBehaviour
     private List<SpriteRenderer> m_spriteRenderers = new List<SpriteRenderer>();
 
 
-    
+    // 新增的成员变量
+    private BodyPos_Logic m_bodyPos_Logic;
+    private Body_Manager m_bodyManager;
     
     
     // Start is called before the first frame update
@@ -28,6 +30,11 @@ public class mechaniclayer_Logic : MonoBehaviour
         
         //获取所有子物体的SpriteRenderer，加入到SpriteRenderer列表中，用GetComponentsInChildren
         m_spriteRenderers = GetComponentsInChildren<SpriteRenderer>().ToList();
+        
+        // 获取父物体上的BodyPos_Logic组件
+        m_bodyPos_Logic = transform.parent.GetComponent<BodyPos_Logic>();
+        // 获取Body_Manager组件
+        m_bodyManager = transform.parent.parent.GetComponent<Body_Manager>();
 
         
         if (info.name == "")
@@ -45,6 +52,13 @@ public class mechaniclayer_Logic : MonoBehaviour
             DialogueManager.Instance.RequestSpiritSpeakEntry("mechanic");
 
         }
+        
+        // 检查m_bodyPos_Logic.m_bodynumber是否在m_bodyManager.errorGeneratableBodyParts_Flesh列表中
+        if (m_bodyManager.errorGeneratableBodyParts_Machine.Contains(m_bodyPos_Logic.m_bodynumber))
+        {
+            info = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+        }
+
         
         // 如果isActivated为true，就调用ChangeMaterialProperties函数
         if (isActivated)

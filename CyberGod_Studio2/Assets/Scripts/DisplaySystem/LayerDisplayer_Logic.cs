@@ -30,6 +30,15 @@ public class LayerDisplayer_Logic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //如果当前Layer是MACHINE
+        if (m_layer == Layer.MACHINE)
+        {
+            Debug.Log("Layer.MACHINE");
+            //如果Layer_Handler.Instance.isMachineLayerLocked为true，图片变成黑色，否则变成白色
+            m_image.color = GenerationStage_Handler.Instance.isMachineLayerLocked ? Color.black : Color.white;
+        }
+        
+        
         //如果当前Layer是m_layer
         if (Layer_Handler.Instance.m_layer == m_layer)
         {
@@ -49,8 +58,5 @@ public class LayerDisplayer_Logic : MonoBehaviour
                 m_image.sprite = m_sprites[0];
             }
         }
-        
-        
-        
     }
 }
