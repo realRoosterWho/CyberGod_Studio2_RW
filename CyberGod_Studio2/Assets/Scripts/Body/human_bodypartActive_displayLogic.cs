@@ -16,6 +16,8 @@ public class human_bodypartActive_displayLogic : MonoBehaviour
         m_spriteRenderer = GetComponent<SpriteRenderer>();
         m_bodyPos_Logic = transform.parent.GetComponent<BodyPos_Logic>();
         m_layerHandler = Layer_Handler.Instance;
+        //打开SpriteRenderer
+        m_spriteRenderer.enabled = true;
     }
 
     // Update is called once per frame

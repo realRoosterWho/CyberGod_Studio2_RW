@@ -5,6 +5,8 @@ using System.Linq;
 
 public class fleshlayer_Logic : MonoBehaviour
 {
+	
+	[SerializeField]public int m_initialSortingOrder = 3;
     [SerializeField]public bool isActivated = false;
     public ObjectInfo info;
 
@@ -47,7 +49,7 @@ public class fleshlayer_Logic : MonoBehaviour
     	else
     	{
         	ChangeMaterialProperties(0.01f, 0.01f, 0.01f, 0.01f, Color.white);
-			ChangeSpriteRendererSortingOrder(1);
+			ChangeSpriteRendererSortingOrder(m_initialSortingOrder);
 
     	}
 	}

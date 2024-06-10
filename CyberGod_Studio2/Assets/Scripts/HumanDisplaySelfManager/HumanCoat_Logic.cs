@@ -15,6 +15,9 @@ public class HumanCoat_Logic : MonoBehaviour
     
     public bool isCoatAlpha = false;
     
+    private Color targetColor; // 目标颜色
+    public float lerpSpeed = 1f; // 控制Lerp的速度
+    
     //获取Layer
     [SerializeField] private ClothDisplayType m_clothDisplayType;
     //获取SpriteRenderer
@@ -52,9 +55,11 @@ public class HumanCoat_Logic : MonoBehaviour
                 NerveDisplay();
                 break;
         }
+        
     }
     
     //定义一个函数，用于显示Coat
+//定义一个函数，用于显示Coat
     public void CoatDisplay()
     {
         //如果当前的Layer是Flesh，就显示Coat
@@ -65,11 +70,13 @@ public class HumanCoat_Logic : MonoBehaviour
             //显示Coat
             if (isCoatAlpha)
             {
-                m_spriteRenderer.color = new Color(1, 1, 1, 0.2f);
+                targetColor = new Color(1, 1, 1, 0.2f);
+                m_spriteRenderer.color = Color.Lerp(m_spriteRenderer.color, targetColor, Time.deltaTime * lerpSpeed);
             }
             else
             {
-                m_spriteRenderer.color = new Color(1, 1, 1, 1);
+                targetColor = new Color(1, 1, 1, 1);
+                m_spriteRenderer.color = Color.Lerp(m_spriteRenderer.color, targetColor, Time.deltaTime * lerpSpeed);
             }
         }
         else
