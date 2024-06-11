@@ -91,21 +91,25 @@ public class Introduction_Manager : MonoBehaviour
 
     private void OnGettingIntoNerveFirstTime(GameEventArgs args)
     {
+        isClicked = false;
         StartIntroduction(introTextList2, specialDisplayIndex);
     }
 
     private void OnGettingIntoFleshSecondTime(GameEventArgs args)
     {
+        isClicked = false;
         StartIntroduction(introTextList3, specialDisplayIndex);
     }
 
     private void OnGettingIntoRepairFirstTime(GameEventArgs args)
     {
+        isClicked = false;
         StartIntroduction(introTextList4, specialDisplayIndex);
     }
 
     private void OnSomethingRepairedFirstTime(GameEventArgs args)
     {
+        isClicked = false;
         StartIntroduction(introTextList5, specialDisplayIndex);
     }
 }

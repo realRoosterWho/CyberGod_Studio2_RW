@@ -60,7 +60,7 @@ public class ActRotationLogic : MonoBehaviour
     private void CheckAlignment()
     {
         // 如果当前旋转和目标旋转的差距小于10度，并且按下了"Fire1"按钮
-        if (Quaternion.Angle(currentRotation, targetRotation) < 10 && Input.GetButtonDown("Fire1"))
+        if (Quaternion.Angle(currentRotation, targetRotation) < 25 && Input.GetButtonDown("Fire1"))
         {
             
             Debug.Log("Self Repaired");
