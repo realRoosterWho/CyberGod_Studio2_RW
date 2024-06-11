@@ -12,9 +12,20 @@ public class CyberSpiritImage_Logic : MonoBehaviour
 
     void Start()
     {
+
         rectTransform = GetComponent<RectTransform>();
         initialPosition = rectTransform.anchoredPosition;
         StartCoroutine(Breathe());
+    }
+
+    void OnEnable()
+    {
+        StartCoroutine(Breathe());
+    }
+
+    void OnDisable()
+    {
+        StopCoroutine(Breathe());
     }
 
     IEnumerator Breathe()

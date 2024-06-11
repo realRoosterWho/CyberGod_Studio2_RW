@@ -69,6 +69,7 @@ public class LevelIntro_Logic : MonoBehaviour
             currentTextIndex= 0;
             UIDisplayManager.Instance.SwitchIntroDisplay();
             ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
+            EventManager.Instance.TriggerEvent("IntroDone", new GameEventArgs());
         }
     }
     

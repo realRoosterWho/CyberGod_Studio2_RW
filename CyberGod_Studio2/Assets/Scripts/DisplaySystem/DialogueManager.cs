@@ -12,10 +12,14 @@ public class DialogueManager : SerializedMonoBehaviour
     [SerializeField] private Dictionary<string, SpiritSpeakEntry> m_spriteSpeakerEntryDict;
     [SerializeField] private Dictionary<string, SpiritSpeakEntry> m_introEntryDict; // 新增
     [SerializeField] private Dictionary<string, SpiritSpeakEntry> m_outroEntryDict; // 新增
+    [SerializeField] private Dictionary<string, SpiritSpeakEntry> m_introductionEntryDict; // 新增
+
 
     public List<SpiritSpeakEntry> activeSpiritSpeakEntries = new List<SpiritSpeakEntry>();
     public List<SpiritSpeakEntry> activeIntroEntries = new List<SpiritSpeakEntry>(); // 新增
     public List<SpiritSpeakEntry> activeOutroEntries = new List<SpiritSpeakEntry>(); // 新增
+    public List<SpiritSpeakEntry> activeIntroductionEntries = new List<SpiritSpeakEntry>(); // 新增
+
 
 
     void Awake()
@@ -37,6 +41,32 @@ public class DialogueManager : SerializedMonoBehaviour
         activeSpiritSpeakEntries.Clear();
         activeIntroEntries.Clear(); // 新增
         activeOutroEntries.Clear(); // 新增
+        activeIntroductionEntries.Clear(); // 新增
+
+    }
+    
+    public void RequestIntroductionEntry(string textName) // 新增
+    {
+        if (m_introductionEntryDict.ContainsKey(textName))
+        {
+            SpiritSpeakEntry entry = m_introductionEntryDict[textName];
+            activeIntroductionEntries.Add(entry);
+            activeIntroductionEntries = activeIntroductionEntries.OrderBy(x => x.priority).ToList();
+            UpdateIntroductionDisplay();
+        }
+        else
+        {
+            Debug.LogError("No entry found with textName: " + textName);
+        }
+    }
+
+    public Sprite GetImageByEntry(string textName) // 新增
+    {
+        if (m_introductionEntryDict.ContainsKey(textName))
+        {
+            return m_introductionEntryDict[textName].SpiritImage;
+        }
+        return null;
     }
 
     public void RequestSpiritSpeakEntry(string textName)
@@ -111,6 +141,15 @@ public class DialogueManager : SerializedMonoBehaviour
             DisplaySpriteSpeak(entry);
         }
     }
+    
+    public void UpdateIntroductionDisplay() // 新增
+    {
+        if (activeIntroductionEntries.Count > 0)
+        {
+            SpiritSpeakEntry entry = activeIntroductionEntries[0];
+            DisplayIntroduction(entry);
+        }
+    }
 
     public void DisplaySpriteSpeak(SpiritSpeakEntry entry)
     {
@@ -125,5 +164,10 @@ public class DialogueManager : SerializedMonoBehaviour
     public void DisplayOutro(SpiritSpeakEntry entry) // 新增
     {
         UIDisplayManager.Instance.DisplayOutro(entry);
+    }
+    
+    public void DisplayIntroduction(SpiritSpeakEntry entry) // 新增
+    {
+        UIDisplayManager.Instance.DisplayIntroduction(entry);
     }
 }

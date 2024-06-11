@@ -42,6 +42,13 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
     [SerializeField] public GameObject m_outroGroup;
     [SerializeField] public TextMeshProUGUI m_outroText;
     [SerializeField] public Image m_outroImage;
+    [Space(10)] // 添加 10 像素的间隔
+
+    
+    
+    
+    [Header("SpecialDisplay")] // 新增
+    [SerializeField] public Image m_specialImage; // 新增
 
 
     private bool isDisplayCalled = false;
@@ -49,6 +56,7 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
     
     private bool isIntroCalled = false;
     private bool isOutroCalled = false;
+    private bool isSpecialImageCalled = false;
 
     
     void Start()
@@ -92,6 +100,11 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
             m_outroGroup.SetActive(false);
         }
 
+        if (!isSpecialImageCalled)
+        {
+            m_specialImage.sprite = null;
+            m_specialImage.enabled = false;
+        }
 
         
         
@@ -102,6 +115,10 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
         isSpiritSpeakCalled = false;
         // 重置isOutroCalled为false
         isOutroCalled = false;
+        isSpecialImageCalled = false;
+        isIntroCalled = false;
+        
+
     }
     
     public void DisplayLeftInfo(ObjectInfo info)
@@ -160,6 +177,21 @@ public class UIDisplayManager : MonosingletonTemp<UIDisplayManager>
     public void SwitchIntroDisplay()
     {
         m_introGroup.SetActive(!m_introGroup.activeSelf);//切换显示状态
+    }
+    
+    public void DisplayIntroduction(SpiritSpeakEntry entry)
+    {
+        m_introGroup.SetActive(true);
+        m_introText.text = entry.dialogueText;
+        m_introImage.sprite = entry.SpiritImage;
+        isIntroCalled = true;
+    }
+
+    public void DisplaySpecialImage(Sprite image)
+    {
+        m_specialImage.enabled = true;
+        m_specialImage.sprite = image;
+        isSpecialImageCalled = true;
     }
     
     public void SwitchOutroDisplay()

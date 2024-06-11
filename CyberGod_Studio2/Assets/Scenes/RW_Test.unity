@@ -1172,6 +1172,7 @@ MonoBehaviour:
   m_outroGroup: {fileID: 1198573994}
   m_outroText: {fileID: 204796502}
   m_outroImage: {fileID: 135823184}
+  m_specialImage: {fileID: 737475263}
 --- !u!4 &162777207
 Transform:
   m_ObjectHideFlags: 0
@@ -5340,6 +5341,102 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732524829}
   m_CullTransparentMesh: 1
+--- !u!1 &737475260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737475261}
+  - component: {fileID: 737475264}
+  - component: {fileID: 737475263}
+  - component: {fileID: 737475262}
+  m_Layer: 5
+  m_Name: SpecialImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &737475261
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737475260}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1849146443}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &737475262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737475260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e550aa35297ec4407a75ec5700534b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  introTextList1:
+  - Introduction_1
+  - Introduction_1
+  introTextList2: []
+  introTextList3: []
+  introTextList4: []
+  introTextList5: []
+  specialDisplayIndex: 0
+--- !u!114 &737475263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737475260}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &737475264
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737475260}
+  m_CullTransparentMesh: 1
 --- !u!1 &743243644
 GameObject:
   m_ObjectHideFlags: 0
@@ -5847,6 +5944,7 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 8e0bfe5b3a3ad413e82d14037f936c85, type: 3}
     - {fileID: 21300000, guid: 3e3efe0165bd34e748bd08b11e926d1f, type: 3}
     - {fileID: 21300000, guid: a9ed050ef7b4d443d9d9f6e7905c191b, type: 3}
+    - {fileID: 21300000, guid: 8e35cfbbab41e4a0c9bf3ee9a1211b0f, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -6076,9 +6174,54 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: m_introductionEntryDict
+      Entry: 7
+      Data: 12|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 13|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Introduction_1
+    - Name: $v
+      Entry: 7
+      Data: 14|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 5
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u73B0\u5728\u6211\u4EEC\u4EC5\u4EC5\u80FD\u591F\u770B\u5230\u5DE5\u7A0B\u5E08\u7684\u5916\u8868\uFF0C\u4F46\u662F\u4E0D\u77E5\u9053\u4ED6\u8EAB\u4E0A\u54EA\u91CC\u7684\u4E49\u4F53\u9700\u8981\u626B\u63CF\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   activeSpiritSpeakEntries: []
   activeIntroEntries: []
   activeOutroEntries: []
+  activeIntroductionEntries: []
 --- !u!4 &787006809
 Transform:
   m_ObjectHideFlags: 0
@@ -15136,6 +15279,7 @@ RectTransform:
   - {fileID: 1051573341}
   - {fileID: 1515638701}
   - {fileID: 8389028}
+  - {fileID: 737475261}
   - {fileID: 142818275}
   - {fileID: 1389385192}
   - {fileID: 454575969}
