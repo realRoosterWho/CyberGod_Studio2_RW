@@ -100,7 +100,11 @@ public class BodyPos_Logic : MonoBehaviour
     }
     public void ChangeColor(Color color)
     {
-        m_spriteRenderer.color = color;
+		if(m_spriteRenderer != null)
+		{
+		m_spriteRenderer.color = color;
+
+		}
     }
 
 	//改变透明度

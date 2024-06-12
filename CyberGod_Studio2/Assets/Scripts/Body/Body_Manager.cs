@@ -317,11 +317,13 @@ public class Body_Manager : SerializedMonoBehaviour
     
     private void OnFleshLayer()
     {
+        SoundManager.Instance.EnableAudioSource(0, false);
         m_nerveLayerRenderer.enabled = false;
     }
     
     private void OnMachineLayer()
     {
+        SoundManager.Instance.EnableAudioSource(0, false);
         m_nerveLayerRenderer.enabled = false;
 
     }
@@ -329,6 +331,7 @@ public class Body_Manager : SerializedMonoBehaviour
     private void OnNerveLayer()
     {
         m_nerveLayerRenderer.enabled = true;
+        SoundManager.Instance.EnableAudioSource(0, true);
     }
     
     private void OnDestroy()

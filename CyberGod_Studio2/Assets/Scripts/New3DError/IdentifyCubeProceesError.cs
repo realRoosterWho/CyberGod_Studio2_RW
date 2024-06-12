@@ -25,10 +25,12 @@ public class IdentifyCubeProceesError : MonoBehaviour
     {
         isClicked = false;
         eventTriggered = false;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && ControlMode_Manager.Instance.m_controlMode == ControlMode.REPAIRING)
         {
             isClicked = true;
+            SoundManager.Instance.PlaySFX(6);
         }
+
 
         UpdateColliderCheck();
     }
@@ -113,6 +115,7 @@ public class IdentifyCubeProceesError : MonoBehaviour
     IEnumerator DestroyAfterDelay(GameObject gameObject, float delay)
     {
         yield return new WaitForSeconds(delay);
+        SoundManager.Instance.PlaySFX(1);
         EventManager.Instance.TriggerEvent("ErrorDestroyed", new GameEventArgs());
         collidedObjects.Remove(gameObject);
         Destroy(gameObject);

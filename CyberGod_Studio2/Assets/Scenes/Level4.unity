@@ -614,51 +614,6 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0, y: -1, z: 0}
---- !u!1 &120497403
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 120497405}
-  - component: {fileID: 120497404}
-  m_Layer: 0
-  m_Name: IntroductionTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &120497404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120497403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eaab3717e3eb47b2890930a83f24cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFirstLevel: 1
---- !u!4 &120497405
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120497403}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7224833, y: 1.5466675, z: -3.8683202}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &122055405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,16 +1084,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introTextList:
-  - Level1_Intro_01
-  - Level1_Intro_02
-  - Level1_Intro_03
-  - Level1_Intro_04
-  - Level1_Intro_05
+  - Level4_Intro_01
+  - Level4_Intro_02
   outroTextList:
-  - outro
+  - ourto_4
   outro_IntroRenderTextList:
-  - Level1_OutroIntro_01
-  - Level1_OutroIntro_02
+  - Level4_OutroIntro_01
+  - Level4_OutroIntro_02
 --- !u!114 &142818277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2263,6 +2215,1530 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2322109490292692695, guid: 4f6570faa8a5b46bf94e6a50d9375ef8, type: 3}
   m_PrefabInstance: {fileID: 251826421}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &258134792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 258134794}
+  - component: {fileID: 258134793}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &258134793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258134792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc6dd399b4934855ab9cbf122b10283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
+    - {fileID: 21300000, guid: 048fbd54420574128956ecfb2875c6b4, type: 3}
+    - {fileID: 21300000, guid: 8e0bfe5b3a3ad413e82d14037f936c85, type: 3}
+    - {fileID: 21300000, guid: 8e35cfbbab41e4a0c9bf3ee9a1211b0f, type: 3}
+    - {fileID: 21300000, guid: 6ed0d4b6530a64b23b98ce7e3712f1e1, type: 3}
+    - {fileID: 21300000, guid: 6bbddee66323f49618901f1b1d0a208c, type: 3}
+    - {fileID: 21300000, guid: bf564c5f611f84478b5e8c288b98b554, type: 3}
+    - {fileID: 21300000, guid: b6621050fb66d41a1b94307be6769605, type: 3}
+    - {fileID: 21300000, guid: b1ccfed2d3d6445b4aa77ab6f1c101fb, type: 3}
+    - {fileID: 21300000, guid: c97c983b682484b2f86e8923d20e8496, type: 3}
+    - {fileID: 21300000, guid: 15f54d58dbb294c458c75ed43477820f, type: 3}
+    - {fileID: 21300000, guid: 540641abb06774ec2b5d1a19c57e90f2, type: 3}
+    - {fileID: 21300000, guid: 3913bd9ac9c1f47edbfadf466bece644, type: 3}
+    - {fileID: 21300000, guid: dfa23cde7a96243379b3b4c76e11f006, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_spriteSpeakerEntryDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: flesh
+    - Name: $v
+      Entry: 7
+      Data: 2|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u624B\u6301\u9F20\u6807\u653E\u5230\u5BF9\u5E94\u90E8\u4F4D\uFF0C\u5982\u6709\u9519\u8BEF\u5DE6\u952E\u7EF4\u4FEE\uFF1B\u5982\u65E0\u9519\u8BEF\uFF0C\u5C06\u4F1A\u7834\u574F\u9632\u706B\u5899\u554A"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: mechanic
+    - Name: $v
+      Entry: 7
+      Data: 3|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u624B\u6301\u9F20\u6807\u653E\u5230\u5BF9\u5E94\u90E8\u4F4D\uFF0C\u5982\u6709\u9519\u8BEF\u5DE6\u952E\u7EF4\u4FEE\uFF1B\u5982\u65E0\u9519\u8BEF\uFF0C\u5C06\u4F1A\u7834\u574F\u9632\u706B\u5899\u554A"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: nerve
+    - Name: $v
+      Entry: 7
+      Data: 4|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u624B\u6301\u9F20\u6807\uFF0C\u5BFB\u627E\u3010\u4E49\u4F53\u7B26\u53F7\u3011\u548C\u3010\u8EAB\u4F53\u90E8\u4F4D\u3011\u7684\u8054\u7CFB\uFF0C\u627E\u5230\u76EE\u6807\u4E49\u4F53\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_introEntryDict
+      Entry: 7
+      Data: 5|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 6|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 28
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Intro_01
+    - Name: $v
+      Entry: 7
+      Data: 7|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u6444\u50CF\u5934\u5DF2\u7ECF\u542F\u52A8\u2026\u626B\u63CF\u5668\u4E5F\u603B\u7B97\u8FDE\u63A5\u4E0A\u4E86\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Intro_02
+    - Name: $v
+      Entry: 7
+      Data: 8|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u563F\uFF01\u3010\u73A9\u5BB6\u3011\uFF01\u542C\u5F97\u5230\u5417\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_OutroIntro_01
+    - Name: $v
+      Entry: 7
+      Data: 9|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u6211\u4EEC\u6536\u96C6\u5230\u4E86\u8DB3\u591F\u591A\u7684\u4FE1\u606F\uFF01\u5229\u7528\u8FD9\u4E9B\u4FE1\u606F\uFF0C\u5C31\u80FD\u591F\u7A7F\u900F\u9632\u706B\u5899\u8FDB\u884C\u4E49\u4F53\u4FEE\u590D\u4E86\u3002"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Intro_03
+    - Name: $v
+      Entry: 7
+      Data: 10|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u662F\u7684\uFF0C\u6211\u5728\u548C\u4F60\u8BF4\u8BDD\u2026\u2026\u522B\u60CA\u8BB6\uFF0C\u6211\u662F\u8FD9\u4E2A\u4FEE\u590D\u673A\u5668\u91CC\u7684\u5E7D\u9B42\uFF0C\u53EB\u6211CyberSpirit\u5427\u3002"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Intro_04
+    - Name: $v
+      Entry: 7
+      Data: 11|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 4
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u6211\u6B63\u5728\u5E2E\u5C4F\u5E55\u524D\u7684\u90A3\u4E2A\u5DE5\u7A0B\u5E08\u8FDB\u884C\u4E49\u4F53\u68C0\u4FEE\uFF0C\u5229\u7528\u6211\u638C\u63E1\u7684\u795E\u79D8\u529B\u91CF\u3002"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Intro_05
+    - Name: $v
+      Entry: 7
+      Data: 12|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 5
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u8BF7\u4F60\u5E2E\u6211\u8FDB\u884C\u626B\u63CF\uFF0C\u8FD9\u6837\u5C31\u80FD\u4FEE\u590D\u4ED6\u8EAB\u4E0A\u7684\u95EE\u9898\u4E86\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_OutroIntro_02
+    - Name: $v
+      Entry: 7
+      Data: 13|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u63A5\u4E0B\u6765\u7684\u5DE5\u4F5C\u5C31\u4EA4\u7ED9\u6211\u5427\uFF0C\u5B8C\u5168\u4E0D\u7528\u62C5\u5FC3\u540E\u7EED\u95EE\u9898\u5462\u3002\u8C22\u8C22\u4F60\uFF0C\u3010\u73A9\u5BB6\u3011\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_Intro_1_01
+    - Name: $v
+      Entry: 7
+      Data: 14|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u73A9\u5BB6\u4F60\u597D\uFF01\u5F88\u9AD8\u5174\u518D\u6B21\u89C1\u5230\u4F60\u3002"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_Intro_1_02
+    - Name: $v
+      Entry: 7
+      Data: 15|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u8FD9\u4E00\u6B21\uFF0C\u6211\u4EEC\u80FD\u591F\u83B7\u5F97\u66F4\u591A\u4E49\u4F53\u7684\u6743\u9650\u4E86\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_Intro_1_03
+    - Name: $v
+      Entry: 7
+      Data: 16|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u6211\u4EEC\u4E5F\u8981\u5229\u7528\u8FD9\u4E2A\u673A\u4F1A\uFF0C\u83B7\u5F97\u66F4\u591A\u7684\u4FE1\u606F\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_Intro_1_04
+    - Name: $v
+      Entry: 7
+      Data: 17|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u4E00\u5207\u90FD\u662F\u4E3A\u4E86\u4FEE\u590D\u5DE5\u7A0B\u5E08\u2026\u76F8\u4FE1\u4F60\u80FD\u591F\u7406\u89E3\u7684\uFF0C\u662F\u5427\uFF1F"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_Intro_1_05
+    - Name: $v
+      Entry: 7
+      Data: 18|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u5728\u65F6\u95F4\u7528\u5C3D\u524D\uFF0C\u6355\u83B7\u8DB3\u591F\u591A\u7684\u4FE1\u606F\u5427\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_OutroIntro_01
+    - Name: $v
+      Entry: 7
+      Data: 19|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u5E72\u5F97\u597D\uFF01\u4F60\u770B\u8D77\u6765\u6108\u53D1\u719F\u7EC3\u4E86\u561B\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_OutroIntro_02
+    - Name: $v
+      Entry: 7
+      Data: 20|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u6211\u4EEC\u73B0\u5728\u80FD\u591F\u83B7\u53D6\u7684\u6743\u9650\u66F4\u591A\u4E86\uFF0C\u626B\u63CF\u5DF2\u7ECF\u5B8C\u6210\u4E00\u534A\u4E86\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_OutroIntro_03
+    - Name: $v
+      Entry: 7
+      Data: 21|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u5269\u4E0B\u7684\u5C31\u4EA4\u7ED9\u6211\u5427\uFF0C\u4F60\u53EA\u9700\u8981\u5E2E\u6211\u626B\u63CF\u5C31\u597D\u3002\u671F\u5F85\u6211\u4EEC\u7684\u4E0B\u4E00\u6B21\u94FE\u63A5\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Intro01
+    - Name: $v
+      Entry: 7
+      Data: 22|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u8FD9\u4E00\u6B21\uFF0C\u6211\u4EEC\u89E3\u9501\u4E86\u65B0\u7684\u5C42\u7EA7\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Intro02
+    - Name: $v
+      Entry: 7
+      Data: 23|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u3010\u795E\u7ECF\u5C42\u3011\u7684\u4E49\u4F53\uFF0C\u662F\u66F4\u52A0\u6DF1\u5165\u63A7\u5236\u548C\u8C03\u8282\u7684\u5668\u5B98\u2026\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Intro03
+    - Name: $v
+      Entry: 7
+      Data: 24|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u83B7\u53D6\u66F4\u591A\u7684\u4FE1\u606F\u548C\u6821\u51C6\uFF0C\u662F\u81F3\u5173\u91CD\u8981\u7684\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Intro04
+    - Name: $v
+      Entry: 7
+      Data: 25|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u53F3\u952E\u5207\u6362\u5230\u3010\u795E\u7ECF\u5C42\u3011\uFF0C\u5177\u4F53\u770B\u770B\u5427\u3002"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_OutroIntro_01
+    - Name: $v
+      Entry: 7
+      Data: 26|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u8FD9\u4E00\u6B21\u7684\u626B\u63CF\u4E5F\u5B8C\u6210\u4E86\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_OutroIntro_02
+    - Name: $v
+      Entry: 7
+      Data: 27|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u8BF4\u5B9E\u5728\u7684\uFF0C\u8FD9\u4E9B\u4E49\u4F53\u867D\u7136\u63D0\u4F9B\u4E86\u5F88\u597D\u7684\u529F\u80FD\uFF0C\u4F46\u662F\u7EF4\u4FEE\u8D77\u6765\u4E5F\u975E\u5E38\u9EBB\u70E6\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_OutroIntro_03
+    - Name: $v
+      Entry: 7
+      Data: 28|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u4E0D\u50CF\u8840\u8089\u4E4B\u8EAF\uFF0C\u5F80\u5F80\u53CD\u800C\u80FD\u591F\u81EA\u7ED9\u81EA\u8DB3\u3002"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_OutroIntro_04
+    - Name: $v
+      Entry: 7
+      Data: 29|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u6211\u4EEC\u626B\u63CF\u5230\u7684\u4FE1\u606F\u51E0\u4E4E\u80FD\u591F\u6821\u51C6\u6240\u6709\u7684\u4E49\u4F53\u4E86\u3002"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_OutroIntro_05
+    - Name: $v
+      Entry: 7
+      Data: 30|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u4E0B\u4E00\u6B21\u94FE\u63A5\uFF0C\u5C31\u80FD\u591F\u8BA9\u5DE5\u7A0B\u5E08\u7684\u8EAB\u4F53\u5F97\u5230\u81EA\u7531\u4E86\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level4_Intro_01
+    - Name: $v
+      Entry: 7
+      Data: 31|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u73B0\u5728\uFF0C\u795E\u7ECF\u5C42\u7684\u6700\u540E\u4E00\u4E2A\u4E49\u4F53\u6743\u9650\u4E5F\u83B7\u53D6\u4E86\u3002"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level4_Intro_02
+    - Name: $v
+      Entry: 7
+      Data: 32|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u6536\u96C6\u5B8C\u6700\u540E\u7684\u4FE1\u606F\uFF0C\u6211\u4EEC\u7684\u4EFB\u52A1\u4E5F\u5C31\u5B8C\u6210\u4E86\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level4_OutroIntro_01
+    - Name: $v
+      Entry: 7
+      Data: 33|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u597D\u6781\u4E86\uFF01\u7ECF\u8FC7\u4FE1\u606F\u4E0E\u6821\u51C6\uFF0C\u5DF2\u7ECF\u5B8C\u5168\u5339\u914D\u6210\u529F\u4E86\u3002"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level4_OutroIntro_02
+    - Name: $v
+      Entry: 7
+      Data: 34|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u53EA\u5DEE\u6700\u540E\u4E00\u6B65\u4E86\u2026\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_outroEntryDict
+      Entry: 7
+      Data: 35|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 6
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: outro
+    - Name: $v
+      Entry: 7
+      Data: 36|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 6
+    - Name: dialogueText
+      Entry: 1
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: outro_2
+    - Name: $v
+      Entry: 7
+      Data: 37|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 7
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: outro_3
+    - Name: $v
+      Entry: 7
+      Data: 38|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 8
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: outro_4
+    - Name: $v
+      Entry: 7
+      Data: 39|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 9
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_introductionEntryDict
+      Entry: 7
+      Data: 40|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 41|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 22
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_1_01
+    - Name: $v
+      Entry: 7
+      Data: 42|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u73B0\u5728\u6211\u4EEC\u4EC5\u4EC5\u80FD\u591F\u770B\u5230\u5DE5\u7A0B\u5E08\u7684\u3010\u4E49\u4F53\u5C42\u3011\uFF0C\u4F46\u662F\u4E0D\u77E5\u9053\u4ED6\u8EAB\u4E0A\u54EA\u91CC\u7684\u4E49\u4F53\u9700\u8981\u626B\u63CF\uFF0C\u4E5F\u4E0D\u77E5\u9053\u54EA\u91CC\u6709\u4E49\u4F53\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_1_02
+    - Name: $v
+      Entry: 7
+      Data: 43|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u5207\u6362\u5C42\u7EA7\uFF0C\u6211\u4EEC\u4E00\u8D77\u8FDB\u5165\u3010\u901A\u7075\u5C42\u3011\uFF0C\u786E\u8BA4\u54EA\u91CC\u9700\u8981\u626B\u63CF\u5427"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_1_03
+    - Name: $v
+      Entry: 7
+      Data: 44|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 10
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_2_01
+    - Name: $v
+      Entry: 7
+      Data: 45|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 5
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u6210\u529F\u5230\u8FBE\u3010\u901A\u7075\u5C42\u3011\uFF01\u90A3\u4E2A\u5706\u76D8\u4E0A\u8FB9\u7F18\u7EA2\u8272\u7684\u4E49\u4F53\uFF0C\u6B63\u662F\u6211\u4EEC\u9700\u8981\u4E0B\u4E00\u4E2A\u626B\u63CF\u7684\u76EE\u6807\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_2_02
+    - Name: $v
+      Entry: 7
+      Data: 46|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u628A\u9F20\u6807\u653E\u5728\u8EAB\u4E0A\u8FDB\u884C\u68C0\u67E5\uFF0C\u663E\u793A\u5668\u4F1A\u663E\u793A\u8FD9\u4E2A\u90E8\u4F4D\u662F\u5426\u6709\u4E49\u4F53\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_2_03
+    - Name: $v
+      Entry: 7
+      Data: 47|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u8D76\u5FEB\u8FDB\u884C\u68C0\u67E5\uFF0C\u770B\u770B\u9700\u8981\u68C0\u6D4B\u7684\u4E49\u4F53\u5230\u5E95\u5728\u54EA\u4E2A\u90E8\u4F4D\u5427"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_2_04
+    - Name: $v
+      Entry: 7
+      Data: 48|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 4
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u68C0\u67E5\u7ED3\u675F\u4E4B\u540E\u5207\u6362\u5C42\u7EA7\uFF0C\u53F3\u952E\u56DE\u5230\u3010\u4E49\u4F53\u5C42\u3011\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_2_05
+    - Name: $v
+      Entry: 7
+      Data: 49|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 11
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_3_01
+    - Name: $v
+      Entry: 7
+      Data: 50|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u4E0D\u9519\uFF01\u73B0\u5728\uFF0C\u6211\u4EEC\u77E5\u9053\u4E86\u4E0B\u4E00\u4E2A\u9700\u8981\u626B\u63CF\u7684\u4E49\u4F53\u5728\u54EA\u4E2A\u8EAB\u4F53\u90E8\u4F4D\u4E86"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_3_02
+    - Name: $v
+      Entry: 7
+      Data: 51|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 5
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u53EF\u5343\u4E07\u5C0F\u5FC3\uFF0C\u5982\u679C\u8BD5\u56FE\u626B\u63CF\u4E86\u9519\u8BEF\u7684\u4E49\u4F53\uFF0C\u90A3\u4E48\u6211\u7684\u9632\u706B\u5899\u5C31\u4F1A\u53D7\u635F\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_3_03
+    - Name: $v
+      Entry: 7
+      Data: 52|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u73B0\u5728\uFF0C\u8BF7\u5C06\u9F20\u6807\u653E\u5230\u8EAB\u4E0A\u7684\u5BF9\u5E94\u4F4D\u7F6E\uFF0C\u5DE6\u952E\u9009\u62E9\u8FD9\u4E2A\u4E49\u4F53\uFF0C\u8FDB\u5165\u626B\u63CF\u6A21\u5F0F\u5427"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_3_04
+    - Name: $v
+      Entry: 7
+      Data: 53|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 12
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_4_01
+    - Name: $v
+      Entry: 7
+      Data: 54|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u5E72\u5F97\u597D\uFF0C\u626B\u63CF\u6210\u529F\uFF01\u63A5\u4E0B\u6765\u7EE7\u7EED\u53F3\u952E\u524D\u5F80\u201C\u901A\u7075\u5C42\u201D\uFF0C\u5BFB\u627E\u4E0B\u4E00\u4E2A\u201C\u4E49\u4F53\u7B26\u53F7\u201D\u6765\u786E\u8BA4\u9700\u8981\u68C0\u4FEE\u7684\u201C\u8EAB\u4F53\u90E8\u4F4D\u201D\u5427\u3002"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_4_02
+    - Name: $v
+      Entry: 7
+      Data: 55|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 5
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u5C3D\u5FEB\u2026\u6211\u7684\u6CD5\u529B\u662F\u6709\u9650\u7684\uFF0C\u5728\u3010\u65F6\u95F4\u3011\u7ED3\u675F\u4EE5\u524D\uFF0C\u6211\u4EEC\u4E24\u4E2A\u5408\u529B\u7684\u8BDD\uFF0C\u4E00\u5B9A\u80FD\u591F\u6210\u529F\u4FEE\u590D\u4ED6\u7684\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_4_03
+    - Name: $v
+      Entry: 7
+      Data: 56|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u5C3D\u53EF\u80FD\u5730\u6355\u83B7\u66F4\u591A\u4FE1\u606F\u5427\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_4_04
+    - Name: $v
+      Entry: 7
+      Data: 57|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 13
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Introduction_1_01
+    - Name: $v
+      Entry: 7
+      Data: 58|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u4F60\u770B\uFF0C\u8FD9\u4E00\u5C42\u7684\u5FC3\u810F\u4E49\u4F53\uFF0C\u63A7\u5236\u7740\u795E\u7ECF\u548C\u8840\u6DB2\u2026\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Introduction_1_02
+    - Name: $v
+      Entry: 7
+      Data: 59|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u4E0D\u626B\u63CF\u5B8C\u8FD9\u4E00\u5C42\uFF0C\u6CA1\u6CD5\u68C0\u67E5\u4E4B\u524D\u7684\u4E49\u4F53\uFF0C\u5426\u5219\u4E5F\u4F1A\u7834\u574F\u9632\u706B\u5899\u5462\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Introduction_1_03
+    - Name: $v
+      Entry: 7
+      Data: 60|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u603B\u4E4B\uFF0C\u5148\u53BB\u3010\u901A\u7075\u5C42\u3011\u786E\u8BA4\u8981\u626B\u63CF\u4EC0\u4E48\u4E49\u4F53\u5427"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Introduction_2_01
+    - Name: $v
+      Entry: 7
+      Data: 61|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u4F60\u770B\uFF0C\u3010\u901A\u7075\u5C42\u3011\u73B0\u5728\u4E00\u6B21\u6027\u6709\u4E24\u4E2A\u5F85\u626B\u63CF\u7684\u4E49\u4F53\uFF0C\u4E00\u4E2A\u5728\u3010\u795E\u7ECF\u5C42\u3011\uFF0C\u4E00\u4E2A\u5728\u3010\u4E49\u4F53\u5C42\u3011"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Introduction_2_02
+    - Name: $v
+      Entry: 7
+      Data: 62|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u4E00\u5B9A\u8981\u5148\u4FEE\u590D\u3010\u795E\u7ECF\u5C42\u3011\u7684\u4E49\u4F53\uFF0C\u624D\u80FD\u4FEE\u590D\u3010\u4E49\u4F53\u5C42\u3011\u7684\u4E49\u4F53\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Introduction_2_03
+    - Name: $v
+      Entry: 7
+      Data: 63|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "\u542C\u8D77\u6765\u5DE5\u4F5C\u91CF\u8981\u52A0\u500D\u5462\u2026\u2026\u603B\u4E4B\u7EE7\u7EED\u626B\u63CF\u4FE1\u606F\u5427\uFF01"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  activeSpiritSpeakEntries: []
+  activeIntroEntries:
+  - SpiritImage: {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
+    dialogueText: "\u563F\uFF01\u3010\u73A9\u5BB6\u3011\uFF01\u542C\u5F97\u5230\u5417\uFF01"
+    priority: 0
+  - SpiritImage: {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
+    dialogueText: "\u563F\uFF01\u3010\u73A9\u5BB6\u3011\uFF01\u542C\u5F97\u5230\u5417\uFF01"
+    priority: 0
+  - SpiritImage: {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
+    dialogueText: "\u563F\uFF01\u3010\u73A9\u5BB6\u3011\uFF01\u542C\u5F97\u5230\u5417\uFF01"
+    priority: 0
+  activeOutroEntries: []
+  activeIntroductionEntries: []
+--- !u!4 &258134794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258134792}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1804.174, y: 915.24915, z: -28.86166}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &263699212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2430,51 +3906,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &287018208
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 287018210}
-  - component: {fileID: 287018209}
-  m_Layer: 0
-  m_Name: MainThreadDispatcher
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &287018209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287018208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1c4e4015e68d41ab9879e39b8a859f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDonDestroyOnLoad: 1
---- !u!4 &287018210
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287018208}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5615767, y: 0.3799218, z: -0.026216442}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &295627575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,6 +3990,165 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &323597421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 323597426}
+  - component: {fileID: 323597425}
+  - component: {fileID: 323597424}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &323597424
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323597421}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.696
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &323597425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323597421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ccd70045795b4decac8d36930e970ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDonDestroyOnLoad: 1
+  musicSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  audioSources:
+  - {fileID: 1308037880}
+  - {fileID: 1284174770}
+  AudioClipList:
+  - {fileID: 8300000, guid: ddaf82de540e743fb89b6305d3f1f946, type: 3}
+  - {fileID: 8300000, guid: c20a359e11f1a4e398dafdada04e43f9, type: 3}
+  - {fileID: 8300000, guid: 9f830283616674bb7b4de951c46ecefc, type: 3}
+  - {fileID: 8300000, guid: 0e14a87ae52064fa5974362de583c288, type: 3}
+  - {fileID: 8300000, guid: dd22218bef8d049bb8d0218ce342d552, type: 3}
+  - {fileID: 8300000, guid: 8fa382b9863e44af186139323abe7675, type: 3}
+  - {fileID: 8300000, guid: e555381f8383d4c91922af9d428787fb, type: 3}
+  MusicClipList:
+  - {fileID: 8300000, guid: 69705775720c948948cb6eb2872b7535, type: 3}
+--- !u!4 &323597426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323597421}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1308037881}
+  - {fileID: 1284174771}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330919008
 GameObject:
   m_ObjectHideFlags: 0
@@ -5382,11 +6972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e550aa35297ec4407a75ec5700534b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introTextList1:
-  - Level1_Introduction_1_01
-  - Level1_Introduction_1_01
-  - Level1_Introduction_1_02
-  - Level1_Introduction_1_03
+  introTextList1: []
   introTextList2:
   - Level1_Introduction_2_01
   - Level1_Introduction_2_02
@@ -5400,13 +6986,18 @@ MonoBehaviour:
   - Level1_Introduction_3_04
   introTextList4:
   - Level1_Introduction_4_01
-  - Level1_Introduction_4_01
   - Level1_Introduction_4_02
   - Level1_Introduction_4_03
   - Level1_Introduction_4_04
-  introTextList5: []
-  introTextList6: []
-  specialDisplayIndex: 1
+  introTextList5:
+  - Level3_Introduction_1_01
+  - Level3_Introduction_1_02
+  - Level3_Introduction_1_03
+  introTextList6:
+  - Level3_Introduction_2_01
+  - Level3_Introduction_2_02
+  - Level3_Introduction_2_03
+  specialDisplayIndex: 0
 --- !u!114 &737475263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5445,82 +7036,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737475260}
   m_CullTransparentMesh: 1
---- !u!1 &743243644
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 743243647}
-  - component: {fileID: 743243646}
-  - component: {fileID: 743243648}
-  - component: {fileID: 743243645}
-  m_Layer: 0
-  m_Name: ThreadTest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &743243645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743243644}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98a7b578cc240484c8d1faf0b8b2bb22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &743243646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743243644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daed1bf2f214d594f90f7248d5ea73d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDonDestroyOnLoad: 1
-  port: 5005
-  startRecieving: 1
-  printToConsole: 1
-  data: 
---- !u!4 &743243647
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743243644}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.2, y: 1.46, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &743243648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743243644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecd8e7cdef2d654ca57c290496cde61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDonDestroyOnLoad: 1
 --- !u!4 &751304170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5182352919103732774, guid: bb7cbafd22d64c945b4e9a36077cde9f, type: 3}
@@ -5920,1530 +7435,6 @@ Transform:
   - {fileID: 705144553}
   - {fileID: 1985126897}
   - {fileID: 1795439456}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &787006807
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 787006809}
-  - component: {fileID: 787006808}
-  m_Layer: 0
-  m_Name: DialogueManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &787006808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 787006807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc6dd399b4934855ab9cbf122b10283, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
-    - {fileID: 21300000, guid: 048fbd54420574128956ecfb2875c6b4, type: 3}
-    - {fileID: 21300000, guid: 8e0bfe5b3a3ad413e82d14037f936c85, type: 3}
-    - {fileID: 21300000, guid: 8e35cfbbab41e4a0c9bf3ee9a1211b0f, type: 3}
-    - {fileID: 21300000, guid: 6ed0d4b6530a64b23b98ce7e3712f1e1, type: 3}
-    - {fileID: 21300000, guid: 6bbddee66323f49618901f1b1d0a208c, type: 3}
-    - {fileID: 21300000, guid: bf564c5f611f84478b5e8c288b98b554, type: 3}
-    - {fileID: 21300000, guid: b6621050fb66d41a1b94307be6769605, type: 3}
-    - {fileID: 21300000, guid: b1ccfed2d3d6445b4aa77ab6f1c101fb, type: 3}
-    - {fileID: 21300000, guid: c97c983b682484b2f86e8923d20e8496, type: 3}
-    - {fileID: 21300000, guid: 15f54d58dbb294c458c75ed43477820f, type: 3}
-    - {fileID: 21300000, guid: 540641abb06774ec2b5d1a19c57e90f2, type: 3}
-    - {fileID: 21300000, guid: 3913bd9ac9c1f47edbfadf466bece644, type: 3}
-    - {fileID: 21300000, guid: dfa23cde7a96243379b3b4c76e11f006, type: 3}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: m_spriteSpeakerEntryDict
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 3
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: flesh
-    - Name: $v
-      Entry: 7
-      Data: 2|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 0
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u624B\u6301\u9F20\u6807\u653E\u5230\u5BF9\u5E94\u90E8\u4F4D\uFF0C\u5982\u6709\u9519\u8BEF\u5DE6\u952E\u7EF4\u4FEE\uFF1B\u5982\u65E0\u9519\u8BEF\uFF0C\u5C06\u4F1A\u7834\u574F\u9632\u706B\u5899\u554A"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: mechanic
-    - Name: $v
-      Entry: 7
-      Data: 3|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 0
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u624B\u6301\u9F20\u6807\u653E\u5230\u5BF9\u5E94\u90E8\u4F4D\uFF0C\u5982\u6709\u9519\u8BEF\u5DE6\u952E\u7EF4\u4FEE\uFF1B\u5982\u65E0\u9519\u8BEF\uFF0C\u5C06\u4F1A\u7834\u574F\u9632\u706B\u5899\u554A"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: nerve
-    - Name: $v
-      Entry: 7
-      Data: 4|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 1
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u624B\u6301\u9F20\u6807\uFF0C\u5BFB\u627E\u3010\u4E49\u4F53\u7B26\u53F7\u3011\u548C\u3010\u8EAB\u4F53\u90E8\u4F4D\u3011\u7684\u8054\u7CFB\uFF0C\u627E\u5230\u76EE\u6807\u4E49\u4F53\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_introEntryDict
-      Entry: 7
-      Data: 5|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 6|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 28
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Intro_01
-    - Name: $v
-      Entry: 7
-      Data: 7|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 2
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u6444\u50CF\u5934\u5DF2\u7ECF\u542F\u52A8\u2026\u626B\u63CF\u5668\u4E5F\u603B\u7B97\u8FDE\u63A5\u4E0A\u4E86\u2026"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Intro_02
-    - Name: $v
-      Entry: 7
-      Data: 8|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 0
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u563F\uFF01\u3010\u73A9\u5BB6\u3011\uFF01\u542C\u5F97\u5230\u5417\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_OutroIntro_01
-    - Name: $v
-      Entry: 7
-      Data: 9|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 1
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u6211\u4EEC\u6536\u96C6\u5230\u4E86\u8DB3\u591F\u591A\u7684\u4FE1\u606F\uFF01\u5229\u7528\u8FD9\u4E9B\u4FE1\u606F\uFF0C\u5C31\u80FD\u591F\u7A7F\u900F\u9632\u706B\u5899\u8FDB\u884C\u4E49\u4F53\u4FEE\u590D\u4E86\u3002"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Intro_03
-    - Name: $v
-      Entry: 7
-      Data: 10|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u662F\u7684\uFF0C\u6211\u5728\u548C\u4F60\u8BF4\u8BDD\u2026\u2026\u522B\u60CA\u8BB6\uFF0C\u6211\u662F\u8FD9\u4E2A\u4FEE\u590D\u673A\u5668\u91CC\u7684\u5E7D\u9B42\uFF0C\u53EB\u6211CyberSpirit\u5427\u3002"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Intro_04
-    - Name: $v
-      Entry: 7
-      Data: 11|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 4
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u6211\u6B63\u5728\u5E2E\u5C4F\u5E55\u524D\u7684\u90A3\u4E2A\u5DE5\u7A0B\u5E08\u8FDB\u884C\u4E49\u4F53\u68C0\u4FEE\uFF0C\u5229\u7528\u6211\u638C\u63E1\u7684\u795E\u79D8\u529B\u91CF\u3002"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Intro_05
-    - Name: $v
-      Entry: 7
-      Data: 12|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 5
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u8BF7\u4F60\u5E2E\u6211\u8FDB\u884C\u626B\u63CF\uFF0C\u8FD9\u6837\u5C31\u80FD\u4FEE\u590D\u4ED6\u8EAB\u4E0A\u7684\u95EE\u9898\u4E86\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_OutroIntro_02
-    - Name: $v
-      Entry: 7
-      Data: 13|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 2
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u63A5\u4E0B\u6765\u7684\u5DE5\u4F5C\u5C31\u4EA4\u7ED9\u6211\u5427\uFF0C\u5B8C\u5168\u4E0D\u7528\u62C5\u5FC3\u540E\u7EED\u95EE\u9898\u5462\u3002\u8C22\u8C22\u4F60\uFF0C\u3010\u73A9\u5BB6\u3011\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level2_Intro_1_01
-    - Name: $v
-      Entry: 7
-      Data: 14|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u73A9\u5BB6\u4F60\u597D\uFF01\u5F88\u9AD8\u5174\u518D\u6B21\u89C1\u5230\u4F60\u3002"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level2_Intro_1_02
-    - Name: $v
-      Entry: 7
-      Data: 15|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 0
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u8FD9\u4E00\u6B21\uFF0C\u6211\u4EEC\u80FD\u591F\u83B7\u5F97\u66F4\u591A\u4E49\u4F53\u7684\u6743\u9650\u4E86\u2026"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level2_Intro_1_03
-    - Name: $v
-      Entry: 7
-      Data: 16|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 1
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u6211\u4EEC\u4E5F\u8981\u5229\u7528\u8FD9\u4E2A\u673A\u4F1A\uFF0C\u83B7\u5F97\u66F4\u591A\u7684\u4FE1\u606F\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level2_Intro_1_04
-    - Name: $v
-      Entry: 7
-      Data: 17|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 2
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u4E00\u5207\u90FD\u662F\u4E3A\u4E86\u4FEE\u590D\u5DE5\u7A0B\u5E08\u2026\u76F8\u4FE1\u4F60\u80FD\u591F\u7406\u89E3\u7684\uFF0C\u662F\u5427\uFF1F"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level2_Intro_1_05
-    - Name: $v
-      Entry: 7
-      Data: 18|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u5728\u65F6\u95F4\u7528\u5C3D\u524D\uFF0C\u6355\u83B7\u8DB3\u591F\u591A\u7684\u4FE1\u606F\u5427\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level2_OutroIntro_01
-    - Name: $v
-      Entry: 7
-      Data: 19|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 2
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u5E72\u5F97\u597D\uFF01\u4F60\u770B\u8D77\u6765\u6108\u53D1\u719F\u7EC3\u4E86\u561B\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level2_OutroIntro_02
-    - Name: $v
-      Entry: 7
-      Data: 20|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 1
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u6211\u4EEC\u73B0\u5728\u80FD\u591F\u83B7\u53D6\u7684\u6743\u9650\u66F4\u591A\u4E86\uFF0C\u626B\u63CF\u5DF2\u7ECF\u5B8C\u6210\u4E00\u534A\u4E86\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level2_OutroIntro_03
-    - Name: $v
-      Entry: 7
-      Data: 21|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u5269\u4E0B\u7684\u5C31\u4EA4\u7ED9\u6211\u5427\uFF0C\u4F60\u53EA\u9700\u8981\u5E2E\u6211\u626B\u63CF\u5C31\u597D\u3002\u671F\u5F85\u6211\u4EEC\u7684\u4E0B\u4E00\u6B21\u94FE\u63A5\u2026"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_Intro01
-    - Name: $v
-      Entry: 7
-      Data: 22|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u8FD9\u4E00\u6B21\uFF0C\u6211\u4EEC\u89E3\u9501\u4E86\u65B0\u7684\u5C42\u7EA7\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_Intro02
-    - Name: $v
-      Entry: 7
-      Data: 23|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 0
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u3010\u795E\u7ECF\u5C42\u3011\u7684\u4E49\u4F53\uFF0C\u662F\u66F4\u52A0\u6DF1\u5165\u63A7\u5236\u548C\u8C03\u8282\u7684\u5668\u5B98\u2026\u2026"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_Intro03
-    - Name: $v
-      Entry: 7
-      Data: 24|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 1
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u83B7\u53D6\u66F4\u591A\u7684\u4FE1\u606F\u548C\u6821\u51C6\uFF0C\u662F\u81F3\u5173\u91CD\u8981\u7684\u2026"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_Intro04
-    - Name: $v
-      Entry: 7
-      Data: 25|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 2
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u53F3\u952E\u5207\u6362\u5230\u3010\u795E\u7ECF\u5C42\u3011\uFF0C\u5177\u4F53\u770B\u770B\u5427\u3002"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_OutroIntro_01
-    - Name: $v
-      Entry: 7
-      Data: 26|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 2
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u8FD9\u4E00\u6B21\u7684\u626B\u63CF\u4E5F\u5B8C\u6210\u4E86\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_OutroIntro_02
-    - Name: $v
-      Entry: 7
-      Data: 27|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 0
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u8BF4\u5B9E\u5728\u7684\uFF0C\u8FD9\u4E9B\u4E49\u4F53\u867D\u7136\u63D0\u4F9B\u4E86\u5F88\u597D\u7684\u529F\u80FD\uFF0C\u4F46\u662F\u7EF4\u4FEE\u8D77\u6765\u4E5F\u975E\u5E38\u9EBB\u70E6\u2026"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_OutroIntro_03
-    - Name: $v
-      Entry: 7
-      Data: 28|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u4E0D\u50CF\u8840\u8089\u4E4B\u8EAF\uFF0C\u5F80\u5F80\u53CD\u800C\u80FD\u591F\u81EA\u7ED9\u81EA\u8DB3\u3002"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_OutroIntro_04
-    - Name: $v
-      Entry: 7
-      Data: 29|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 1
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u6211\u4EEC\u626B\u63CF\u5230\u7684\u4FE1\u606F\u51E0\u4E4E\u80FD\u591F\u6821\u51C6\u6240\u6709\u7684\u4E49\u4F53\u4E86\u3002"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_OutroIntro_05
-    - Name: $v
-      Entry: 7
-      Data: 30|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u4E0B\u4E00\u6B21\u94FE\u63A5\uFF0C\u5C31\u80FD\u591F\u8BA9\u5DE5\u7A0B\u5E08\u7684\u8EAB\u4F53\u5F97\u5230\u81EA\u7531\u4E86\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level4_Intro_01
-    - Name: $v
-      Entry: 7
-      Data: 31|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 2
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u73B0\u5728\uFF0C\u795E\u7ECF\u5C42\u7684\u6700\u540E\u4E00\u4E2A\u4E49\u4F53\u6743\u9650\u4E5F\u83B7\u53D6\u4E86\u3002"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level4_Intro_02
-    - Name: $v
-      Entry: 7
-      Data: 32|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u6536\u96C6\u5B8C\u6700\u540E\u7684\u4FE1\u606F\uFF0C\u6211\u4EEC\u7684\u4EFB\u52A1\u4E5F\u5C31\u5B8C\u6210\u4E86\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level4_OutroIntro_01
-    - Name: $v
-      Entry: 7
-      Data: 33|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 1
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u597D\u6781\u4E86\uFF01\u7ECF\u8FC7\u4FE1\u606F\u4E0E\u6821\u51C6\uFF0C\u5DF2\u7ECF\u5B8C\u5168\u5339\u914D\u6210\u529F\u4E86\u3002"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level4_OutroIntro_02
-    - Name: $v
-      Entry: 7
-      Data: 34|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 1
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u53EA\u5DEE\u6700\u540E\u4E00\u6B65\u4E86\u2026\u2026"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_outroEntryDict
-      Entry: 7
-      Data: 35|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 9
-      Data: 6
-    - Name: 
-      Entry: 12
-      Data: 4
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: outro
-    - Name: $v
-      Entry: 7
-      Data: 36|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 6
-    - Name: dialogueText
-      Entry: 1
-      Data: 
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: outro_2
-    - Name: $v
-      Entry: 7
-      Data: 37|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 7
-    - Name: dialogueText
-      Entry: 6
-      Data: 
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: outro_3
-    - Name: $v
-      Entry: 7
-      Data: 38|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 8
-    - Name: dialogueText
-      Entry: 6
-      Data: 
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: outro_4
-    - Name: $v
-      Entry: 7
-      Data: 39|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 9
-    - Name: dialogueText
-      Entry: 6
-      Data: 
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: m_introductionEntryDict
-      Entry: 7
-      Data: 40|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 41|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 22
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_1_01
-    - Name: $v
-      Entry: 7
-      Data: 42|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u73B0\u5728\u6211\u4EEC\u4EC5\u4EC5\u80FD\u591F\u770B\u5230\u5DE5\u7A0B\u5E08\u7684\u3010\u4E49\u4F53\u5C42\u3011\uFF0C\u4F46\u662F\u4E0D\u77E5\u9053\u4ED6\u8EAB\u4E0A\u54EA\u91CC\u7684\u4E49\u4F53\u9700\u8981\u626B\u63CF\uFF0C\u4E5F\u4E0D\u77E5\u9053\u54EA\u91CC\u6709\u4E49\u4F53\u2026"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_1_02
-    - Name: $v
-      Entry: 7
-      Data: 43|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 2
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u5207\u6362\u5C42\u7EA7\uFF0C\u6211\u4EEC\u4E00\u8D77\u8FDB\u5165\u3010\u901A\u7075\u5C42\u3011\uFF0C\u786E\u8BA4\u54EA\u91CC\u9700\u8981\u626B\u63CF\u5427"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_1_03
-    - Name: $v
-      Entry: 7
-      Data: 44|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 10
-    - Name: dialogueText
-      Entry: 6
-      Data: 
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_2_01
-    - Name: $v
-      Entry: 7
-      Data: 45|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 5
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u6210\u529F\u5230\u8FBE\u3010\u901A\u7075\u5C42\u3011\uFF01\u90A3\u4E2A\u5706\u76D8\u4E0A\u8FB9\u7F18\u7EA2\u8272\u7684\u4E49\u4F53\uFF0C\u6B63\u662F\u6211\u4EEC\u9700\u8981\u4E0B\u4E00\u4E2A\u626B\u63CF\u7684\u76EE\u6807\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_2_02
-    - Name: $v
-      Entry: 7
-      Data: 46|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 2
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u628A\u9F20\u6807\u653E\u5728\u8EAB\u4E0A\u8FDB\u884C\u68C0\u67E5\uFF0C\u663E\u793A\u5668\u4F1A\u663E\u793A\u8FD9\u4E2A\u90E8\u4F4D\u662F\u5426\u6709\u4E49\u4F53\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_2_03
-    - Name: $v
-      Entry: 7
-      Data: 47|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u8D76\u5FEB\u8FDB\u884C\u68C0\u67E5\uFF0C\u770B\u770B\u9700\u8981\u68C0\u6D4B\u7684\u4E49\u4F53\u5230\u5E95\u5728\u54EA\u4E2A\u90E8\u4F4D\u5427"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_2_04
-    - Name: $v
-      Entry: 7
-      Data: 48|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 4
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u68C0\u67E5\u7ED3\u675F\u4E4B\u540E\u5207\u6362\u5C42\u7EA7\uFF0C\u53F3\u952E\u56DE\u5230\u3010\u4E49\u4F53\u5C42\u3011\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_2_05
-    - Name: $v
-      Entry: 7
-      Data: 49|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 11
-    - Name: dialogueText
-      Entry: 6
-      Data: 
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_3_01
-    - Name: $v
-      Entry: 7
-      Data: 50|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u4E0D\u9519\uFF01\u73B0\u5728\uFF0C\u6211\u4EEC\u77E5\u9053\u4E86\u4E0B\u4E00\u4E2A\u9700\u8981\u626B\u63CF\u7684\u4E49\u4F53\u5728\u54EA\u4E2A\u8EAB\u4F53\u90E8\u4F4D\u4E86"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_3_02
-    - Name: $v
-      Entry: 7
-      Data: 51|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 5
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u53EF\u5343\u4E07\u5C0F\u5FC3\uFF0C\u5982\u679C\u8BD5\u56FE\u626B\u63CF\u4E86\u9519\u8BEF\u7684\u4E49\u4F53\uFF0C\u90A3\u4E48\u6211\u7684\u9632\u706B\u5899\u5C31\u4F1A\u53D7\u635F\u2026"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_3_03
-    - Name: $v
-      Entry: 7
-      Data: 52|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 1
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u73B0\u5728\uFF0C\u8BF7\u5C06\u9F20\u6807\u653E\u5230\u8EAB\u4E0A\u7684\u5BF9\u5E94\u4F4D\u7F6E\uFF0C\u5DE6\u952E\u9009\u62E9\u8FD9\u4E2A\u4E49\u4F53\uFF0C\u8FDB\u5165\u626B\u63CF\u6A21\u5F0F\u5427"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_3_04
-    - Name: $v
-      Entry: 7
-      Data: 53|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 12
-    - Name: dialogueText
-      Entry: 6
-      Data: 
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_4_01
-    - Name: $v
-      Entry: 7
-      Data: 54|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 1
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u5E72\u5F97\u597D\uFF0C\u626B\u63CF\u6210\u529F\uFF01\u63A5\u4E0B\u6765\u7EE7\u7EED\u53F3\u952E\u524D\u5F80\u201C\u901A\u7075\u5C42\u201D\uFF0C\u5BFB\u627E\u4E0B\u4E00\u4E2A\u201C\u4E49\u4F53\u7B26\u53F7\u201D\u6765\u786E\u8BA4\u9700\u8981\u68C0\u4FEE\u7684\u201C\u8EAB\u4F53\u90E8\u4F4D\u201D\u5427\u3002"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_4_02
-    - Name: $v
-      Entry: 7
-      Data: 55|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 5
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u5C3D\u5FEB\u2026\u6211\u7684\u6CD5\u529B\u662F\u6709\u9650\u7684\uFF0C\u5728\u3010\u65F6\u95F4\u3011\u7ED3\u675F\u4EE5\u524D\uFF0C\u6211\u4EEC\u4E24\u4E2A\u5408\u529B\u7684\u8BDD\uFF0C\u4E00\u5B9A\u80FD\u591F\u6210\u529F\u4FEE\u590D\u4ED6\u7684\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_4_03
-    - Name: $v
-      Entry: 7
-      Data: 56|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u5C3D\u53EF\u80FD\u5730\u6355\u83B7\u66F4\u591A\u4FE1\u606F\u5427\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level1_Introduction_4_04
-    - Name: $v
-      Entry: 7
-      Data: 57|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 13
-    - Name: dialogueText
-      Entry: 6
-      Data: 
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_Introduction_1_01
-    - Name: $v
-      Entry: 7
-      Data: 58|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u4F60\u770B\uFF0C\u8FD9\u4E00\u5C42\u7684\u5FC3\u810F\u4E49\u4F53\uFF0C\u63A7\u5236\u7740\u795E\u7ECF\u548C\u8840\u6DB2\u2026\u2026"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_Introduction_1_02
-    - Name: $v
-      Entry: 7
-      Data: 59|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 2
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u4E0D\u626B\u63CF\u5B8C\u8FD9\u4E00\u5C42\uFF0C\u6CA1\u6CD5\u68C0\u67E5\u4E4B\u524D\u7684\u4E49\u4F53\uFF0C\u5426\u5219\u4E5F\u4F1A\u7834\u574F\u9632\u706B\u5899\u5462\u2026"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_Introduction_1_03
-    - Name: $v
-      Entry: 7
-      Data: 60|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 0
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u603B\u4E4B\uFF0C\u5148\u53BB\u3010\u901A\u7075\u5C42\u3011\u786E\u8BA4\u8981\u626B\u63CF\u4EC0\u4E48\u4E49\u4F53\u5427"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_Introduction_2_01
-    - Name: $v
-      Entry: 7
-      Data: 61|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 3
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u4F60\u770B\uFF0C\u3010\u901A\u7075\u5C42\u3011\u73B0\u5728\u4E00\u6B21\u6027\u6709\u4E24\u4E2A\u5F85\u626B\u63CF\u7684\u4E49\u4F53\uFF0C\u4E00\u4E2A\u5728\u3010\u795E\u7ECF\u5C42\u3011\uFF0C\u4E00\u4E2A\u5728\u3010\u4E49\u4F53\u5C42\u3011"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_Introduction_2_02
-    - Name: $v
-      Entry: 7
-      Data: 62|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 1
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u4E00\u5B9A\u8981\u5148\u4FEE\u590D\u3010\u795E\u7ECF\u5C42\u3011\u7684\u4E49\u4F53\uFF0C\u624D\u80FD\u4FEE\u590D\u3010\u4E49\u4F53\u5C42\u3011\u7684\u4E49\u4F53\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Level3_Introduction_2_03
-    - Name: $v
-      Entry: 7
-      Data: 63|SpiritSpeakEntry, Assembly-CSharp
-    - Name: SpiritImage
-      Entry: 10
-      Data: 0
-    - Name: dialogueText
-      Entry: 1
-      Data: "\u542C\u8D77\u6765\u5DE5\u4F5C\u91CF\u8981\u52A0\u500D\u5462\u2026\u2026\u603B\u4E4B\u7EE7\u7EED\u626B\u63CF\u4FE1\u606F\u5427\uFF01"
-    - Name: priority
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  activeSpiritSpeakEntries: []
-  activeIntroEntries:
-  - SpiritImage: {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
-    dialogueText: "\u563F\uFF01\u3010\u73A9\u5BB6\u3011\uFF01\u542C\u5F97\u5230\u5417\uFF01"
-    priority: 0
-  - SpiritImage: {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
-    dialogueText: "\u563F\uFF01\u3010\u73A9\u5BB6\u3011\uFF01\u542C\u5F97\u5230\u5417\uFF01"
-    priority: 0
-  - SpiritImage: {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
-    dialogueText: "\u563F\uFF01\u3010\u73A9\u5BB6\u3011\uFF01\u542C\u5F97\u5230\u5417\uFF01"
-    priority: 0
-  activeOutroEntries: []
-  activeIntroductionEntries: []
---- !u!4 &787006809
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 787006807}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1804.174, y: 915.24915, z: -28.86166}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &818752760
@@ -9532,165 +9523,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036746330}
   m_CullTransparentMesh: 1
---- !u!1 &1039763507
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1039763509}
-  - component: {fileID: 1039763508}
-  - component: {fileID: 1039763510}
-  m_Layer: 0
-  m_Name: SoundManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1039763508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039763507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ccd70045795b4decac8d36930e970ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isDonDestroyOnLoad: 1
-  musicSource: {fileID: 0}
-  sfxSource: {fileID: 0}
-  audioSources:
-  - {fileID: 2085950826}
-  - {fileID: 1967434901}
-  AudioClipList:
-  - {fileID: 8300000, guid: ddaf82de540e743fb89b6305d3f1f946, type: 3}
-  - {fileID: 8300000, guid: c20a359e11f1a4e398dafdada04e43f9, type: 3}
-  - {fileID: 8300000, guid: 9f830283616674bb7b4de951c46ecefc, type: 3}
-  - {fileID: 8300000, guid: 0e14a87ae52064fa5974362de583c288, type: 3}
-  - {fileID: 8300000, guid: dd22218bef8d049bb8d0218ce342d552, type: 3}
-  - {fileID: 8300000, guid: 8fa382b9863e44af186139323abe7675, type: 3}
-  - {fileID: 8300000, guid: e555381f8383d4c91922af9d428787fb, type: 3}
-  MusicClipList:
-  - {fileID: 8300000, guid: 69705775720c948948cb6eb2872b7535, type: 3}
---- !u!4 &1039763509
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039763507}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2085950827}
-  - {fileID: 1967434902}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1039763510
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1039763507}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.696
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1044103796
 GameObject:
   m_ObjectHideFlags: 0
@@ -10432,7 +10264,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.94509804, g: 0.29496172, b: 0.14117646, a: 1}
+    m_NormalColor: {r: 0.94509804, g: 0.29803923, b: 0.14117648, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -11159,6 +10991,51 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5353338788154404376, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
   m_PrefabInstance: {fileID: 1168468373}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1188248044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1188248046}
+  - component: {fileID: 1188248045}
+  m_Layer: 0
+  m_Name: MainThreadDispatcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1188248045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188248044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1c4e4015e68d41ab9879e39b8a859f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDonDestroyOnLoad: 1
+--- !u!4 &1188248046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188248044}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5615767, y: 0.3799218, z: -0.026216442}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198573994
 GameObject:
   m_ObjectHideFlags: 0
@@ -11682,6 +11559,134 @@ MonoBehaviour:
     m_FrequencyGain: 1
     m_Duration: 1
     m_NoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!1 &1284174769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1284174771}
+  - component: {fileID: 1284174770}
+  m_Layer: 0
+  m_Name: BGMPlayer (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1284174770
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284174769}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b916d63cbcb894ed099db85c4e25fc70, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.223
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1284174771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284174769}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 323597426}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1289322193
 GameObject:
   m_ObjectHideFlags: 0
@@ -11904,6 +11909,134 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1308037879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1308037881}
+  - component: {fileID: 1308037880}
+  m_Layer: 0
+  m_Name: BGMPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1308037880
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308037879}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dd22218bef8d049bb8d0218ce342d552, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1308037881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308037879}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 323597426}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1344342807
 GameObject:
   m_ObjectHideFlags: 0
@@ -13121,14 +13254,17 @@ MonoBehaviour:
   m_generalCountdownLogic: {fileID: 1479347333}
   m_meshErrorGenerator: {fileID: 1479347334}
   m_captureErrorLogic: {fileID: 513436788}
-  m_objectiveErrorNumber: 5
+  m_objectiveErrorNumber: 15
   m_maxCountdownTime: 210
-  m_isDoubleError: 0
+  m_isDoubleError: 1
   realErrorGeneratableBodyParts_Flesh:
   - 20
   - 25
-  realErrorGeneratableBodyParts_Machine: []
-  m_nextScene: Level2
+  - 1
+  realErrorGeneratableBodyParts_Machine:
+  - 21
+  - 2
+  m_nextScene: Win
   m_generationInterval_expectation: 8
   m_generationInterval_variance: 1.5
   m_maxNumber: 1
@@ -16994,6 +17130,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904257982}
   m_CullTransparentMesh: 1
+--- !u!1 &1906187347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1906187351}
+  - component: {fileID: 1906187350}
+  - component: {fileID: 1906187349}
+  - component: {fileID: 1906187348}
+  m_Layer: 0
+  m_Name: ThreadTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1906187348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906187347}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a7b578cc240484c8d1faf0b8b2bb22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1906187349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906187347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecd8e7cdef2d654ca57c290496cde61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDonDestroyOnLoad: 1
+--- !u!114 &1906187350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906187347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daed1bf2f214d594f90f7248d5ea73d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDonDestroyOnLoad: 1
+  port: 5005
+  startRecieving: 1
+  printToConsole: 1
+  data: ' 1. 99.  0.  0. -1. -1.'
+--- !u!4 &1906187351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906187347}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.2, y: 1.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1913010192
 GameObject:
   m_ObjectHideFlags: 0
@@ -17168,134 +17380,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934397680}
   m_CullTransparentMesh: 1
---- !u!1 &1967434900
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1967434902}
-  - component: {fileID: 1967434901}
-  m_Layer: 0
-  m_Name: BGMPlayer (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1967434901
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967434900}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b916d63cbcb894ed099db85c4e25fc70, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.223
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &1967434902
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967434900}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1039763509}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1985126894
 GameObject:
   m_ObjectHideFlags: 0
@@ -18062,134 +18146,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5353338788154404376, guid: ee0bfd911634b4050bf8fe4fd5ac7037, type: 3}
   m_PrefabInstance: {fileID: 2077085084}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2085950825
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2085950827}
-  - component: {fileID: 2085950826}
-  m_Layer: 0
-  m_Name: BGMPlayer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &2085950826
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085950825}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dd22218bef8d049bb8d0218ce342d552, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &2085950827
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085950825}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1039763509}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2101911109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19210,16 +19166,15 @@ SceneRoots:
   - {fileID: 1283947446}
   - {fileID: 1849146443}
   - {fileID: 1830121316}
-  - {fileID: 743243647}
-  - {fileID: 287018210}
   - {fileID: 1271506908}
+  - {fileID: 323597426}
+  - {fileID: 258134794}
+  - {fileID: 1906187351}
+  - {fileID: 1188248046}
   - {fileID: 1044103798}
-  - {fileID: 1039763509}
   - {fileID: 855180783}
   - {fileID: 162777207}
-  - {fileID: 787006809}
   - {fileID: 116949865}
-  - {fileID: 120497405}
   - {fileID: 965156706}
   - {fileID: 1479347332}
   - {fileID: 780420380}

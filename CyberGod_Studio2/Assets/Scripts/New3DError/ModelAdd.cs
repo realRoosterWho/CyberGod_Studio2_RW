@@ -224,6 +224,7 @@ public class ModelAdd : MonoBehaviour
         // �������Ѿ�������� �� ����ȫ��������
         if (errornumber <= 0 && ifAddDone )
         {
+            SoundManager.Instance.PlaySFX(5);
             //�����¼���SomethingRepaired
             EventManager.Instance.TriggerEvent("SomethingRepaired", new GameEventArgs());
             // Changeto Navigation Mode

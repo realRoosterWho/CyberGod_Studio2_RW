@@ -41,12 +41,16 @@ public class ControlMode_Manager : MonosingletonTemp<ControlMode_Manager>
         switch (m_controlMode)
         {
             case ControlMode.NAVIGATION:
+                SoundManager.Instance.EnableAudioSource(1, true);
                 break;
             case ControlMode.REPAIRING:
+                SoundManager.Instance.EnableAudioSource(1, true);
+
                 //锁定鼠标
                 Cursor.lockState = CursorLockMode.Locked;
                 break;
             case ControlMode.DIALOGUE:
+                SoundManager.Instance.EnableAudioSource(1, false);
                 Cursor.lockState = CursorLockMode.None;
                 break;
             case ControlMode.NORMAL:

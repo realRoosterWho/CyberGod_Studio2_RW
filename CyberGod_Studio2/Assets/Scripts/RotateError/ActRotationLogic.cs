@@ -59,8 +59,14 @@ public class ActRotationLogic : MonoBehaviour
     // 检查对齐情况的函数
     private void CheckAlignment()
     {
+        //如果按下Fire1
+        if (Input.GetButtonDown("Fire1"))
+        {
+            SoundManager.Instance.PlaySFX(6);
+        }
+        
         // 如果当前旋转和目标旋转的差距小于10度，并且按下了"Fire1"按钮
-        if (Quaternion.Angle(currentRotation, targetRotation) < 25 && Input.GetButtonDown("Fire1"))
+        if (Quaternion.Angle(currentRotation, targetRotation) < 35 && Input.GetButtonDown("Fire1"))
         {
             
             Debug.Log("Self Repaired");
@@ -69,7 +75,7 @@ public class ActRotationLogic : MonoBehaviour
         }
         
         //如果仅仅差距小于10度
-        if (Quaternion.Angle(currentRotation, targetRotation) < 10)
+        if (Quaternion.Angle(currentRotation, targetRotation) < 35)
         {
             // CanRepairSomething事件
             EventManager.Instance.TriggerEvent("CanRepairSomething", new GameEventArgs());
@@ -79,7 +85,7 @@ public class ActRotationLogic : MonoBehaviour
     // 当自身修复时触发的函数
     private void OnSelfRepaired()
     {
-            
+        SoundManager.Instance.PlaySFX(5);
         // 触发SomethingRepaired事件
         EventManager.Instance.TriggerEvent("ErrorDestroyed", new GameEventArgs());
         // 触发SomethingRepaired事件

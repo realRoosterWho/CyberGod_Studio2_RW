@@ -60,6 +60,7 @@ public class EnergyManager : MonosingletonTemp<EnergyManager>
         {
             if (spriteSwitchCount < displayCount)
             {
+                SoundManager.Instance.PlaySFX(3);
                 spriteSwitchCount++;
             }
         }

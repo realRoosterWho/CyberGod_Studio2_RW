@@ -39,6 +39,10 @@ public class SoundManager : MonosingletonTemp<SoundManager>
     public AudioSource musicSource;
     public AudioSource sfxSource;
     
+    // 添加一个新的字段来存储所有的 AudioSource
+    [SerializeField]
+    public List<AudioSource> audioSources;
+    
     //初始化一个AudioClipList
     public List<AudioClip> AudioClipList = new List<AudioClip>();
     
@@ -171,6 +175,20 @@ public class SoundManager : MonosingletonTemp<SoundManager>
         }
         sfxSource.volume = 0f;
         sfxSource.Stop();
+    }
+    
+    
+    // 添加一个新的方法来开启指定的 AudioSource
+    public void EnableAudioSource(int index, bool enable)
+    {
+        if (index >= 0 && index < audioSources.Count)
+        {
+            audioSources[index].enabled = enable;
+        }
+        else
+        {
+            Debug.LogError("Index out of range. Please make sure the index is within the range of the audioSources list.");
+        }
     }
 
     private void Start()
