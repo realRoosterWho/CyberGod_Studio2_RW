@@ -614,51 +614,6 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: 0, y: -1, z: 0}
---- !u!1 &120497403
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 120497405}
-  - component: {fileID: 120497404}
-  m_Layer: 0
-  m_Name: IntroductionTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &120497404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120497403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eaab3717e3eb47b2890930a83f24cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isFirstLevel: 1
---- !u!4 &120497405
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120497403}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7224833, y: 1.5466675, z: -3.8683202}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &122055405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,16 +1084,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introTextList:
-  - Level1_Intro_01
-  - Level1_Intro_02
-  - Level1_Intro_03
-  - Level1_Intro_04
-  - Level1_Intro_05
+  - Level2_Intro_1_01
+  - Level2_Intro_1_02
+  - Level2_Intro_1_03
+  - Level2_Intro_1_04
+  - Level2_Intro_1_05
   outroTextList:
   - outro
   outro_IntroRenderTextList:
-  - Level1_OutroIntro_01
-  - Level1_OutroIntro_02
+  - Level2_OutroIntro_01
+  - Level2_OutroIntro_02
+  - Level2_OutroIntro_03
 --- !u!114 &142818277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5382,11 +5338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e550aa35297ec4407a75ec5700534b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introTextList1:
-  - Level1_Introduction_1_01
-  - Level1_Introduction_1_01
-  - Level1_Introduction_1_02
-  - Level1_Introduction_1_03
+  introTextList1: []
   introTextList2:
   - Level1_Introduction_2_01
   - Level1_Introduction_2_02
@@ -5399,7 +5351,6 @@ MonoBehaviour:
   - Level1_Introduction_3_03
   - Level1_Introduction_3_04
   introTextList4:
-  - Level1_Introduction_4_01
   - Level1_Introduction_4_01
   - Level1_Introduction_4_02
   - Level1_Introduction_4_03
@@ -12814,14 +12765,15 @@ MonoBehaviour:
   m_generalCountdownLogic: {fileID: 1479347333}
   m_meshErrorGenerator: {fileID: 1479347334}
   m_captureErrorLogic: {fileID: 513436788}
-  m_objectiveErrorNumber: 5
-  m_maxCountdownTime: 210
+  m_objectiveErrorNumber: 15
+  m_maxCountdownTime: 180
   m_isDoubleError: 0
   realErrorGeneratableBodyParts_Flesh:
   - 20
   - 25
+  - 1
   realErrorGeneratableBodyParts_Machine: []
-  m_nextScene: Level2
+  m_nextScene: Level3
   m_generationInterval_expectation: 8
   m_generationInterval_variance: 1.5
   m_maxNumber: 1
@@ -18656,7 +18608,6 @@ SceneRoots:
   - {fileID: 162777207}
   - {fileID: 787006809}
   - {fileID: 116949865}
-  - {fileID: 120497405}
   - {fileID: 965156706}
   - {fileID: 1479347332}
   - {fileID: 780420380}

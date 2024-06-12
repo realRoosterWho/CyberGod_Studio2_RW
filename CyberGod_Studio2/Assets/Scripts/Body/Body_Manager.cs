@@ -137,8 +137,9 @@ public class Body_Manager : SerializedMonoBehaviour
         }
         
         //查看errorGeneratableBodyParts长度是否大于1，给一个bool赋值
-        bool isSingleError = errorGeneratableBodyParts.Count > 1;
-        
+        bool isSingleError = !(errorGeneratableBodyParts.Count > 1);
+        Debug.Log("errorGeneratableBodyParts.Count" + errorGeneratableBodyParts.Count);
+        Debug.Log("isSingleError: " + isSingleError);
         
         
         
@@ -328,6 +329,11 @@ public class Body_Manager : SerializedMonoBehaviour
     private void OnNerveLayer()
     {
         m_nerveLayerRenderer.enabled = true;
+    }
+    
+    private void OnDestroy()
+    {
+        EventManager.Instance.RemoveEvent("MotionCaptureInput", OnMotionCaptureInput);
     }
 
 }

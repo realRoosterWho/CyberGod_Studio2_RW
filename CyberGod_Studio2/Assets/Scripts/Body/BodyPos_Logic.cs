@@ -241,22 +241,27 @@ public class BodyPos_Logic : MonoBehaviour
     }
 
 	//定义函数，用于销毁Error
-    public void DestroyError()
+public void DestroyError()
+{
+    // 如果当前层级是 Layer.FLESH
+    if (Layer_Handler.Instance.m_layer == Layer.FLESH)
     {
-	    //查看当前我所在的层，如果我在FleshLayer，那么我就摧毁FleshLayer上的Error；如果我在MachineLayer，那么我就摧毁MachineLayer上的Error
-	    if (Layer_Handler.Instance.m_layer == Layer.FLESH)
-	    {
-		    m_error_Flesh.GetComponent<ErrorLogic>().DestroyError();
-		    return;
-	    }
-	    else if (Layer_Handler.Instance.m_layer == Layer.MACHINE)
-	    {
-		    m_error_Machine.GetComponent<ErrorLogic>().DestroyError();
-		    return;
-	    }
-
-            Debug.Log("No error to destroy");
+        // 检查 m_error_Flesh 是否为 null
+        if (m_error_Flesh != null)
+        {
+            m_error_Flesh.GetComponent<ErrorLogic>().DestroyError();
+        }
     }
+    // 如果当前层级是 Layer.MACHINE
+    else if (Layer_Handler.Instance.m_layer == Layer.MACHINE)
+    {
+        // 检查 m_error_Machine 是否为 null
+        if (m_error_Machine != null)
+        {
+            m_error_Machine.GetComponent<ErrorLogic>().DestroyError();
+        }
+    }
+}
     
 
 	//判断，如果有Error且ActiveTimer大于Destroytime
@@ -513,4 +518,9 @@ public class BodyPos_Logic : MonoBehaviour
 		}
 
 	}
+
+	private void OnDestory()
+    {
+        EventManager.Instance.RemoveEvent("SomethingRepaired", OnSomethingRepaired);
+    }
 }

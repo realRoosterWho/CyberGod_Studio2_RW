@@ -105,8 +105,9 @@ public class LevelIntro_Logic : MonoBehaviour
             }
             if (currentTextIndex >= outroTextList.Count)
             {
+                string nextScene = GenerationStage_Handler.Instance.GetNextScene();
                 //前往下一个场景
-                m_GameManager.Instance.ChangeScene("Win");
+                m_GameManager.Instance.ChangeScene(nextScene);
             }
         }
         

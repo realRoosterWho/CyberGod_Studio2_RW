@@ -10,6 +10,10 @@ public class Introduction_Manager : MonoBehaviour
     [SerializeField] private List<string> introTextList2; // 对应GettingIntoNerveFirstTime事件
     [SerializeField] private List<string> introTextList3; // 对应GettingIntoFleshSecondTime事件
     [SerializeField] private List<string> introTextList4; // 对应SomethingRepairedFirstTime事件
+    [SerializeField] private List<string> introTextList5; // 对应GettingIntoMechanicFirstTime事件
+    [SerializeField] private List<string> introTextList6; // 对应GettingIntoNerveRotation事件
+
+
     [SerializeField] private int specialDisplayIndex = 1;
     private int currentTextIndex = 0;
     private bool isClicked = false;
@@ -24,6 +28,8 @@ public class Introduction_Manager : MonoBehaviour
         EventManager.Instance.AddEvent("GettingIntoNerveFirstTime", OnGettingIntoNerveFirstTime);
         EventManager.Instance.AddEvent("GettingIntoFleshSecondTime", OnGettingIntoFleshSecondTime);
         EventManager.Instance.AddEvent("SomethingRepairedFirstTime", OnSomethingRepairedFirstTime);
+        EventManager.Instance.AddEvent("GettingIntoMechanicFirstTime", OnGettingIntoMechanicFirstTime);
+        EventManager.Instance.AddEvent("GettingIntoNerveRotation", OnGettingIntoNerveRotation);
     }
 
     void Update()
@@ -108,4 +114,23 @@ public class Introduction_Manager : MonoBehaviour
         StartIntroduction(introTextList4, specialDisplayIndex);
     }
     
+    private void OnGettingIntoMechanicFirstTime(GameEventArgs args)
+    {
+        StartIntroduction(introTextList5, specialDisplayIndex);
+    }
+    
+    private void OnGettingIntoNerveRotation(GameEventArgs args)
+    {
+        StartIntroduction(introTextList6, specialDisplayIndex);
+    }
+    
+    private void OnDestory()
+    {
+        EventManager.Instance.RemoveEvent("IntroDone", OnIntroDone);
+        EventManager.Instance.RemoveEvent("GettingIntoNerveFirstTime", OnGettingIntoNerveFirstTime);
+        EventManager.Instance.RemoveEvent("GettingIntoFleshSecondTime", OnGettingIntoFleshSecondTime);
+        EventManager.Instance.RemoveEvent("SomethingRepairedFirstTime", OnSomethingRepairedFirstTime);
+        EventManager.Instance.RemoveEvent("GettingIntoMechanicFirstTime", OnGettingIntoMechanicFirstTime);
+        EventManager.Instance.RemoveEvent("GettingIntoNerveRotation", OnGettingIntoNerveRotation);
+    }
 }

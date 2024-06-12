@@ -49,6 +49,8 @@ public class GenerationStage_Handler : MonosingletonTemp<GenerationStage_Handler
     [SerializeField] List<string> realErrorGeneratableBodyParts_Flesh;
     [SerializeField] List<string> realErrorGeneratableBodyParts_Machine;
     
+    [SerializeField] string m_nextScene;
+    
     [Space(10)] // 添加 10 像素的间隔
     
     
@@ -327,6 +329,11 @@ public class GenerationStage_Handler : MonosingletonTemp<GenerationStage_Handler
         m_GameManager.Instance.GameOver(m_captureErrorLogic.m_errorCount.ToString() + "/" + m_objectiveErrorNumber.ToString());
     }
     
+    public string GetNextScene()
+    {
+        return m_nextScene;
+    }
+    
     void UpdateScoreUI(int errorNumber, int maxErrorNumber)
     {
         UIDisplayManager.Instance.DisplayScore(errorNumber, maxErrorNumber);
@@ -337,7 +344,13 @@ public class GenerationStage_Handler : MonosingletonTemp<GenerationStage_Handler
     {
         m_activeErrorBodyPart = args.StringValue;
         Debug.Log("Body Active Report:" + m_activeErrorBodyPart + " is active");
-
         
+    }
+    
+    void OnDestroy()
+    {
+        EventManager.Instance.RemoveEvent("ErrorDestroyed", OnErrorDestroyed);
+        EventManager.Instance.RemoveEvent("SomethingRepaired", OnSomethingRepaired);
+        EventManager.Instance.RemoveEvent("BodyActiveReport", OnBodyActiveReport);
     }
 }

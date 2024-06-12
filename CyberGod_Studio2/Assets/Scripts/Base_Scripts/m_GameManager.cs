@@ -60,7 +60,11 @@ public class m_GameManager : MonosingletonTemp<m_GameManager>
     public void ResumeGame()
     {
         Time.timeScale = 1;
-        PauseScreen.SetDown();
+        // 检查 PauseScreen 对象是否为 null
+        if (PauseScreen != null)
+        {
+            PauseScreen.SetDown();
+        }
         isPaused = false;
     }
     

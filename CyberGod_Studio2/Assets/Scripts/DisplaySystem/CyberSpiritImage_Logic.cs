@@ -20,6 +20,8 @@ public class CyberSpiritImage_Logic : MonoBehaviour
 
     void OnEnable()
     {
+        rectTransform = GetComponent<RectTransform>();
+        initialPosition = rectTransform.anchoredPosition;
         StartCoroutine(Breathe());
     }
 
@@ -32,6 +34,13 @@ public class CyberSpiritImage_Logic : MonoBehaviour
     {
         while (true)
         {
+            // 确保 rectTransform 已经被初始化
+            if (rectTransform == null)
+            {
+                yield return null;
+                continue;
+            }
+
             float y = amplitude * Mathf.Sin(Time.time * frequency);
             rectTransform.anchoredPosition = new Vector2(initialPosition.x, initialPosition.y + y);
             yield return null;
