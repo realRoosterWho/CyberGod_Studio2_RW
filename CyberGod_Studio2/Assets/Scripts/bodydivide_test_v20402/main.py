@@ -8,6 +8,7 @@ import cvzone
 from cvzone.HandTrackingModule import HandDetector
 from cvzone.PoseModule import PoseDetector
 import os
+import sys  # 确保导入sys模块
 from google.protobuf.json_format import MessageToDict
 
 np.set_printoptions(suppress=True)
@@ -18,28 +19,34 @@ port = 5005
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 serverAddressPort = (host, port)
 
-#capture = cv2.VideoCapture(0)
-#如果有多个ViedoCapturecapture，全部获取，然后看其中哪些图像大小不是0，就是有图像的，然后使得capture=这个
-# 假设有多个视频捕获设备，我们用0, 1, 2...来代表它们
-device_indices = [0, 1, 2]  # 可以根据实际情况增减
+# 确保工作目录正确
+if getattr(sys, 'frozen', False):
+    os.chdir(sys._MEIPASS)
+
+print("mediapipe path:", os.path.dirname(mp.__file__))  # 打印mediapipe路径，调试用
+
+device_indices = [0, 1, 2]
 valid_captures = []
 
 # 尝试从所有设备中捕获视频
 for index in device_indices:
     cap = cv2.VideoCapture(index)
-    if cap.isOpened():  # 检查是否成功打开摄像头
+    if cap.isOpened():
         ret, frame = cap.read()
-        if ret and frame.size > 0:  # 检查图像大小是否不为0
+        if ret and frame.size > 0:
             valid_captures.append(cap)
         else:
-            cap.release()  # 释放无效的视频捕获对象
+            cap.release()
 
-# 选择第一个有效的视频捕获对象
 if valid_captures:
     capture = valid_captures[0]
     print(f"Using device with index {device_indices[valid_captures.index(capture)]}")
 else:
     print("No valid video capture device found.")
+    sys.exit()
+
+
+
 
 poseDetector = PoseDetector()
 posList = []

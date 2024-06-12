@@ -1,3 +1,4 @@
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,6 +9,8 @@ using System.Net;
 using System;
 using UnityEditor;
 using System.Runtime.InteropServices;
+
+// Rest of your code...
 
 
 public class RunWhatever : MonosingletonTemp<RunWhatever>
@@ -70,8 +73,8 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
         // on mac runpy
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
         {
-
-            fullPath = "/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Scripts/bodydivide_test_v20402/main.py";
+            string relativePath = "buildforMac/motionCaptureforMac";
+            fullPath = Path.Combine(Application.streamingAssetsPath, relativePath);
             startInfo = new ProcessStartInfo();
 
             startInfo.CreateNoWindow = false;
@@ -79,13 +82,7 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
             startInfo.RedirectStandardOutput = true;
             startInfo.RedirectStandardError = true;
 
-            string command = "source activate cybergod; python \"" + fullPath + "\"";
-            //command һ�������õ���䣬�������ն������е���䣬��conda��pythonû��ϵ
-            // string commandtest = "source activate cybergod"; 
-
-            // startInfo.FileName = "/bin/bash";
-            startInfo.FileName = "/bin/zsh";
-            startInfo.Arguments = "-i -l -c \"" + command + "\"";
+            startInfo.FileName = fullPath;
 
             process = new Process();
             process.StartInfo = startInfo;
@@ -95,7 +92,6 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
             process.Start();
             process.BeginErrorReadLine();
             process.BeginOutputReadLine();
-
         }
 
     }
