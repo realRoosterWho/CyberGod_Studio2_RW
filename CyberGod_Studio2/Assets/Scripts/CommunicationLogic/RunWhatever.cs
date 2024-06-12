@@ -20,6 +20,7 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
 
     private UdpClient udpClient;
     private IPEndPoint remoteEP;
+    private int processId;
 
 
     [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
@@ -35,8 +36,7 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
 
     private void StartProcess()
     {
-        Kill_All_Python_Process();
-
+        Kill_Process();
         udpClient = new UdpClient();
         remoteEP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 5005);
         string fullPath = "";
@@ -65,6 +65,8 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
             process.StartInfo = startInfo;
 
             process.Start();
+            processId = process.Id;
+
 
 
             // ShellExecute(IntPtr.Zero, "open", fullPath, "", "", 1);
@@ -90,6 +92,8 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
             process.ErrorDataReceived += new DataReceivedEventHandler(OnErrorDataReceived);
 
             process.Start();
+            processId = process.Id;
+
             process.BeginErrorReadLine();
             process.BeginOutputReadLine();
         }
@@ -98,14 +102,11 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
     
     private void Update()
     {
-        
         //检查进程是否存在，如果不存在就重新启动进程
-        if (process.HasExited)
+        if (process == null || process.StartInfo == null || process.HasExited)
         {
             StartProcess();
         }
-        
-
     }
 
 
@@ -154,11 +155,26 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
             }
         }
     }
-
+    
+    void Kill_Process()
+    {
+        try
+        {
+            var process = Process.GetProcessById(processId);
+            if (process != null && !process.HasExited)
+            {
+                process.Kill();
+            }
+        }
+        catch (Exception ex)
+        {
+            print(ex);
+        }
+    }
 
     void OnApplicationQuit()
     {
-        Kill_All_Python_Process();
+        Kill_Process();
         UnityEngine.Debug.Log("Quit");
     }
 
