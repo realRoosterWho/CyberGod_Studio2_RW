@@ -262,6 +262,12 @@ public class BodyPos_Logic : MonoBehaviour
 	//判断，如果有Error且ActiveTimer大于Destroytime
     public void CheckIntoRepair()
     {
+		//如果ControlMode不是NAVIGATION，那么就返回
+		if (ControlMode_Manager.Instance.m_controlMode != ControlMode.NAVIGATION)
+		{
+		    return;
+		}
+		
 	    //定义一个bool，就是如果现在的Layer_Handler.Instance.m_layer下我有对应的hasError，那么就返回true;否则返回false
    		bool isCanRepair = UpdateIsCanRepair();	    	    
 	    

@@ -16,8 +16,6 @@ public class Input_Handler : MonoBehaviour
     private float m_mousespeed;
 
     // Reference to Health_Handler script
-    [SerializeField] private Health_Handler m_healthHandler;
-
     [SerializeField] private Scrollbar m_scrollbar;
     [SerializeField] private Layer_Handler m_layerHandler;
     

@@ -56,6 +56,12 @@ public class EnergyManager : MonosingletonTemp<EnergyManager>
     
     public void UseEnergyPoint()
     {
-        spriteSwitchCount++;
+        if (ControlMode_Manager.Instance.m_controlMode == ControlMode.NAVIGATION && !(Layer_Handler.Instance.m_layer == Layer.NERVE))
+        {
+            if (spriteSwitchCount < displayCount)
+            {
+                spriteSwitchCount++;
+            }
+        }
     }
 }

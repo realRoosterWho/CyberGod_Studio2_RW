@@ -12,6 +12,7 @@ public class mechaniclayer_Logic : MonoBehaviour
     
     
     public ObjectInfo info;
+    private ObjectInfo info_temp;
 
     [SerializeField]public bool isActivated = false;
     private List<Material> m_materials = new List<Material>();
@@ -37,27 +38,38 @@ public class mechaniclayer_Logic : MonoBehaviour
         m_bodyManager = transform.parent.parent.GetComponent<Body_Manager>();
 
         
-        if (info.name == "")
-        {
-            info = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        // 检查m_bodyPos_Logic.m_bodynumber是否在m_bodyManager.errorGeneratableBodyParts_Flesh列表中
+        if (!m_bodyManager.errorGeneratableBodyParts_Machine.Contains(m_bodyPos_Logic.m_bodynumber))
+        {
+            info_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+        }
+        else
+        {
+            if (info.name == "")
+            {
+                info_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+            }
+            else
+            {
+                info_temp = info;
+            }
+        }
+        
+        
         if (isActivated && ControlMode_Manager.Instance.m_controlMode != ControlMode.REPAIRING)
         {
-            UIDisplayManager.Instance.DisplayLeftInfo(info);
+            UIDisplayManager.Instance.DisplayLeftInfo(info_temp);
             DialogueManager.Instance.RequestSpiritSpeakEntry("mechanic");
 
         }
         
-        // 检查m_bodyPos_Logic.m_bodynumber是否在m_bodyManager.errorGeneratableBodyParts_Flesh列表中
-        if (m_bodyManager.errorGeneratableBodyParts_Machine.Contains(m_bodyPos_Logic.m_bodynumber))
-        {
-            info = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
-        }
+
 
         
         // 如果isActivated为true，就调用ChangeMaterialProperties函数

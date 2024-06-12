@@ -45,7 +45,6 @@ public class ErrorLogic : MonoBehaviour
 	public void DestroyError()
     {
         // Call the ChangeRepair function from Health_Handler script with an input parameter of 10
-        Health_Handler.Instance.ChangeRepair(10.0f);
         Destroy(gameObject);
     }
 }

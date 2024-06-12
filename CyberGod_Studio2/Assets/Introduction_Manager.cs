@@ -9,12 +9,13 @@ public class Introduction_Manager : MonoBehaviour
     [SerializeField] private List<string> introTextList1; // 对应IntroDone事件
     [SerializeField] private List<string> introTextList2; // 对应GettingIntoNerveFirstTime事件
     [SerializeField] private List<string> introTextList3; // 对应GettingIntoFleshSecondTime事件
-    [SerializeField] private List<string> introTextList4; // 对应GettingIntoRepairFirstTime事件
-    [SerializeField] private List<string> introTextList5; // 对应SomethingRepairedFirstTime事件
-    [SerializeField] private int specialDisplayIndex;
+    [SerializeField] private List<string> introTextList4; // 对应SomethingRepairedFirstTime事件
+    [SerializeField] private int specialDisplayIndex = 1;
     private int currentTextIndex = 0;
     private bool isClicked = false;
     private bool isIntroFinished = true;
+    private bool isSwitched = false; // 新增
+
 
     void Start()
     {
@@ -22,7 +23,6 @@ public class Introduction_Manager : MonoBehaviour
         EventManager.Instance.AddEvent("IntroDone", OnIntroDone);
         EventManager.Instance.AddEvent("GettingIntoNerveFirstTime", OnGettingIntoNerveFirstTime);
         EventManager.Instance.AddEvent("GettingIntoFleshSecondTime", OnGettingIntoFleshSecondTime);
-        EventManager.Instance.AddEvent("GettingIntoRepairFirstTime", OnGettingIntoRepairFirstTime);
         EventManager.Instance.AddEvent("SomethingRepairedFirstTime", OnSomethingRepairedFirstTime);
     }
 
@@ -48,12 +48,15 @@ public class Introduction_Manager : MonoBehaviour
             isClicked = false;
         }
 
-        if (currentTextIndex < introTextList1.Count)
+        if (currentTextIndex < introTextList0.Count)
         {
             if (currentTextIndex >= introTextList0.Count - specialDisplayIndex)
             {
-                // 关闭IntroDisplay的显示
-                UIDisplayManager.Instance.SwitchIntroDisplay();
+                if (!isSwitched)
+                {
+                    isSwitched = true;
+                    UIDisplayManager.Instance.SwitchIntroDisplay();
+                }
                 
                 // 只显示SpecialImage
                 UIDisplayManager.Instance.DisplaySpecialImage(DialogueManager.Instance.GetImageByEntry(introTextList0[currentTextIndex]));
@@ -70,6 +73,7 @@ public class Introduction_Manager : MonoBehaviour
             isIntroFinished = true;
             currentTextIndex = 0;
             ControlMode_Manager.Instance.ChangeControlMode(ControlMode.NAVIGATION);
+            isSwitched = false; // 新增
         }
     }
 
@@ -91,25 +95,17 @@ public class Introduction_Manager : MonoBehaviour
 
     private void OnGettingIntoNerveFirstTime(GameEventArgs args)
     {
-        isClicked = false;
         StartIntroduction(introTextList2, specialDisplayIndex);
     }
 
     private void OnGettingIntoFleshSecondTime(GameEventArgs args)
     {
-        isClicked = false;
         StartIntroduction(introTextList3, specialDisplayIndex);
-    }
-
-    private void OnGettingIntoRepairFirstTime(GameEventArgs args)
-    {
-        isClicked = false;
-        StartIntroduction(introTextList4, specialDisplayIndex);
     }
 
     private void OnSomethingRepairedFirstTime(GameEventArgs args)
     {
-        isClicked = false;
-        StartIntroduction(introTextList5, specialDisplayIndex);
+        StartIntroduction(introTextList4, specialDisplayIndex);
     }
+    
 }

@@ -9,6 +9,7 @@ public class fleshlayer_Logic : MonoBehaviour
 	[SerializeField]public int m_initialSortingOrder = 3;
     [SerializeField]public bool isActivated = false;
     public ObjectInfo info;
+	private ObjectInfo info_temp;
 
 	//一个材质列表
 	private List<Material> m_materials = new List<Material>();
@@ -37,25 +38,36 @@ public class fleshlayer_Logic : MonoBehaviour
 
 		
 
-        if (info.name == "")
-   		{
-        	info = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
-    	}
+
     }
 
 	void Update()
 	{
+		// 检查m_bodyPos_Logic.m_bodynumber是否在m_bodyManager.errorGeneratableBodyParts_Flesh列表中
+        if (!m_bodyManager.errorGeneratableBodyParts_Flesh.Contains(m_bodyPos_Logic.m_bodynumber))
+        {
+            info_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+        }
+		else
+		{
+			if (info.name == "")
+   			{
+        		info_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+    		}
+			else
+			{
+				info_temp = info;
+			}
+		}
+
+
     	if (isActivated && ControlMode_Manager.Instance.m_controlMode != ControlMode.REPAIRING)
     	{
-        	UIDisplayManager.Instance.DisplayLeftInfo(info);
+        	UIDisplayManager.Instance.DisplayLeftInfo(info_temp);
         	DialogueManager.Instance.RequestSpiritSpeakEntry("flesh");
     	}
 
- 		// 检查m_bodyPos_Logic.m_bodynumber是否在m_bodyManager.errorGeneratableBodyParts_Flesh列表中
-        if (m_bodyManager.errorGeneratableBodyParts_Flesh.Contains(m_bodyPos_Logic.m_bodynumber))
-        {
-            info = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
-        }
+
 
 
     	// 如果isActivated为true，就调用ChangeMaterialProperties函数

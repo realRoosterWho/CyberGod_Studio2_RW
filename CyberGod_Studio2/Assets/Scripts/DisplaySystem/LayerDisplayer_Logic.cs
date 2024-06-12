@@ -36,6 +36,15 @@ public class LayerDisplayer_Logic : MonoBehaviour
             Debug.Log("Layer.MACHINE");
             //如果Layer_Handler.Instance.isMachineLayerLocked为true，图片变成黑色，否则变成白色
             m_image.color = GenerationStage_Handler.Instance.isMachineLayerLocked ? Color.black : Color.white;
+            //如果是true，直接关闭SpriteRenderer
+            if (GenerationStage_Handler.Instance.isMachineLayerLocked)
+            {
+                m_image.enabled = false;
+            }
+            else
+            {
+                m_image.enabled = true;
+            }
         }
         
         

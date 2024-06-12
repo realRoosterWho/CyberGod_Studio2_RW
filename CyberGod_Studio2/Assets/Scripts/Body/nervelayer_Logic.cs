@@ -21,6 +21,13 @@ public class nervelayer_Logic : SerializedMonoBehaviour
     public ObjectInfo info;
     public ObjectInfo info_wrong;
     
+    private ObjectInfo info_temp;
+    private ObjectInfo info_wrong_temp;
+    
+    // 新增的成员变量
+    private BodyPos_Logic m_bodyPos_Logic;
+    private Body_Manager m_bodyManager;
+    
 
     
     //定义颜色f18c24
@@ -32,13 +39,15 @@ public class nervelayer_Logic : SerializedMonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        // 获取父物体上的BodyPos_Logic组件
+        m_bodyPos_Logic = transform.parent.GetComponent<BodyPos_Logic>();
+        // 获取Body_Manager组件
+        m_bodyManager = transform.parent.parent.GetComponent<Body_Manager>();
+
         //获取自己的材质
         m_material = GetComponent<Renderer>().material;
         
-        if (info.name == "")
-        {
-            info = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
-        }
     }
 
     // Update is called once per frame
@@ -53,6 +62,35 @@ public class nervelayer_Logic : SerializedMonoBehaviour
         {
             isError = false;
         }
+        
+        // 检查m_bodyPos_Logic.m_bodynumber是否在m_bodyManager.errorGeneratableBodyParts_Flesh列表中
+        if (!m_bodyManager.errorGeneratableBodyParts_Nerve.Contains(m_bodyPos_Logic.m_bodynumber))
+        {
+            info_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+            info_wrong_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+        }
+        else
+        {
+            if (info.name == "")
+            {
+                info_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+            }
+            else
+            {
+                info_temp = info;
+            }
+            
+            if (info_wrong.name == "")
+            {
+                info_wrong_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+            }
+            else
+            {
+                info_wrong_temp = info_wrong;
+            }
+
+        }
+
 
         ChangeSprite();
         
@@ -61,12 +99,12 @@ public class nervelayer_Logic : SerializedMonoBehaviour
         {
             if (isError)
             {
-                UIDisplayManager.Instance.DisplayLeftInfo(info_wrong);
+                UIDisplayManager.Instance.DisplayLeftInfo(info_wrong_temp);
                 Debug.Log("wrong");
             }
             else
             {
-                UIDisplayManager.Instance.DisplayLeftInfo(info);
+                UIDisplayManager.Instance.DisplayLeftInfo(info_temp);
             }
 
             DialogueManager.Instance.RequestSpiritSpeakEntry("nerve");
@@ -75,6 +113,7 @@ public class nervelayer_Logic : SerializedMonoBehaviour
         //如果isActivated为true，就调用ChangeMaterialProperties函数
         if (isActivated)
         {
+            // SoundManager.Instance.ControlAudioFadeTransition(true, 4, 0.5f, 0.3f);
             if (isError)
             {
                 ChangeMaterialProperties(m_material, 6f, 1f, 1f, 1f, Color.red);
@@ -88,7 +127,7 @@ public class nervelayer_Logic : SerializedMonoBehaviour
         {
             ChangeMaterialProperties(m_material, 0.01f, 0.01f, 0.01f, 0.01f, Color.white);
         }
-        
+        // SoundManager.Instance.ControlAudioFadeTransition(false, 4, 0.5f, 0.3f);
         
     }
     

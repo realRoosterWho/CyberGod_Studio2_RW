@@ -85,7 +85,7 @@ public class LevelIntro_Logic : MonoBehaviour
         {
             if (currentTextIndex < outro_IntroRenderTextList.Count)
             {
-                DialogueManager.Instance.RequestOutroEntry(outro_IntroRenderTextList[currentTextIndex]);
+                DialogueManager.Instance.RequestIntroEntry(outro_IntroRenderTextList[currentTextIndex]);
                 Debug.Log("Requesting: " + outro_IntroRenderTextList[currentTextIndex]);
             }
             if (currentTextIndex >= outro_IntroRenderTextList.Count)
@@ -126,8 +126,8 @@ public class LevelIntro_Logic : MonoBehaviour
                 isOutroIntroFinished = true;
                 UIDisplayManager.Instance.SwitchOutroDisplay();
             }
+            currentTextIndex = 0;
         }
-
         isOutroStarted = true;
         
         ControlMode_Manager.Instance.ChangeControlMode(ControlMode.DIALOGUE);

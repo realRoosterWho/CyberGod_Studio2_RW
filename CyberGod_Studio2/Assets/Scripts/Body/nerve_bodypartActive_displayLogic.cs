@@ -13,7 +13,8 @@ public class nerve_bodypartActive_displayLogic : MonoBehaviour
     private NewMeshErrorParticleSystem m_NewMeshErrorParticleSystem;
     private bool isparticleSystem = false;
     private bool hasError = false;
-
+    
+    [SerializeField] private bool isLine = false;
     [SerializeField]
     private List<Sprite> m_sprites;
 
@@ -42,6 +43,10 @@ public class nerve_bodypartActive_displayLogic : MonoBehaviour
         {
             Debug.Log("This body part has errorNerveBodypartActive_displayLogic");
             hasError = true;
+        }
+        else
+        {
+            hasError = false;
         }
         
         if (m_layerHandler.m_layer == Layer.NERVE)
@@ -77,10 +82,30 @@ public class nerve_bodypartActive_displayLogic : MonoBehaviour
                     }
                     else
                     {
-                        if (isparticleSystem)
+                        if (m_bodyManager.errorGeneratableBodyParts_Nerve.Contains(m_bodyPos_Logic.m_bodynumber))
                         {
-                            ParticleHasNot();
+                            if (isparticleSystem)
+                            {
+                                ParticleHasNot();
+                            }
                         }
+                        else
+                        {
+                            //如果isparticleSystem为true，则停止播放粒子系统
+                            if (isparticleSystem)
+                            {
+                                m_NewMeshErrorParticleSystem.StopParticleSystem();
+                            }
+                            if (isLine)
+                            {
+                                m_spriteRenderer.sprite = m_sprites[0];
+                            }
+                            else
+                            {
+                                m_spriteRenderer.sprite = m_sprites[1];
+                            }
+                        }
+
                     }
                     break;
             }

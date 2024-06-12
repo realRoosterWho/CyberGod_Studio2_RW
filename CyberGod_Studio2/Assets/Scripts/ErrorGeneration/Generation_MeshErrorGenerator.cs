@@ -14,6 +14,7 @@ public class Generation_MeshErrorGenerator : MonosingletonTemp<Generation_MeshEr
     
     //ObjectInfo Define
     public ObjectInfo m_meshinfo;
+    public ObjectInfo m_rotateinfo;
     
     // Start is called before the first frame update
     void Start()
@@ -26,8 +27,16 @@ public class Generation_MeshErrorGenerator : MonosingletonTemp<Generation_MeshEr
     {
         if (m_meshError != null)
         {
-            //向UIManager发送m_meshinfo
-            UIDisplayManager.Instance.DisplayLeftInfo(m_meshinfo);
+            //如果Layer_Handler.Instance.m_layer = Layer.Flesh,发送m_meshinfo;如果Layer_Handler.Instance.m_layer = Layer.Machine,发送m_rotateinfo
+            if (Layer_Handler.Instance.m_layer == Layer.FLESH)
+            {
+                UIDisplayManager.Instance.DisplayLeftInfo(m_meshinfo);
+            }
+            else if (Layer_Handler.Instance.m_layer == Layer.MACHINE)
+            {
+                UIDisplayManager.Instance.DisplayLeftInfo(m_rotateinfo);
+            }
+            
         }
     }
     

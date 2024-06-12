@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Video;
 
+
 /*
    添加脚本：
    把 SoundManager 脚本附加到Unity场景中的一个GameObject上。
@@ -43,6 +44,13 @@ public class SoundManager : MonosingletonTemp<SoundManager>
     
     public List<AudioClip> MusicClipList = new List<AudioClip>();
     
+    private bool isAudioFadeActive = false; // 新增一个布尔变量来控制音频是否应该持续播放
+    private int currentAudioClipIndex = -1; // 当前播放的音频剪辑的索引
+    private Coroutine audioFadeTransitionCoroutine; // 用于存储渐变音量的协程
+    private int activeRequests = 0; // 新增一个计数器来跟踪在一帧中有多少个函数调用ControlAudioFadeTransition并传入true
+
+    
+    
     public void Init()
     {
         Debug.Log("SoundManager Init");
@@ -69,6 +77,20 @@ public class SoundManager : MonosingletonTemp<SoundManager>
         sfxSource.PlayOneShot(clip);
     }
     
+    public void PlaySFXOnce(int index, float volume = 1f)
+    {
+        //如果是相同音频在播放，那么什么都不做
+        if (sfxSource.clip == AudioClipList[(int)index])
+        {
+            return;
+        }
+        AudioClip clip = AudioClipList[(int)index];
+        sfxSource.clip = clip;
+        sfxSource.volume = volume;
+        sfxSource.Play();
+    }
+
+    
     public void EnableSFX(AudioClip clip, AudioMixerGroup mixer = null)
     {
         sfxSource.clip = clip;
@@ -86,6 +108,70 @@ public class SoundManager : MonosingletonTemp<SoundManager>
     {
         sfxSource.enabled = false;
     }
+    
+    public void ControlAudioFadeTransition(bool shouldPlay, int clipIndex, float volume, float fadeTime)
+    {
+        if (shouldPlay)
+        {
+            activeRequests++;
+            isAudioFadeActive = true;
+            currentAudioClipIndex = clipIndex;
+            if (audioFadeTransitionCoroutine != null)
+            {
+                StopCoroutine(audioFadeTransitionCoroutine);
+            }
+            audioFadeTransitionCoroutine = StartCoroutine(PlayAudioWithFadeTransitionCoroutine(AudioClipList[clipIndex], volume, fadeTime));
+        }
+        else
+        {
+            activeRequests--;
+            if (activeRequests <= 0)
+            {
+                isAudioFadeActive = false;
+                if (audioFadeTransitionCoroutine != null)
+                {
+                    StopCoroutine(audioFadeTransitionCoroutine);
+                }
+                audioFadeTransitionCoroutine = StartCoroutine(FadeOutAudioTransitionCoroutine(fadeTime, volume));
+            }
+        }
+    }
+
+    private IEnumerator PlayAudioWithFadeTransitionCoroutine(AudioClip clip, float volume, float fadeTime)
+    {
+        while (isAudioFadeActive && AudioClipList[currentAudioClipIndex] == clip)
+        {
+            sfxSource.clip = clip;
+            sfxSource.loop = true;
+            sfxSource.volume = 0f;
+            sfxSource.Play();
+
+            // Fade in
+            float startTime = Time.time;
+            while (Time.time < startTime + fadeTime)
+            {
+                sfxSource.volume = (Time.time - startTime) / fadeTime * volume;
+                yield return null;
+            }
+            sfxSource.volume = volume;
+
+            // Wait for the clip to finish playing
+            yield return new WaitForSeconds(clip.length - fadeTime);
+        }
+    }
+
+    private IEnumerator FadeOutAudioTransitionCoroutine(float fadeTime, float volume)
+    {
+        // Fade out
+        float startTime = Time.time;
+        while (Time.time < startTime + fadeTime)
+        {
+            sfxSource.volume = volume - ((Time.time - startTime) / fadeTime * volume);
+            yield return null;
+        }
+        sfxSource.volume = 0f;
+        sfxSource.Stop();
+    }
 
     private void Start()
     {
@@ -100,6 +186,7 @@ public class SoundManager : MonosingletonTemp<SoundManager>
 
     private void Update()
     {
-
+        // 在每一帧的开始，重置计数器
+        activeRequests = 0;
     }
 }
