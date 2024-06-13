@@ -1,15 +1,16 @@
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.PackageManager;
+
 #endif
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing; // Ê¹ÓÃUnityEngine.Rendering.PostProcessing£¬¶ø²»ÊÇUnityEditor.Rendering.PostProcessing
+using UnityEngine.Rendering.PostProcessing; // Ê¹ï¿½ï¿½UnityEngine.Rendering.PostProcessingï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UnityEditor.Rendering.PostProcessing
 using System.Net.NetworkInformation;
 // using UnityEditor.PackageManager;
 using System.Collections.Generic; // Add this to use List
 using Unity.Mathematics;
 using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
-using UnityEditor.PackageManager;
 using System.ComponentModel;
 using System.Threading;
 
@@ -20,22 +21,22 @@ public class Add3DError : MonoBehaviour
     Ray ray; // random ray to hit neko generating the position of error
     public GameObject prefab3DError;// prefab of error
 
-    public GameObject model; // Ä£ĞÍ
+    public GameObject model; // Ä£ï¿½ï¿½
     public RaycastHit hit;
     public float3 origin = new float3();
     public float3 endding = new float3();
 
-    // ¡¾¼ìĞŞÓï¾ä¡¿¹Û²ìÉäÏß·½Ïò
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä¡¿ï¿½Û²ï¿½ï¿½ï¿½ï¿½ß·ï¿½ï¿½ï¿½
     private bool rayDirection = true;
 
-    // ÓÃÀ´ÅĞ¶Ï×²»÷µãÊÇ·ñÌ«¹ı¿¿½ü×ªÖáµÄ´æ´¢×²»÷µã¹éÒ»»¯ºó×ø±êµÄ±äÁ¿
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½×²ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ì«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Ä´æ´¢×²ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½
     [SerializeField] private float3 normalHitPoint = new float3();
-    // ÔÚÕâÀïÉè¶¨¾àÀëÖĞĞÄµãµÄÏÂÏŞ£¬Éú³ÉµÄ´íÎóĞ¡ÓÚÕâ¸öÖµÍ³Í³²»Òª£¨±ğÌ«´óÈİÒ×ËÀ£©
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½Ş£ï¿½ï¿½ï¿½ï¿½ÉµÄ´ï¿½ï¿½ï¿½Ğ¡ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÍ³Í³ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ì«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private float maxDistance = 0.85f;
-    // ÔÚÕâÀïÉè¶¨¾àÀë×ªÖáµÄÏÂÏŞ£¬Éú³ÉµÄ´íÎóĞ¡ÓÚÕâ¸öÖµÍ³Í³²»Òª£¨±ğÌ«´óÈİÒ×ËÀ£©
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş£ï¿½ï¿½ï¿½ï¿½ÉµÄ´ï¿½ï¿½ï¿½Ğ¡ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÍ³Í³ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ì«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private float maxDistanceX = 0.2f;
     [SerializeField] private float maxDistanceZ = 0.2f;
-    // ÔÚÕâÀïÉè¶¨¾àÀë×ªÖáµÄÏÂÏŞ£¬Éú³ÉµÄ´íÎóĞ¡ÓÚÕâ¸öÖµÍ³Í³²»Òª£¨±ğÌ«´óÈİÒ×ËÀ£©
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş£ï¿½ï¿½ï¿½ï¿½ÉµÄ´ï¿½ï¿½ï¿½Ğ¡ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÍ³Í³ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ì«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private float maxDistancePiot = 0.4f;
     private bool nearCenter = true;
     [SerializeField] private List<GameObject> errors = new List<GameObject>();
@@ -43,8 +44,8 @@ public class Add3DError : MonoBehaviour
     static public bool ifAddDone = false;
 
 
-    // 0.¸¨Öúº¯Êı
-    // 0.1»ñÈ¡Éú³ÉÉäÏßÇøÓòµÄxyzÖµÉÏÏÂÏŞ
+    // 0.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    // 0.1ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xyzÖµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private float2 GetYScale()
     {
         float3 size = transform.GetComponent<Renderer>().bounds.size;
@@ -72,7 +73,7 @@ public class Add3DError : MonoBehaviour
         float2 zScale = new float2(zDown, zUp);
         return zScale;
     }
-    // 0.2ÒÀ¾İÉÏÏÂÏŞÎªÉäÏßµÄÆğÊ¼µãºÍÖÕÖ¹µãËæ»ú³öÒ»¸ö×ø±ê
+    // 0.2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private Vector3 GetRayOrigin()
     {
         float ranx = UnityEngine.Random.Range(GetXScale().x, GetXScale().y);
@@ -112,24 +113,24 @@ public class Add3DError : MonoBehaviour
 
     }
 
-    // 0.3ÀûÓÃËæ»úÊı¾ö¶¨ÉäÏß·½ÏòÊÇÕıÏò»¹ÊÇ¸ºÏò£¨Èç¹ûÊÇ¸ºÏò¾Í½»»»Ò»ÏÂÆğÖ¹µã×ø±ê£©
+    // 0.3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½Í½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ê£©
     private void RandomRayDirection()
     {
         float random = UnityEngine.Random.value;
         if(random >= 0.5f)
         {
-            // ¸ü¸ÄÒ»´ÎÉäÏßµÄÕı¸ºÏò
+            // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             float3 temp = new float3();
             temp = origin;
             origin = endding;
             endding = temp;
             rayDirection = false;
-            Debug.Log("¸ºÏò");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½");
          }
         else
         {
             rayDirection = true;
-            Debug.Log("ÕıÏò");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½");
         }
     }
 
@@ -143,7 +144,7 @@ public class Add3DError : MonoBehaviour
         return localPosition;
     }
 
-    // 0.4-2É¸Ñ¡¹ıÓÚÌù½üÖĞĞÄµÄµã£¨±ÈÈç×²»÷µãÈ¡µ½µÄ¹éÒ»»¯ºóµÄnormal×ø±êÖµµÄÏòÁ¿³¤¶È´óÓÚÄ³Ò»¸öÖµ²ÅËã³É¹¦£¬ÄÑµÀÎÒÕæµÄÊÇÌì²Å£©
+    // 0.4-2É¸Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÄµÄµã£¨ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ä¹ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½normalï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½Ä³Ò»ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ñµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½
     private bool IfNearCenter2()
     {
 
@@ -158,12 +159,12 @@ public class Add3DError : MonoBehaviour
 
 
     }
-    // 0.4-3É¸Ñ¡¹ıÓÚÌù½üÖĞĞÄµÄµã£¨±ÈÈç×²»÷µãÈ¡µ½µÄ¹éÒ»»¯ºóµÄnormal×ø±êÖµµÄÏòÁ¿³¤¶È´óÓÚÄ³Ò»¸öÖµ²ÅËã³É¹¦£¬ÄÑµÀÎÒÕæµÄÊÇÌì²Å£©
+    // 0.4-3É¸Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÄµÄµã£¨ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ä¹ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½normalï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½Ä³Ò»ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ñµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½
     private bool IfNearCenter3()
     {
-        // ¼ÆËãµ½×ªÖáµÄ¾àÀë
+        // ï¿½ï¿½ï¿½ãµ½×ªï¿½ï¿½Ä¾ï¿½ï¿½ï¿½
         float distance = Mathf.Sqrt(Mathf.Pow(normalHitPoint.x, 2.0f) + Mathf.Pow(normalHitPoint.z, 2.0f));
-        Debug.Log("×ªÖá¾àÀë" + distance);
+        Debug.Log("×ªï¿½ï¿½ï¿½ï¿½ï¿½" + distance);
         if ( distance >= maxDistancePiot)
         {
             return false;
@@ -175,8 +176,8 @@ public class Add3DError : MonoBehaviour
 
     }
 
-    // 1.ÎªÁËÉú³ÉÆ½ĞĞÓÚÈı¸öÖáµÄÊúÖ±ÉäÏßµ÷ÕûÆğÊ¼µãµÄ²¿·Ö×ø±ê£¨ÉäÏßÆ½ĞĞÓÚÄÄ¸öÖáÄÇ¸öÖáµÄ×ø±ê¾ÍÖ±½ÓÊ¹ÓÃÉÏÏÂÏŞº¯ÊıµÄÉÏÏÂÏŞ£©
-    // 1.1´ÓÉÏÍùÏÂ
+    // 1.Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£¨ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Şºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş£ï¿½
+    // 1.1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private void GenerateRandomRayStableY()
     {
         origin = GetRayOrigin();
@@ -196,7 +197,7 @@ public class Add3DError : MonoBehaviour
         // endding.y = origin.y;
         // endding.z = origin.z;
     }
-    // 1.3 ´ÓÔ¶ÀëÍæ¼Òµ½¿¿½üÍæ¼Ò
+    // 1.3 ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private void GenerateRandomRayStableZ()
     {
         origin = GetRayOrigin();
@@ -209,22 +210,22 @@ public class Add3DError : MonoBehaviour
 
 
 
-    // 2.Éú³ÉÉäÏß
+    // 2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private void StartRay()
     {
-        // ÔÚÕâÀïËæ»úÑ¡ÔñÒ»¸öÉú³ÉÉäÏßµÄ·½Ê½
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµÄ·ï¿½Ê½
         RandomRayMethod();
         // GenerateRandomRayStableY(model);
-        // ÔÚÕâÀïËæ»úÉäÏßµÄÕı¸ºÏò
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         RandomRayDirection();
-        // ÔÚÕâÀïÉú³ÉÉäÏß
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         ray = new Ray();
         ray.origin = origin;
         ray.direction = endding - origin;
         Debug.DrawRay(ray.origin, (endding - origin), Color.red);
     }
 
-    // 3.Éú³É´íÎó
+    // 3.ï¿½ï¿½ï¿½É´ï¿½ï¿½ï¿½
     public void GenerateMeshError()
     {
         nearCenter = true;
@@ -246,16 +247,16 @@ public class Add3DError : MonoBehaviour
 
         }
 
-        // Éú³É´íÎó×ÓObject
+        // ï¿½ï¿½ï¿½É´ï¿½ï¿½ï¿½ï¿½ï¿½Object
         GameObject tderror = Instantiate(prefab3DError, transform);
         tderror.transform.parent = model.transform;
         tderror.transform.localScale /= 3; // set the scale of error
 
-        // »ñÈ¡Åö×²Î»ÖÃĞÅÏ¢
+        // ï¿½ï¿½È¡ï¿½ï¿½×²Î»ï¿½ï¿½ï¿½ï¿½Ï¢
         tderror.transform.position = hit.point;
         tderror.transform.up = hit.normal;
 
-        // °²ÖÃ´íÎó×ÓObject
+        // ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Object
         tderror.transform.Translate(Vector3.up * 0.15f * tderror.transform.localScale.y, Space.Self);
 
         errors.Add(tderror);

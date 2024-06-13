@@ -1,11 +1,14 @@
 using Sirenix.OdinInspector;
+#if UNITY_EDITOR
 using Sirenix.Utilities.Editor;
+using UnityEditor.PackageManager;
+
+#endif
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Unity.Burst.CompilerServices;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using static UnityEngine.UI.Image;
 

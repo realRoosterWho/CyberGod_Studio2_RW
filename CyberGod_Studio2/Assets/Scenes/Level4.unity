@@ -1087,7 +1087,7 @@ MonoBehaviour:
   - Level4_Intro_01
   - Level4_Intro_02
   outroTextList:
-  - ourto_4
+  - outro_4
   outro_IntroRenderTextList:
   - Level4_OutroIntro_01
   - Level4_OutroIntro_02
@@ -13255,7 +13255,7 @@ MonoBehaviour:
   m_meshErrorGenerator: {fileID: 1479347334}
   m_captureErrorLogic: {fileID: 513436788}
   m_objectiveErrorNumber: 15
-  m_maxCountdownTime: 210
+  m_maxCountdownTime: 180
   m_isDoubleError: 1
   realErrorGeneratableBodyParts_Flesh:
   - 20

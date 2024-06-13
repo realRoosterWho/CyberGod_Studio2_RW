@@ -11586,7 +11586,7 @@ MonoBehaviour:
   m_generalCountdownLogic: {fileID: 1479347333}
   m_meshErrorGenerator: {fileID: 1479347334}
   m_captureErrorLogic: {fileID: 513436788}
-  m_objectiveErrorNumber: 1
+  m_objectiveErrorNumber: 15
   m_maxCountdownTime: 200
   m_isDoubleError: 0
   realErrorGeneratableBodyParts_Flesh:

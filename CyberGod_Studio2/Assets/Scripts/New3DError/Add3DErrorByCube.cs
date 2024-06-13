@@ -1,11 +1,14 @@
 using Sirenix.OdinInspector;
+#if UNITY_EDITOR
 using Sirenix.Utilities.Editor;
+using UnityEditor.PackageManager;
+
+#endif
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Unity.Burst.CompilerServices;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using static UnityEngine.UI.Image;
 
@@ -19,17 +22,17 @@ public class Add3DErrorByCube : SerializedMonoBehaviour
     static public bool ifAddDone = false;
 
 
-    // ´æ·ÅËùÓÐ·¶Î§cubeµÄÁÐ±í
-    // Í¬Ò»¸öÒåÌå¶ÔÓ¦µÄ·¶Î§cubeÓ¦¸ÃÏàÁÚ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½Î§cubeï¿½ï¿½ï¿½Ð±ï¿½
+    // Í¬Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ä·ï¿½Î§cubeÓ¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public List<GameObject> scaleCubes;
-    // ÒÔÒåÌå±àºÅ×÷ÎªË÷ÒýÖ¸Ê¾´æ´¢¸ÃÒåÌå·¶Î§cubeµÄË÷Òý·¶Î§¡£
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ö¸Ê¾ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½å·¶Î§cubeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½
     [ShowInInspector]
     public Dictionary<string, List<int>> scaleCubesIndex = new Dictionary<string, List<int>>();
     [ShowInInspector]
     public Dictionary<string, GameObject> models = new Dictionary<string, GameObject>();
 
 
-    // È¡GameObjectµÄÇ°°Ë¸ö¶¥µã£¨½öÊÊÓÃÓÚCube)
+    // È¡GameObjectï¿½ï¿½Ç°ï¿½Ë¸ï¿½ï¿½ï¿½ï¿½ã£¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Cube)
     private List<Vector3> GetWorldPositionOfVertexs(GameObject scaleCube)
     {
         return scaleCube.GetComponent<MeshFilter>()
@@ -39,18 +42,18 @@ public class Add3DErrorByCube : SerializedMonoBehaviour
             .Take(8).ToList();
     }
 
-    // Ëæ»úÔÚcube±íÃæÈ¡Ò»µã
+    // ï¿½ï¿½ï¿½ï¿½ï¿½cubeï¿½ï¿½ï¿½ï¿½È¡Ò»ï¿½ï¿½
     private Vector3 GetRandomVectorAtCube(List<Vector3> vec)
     {
         Vector3 res = new Vector3();
-        // Ëæ»úÒ»¸öÃæ
+        // ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
         int randomStableAxis = Random.Range(0, 3);
         int randomAxisValue = Random.Range(0, 2);
 
         switch(randomStableAxis)
         {
             case 0:
-                // xÖá¹Ì¶¨
+                // xï¿½ï¿½Ì¶ï¿½
                 res.x = randomAxisValue == 0 ? vec[1].x : vec[0].x;
                 res.y = Random.Range(Mathf.Min(vec[1].y, vec[3].y),
                     Mathf.Max(vec[1].y, vec[3].y));
@@ -58,7 +61,7 @@ public class Add3DErrorByCube : SerializedMonoBehaviour
                     Mathf.Max(vec[3].z, vec[5].z));
                 break;
             case 1:
-                // yÖá¹Ì¶¨
+                // yï¿½ï¿½Ì¶ï¿½
                 res.x = Random.Range(Mathf.Min(vec[1].x, vec[0].x),
                     Mathf.Max(vec[1].x, vec[0].x));
                 res.x = randomAxisValue == 0 ? vec[0].y : vec[2].y;
@@ -66,7 +69,7 @@ public class Add3DErrorByCube : SerializedMonoBehaviour
                     Mathf.Max(vec[0].z, vec[6].z));
                 break;
             case 2:
-                // zÖá¹Ì¶¨
+                // zï¿½ï¿½Ì¶ï¿½
                 res.x = Random.Range(Mathf.Min(vec[1].x, vec[0].x),
                     Mathf.Max(vec[1].x, vec[0].x));
                 res.y = Random.Range(Mathf.Min(vec[1].y, vec[3].y),
@@ -83,7 +86,7 @@ public class Add3DErrorByCube : SerializedMonoBehaviour
         Vector3 origin = GetRandomVectorAtCube(vec);
         Vector3 end = scaleCube.transform.position;
 
-        // ÔÚÕâÀïÉú³ÉÉäÏß
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         ray = new Ray();
         ray.origin = origin;
         ray.direction = end - origin;
@@ -104,7 +107,7 @@ public class Add3DErrorByCube : SerializedMonoBehaviour
     public void hitWhileOnModel(GameObject scaleCube)
     {
         hitWhileOn(scaleCube);
-        // ÒÑ¾­»÷ÖÐ
+        // ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½
         while (hit.collider.CompareTag("3DError") || hit.collider.CompareTag("Box") || hit.collider.CompareTag("ScaleCube"))
         {
             hitWhileOn(scaleCube);
@@ -116,16 +119,16 @@ public class Add3DErrorByCube : SerializedMonoBehaviour
         Debug.Log(hit.collider.gameObject.name);
 
 
-        // Éú³É´íÎó×ÓObject
+        // ï¿½ï¿½ï¿½É´ï¿½ï¿½ï¿½ï¿½ï¿½Object
         GameObject tderror = Instantiate(prefab3DError, transform);
         tderror.transform.parent = smodel.transform;
         tderror.transform.localScale /= 3; // set the scale of error
 
-        // »ñÈ¡Åö×²Î»ÖÃÐÅÏ¢
+        // ï¿½ï¿½È¡ï¿½ï¿½×²Î»ï¿½ï¿½ï¿½ï¿½Ï¢
         tderror.transform.position = hit.point;
         tderror.transform.up = hit.normal;
 
-        // °²ÖÃ´íÎó×ÓObject
+        // ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Object
         tderror.transform.Translate(Vector3.up * 0.15f * tderror.transform.localScale.y, Space.Self);
 
       
@@ -135,7 +138,7 @@ public class Add3DErrorByCube : SerializedMonoBehaviour
 
     void Update()
     {
-        // Êó±êÓÒ¼üÉú³ÉÒ»¸ö´íÎóºóËø¶¨´íÎóÉú³É
+        // ï¿½ï¿½ï¿½ï¿½Ò¼ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         /*
         if (Input.GetMouseButtonDown(1)&& !ifAddDone)
         {
@@ -143,7 +146,7 @@ public class Add3DErrorByCube : SerializedMonoBehaviour
             ifAddDone = true;
         }
         */
-        // ¼ÙÈçÐèÒª¶ÔÒåÌå1Ã¿¸ö²¿·Ö¸÷Éú²úÒ»¸ö´íÎó
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
         

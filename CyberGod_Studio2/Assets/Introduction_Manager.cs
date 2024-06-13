@@ -34,7 +34,7 @@ public class Introduction_Manager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) | Input.GetMouseButtonDown(1))
         {
             isClicked = true;
         }
