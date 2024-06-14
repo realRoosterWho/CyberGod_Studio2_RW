@@ -5389,11 +5389,13 @@ MonoBehaviour:
   - Level1_Introduction_1_03
   introTextList2:
   - Level1_Introduction_2_01
+  - Level1_Introduction_2_01
   - Level1_Introduction_2_02
   - Level1_Introduction_2_03
   - Level1_Introduction_2_04
   - Level1_Introduction_2_05
   introTextList3:
+  - Level1_Introduction_3_01
   - Level1_Introduction_3_01
   - Level1_Introduction_3_02
   - Level1_Introduction_3_03
