@@ -388,3 +388,6 @@ if __name__ == "__main__":
             break
     current_capture.release()
     cv2.destroyAllWindows()
+
+# The following command can be used to create an executable file with PyInstaller:
+# pyinstaller --add-data "/Volumes/Rooster_SSD/Anaconda/anaconda3/envs/cybergod/lib/python3.9/site-packages/mediapipe:mediapipe" --hidden-import cvzone --hidden-import mediapipe --hidden-import shapely._geos /Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Scripts/bodydivide_test_v20402/main.py

@@ -23,7 +23,7 @@ public class Main_CameraReady : MonoBehaviour
         //监听CameraReadyReader的data
         if (CameraReadyReader.Instance.data == 0)
         {
-            textMeshProUGUI.text = "摄像头正在初始化,请选择摄像头……";
+            textMeshProUGUI.text = "摄像头正在初始化,请选择摄像头……(若第一次启动，给予权限后需要重启软件)";
         }
         else if (CameraReadyReader.Instance.data == 99)
         {
