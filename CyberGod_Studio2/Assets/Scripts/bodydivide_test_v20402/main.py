@@ -8,45 +8,88 @@ import cvzone
 from cvzone.HandTrackingModule import HandDetector
 from cvzone.PoseModule import PoseDetector
 import os
-import sys  # 确保导入sys模块
+import sys  # Ensure to import sys module
 from google.protobuf.json_format import MessageToDict
 
 np.set_printoptions(suppress=True)
 
-host = '127.0.0.1'
-port = 5005
+receiveHost = '127.0.0.1'
+receivePort = 5005
+sendHost = '127.0.0.1'
+sendPort = 5006
 
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-serverAddressPort = (host, port)
+# Create and bind UDP socket for receiving data
+receiveSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+receiveSock.bind((receiveHost, receivePort))
 
-# 确保工作目录正确
-if getattr(sys, 'frozen', False):
-    os.chdir(sys._MEIPASS)
+# Create UDP socket for sending data
+sendSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+serverAddressPort = (sendHost, sendPort)
 
-print("mediapipe path:", os.path.dirname(mp.__file__))  # 打印mediapipe路径，调试用
+print("Waiting to receive data from Unity...")
 
-device_indices = [0, 1, 2]
-valid_captures = []
-
-# 尝试从所有设备中捕获视频
-for index in device_indices:
-    cap = cv2.VideoCapture(index)
-    if cap.isOpened():
+def get_sorted_camera_indices():
+    # 获取所有可用摄像头的名称和索引
+    index = 0
+    camera_infos = []
+    while True:
+        cap = cv2.VideoCapture(index)
+        if not cap.isOpened():
+            break
+        # 启动摄像头以获取其分辨率
+        cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
+        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
         ret, frame = cap.read()
-        if ret and frame.size > 0:
-            valid_captures.append(cap)
-        else:
-            cap.release()
+        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        resolution = width * height
+        camera_infos.append((index, f"Camera {index}", resolution))
+        print(f"Camera {index}: {index}, Resolution: {width} x {height}")
+        cap.release()
+        index += 1
 
-if valid_captures:
-    capture = valid_captures[0]
-    print(f"Using device with index {device_indices[valid_captures.index(capture)]}")
-else:
-    print("No valid video capture device found.")
-    sys.exit()
+    # 对摄像头按分辨率降序排序
+    camera_infos.sort(key=lambda x: x[2], reverse=True)
+    return [(info[0], info[1]) for info in camera_infos]
 
+def switch_camera(index):
+    global current_capture
+    if current_capture is not None:
+        current_capture.release()
+    current_capture = cv2.VideoCapture(index)
+    if not current_capture.isOpened():
+        print(f"Failed to open camera index {index}")
+        sys.exit()
+    print(f"Switched to camera index {index}")
 
+current_capture = None
+camera_index = None
 
+# 获取排序后的摄像机名称和索引
+sorted_cameras = get_sorted_camera_indices()
+print("Available cameras (sorted by resolution):")
+for idx, name in sorted_cameras:
+    print(f"{idx}: {name}")
+
+# Wait to receive initial camera index from Unity
+while camera_index is None:
+    print("Waiting for camera index...")
+    data, addr = receiveSock.recvfrom(1024)
+    try:
+        received_index = int(data.decode('utf-8').split()[-1])
+    except ValueError:
+        print("Received invalid data, could not convert to integer")
+        continue
+
+    # 查找排序后摄像机索引对应的实际摄像机索引
+    if 0 <= received_index < len(sorted_cameras):
+        camera_index = sorted_cameras[received_index][0]
+    else:
+        print(f"Invalid camera index received: {received_index}")
+        continue
+
+    print(f"Received initial camera index: {camera_index}")
+    switch_camera(camera_index)
 
 poseDetector = PoseDetector()
 posList = []
@@ -163,8 +206,30 @@ def draw_box(vertexlist, color):
 
 
 if __name__ == "__main__":
+    # print("Waiting to receive camera index from Unity...")
+    # data, addr = receiveSock.recvfrom(1024)
+    # camera_index = int(data.decode('utf-8').split()[-1])
+    # print(f"Received camera index: {camera_index}")
+    switch_camera(camera_index)
     while True:
-        success, img = capture.read()
+        # Check for new camera index message
+        receiveSock.settimeout(0.01)  # Set a short timeout to not block the main loop
+        try:
+            data, addr = receiveSock.recvfrom(1024)
+            new_camera_index = int(data.decode('utf-8').split()[-1])
+            if new_camera_index != camera_index:
+                print(f"Received new camera index: {new_camera_index}")
+                camera_index = new_camera_index
+                switch_camera(camera_index)
+        except socket.timeout:
+            pass
+
+        success, img = current_capture.read()
+        if not success:
+            print("Failed to read from camera.")
+            break
+        print("Successfully read a frame from the camera.")
+
         bbox_on = 0
         position = 99
         knee_in = 0
@@ -292,11 +357,11 @@ if __name__ == "__main__":
 
             data = np.array([bbox_on, position, knee_in, hand_in, hand_x, hand_y])
             print(data)
-            sock.sendto(str.encode(str(data)), serverAddressPort) #send info to unity
+            sendSock.sendto(str.encode(str(data)), serverAddressPort) #send info to unity
 
 
         cv2.imshow("image", img)#show image
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-    capture.release()
+    current_capture.release()
     cv2.destroyAllWindows()

@@ -1091,6 +1091,10 @@ MonoBehaviour:
   outro_IntroRenderTextList:
   - Level4_OutroIntro_01
   - Level4_OutroIntro_02
+  - Level4_OutroIntro_03
+  - Level4_OutroIntro_04
+  - Level4_OutroIntro_05
+  - Level4_OutroIntro_06
 --- !u!114 &142818277
 MonoBehaviour:
   m_ObjectHideFlags: 0
