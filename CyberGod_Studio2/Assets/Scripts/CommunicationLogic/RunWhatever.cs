@@ -90,6 +90,7 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
             process.StartInfo = startInfo;
             process.OutputDataReceived += new DataReceivedEventHandler(OnOutputDataReceived);
             process.ErrorDataReceived += new DataReceivedEventHandler(OnErrorDataReceived);
+            UnityEngine.Debug.Log("Starting process: " + fullPath);
 
             process.Start();
             processId = process.Id;

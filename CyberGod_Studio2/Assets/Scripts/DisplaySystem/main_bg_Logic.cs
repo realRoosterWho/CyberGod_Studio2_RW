@@ -10,10 +10,12 @@ public class main_bg_Logic : MonoBehaviour
 {
     public Button yourButton; // 你的UI图像按钮
     public string targetScene; // 你想要跳转的场景名
+    public bool canJump = true; // 是否可以跳转
 
     // Start is called before the first frame update
     void Start()
     {
+        canJump = false;
     }
     
     // Awake is called when the script instance is being loaded
@@ -36,6 +38,11 @@ public class main_bg_Logic : MonoBehaviour
     // 定义一个函数，用于跳转到指定的场景
     public void ChangeScene()
     {
+        if (!canJump)
+        {
+            return;
+        }
+        
         SoundManager.Instance.PlaySFX(2);
         SceneManager.LoadScene(targetScene);
     }

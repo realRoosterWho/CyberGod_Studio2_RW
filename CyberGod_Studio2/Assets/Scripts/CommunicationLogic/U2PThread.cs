@@ -10,9 +10,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-
-
-
 public class U2PThread : MonosingletonTemp<U2PThread>
 {
     Thread receiveThread;
@@ -22,11 +19,15 @@ public class U2PThread : MonosingletonTemp<U2PThread>
     public int receivePort = 5006; // 接收来自Python数据的端口
     public bool startRecieving = true;
     public bool printToConsole = false;
+    
+    private Coroutine sendCoroutine;
+
     public string data;
 
     public bool showCameraDropdown = true; // 控制是否显示下拉菜单
     public TMP_Dropdown cameraDropdown; // TextMeshPro的Dropdown引用
-    
+
+    private bool pythonReady = false; // 标志位，用于判断Python是否准备好
 
     void Start()
     {
@@ -41,10 +42,22 @@ public class U2PThread : MonosingletonTemp<U2PThread>
             // 初始设置下拉菜单，显示“稍等，获取摄像头列表中...”
             cameraDropdown.ClearOptions();
             cameraDropdown.AddOptions(new List<string> { "稍等，获取摄像头列表中..." });
-            
-            //InitializeCameraDropdown(); // 如果需要，初始化下拉菜单
-            StartCoroutine(InitializeCameraDropdown());
+
+            // 开始一个新的线程来等待Python的准备信号
+            StartCoroutine(WaitForPythonReady());
         }
+    }
+
+    private IEnumerator WaitForPythonReady()
+    {
+        while (!pythonReady)
+        {
+            Debug.Log("Waiting for Python to be ready...");
+            yield return new WaitForSeconds(1f);
+        }
+
+        // Python已准备好，初始化摄像头下拉菜单
+        StartCoroutine(InitializeCameraDropdown());
     }
 
     private IEnumerator InitializeCameraDropdown()
@@ -105,12 +118,32 @@ public class U2PThread : MonosingletonTemp<U2PThread>
         // 如果用户选择了“请选择摄像头”，则不发送消息
         if (change.value == 0)
         {
+            if (sendCoroutine != null)
+            {
+                StopCoroutine(sendCoroutine);
+                sendCoroutine = null;
+            }
             return;
         }
 
         // 发送摄像头索引到Python脚本
         int cameraIndex = change.value - 1; // 因为第一个选项是“请选择摄像头”，实际索引需要减1
-        SendMessageToPython(cameraIndex.ToString());
+        if (sendCoroutine != null)
+        {
+            StopCoroutine(sendCoroutine);
+        }
+        sendCoroutine = StartCoroutine(SendMessageToPythonForDuration(cameraIndex.ToString(), 3f));
+    }
+    
+    IEnumerator SendMessageToPythonForDuration(string message, float duration)
+    {
+        float elapsedTime = 0f;
+        while (elapsedTime < duration)
+        {
+            SendMessageToPython(message);
+            yield return new WaitForSeconds(1f); // 每隔1秒发送一次消息
+            elapsedTime += 1f;
+        }
     }
 
     void SendMessageToPython(string message)
@@ -142,6 +175,14 @@ public class U2PThread : MonosingletonTemp<U2PThread>
                     Debug.Log("Data received.");
                     data = Encoding.UTF8.GetString(dataByte);
                     Debug.Log("Received message from Python: " + data);
+
+                    // 如果收到的消息是Python准备好的信号，则更新标志位
+                    if (data == "Python ready")
+                    {
+                        pythonReady = true;
+                        Debug.Log("Python is ready.");
+                        continue;
+                    }
 
                     // 处理接收到的数据
                     data = data.Replace("[", "");

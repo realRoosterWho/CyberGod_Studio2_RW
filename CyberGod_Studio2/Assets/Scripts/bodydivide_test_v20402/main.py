@@ -10,6 +10,7 @@ from cvzone.PoseModule import PoseDetector
 import os
 import sys  # Ensure to import sys module
 from google.protobuf.json_format import MessageToDict
+import time
 
 np.set_printoptions(suppress=True)
 
@@ -36,15 +37,33 @@ def get_sorted_camera_indices():
         cap = cv2.VideoCapture(index)
         if not cap.isOpened():
             break
+
         # 启动摄像头以获取其分辨率
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
-        ret, frame = cap.read()
+
+        # 等待摄像头初始化
+        time.sleep(1)
+
         width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        resolution = width * height
-        camera_infos.append((index, f"Camera {index}", resolution))
-        print(f"Camera {index}: {index}, Resolution: {width} x {height}")
+
+        # 反复检查直到分辨率稳定
+        attempts = 0
+        max_attempts = 50
+        while (width <= 16 or height <= 16) and attempts < max_attempts:
+            time.sleep(0.5)
+            width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+            height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+            attempts += 1
+            print(f"Waiting for camera {index} resolution... Attempt {attempts}")
+            print(f"Width: {width}, Height: {height}")
+
+        if width > 16 and height > 16:
+            resolution = width * height
+            camera_infos.append((index, f"Camera {index}", resolution))
+            print(f"Camera {index}: {index}, Resolution: {width} x {height}")
+
         cap.release()
         index += 1
 
@@ -71,6 +90,10 @@ print("Available cameras (sorted by resolution):")
 for idx, name in sorted_cameras:
     print(f"{idx}: {name}")
 
+ready_message = "Python ready"
+sendSock.sendto(ready_message.encode('utf-8'), serverAddressPort)
+print("Sent ready message to Unity.")
+
 # Wait to receive initial camera index from Unity
 while camera_index is None:
     print("Waiting for camera index...")
@@ -81,7 +104,7 @@ while camera_index is None:
         print("Received invalid data, could not convert to integer")
         continue
 
-    # 查找排序后摄像机索引对应的实际摄像机索引
+    # 查找倒序后的摄像机索引
     if 0 <= received_index < len(sorted_cameras):
         camera_index = sorted_cameras[received_index][0]
     else:
@@ -206,29 +229,29 @@ def draw_box(vertexlist, color):
 
 
 if __name__ == "__main__":
-    # print("Waiting to receive camera index from Unity...")
-    # data, addr = receiveSock.recvfrom(1024)
-    # camera_index = int(data.decode('utf-8').split()[-1])
-    # print(f"Received camera index: {camera_index}")
+    # 获取并设置初始摄像头
     switch_camera(camera_index)
+
     while True:
         # Check for new camera index message
         receiveSock.settimeout(0.01)  # Set a short timeout to not block the main loop
         try:
             data, addr = receiveSock.recvfrom(1024)
             new_camera_index = int(data.decode('utf-8').split()[-1])
-            if new_camera_index != camera_index:
+            if 0 <= new_camera_index < len(sorted_cameras):
                 print(f"Received new camera index: {new_camera_index}")
-                camera_index = new_camera_index
+                camera_index = sorted_cameras[new_camera_index][0]
                 switch_camera(camera_index)
-        except socket.timeout:
+        except (socket.timeout, ValueError):
             pass
 
+
+        # Read a frame from the current camera
         success, img = current_capture.read()
         if not success:
             print("Failed to read from camera.")
             break
-        print("Successfully read a frame from the camera.")
+        #print("Successfully read a frame from the camera.")
 
         bbox_on = 0
         position = 99
@@ -356,11 +379,11 @@ if __name__ == "__main__":
                         knee_in = p26.whether_in_image() * p25.whether_in_image()
 
             data = np.array([bbox_on, position, knee_in, hand_in, hand_x, hand_y])
-            print(data)
+            #print(data)
             sendSock.sendto(str.encode(str(data)), serverAddressPort) #send info to unity
 
 
-        cv2.imshow("image", img)#show image
+        #cv2.imshow("image", img)#show image
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     current_capture.release()

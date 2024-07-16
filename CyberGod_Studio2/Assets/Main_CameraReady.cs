@@ -7,8 +7,10 @@ using TMPro;
 public class Main_CameraReady : MonoBehaviour
 {
     
+    public main_bg_Logic m_main_bg_Logic;
     //获取TextMeshProUGUI组件
     public TextMeshProUGUI textMeshProUGUI;
+    public TextMeshProUGUI textMeshProUGUI2;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,7 @@ public class Main_CameraReady : MonoBehaviour
         //监听CameraReadyReader的data
         if (CameraReadyReader.Instance.data == 0)
         {
-            textMeshProUGUI.text = "摄像头正在启动……";
+            textMeshProUGUI.text = "摄像头正在初始化,请选择摄像头……";
         }
         else if (CameraReadyReader.Instance.data == 99)
         {
@@ -30,6 +32,8 @@ public class Main_CameraReady : MonoBehaviour
         else
         {
             textMeshProUGUI.text = "距离合适";
+            m_main_bg_Logic.canJump = true;
+            textMeshProUGUI2.enabled = true;
         }
 
     }
