@@ -1,36 +1,37 @@
-import sys
 import os
-import ctypes.util
+import sys
+import cv2
+import shapely
+import mediapipe
+import cvzone
 
-def find_library(name):
-    return ctypes.util.find_library(name)
+def get_library_paths():
+    lib_paths = set()
 
-def print_library_path(library_name):
-    lib_path = find_library(library_name)
-    if lib_path:
-        print(f"Found {library_name}: {lib_path}")
-    else:
-        print(f"{library_name} not found")
+    # Function to add paths from a module
+    def add_module_libs(module):
+        module_path = os.path.dirname(module.__file__)
+        lib_paths.add(module_path)
+        if hasattr(module, 'LIBRARY_PATH'):
+            lib_paths.add(module.LIBRARY_PATH)
 
-print("Python executable path:", sys.executable)
-print("Python library paths:")
-for path in sys.path:
-    print(path)
+    # Adding paths from different modules
+    add_module_libs(cv2)
+    add_module_libs(shapely)
+    add_module_libs(mediapipe)
+    add_module_libs(cvzone)
 
-print("\nChecking for libpython3.9.dylib using ctypes.util.find_library:")
-print_library_path('python3.9')
+    # Print the library paths
+    for path in lib_paths:
+        print(f"Library path: {path}")
 
-print("\nManually searching for libpython3.9.dylib in common library paths:")
-common_paths = [
-    '/usr/local/lib', '/usr/lib', '/lib', '/opt/local/lib',
-    '/Volumes/Rooster_SSD/Anaconda/anaconda3/envs/cybergod/lib'
-]
-found = False
-for lib_path in common_paths:
-    if os.path.isdir(lib_path):
-        for file in os.listdir(lib_path):
-            if file.startswith("libpython3.9") and file.endswith(".dylib"):
-                found = True
-                print(f"Found dynamic library: {os.path.join(lib_path, file)}")
-if not found:
-    print("libpython3.9.dylib not found in common library paths.")
+    # Check for additional shared libraries in .libs directories
+    libs_dirs = [os.path.join(path, ".libs") for path in lib_paths]
+    for libs_dir in libs_dirs:
+        if os.path.exists(libs_dir):
+            for root, dirs, files in os.walk(libs_dir):
+                for file in files:
+                    print(f"Shared library: {os.path.join(root, file)}")
+
+if __name__ == "__main__":
+    get_library_paths()

@@ -1,25 +1,20 @@
 # -*- mode: python ; coding: utf-8 -*-
 
 
-block_cipher = None
-
-
 a = Analysis(
-    ['/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Scripts/bodydivide_test_v20402/main.py'],
+    ['D:\\Unity\\Cybergod_win_local\\CyberGod_Studio2_RW\\CyberGod_Studio2\\Assets\\Scripts\\bodydivide_test_v20402\\main.py'],
     pathex=[],
     binaries=[],
-    datas=[('/Volumes/Rooster_SSD/Anaconda/anaconda3/envs/cybergod/lib/python3.9/site-packages/mediapipe', 'mediapipe')],
+    datas=[('F:\\anaconda3_f\\envs\\brandnewCyberGod\\Lib\\site-packages\\mediapipe', 'mediapipe')],
     hiddenimports=['cvzone', 'mediapipe', 'shapely._geos'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
     excludes=[],
-    win_no_prefer_redirects=False,
-    win_private_assemblies=False,
-    cipher=block_cipher,
     noarchive=False,
+    optimize=0,
 )
-pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
+pyz = PYZ(a.pure)
 
 exe = EXE(
     pyz,
@@ -41,7 +36,6 @@ exe = EXE(
 coll = COLLECT(
     exe,
     a.binaries,
-    a.zipfiles,
     a.datas,
     strip=False,
     upx=True,

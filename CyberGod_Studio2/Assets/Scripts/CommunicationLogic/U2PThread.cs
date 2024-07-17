@@ -132,7 +132,7 @@ public class U2PThread : MonosingletonTemp<U2PThread>
         {
             StopCoroutine(sendCoroutine);
         }
-        sendCoroutine = StartCoroutine(SendMessageToPythonForDuration(cameraIndex.ToString(), 3f));
+        sendCoroutine = StartCoroutine(SendMessageToPythonForDuration(cameraIndex.ToString(), 2f));
     }
     
     IEnumerator SendMessageToPythonForDuration(string message, float duration)
