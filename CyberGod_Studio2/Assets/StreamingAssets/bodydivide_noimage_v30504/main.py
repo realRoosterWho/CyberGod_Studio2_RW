@@ -45,7 +45,7 @@ poseDetector = PoseDetector()
 posList = []
 
 
-class Point:
+class Point: # 三维点
     def __init__(self, x, y, z):
         self.x = x
         self.y = y
@@ -60,7 +60,7 @@ class Point:
         return 1
 
 # value y is not inversed yet
-class DirectPoint(Point):
+class DirectPoint(Point): #Y轴未倒置的点，目的是为了方便计算，尤其是判断是否在图像内
     def __init__(self, lmlist, n, inverse):
         self.x = 0
         self.y = 0
@@ -188,7 +188,7 @@ if __name__ == "__main__":
                     p24 = DirectPoint(lmList, 24, img.shape[0])
                     p25 = DirectPoint(lmList, 25, img.shape[0])
                     p26 = DirectPoint(lmList, 26, img.shape[0])
-                    # 初始化了五个部位对应的lm
+                    # 初始化了五个部位对应的lm,lm就是一个点，lmlist是所有点的集合
                     # [0]左上臂11,13;[1]左下臂13,15;[2]左大腿23,25;[3]右大腿24,26;[4]心脏*
                     positionList = [Position(p12, p14), Position(p14, p16),
                                     Position(p23, p25), Position(p24, p26)]
