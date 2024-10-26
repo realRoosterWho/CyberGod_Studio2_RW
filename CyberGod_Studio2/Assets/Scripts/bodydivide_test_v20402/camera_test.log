@@ -1,0 +1,136 @@
+2024-07-17 18:47:52,699 Camera 0: Resolution: 1280 x 960
+2024-07-17 18:47:54,014 Successfully read a frame from camera index 0.
+2024-07-17 18:47:54,072 Successfully read a frame from camera index 0.
+2024-07-17 18:47:54,086 Successfully read a frame from camera index 0.
+2024-07-17 18:47:54,098 Successfully read a frame from camera index 0.
+2024-07-17 18:47:54,110 Successfully read a frame from camera index 0.
+2024-07-17 18:47:54,121 Successfully read a frame from camera index 0.
+2024-07-17 18:47:54,149 Successfully read a frame from camera index 0.
+2024-07-17 18:47:54,182 Successfully read a frame from camera index 0.
+2024-07-17 18:47:54,215 Successfully read a frame from camera index 0.
+2024-07-17 18:47:54,245 Successfully read a frame from camera index 0.
+2024-07-17 18:47:56,888 Camera 1: Resolution: 1920 x 1080
+2024-07-17 18:47:56,890 Successfully read a frame from camera index 1.
+2024-07-17 18:47:57,068 Successfully read a frame from camera index 1.
+2024-07-17 18:47:57,081 Successfully read a frame from camera index 1.
+2024-07-17 18:47:57,090 Successfully read a frame from camera index 1.
+2024-07-17 18:47:57,106 Successfully read a frame from camera index 1.
+2024-07-17 18:47:57,124 Successfully read a frame from camera index 1.
+2024-07-17 18:47:57,140 Successfully read a frame from camera index 1.
+2024-07-17 18:47:57,156 Successfully read a frame from camera index 1.
+2024-07-17 18:47:57,173 Successfully read a frame from camera index 1.
+2024-07-17 18:47:57,190 Successfully read a frame from camera index 1.
+2024-07-17 18:47:57,261 Camera index 2 is not available.
+2024-07-17 18:47:57,297 Test completed.
+2024-07-17 18:48:48,560 Camera 0: Resolution: 1280 x 960
+2024-07-17 18:48:49,760 Successfully read a frame from camera index 0.
+2024-07-17 18:48:49,951 Successfully read a frame from camera index 0.
+2024-07-17 18:48:49,983 Successfully read a frame from camera index 0.
+2024-07-17 18:48:50,015 Successfully read a frame from camera index 0.
+2024-07-17 18:48:50,062 Successfully read a frame from camera index 0.
+2024-07-17 18:48:50,096 Successfully read a frame from camera index 0.
+2024-07-17 18:48:50,125 Successfully read a frame from camera index 0.
+2024-07-17 18:48:50,160 Successfully read a frame from camera index 0.
+2024-07-17 18:48:50,190 Successfully read a frame from camera index 0.
+2024-07-17 18:48:50,223 Successfully read a frame from camera index 0.
+2024-07-17 18:48:52,760 Camera 1: Resolution: 1920 x 1080
+2024-07-17 18:48:52,762 Successfully read a frame from camera index 1.
+2024-07-17 18:48:52,795 Successfully read a frame from camera index 1.
+2024-07-17 18:48:52,805 Successfully read a frame from camera index 1.
+2024-07-17 18:48:52,813 Successfully read a frame from camera index 1.
+2024-07-17 18:48:52,829 Successfully read a frame from camera index 1.
+2024-07-17 18:48:52,845 Successfully read a frame from camera index 1.
+2024-07-17 18:48:52,862 Successfully read a frame from camera index 1.
+2024-07-17 18:48:52,879 Successfully read a frame from camera index 1.
+2024-07-17 18:48:52,895 Successfully read a frame from camera index 1.
+2024-07-17 18:48:52,912 Successfully read a frame from camera index 1.
+2024-07-17 18:48:52,968 Camera index 2 is not available.
+2024-07-17 18:48:52,996 Test completed.
+2024-07-17 18:54:01,463 Camera 0: Resolution: 1280 x 960
+2024-07-17 18:54:02,725 Successfully read a frame from camera index 0.
+2024-07-17 18:54:02,893 Successfully read a frame from camera index 0.
+2024-07-17 18:54:02,907 Successfully read a frame from camera index 0.
+2024-07-17 18:54:02,920 Successfully read a frame from camera index 0.
+2024-07-17 18:54:02,933 Successfully read a frame from camera index 0.
+2024-07-17 18:54:02,956 Successfully read a frame from camera index 0.
+2024-07-17 18:54:02,995 Successfully read a frame from camera index 0.
+2024-07-17 18:54:03,025 Successfully read a frame from camera index 0.
+2024-07-17 18:54:03,057 Successfully read a frame from camera index 0.
+2024-07-17 18:54:03,100 Successfully read a frame from camera index 0.
+2024-07-17 18:54:05,617 Camera 1: Resolution: 1920 x 1080
+2024-07-17 18:54:05,618 Successfully read a frame from camera index 1.
+2024-07-17 18:54:05,657 Successfully read a frame from camera index 1.
+2024-07-17 18:54:05,669 Successfully read a frame from camera index 1.
+2024-07-17 18:54:05,685 Successfully read a frame from camera index 1.
+2024-07-17 18:54:05,702 Successfully read a frame from camera index 1.
+2024-07-17 18:54:05,719 Successfully read a frame from camera index 1.
+2024-07-17 18:54:05,736 Successfully read a frame from camera index 1.
+2024-07-17 18:54:05,752 Successfully read a frame from camera index 1.
+2024-07-17 18:54:05,769 Successfully read a frame from camera index 1.
+2024-07-17 18:54:05,785 Successfully read a frame from camera index 1.
+2024-07-17 18:54:05,875 Camera index 2 is not available.
+2024-07-17 18:54:07,877 Camera 2: Resolution: 0 x 0
+2024-07-17 18:54:07,920 Camera index 3 is not available.
+2024-07-17 18:54:09,928 Camera 3: Resolution: 0 x 0
+2024-07-17 18:54:09,969 Camera index 4 is not available.
+2024-07-17 18:54:11,979 Camera 4: Resolution: 0 x 0
+2024-07-17 18:54:12,013 Camera index 5 is not available.
+2024-07-17 18:54:14,022 Camera 5: Resolution: 0 x 0
+2024-07-17 18:54:14,063 Camera index 6 is not available.
+2024-07-17 18:54:16,071 Camera 6: Resolution: 0 x 0
+2024-07-17 18:54:16,106 Camera index 7 is not available.
+2024-07-17 18:54:18,117 Camera 7: Resolution: 0 x 0
+2024-07-17 18:54:18,151 Camera index 8 is not available.
+2024-07-17 18:54:20,164 Camera 8: Resolution: 0 x 0
+2024-07-17 18:54:20,197 Camera index 9 is not available.
+2024-07-17 18:54:22,206 Camera 9: Resolution: 0 x 0
+2024-07-17 18:54:22,243 Camera index 10 is not available.
+2024-07-17 18:54:24,250 Camera 10: Resolution: 0 x 0
+2024-07-17 18:54:24,285 Camera index 11 is not available.
+2024-07-17 18:54:26,297 Camera 11: Resolution: 0 x 0
+2024-07-17 18:54:26,333 Camera index 12 is not available.
+2024-07-17 18:54:28,344 Camera 12: Resolution: 0 x 0
+2024-07-17 18:54:28,393 Camera index 13 is not available.
+2024-07-17 18:54:30,405 Camera 13: Resolution: 0 x 0
+2024-07-17 18:54:30,441 Camera index 14 is not available.
+2024-07-17 18:54:32,442 Camera 14: Resolution: 0 x 0
+2024-07-17 18:54:32,484 Camera index 15 is not available.
+2024-07-17 18:54:34,487 Camera 15: Resolution: 0 x 0
+2024-07-17 18:54:34,526 Camera index 16 is not available.
+2024-07-17 18:54:36,529 Camera 16: Resolution: 0 x 0
+2024-07-17 18:54:36,563 Camera index 17 is not available.
+2024-07-17 18:54:38,574 Camera 17: Resolution: 0 x 0
+2024-07-17 18:54:38,607 Camera index 18 is not available.
+2024-07-17 18:54:40,621 Camera 18: Resolution: 0 x 0
+2024-07-17 18:54:40,669 Camera index 19 is not available.
+2024-07-17 18:54:42,683 Camera 19: Resolution: 0 x 0
+2024-07-17 18:54:42,741 Camera index 20 is not available.
+2024-07-17 18:54:44,751 Camera 20: Resolution: 0 x 0
+2024-07-17 18:54:44,789 Camera index 21 is not available.
+2024-07-17 18:58:16,058 Camera 0: Resolution: 1280 x 960
+2024-07-17 18:58:17,336 Successfully read a frame from camera index 0.
+2024-07-17 18:58:17,502 Successfully read a frame from camera index 0.
+2024-07-17 18:58:17,515 Successfully read a frame from camera index 0.
+2024-07-17 18:58:17,527 Successfully read a frame from camera index 0.
+2024-07-17 18:58:17,538 Successfully read a frame from camera index 0.
+2024-07-17 18:58:17,551 Successfully read a frame from camera index 0.
+2024-07-17 18:58:17,581 Successfully read a frame from camera index 0.
+2024-07-17 18:58:17,615 Successfully read a frame from camera index 0.
+2024-07-17 18:58:17,646 Successfully read a frame from camera index 0.
+2024-07-17 18:58:17,692 Successfully read a frame from camera index 0.
+2024-07-17 18:58:20,237 Camera 1: Resolution: 1920 x 1080
+2024-07-17 18:58:20,239 Successfully read a frame from camera index 1.
+2024-07-17 18:58:20,277 Successfully read a frame from camera index 1.
+2024-07-17 18:58:20,289 Successfully read a frame from camera index 1.
+2024-07-17 18:58:20,306 Successfully read a frame from camera index 1.
+2024-07-17 18:58:20,323 Successfully read a frame from camera index 1.
+2024-07-17 18:58:20,340 Successfully read a frame from camera index 1.
+2024-07-17 18:58:20,356 Successfully read a frame from camera index 1.
+2024-07-17 18:58:20,373 Successfully read a frame from camera index 1.
+2024-07-17 18:58:20,390 Successfully read a frame from camera index 1.
+2024-07-17 18:58:20,406 Successfully read a frame from camera index 1.
+2024-07-17 18:58:20,471 Camera index 2 is not available.
+2024-07-17 18:58:22,487 Camera 2: Resolution: 0 x 0
+2024-07-17 18:58:22,525 Camera index 3 is not available.
+2024-07-17 18:58:24,532 Camera 3: Resolution: 0 x 0
+2024-07-17 18:58:24,572 Camera index 4 is not available.
