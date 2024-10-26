@@ -47,10 +47,8 @@ else:
 
 
 
-
 poseDetector = PoseDetector()
 posList = []
-
 
 class Point:
     def __init__(self, x, y, z):
@@ -66,7 +64,10 @@ class Point:
             return 0
         return 1
 
-# value y is not inversed yet
+print("initialization done2")
+
+
+
 class DirectPoint(Point):
     def __init__(self, lmlist, n, inverse):
         self.x = 0
@@ -78,15 +79,13 @@ class DirectPoint(Point):
                 self.y = lm[2]
                 self.z = lm[3]
 
+p16 = Point(0, 0, 0)
+p18 = Point(0, 0, 0)
+p20 = Point(0, 0, 0)
+p22 = Point(0, 0, 0)
+print("initialization done3")
 
-
-p16: Point = Point(0, 0, 0)
-p18: Point = Point(0, 0, 0)
-p20: Point = Point(0, 0, 0)
-p22: Point = Point(0, 0, 0)
-
-
-class Position():  # 向量与部位，存储了两个Point（这是可以的嘛）
+class Position:
     def __init__(self, e1, e2):
         self.e1 = e1
         self.e2 = e2
@@ -108,6 +107,8 @@ class Position():  # 向量与部位，存储了两个Point（这是可以的嘛
                 (int(self.e2.x - t[0]), int(self.e2.y - t[1])),
                 (int(self.e1.x - t[0]), int(self.e1.y - t[1]))]
 
+print("initialization done4")
+
 
 # from pose detector
 def get_hand_bbox2(img, p15, p17, p19):
@@ -119,15 +120,10 @@ def get_hand_bbox2(img, p15, p17, p19):
     return hand_bbox
 
 
+print("initialization done5")
 def three_equal_point(p1, p2):
-    '''
-
-    :param p1: Point
-    :param p2: Point
-    :return: p3,p4 (p1,p3,p4,p2)
-    '''
-    p3: Point = Point(0, 0, 0)
-    p4: Point = Point(0, 0, 0)
+    p3 = Point(0, 0, 0)
+    p4 = Point(0, 0, 0)
     p3.x = int((2 * p1.x + p2.x) / 3)
     p3.y = int((2 * p1.y + p2.y) / 3)
     p4.x = int((2 * p2.x + p1.x) / 3)
@@ -135,23 +131,21 @@ def three_equal_point(p1, p2):
     return p3, p4
 
 
+print("initialization done6")
 def half_point(p1, p2):
-    '''
-
-    :param p1: Point
-    :param p2: Point
-    :return: p3,p4 (p1,p3,p2)
-    '''
-    p3: Point = Point(0, 0, 0)
+    p3 = Point(0, 0, 0)
     p3.x = int((p1.x + p2.x) / 2)
     p3.y = int((p1.y + p2.y) / 2)
     return p3
 
+print("initialization done7")
 
 def intersection_area(poly1, poly2):
     if poly1.intersection(poly2):
         return poly1.intersection(poly2).area
     return 0
+
+print("initialization done8")
 
 
 
@@ -260,6 +254,8 @@ def process_frame(img, poseDetector, sock, serverAddressPort):
     sock.sendto(str.encode(str(data)), serverAddressPort)
     return img
 
+print("initialization done9")
+
 
 if __name__ == "__main__":
     while True:
@@ -274,3 +270,4 @@ if __name__ == "__main__":
 
 # The following command can be used to create an executable file with PyInstaller:
 # pyinstaller --add-data "/Volumes/Rooster_SSD/Anaconda/anaconda3/envs/cybergod/lib/python3.9/site-packages/mediapipe:mediapipe" --hidden-import cvzone --hidden-import mediapipe --hidden-import shapely._geos /Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Scripts/bodydivide_test_v20402/main.py
+# pyinstaller --noconfirm --add-data "F:\anaconda3_f\envs\brandnewCyberGod\Lib\site-packages\mediapipe:mediapipe" --hidden-import cvzone --hidden-import mediapipe --hidden-import shapely._geos D:\Unity\Cybergod_win_local\CyberGod_Studio2_RW\CyberGod_Studio2\Assets\Scripts\bodydivide_test_v20402\main.py

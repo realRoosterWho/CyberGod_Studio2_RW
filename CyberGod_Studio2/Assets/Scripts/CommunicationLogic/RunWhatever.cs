@@ -9,6 +9,7 @@ using System.Net;
 using System;
 using UnityEditor;
 using System.Runtime.InteropServices;
+using Debug = UnityEngine.Debug;
 
 // Rest of your code...
 
@@ -21,6 +22,9 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
     private UdpClient udpClient;
     private IPEndPoint remoteEP;
     private int processId;
+    
+    private float checkInterval = 1f; // 每2秒检查一次
+    private float nextCheckTime = 0f;
 
 
     [DllImport("shell32.dll", CharSet = CharSet.Unicode)]
@@ -51,7 +55,7 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
 
             // Assets/StreamingAssets/PythonApp/DSDSmain/DSDSmain.exe
             // System.IO.Path.Combine(Application.streamingAssetsPath, "PythonApp/DSDSmain/DSDSmain.exe")
-            string exePath = "bodydivide_noimage_v30504/dist/main/main.exe";
+            string exePath = "winpython/main.exe";
             // has windos
             // string exePath = "Scripts/bodydivide_onimage_v30504/dist/main/main.exe";
 
@@ -59,17 +63,23 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
             fullPath = dataPath + "/" + exePath;
 
             startInfo = new ProcessStartInfo();
+            startInfo.CreateNoWindow = true;//不显示程序窗口
+            startInfo.UseShellExecute = false;//是否使用操作系统shell启动
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            
             startInfo.FileName = fullPath;
 
             process = new Process();
             process.StartInfo = startInfo;
 
             process.Start();
+            //Debug,但是指明命名空间
+            UnityEngine.Debug.Log("Starting process: " + fullPath);
             processId = process.Id;
 
 
 
-            // ShellExecute(IntPtr.Zero, "open", fullPath, "", "", 1);
+            //ShellExecute(IntPtr.Zero, "open", fullPath, "", "", 1);
         }
 
         // on mac runpy
@@ -103,10 +113,14 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
     
     private void Update()
     {
-        //检查进程是否存在，如果不存在就重新启动进程
-        if (process == null || process.StartInfo == null || process.HasExited)
+        if (Time.time > nextCheckTime)
         {
-            StartProcess();
+            nextCheckTime = Time.time + checkInterval;
+            if (process.HasExited)
+            {
+                UnityEngine.Debug.LogError("Process has exited");
+                StartCoroutine(RestartAfterDelay());
+            }
         }
     }
 
@@ -132,7 +146,7 @@ public class RunWhatever : MonosingletonTemp<RunWhatever>
     {
         if (!string.IsNullOrEmpty(e.Data))
         {
-            UnityEngine.Debug.LogError("Received error output: " + e.Data);
+            UnityEngine.Debug.Log("Received error output: " + e.Data);
             StartCoroutine(RestartAfterDelay());
         }
     }
