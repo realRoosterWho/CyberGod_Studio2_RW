@@ -8,7 +8,7 @@ a = Analysis(
     ['/Volumes/Rooster_SSD/_Unity_Projects/CyberGod_Studio2/CyberGod_Studio2_RW/CyberGod_Studio2/Assets/Scripts/bodydivide_test_v20402/launcher.py'],
     pathex=[],
     binaries=[],
-    datas=[('Logo_cyberspirit.png', '.'), ('/Volumes/Rooster_SSD/Anaconda/anaconda3/envs/cybergod/lib/python3.9/site-packages/mediapipe', 'mediapipe')],
+    datas=[('Logo_cyberspirit.png', '.'), ('/Volumes/Rooster_SSD/Anaconda/anaconda3/envs/cybergod/lib/python3.9/site-packages/mediapipe', 'mediapipe'), ('Info.plist', 'Contents/Info.plist')],
     hiddenimports=['cvzone', 'mediapipe', 'shapely._geos'],
     hookspath=[],
     hooksconfig={},
