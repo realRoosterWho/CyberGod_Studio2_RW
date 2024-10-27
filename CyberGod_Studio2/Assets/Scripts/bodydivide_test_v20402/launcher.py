@@ -213,6 +213,7 @@ class CameraApp:
 
                 threading.Thread(target=self.motion_capture.start, daemon=True).start()
                 self.start_motion_button.config(state="disabled")
+                self.start_button.config(state="disabled")
                 self.stop_motion_button.config(state="normal")
                 self.log("Motion capture started.")
                 self.instruction_label.config(text="Motion Capture On", fg="red")
@@ -247,6 +248,7 @@ class CameraApp:
             self.motion_capture = None
             self.start_motion_button.config(state="normal")
             self.stop_motion_button.config(state="disabled")
+            self.start_button.config(state="normal")
             self.log("Motion capture stopped.")
             self.instruction_label.config(text="Please start motion capture", fg="red")
             self.start_camera()  # Restart the camera input
