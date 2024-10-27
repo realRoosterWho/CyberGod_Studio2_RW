@@ -40,7 +40,8 @@ class CameraApp:
         self.log("Application started.")
 
         # Default game path based on platform
-        self.game_path = os.path.join(os.getcwd(), "CyberSpirit.app" if sys.platform == "darwin" else "CyberSpirit.exe")
+        base_path = os.path.dirname(os.path.realpath(sys.argv[0]))
+        self.game_path = os.path.join(base_path, "CyberSpirit.app" if sys.platform == "darwin" else "CyberSpirit.exe")
 
         # Set initial window size
         initial_width = 480  # Increase the width
@@ -79,18 +80,22 @@ class CameraApp:
         self.collapse_frame.grid(row=2, column=0, columnspan=2, sticky="nsew")
         self.collapse_frame.grid_remove()  # Start collapsed
 
-
-
         # Path selection label and entry field
-        self.path_instruction_label = tk.Label(self.collapse_frame, text="Please select the file path. The file should be named CyberSpirit.app or CyberSpirit.exe", font=("Helvetica", 10))
+        self.path_instruction_label = tk.Label(self.collapse_frame,
+                                               text="Please select the file path. The file should be named CyberSpirit.app or CyberSpirit.exe",
+                                               font=("Helvetica", 10))
         self.path_instruction_label.grid(row=0, column=0, columnspan=2, sticky="e", padx=5, pady=5)
 
-        self.select_path_button = tk.Button(self.collapse_frame, text="Select Path", command=self.select_game_path,width=10)
+        self.select_path_button = tk.Button(self.collapse_frame, text="Select Path", command=self.select_game_path,
+                                            width=10)
         self.select_path_button.grid(row=1, column=0, padx=5, pady=5, sticky="e")
 
-        self.path_text_entry = tk.Entry(self.collapse_frame)
-        self.path_text_entry.insert(0, self.game_path)
-        self.path_text_entry.grid(row=1, column=1, padx=5, pady=5, sticky="e")
+        # Create a label to display the path
+        self.path_label = tk.Label(self.collapse_frame, text=self.game_path, font=("Helvetica", 10), anchor="w", wraplength=300)
+        self.path_label.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
+
+
+
 
         # Load the image
         base_path = getattr(sys, '_MEIPASS', os.path.abspath("."))
@@ -351,8 +356,7 @@ class CameraApp:
         )
         if file_path:
             self.game_path = file_path
-            self.path_text_entry.delete(0, tk.END)
-            self.path_text_entry.insert(0, self.game_path)
+            self.path_label.config(text=self.game_path)  # Update the label text
             self.log(f"Game path updated to: {self.game_path}")
 
     def start_game(self):

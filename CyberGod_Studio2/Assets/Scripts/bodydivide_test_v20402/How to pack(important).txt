@@ -19,4 +19,3 @@
     --hidden-import mediapipe ^
     --hidden-import shapely._geos ^
     D:\Unity\Cybergod_win_local\CyberGod_Studio2_RW\CyberGod_Studio2\Assets\Scripts\bodydivide_test_v20402\launcher.py
-    
