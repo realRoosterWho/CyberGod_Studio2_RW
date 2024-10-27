@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="defd1148-eba9-4dda-a114-0c157774cf2f" name="Changes" comment="" />
+    <list default="true" id="defd1148-eba9-4dda-a114-0c157774cf2f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../bodydivide_test_v20402/Logo_cyberspirit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bodydivide_test_v20402/dist/launcher" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../bodydivide_test_v20402/launcher.spec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CommunicationLogic.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CommunicationLogic.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bodydivide_test_v20402/.idea/bodydivide_test_v20402.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../bodydivide_test_v20402/.idea/bodydivide_test_v20402.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bodydivide_test_v20402/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../bodydivide_test_v20402/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bodydivide_test_v20402/launcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bodydivide_test_v20402/launcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bodydivide_test_v20402/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bodydivide_test_v20402/motion.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,11 +25,12 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/../../Main_CameraReady.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RunWhatever.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/U2PThread.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../DisplaySystem/main_bg_Logic.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2jI8VGhuqTN4y0DuL2SkEXdpMLX" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -30,7 +40,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "SystemDesign__2",
+    "git-widget-placeholder": "PythonLauancher",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,6 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1721063254717</updated>
       <workItem from="1721063261273" duration="17405000" />
+      <workItem from="1729972995146" duration="2352000" />
     </task>
     <servers />
   </component>
