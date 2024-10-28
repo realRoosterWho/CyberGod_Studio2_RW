@@ -11,11 +11,11 @@
 
     PACKING WINDOWS
 
-    pyinstaller --onefile ^
-    --add-data "Logo_cyberspirit.png;." ^
-    --add-data "F:\anaconda3_f\envs\cybergod\Lib\site-packages\mediapipe;mediapipe" ^
-    --add-data "Info.plist;Contents/Info.plist" ^
-    --hidden-import cvzone ^
-    --hidden-import mediapipe ^
-    --hidden-import shapely._geos ^
+    pyinstaller --onefile
+    --add-data "Logo_cyberspirit.png;."
+    --add-data "F:\anaconda3_f\envs\brandnewCyberGod\Lib\site-packages\mediapipe;mediapipe"
+    --add-data "Info.plist;Contents/Info.plist"
+    --hidden-import cvzone
+    --hidden-import mediapipe
+    --hidden-import shapely._geos
     D:\Unity\Cybergod_win_local\CyberGod_Studio2_RW\CyberGod_Studio2\Assets\Scripts\bodydivide_test_v20402\launcher.py
