@@ -163,6 +163,9 @@ if getattr(sys, 'frozen', False):
     os.chdir(sys._MEIPASS)
 
 print("mediapipe path:", os.path.dirname(mp.__file__))  # 打印mediapipe路径，调试用
+print("Launcher script loaded")
+#正在获取摄像头列表ENG
+print("Getting camera list...")
 
 # 获取摄像头索引
 if len(sys.argv) > 1:
