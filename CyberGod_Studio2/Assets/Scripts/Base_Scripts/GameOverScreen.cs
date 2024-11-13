@@ -36,7 +36,8 @@ public class GameOverScreen : MonoBehaviour
     public void QuitButton()
     {
         //退出游戏
-        Application.Quit();
+        // Application.Quit();
+        SceneManager.LoadScene(0);  // 加载构建索引为0的场景（第一个场景）
     }
         
         

@@ -17,7 +17,7 @@ public class m_GameManager : MonosingletonTemp<m_GameManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetMouseButtonDown(2))
         {
             if (isPaused)
             {

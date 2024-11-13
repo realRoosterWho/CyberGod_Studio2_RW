@@ -51,6 +51,7 @@ public class main_bg_Logic : MonoBehaviour
     public void ExitGame()
     {
         Debug.Log("退出游戏");
-        Application.Quit();//需要命名空间using UnityEngine;
+        // Application.Quit();//需要命名空间using UnityEngine;
+        SceneManager.LoadScene(0);  // 加载构建索引为0的场景（第一个场景）
     }
 }
