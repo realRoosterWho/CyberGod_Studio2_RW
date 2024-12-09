@@ -1,0 +1,1695 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5061057757585709102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8780383418913072504}
+  - component: {fileID: 5871333865877121506}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8780383418913072504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061057757585709102}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1804.174, y: 915.24915, z: -28.86166}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5871333865877121506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061057757585709102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc6dd399b4934855ab9cbf122b10283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
+    - {fileID: 21300000, guid: 048fbd54420574128956ecfb2875c6b4, type: 3}
+    - {fileID: 21300000, guid: 8e0bfe5b3a3ad413e82d14037f936c85, type: 3}
+    - {fileID: 21300000, guid: 8e35cfbbab41e4a0c9bf3ee9a1211b0f, type: 3}
+    - {fileID: 21300000, guid: 6ed0d4b6530a64b23b98ce7e3712f1e1, type: 3}
+    - {fileID: 21300000, guid: 6bbddee66323f49618901f1b1d0a208c, type: 3}
+    - {fileID: 21300000, guid: d535d29cd7bc041ff91fa1ed2bdb4923, type: 3}
+    - {fileID: 21300000, guid: 9823234a8d07a49bcba8ea472cdd6f16, type: 3}
+    - {fileID: 21300000, guid: c45189039d6ad43fc81f94a5d18af214, type: 3}
+    - {fileID: 21300000, guid: 31e5b3ea4b57d4d8a8d9e5be5dae4fe3, type: 3}
+    - {fileID: 21300000, guid: 0f221d8481c99494e959ca992ac4664b, type: 3}
+    - {fileID: 21300000, guid: b0d8b85607a6246c688b62ba0a2becfe, type: 3}
+    - {fileID: 21300000, guid: e34117ccd48164ac7972058f7b9f4dbe, type: 3}
+    - {fileID: 21300000, guid: 495468d6975614de78d82bea803b1eaf, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_spriteSpeakerEntryDict
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: flesh
+    - Name: $v
+      Entry: 7
+      Data: 2|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: Hold the mouse over the corresponding area. If an error is detected,
+        left-click to repair; if no error is found, the firewall will be damaged.
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: mechanic
+    - Name: $v
+      Entry: 7
+      Data: 3|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: Hold the mouse over the corresponding area. If an error is detected,
+        left-click to repair; if no error is found, the firewall will be damaged.
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: nerve
+    - Name: $v
+      Entry: 7
+      Data: 4|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: Hold the mouse to search for the connection between the prosthetic symbols
+        and body parts to locate the target prosthetic!
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_introEntryDict
+      Entry: 7
+      Data: 5|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 6|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 33
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Intro_01
+    - Name: $v
+      Entry: 7
+      Data: 7|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "The camera is activated\u2026 The scanner is finally connected\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Intro_02
+    - Name: $v
+      Entry: 7
+      Data: 8|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: Hey! [Player]! Can you hear me?
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_OutroIntro_01
+    - Name: $v
+      Entry: 7
+      Data: 9|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "We\u2019ve gathered enough information! With this data, we can penetrate
+        the firewall and proceed with the prosthetic repair."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Intro_03
+    - Name: $v
+      Entry: 7
+      Data: 10|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "Yes, I\u2019m talking to you\u2026 Don\u2019t be surprised, I\u2019m
+        the ghost inside this repair machine. Call me CyberSpirit."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Intro_04
+    - Name: $v
+      Entry: 7
+      Data: 11|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 4
+    - Name: dialogueText
+      Entry: 1
+      Data: The engineer awakened me, hoping I could help repair prosthetics at night,
+        using my mysterious powers for scanning.
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Intro_05
+    - Name: $v
+      Entry: 7
+      Data: 12|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 5
+    - Name: dialogueText
+      Entry: 1
+      Data: However, I cannot move freely. The only way to possess his prosthetics
+        is by inhabiting the [mouse] to perform the scans!
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_OutroIntro_02
+    - Name: $v
+      Entry: 7
+      Data: 13|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "I still need to gain more access to fully control these prosthetics
+        and\u2026 improve the repairs. Thank you, [Player]!"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_Intro_1_01
+    - Name: $v
+      Entry: 7
+      Data: 14|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "Hey, it\u2019s good to see you again."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_Intro_1_02
+    - Name: $v
+      Entry: 7
+      Data: 15|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "This time, we\u2019ve gained more access to prosthetics\u2026 Let\u2019s
+        use this opportunity to gather more information!"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_Intro_1_03
+    - Name: $v
+      Entry: 7
+      Data: 16|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "The prosthetics on his body are far more complex than the organic organs
+        I can sense in your body\u2026 No wonder his prosthetics are malfunctioning."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_Intro_1_04
+    - Name: $v
+      Entry: 7
+      Data: 17|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "More access, more information, and more scanning from you\u2026 It\u2019s
+        all for repairing the engineer\u2026 I\u2019m sure you understand, right?"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_Intro_1_05
+    - Name: $v
+      Entry: 7
+      Data: 18|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: Before time runs out and the engineer wakes up, capture as much information
+        as you can!
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_OutroIntro_01
+    - Name: $v
+      Entry: 7
+      Data: 19|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "Well done! You\u2019re looking more skilled now! We\u2019ve gained more
+        access, and the scan is already halfway complete!"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_OutroIntro_02
+    - Name: $v
+      Entry: 7
+      Data: 20|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "Next, we need to examine his body more deeply, not just a single prosthetic,
+        but to penetrate into the nerves\u2026 We can\u2019t afford to miss this
+        opportunity."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level2_OutroIntro_03
+    - Name: $v
+      Entry: 7
+      Data: 21|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "I\u2019ll need you to perform a more detailed scan. Looking forward
+        to our next connection\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Intro01
+    - Name: $v
+      Entry: 7
+      Data: 22|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "This time, we\u2019ve unlocked a new layer!"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Intro02
+    - Name: $v
+      Entry: 7
+      Data: 23|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "The prosthetics in the Nerve Layer are organs that allow for deeper
+        control and regulation\u2026 Similarly, these organs need to be scanned and
+        controlled."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Intro03
+    - Name: $v
+      Entry: 7
+      Data: 24|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: The internal structure and calibration must also be aligned with your
+        body.
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Intro04
+    - Name: $v
+      Entry: 7
+      Data: 25|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: Right-click to switch to the Nerve Layer and take a closer look.
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_OutroIntro_01
+    - Name: $v
+      Entry: 7
+      Data: 26|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: Great, the initial scan is complete.
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_OutroIntro_02
+    - Name: $v
+      Entry: 7
+      Data: 27|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "The dependencies between these prosthetics are quite tricky\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_OutroIntro_03
+    - Name: $v
+      Entry: 7
+      Data: 28|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "Unlike your flesh and blood, which can often run and adapt automatically\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_OutroIntro_04
+    - Name: $v
+      Entry: 7
+      Data: 29|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "The information we\u2019ve scanned can almost calibrate all of the prosthetics."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_OutroIntro_05
+    - Name: $v
+      Entry: 7
+      Data: 30|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "Next time, we must scan enough information before time runs out, so
+        we can fully control his body\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level4_Intro_01
+    - Name: $v
+      Entry: 7
+      Data: 31|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: Now, the last prosthetic permission in the Nerve Layer has been obtained.
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level4_Intro_02
+    - Name: $v
+      Entry: 7
+      Data: 32|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: Once we collect the final information, our task will be complete!
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level4_OutroIntro_01
+    - Name: $v
+      Entry: 7
+      Data: 33|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: Great! After the information gathering and calibration, everything is
+        perfectly matched.
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level4_OutroIntro_02
+    - Name: $v
+      Entry: 7
+      Data: 34|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "I have fully understood the engineer\u2019s body. I\u2019m sure when
+        he first awakened me, he never imagined that I could use my \u201Cspirit-linking\u201D
+        abilities to complete the task so successfully."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Intro_06
+    - Name: $v
+      Entry: 7
+      Data: 35|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: Please use the mouse to perform a full-body scan! That way, I can locate
+        the issues on his body!
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level4_OutroIntro_03
+    - Name: $v
+      Entry: 7
+      Data: 36|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "Next, I will possess the engineer\u2019s body. Under my control, his
+        body will never experience any prosthetic imbalance again."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level4_OutroIntro_04
+    - Name: $v
+      Entry: 7
+      Data: 37|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "What? You\u2019re asking what will happen to the original consciousness
+        in the engineer\u2019s body?"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level4_OutroIntro_05
+    - Name: $v
+      Entry: 7
+      Data: 38|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "Don\u2019t you understand yet? I can observe both your world and the
+        one the engineer inhabits. I can scan and control not just the engineer\u2019s
+        body, but much more."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level4_OutroIntro_06
+    - Name: $v
+      Entry: 7
+      Data: 39|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: The engineer awakened me, and it is my responsibility to grant him and
+        his body freedom. I will not only repair his prosthetics, but I will also
+        find a better host for his consciousness.
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_outroEntryDict
+      Entry: 7
+      Data: 40|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 6
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: outro
+    - Name: $v
+      Entry: 7
+      Data: 41|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 6
+    - Name: dialogueText
+      Entry: 1
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: outro_2
+    - Name: $v
+      Entry: 7
+      Data: 42|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 7
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: outro_3
+    - Name: $v
+      Entry: 7
+      Data: 43|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 8
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: outro_4
+    - Name: $v
+      Entry: 7
+      Data: 44|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 9
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_introductionEntryDict
+      Entry: 7
+      Data: 45|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SpiritSpeakEntry,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 46|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 22
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_1_01
+    - Name: $v
+      Entry: 7
+      Data: 47|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "Right now, we can only see the engineer\u2019s prosthetic layer, but
+        we don\u2019t know which prosthetics need to be scanned or where they are
+        located on his body\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_1_02
+    - Name: $v
+      Entry: 7
+      Data: 48|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "Switch layers, and let\u2019s enter the Spirit Layer together to confirm
+        where the scan is needed."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_1_03
+    - Name: $v
+      Entry: 7
+      Data: 49|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 10
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_2_01
+    - Name: $v
+      Entry: 7
+      Data: 50|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 5
+    - Name: dialogueText
+      Entry: 1
+      Data: "We\u2019ve successfully reached the Spirit Layer! The red prosthetic
+        at the edge of the disk is the next target we need to scan!"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_2_02
+    - Name: $v
+      Entry: 7
+      Data: 51|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: Place the mouse on the body for inspection, and the display will show
+        whether there is a prosthetic in that area!
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_2_03
+    - Name: $v
+      Entry: 7
+      Data: 52|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: Hurry, perform the inspection to see exactly where the prosthetic needs
+        to be detected!
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_2_04
+    - Name: $v
+      Entry: 7
+      Data: 53|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 4
+    - Name: dialogueText
+      Entry: 1
+      Data: Once the inspection is complete, switch layers by right-clicking to return
+        to the Prosthetic Layer!
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_2_05
+    - Name: $v
+      Entry: 7
+      Data: 54|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 11
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_3_01
+    - Name: $v
+      Entry: 7
+      Data: 55|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: Good job! Now we know which body part the next prosthetic needs to be
+        scanned from.
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_3_02
+    - Name: $v
+      Entry: 7
+      Data: 56|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 5
+    - Name: dialogueText
+      Entry: 1
+      Data: "Be careful! If you attempt to scan the wrong prosthetic, my firewall
+        will be damaged\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_3_03
+    - Name: $v
+      Entry: 7
+      Data: 57|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: Now, place the mouse on the corresponding area of the body, left-click
+        to select the prosthetic, and enter scan mode.
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_3_04
+    - Name: $v
+      Entry: 7
+      Data: 58|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 12
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_4_01
+    - Name: $v
+      Entry: 7
+      Data: 59|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: "Well done, the scan was successful! Now, continue by right-clicking
+        to enter the Spirit Layer and search for the next prosthetic symbol to confirm
+        the next \u201Cbody part\u201D that needs repair."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_4_02
+    - Name: $v
+      Entry: 7
+      Data: 60|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 5
+    - Name: dialogueText
+      Entry: 1
+      Data: "Hurry\u2026 My power is limited. If we work together before time runs
+        out, we\u2019ll definitely be able to successfully repair him!"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_4_03
+    - Name: $v
+      Entry: 7
+      Data: 61|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: Capture as much information as possible!
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level1_Introduction_4_04
+    - Name: $v
+      Entry: 7
+      Data: 62|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 13
+    - Name: dialogueText
+      Entry: 6
+      Data: 
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Introduction_1_01
+    - Name: $v
+      Entry: 7
+      Data: 63|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "Look, the heart prosthetic in this layer controls both the nerves and
+        the blood\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Introduction_1_02
+    - Name: $v
+      Entry: 7
+      Data: 64|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 2
+    - Name: dialogueText
+      Entry: 1
+      Data: "We can\u2019t check the previous prosthetics until we finish scanning
+        this layer, or it will damage the firewall\u2026"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Introduction_1_03
+    - Name: $v
+      Entry: 7
+      Data: 65|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "Anyway, let\u2019s first go to the Spirit Layer to confirm which prosthetic
+        needs to be scanned."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Introduction_2_01
+    - Name: $v
+      Entry: 7
+      Data: 66|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 3
+    - Name: dialogueText
+      Entry: 1
+      Data: "Look, in the Spirit Layer, there are two prosthetics to scan at once\u2014one
+        in the Nerve Layer and one in the Prosthetic Layer."
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Introduction_2_02
+    - Name: $v
+      Entry: 7
+      Data: 67|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 1
+    - Name: dialogueText
+      Entry: 1
+      Data: We must repair the prosthetic in the Nerve Layer first before we can
+        repair the prosthetic in the Prosthetic Layer!
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Level3_Introduction_2_03
+    - Name: $v
+      Entry: 7
+      Data: 68|SpiritSpeakEntry, Assembly-CSharp
+    - Name: SpiritImage
+      Entry: 10
+      Data: 0
+    - Name: dialogueText
+      Entry: 1
+      Data: "It sounds like the workload just doubled\u2026 Anyway, let\u2019s continue
+        scanning for more information!"
+    - Name: priority
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  activeSpiritSpeakEntries: []
+  activeIntroEntries:
+  - SpiritImage: {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
+    dialogueText: "\u563F\uFF01\u3010\u73A9\u5BB6\u3011\uFF01\u542C\u5F97\u5230\u5417\uFF01"
+    priority: 0
+  - SpiritImage: {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
+    dialogueText: "\u563F\uFF01\u3010\u73A9\u5BB6\u3011\uFF01\u542C\u5F97\u5230\u5417\uFF01"
+    priority: 0
+  - SpiritImage: {fileID: 21300000, guid: 371ec9c7f26fe47aa9e6be1b5b500f11, type: 3}
+    dialogueText: "\u563F\uFF01\u3010\u73A9\u5BB6\u3011\uFF01\u542C\u5F97\u5230\u5417\uFF01"
+    priority: 0
+  activeOutroEntries: []
+  activeIntroductionEntries: []

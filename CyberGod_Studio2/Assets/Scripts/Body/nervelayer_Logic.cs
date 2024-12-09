@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 
 public class nervelayer_Logic : SerializedMonoBehaviour
 {
-    //定义一个列表，用于存储所有贴图
+    //Define a list to store all textures
     [InfoBox("0 is non-error, 1 is flesh-error, 2 is mechanic-error")]
     [SerializeField] private List<Sprite> m_sprites = new List<Sprite>();
     
@@ -66,14 +66,14 @@ public class nervelayer_Logic : SerializedMonoBehaviour
         // 检查m_bodyPos_Logic.m_bodynumber是否在m_bodyManager.errorGeneratableBodyParts_Flesh列表中
         if (!m_bodyManager.errorGeneratableBodyParts_Nerve.Contains(m_bodyPos_Logic.m_bodynumber))
         {
-            info_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
-            info_wrong_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+            info_temp = new ObjectInfo {name = "No Implant", description = "No implant found in this part"};
+            info_wrong_temp = new ObjectInfo {name = "No Implant", description = "No implant found in this part"};
         }
         else
         {
             if (info.name == "")
             {
-                info_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+                info_temp = new ObjectInfo {name = "No Implant", description = "No implant found in this part"};
             }
             else
             {
@@ -82,7 +82,7 @@ public class nervelayer_Logic : SerializedMonoBehaviour
             
             if (info_wrong.name == "")
             {
-                info_wrong_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+                info_wrong_temp = new ObjectInfo {name = "No Implant", description = "No implant found in this part"};
             }
             else
             {

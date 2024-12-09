@@ -46,13 +46,13 @@ public class fleshlayer_Logic : MonoBehaviour
 		// 检查m_bodyPos_Logic.m_bodynumber是否在m_bodyManager.errorGeneratableBodyParts_Flesh列表中
         if (!m_bodyManager.errorGeneratableBodyParts_Flesh.Contains(m_bodyPos_Logic.m_bodynumber))
         {
-            info_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+            info_temp = new ObjectInfo {name = "No Implant", description = "No implant found in this part"};
         }
 		else
 		{
 			if (info.name == "")
    			{
-        		info_temp = new ObjectInfo {name = "无义体", description = "未查询到此部位义体"};
+        		info_temp = new ObjectInfo {name = "No Implant", description = "No implant found in this part"};
     		}
 			else
 			{
